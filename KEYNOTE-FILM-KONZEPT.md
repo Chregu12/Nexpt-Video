@@ -1,306 +1,328 @@
 # NEXPT Work — Keynote-Film
 
 **Konzept, Drehbuch und Produktionsplan**
-Stil-Referenz: Apple, *„Every product carbon neutral by 2030"* ([YouTube](https://www.youtube.com/watch?v=66XwG1CLHuU))
-Einsatz: Messe- / Event-Keynote (Opener vor Publikum)
-Laufzeit: **3:20** · Sprache: DE (EN-Version vorgesehen) · Format: 16:9, Voice-Over
+Stil-Referenz: Apple, *„Every product carbon neutral by 2030"* — **Frame-für-Frame analysiert**
+Einsatz: Messe- / Event-Keynote (Opener) · Laufzeit: **1:07** · Sprache: DE (EN-Fassung vorgesehen)
 
 ---
 
-## 0. Grundlage und Vorbehalt
+## 1. Der Referenzfilm — was die Analyse ergeben hat
 
-Zum Referenzvideo: YouTube blockt das Auslesen der Seite. Verifiziert sind über die
-oEmbed-Schnittstelle **Titel** („Every product carbon neutral by 2030"), **Kanal** (Apple)
-und **Thumbnail**. Den Schnitt selbst konnte ich nicht ansehen. Die Stilanalyse in Abschnitt 1
-beruht daher auf Apples dokumentierter Haus-Sprache für Commitment-Filme dieser Reihe,
-nicht auf einer Einstellungsanalyse dieses konkreten Films.
+Die Datei wurde mit ffmpeg zerlegt: Schnittliste, Einzelbilder im Sekunden- und
+Drittelsekundentakt, Farbmessung, Audio-Spektrogramm und Lautheitsmessung.
 
-**Falls Beats abweichen:** die Beat-Struktur in Abschnitt 3 ist bewusst modular. Sag mir,
-was im Original anders läuft, und ich ziehe es nach.
+| Messwert | Ergebnis |
+|---|---|
+| **Länge** | **1:07** Inhalt (Datei 1:15.77, danach Schwarz) |
+| Format | 1920×1080, 30 fps |
+| **Harte Schnitte** | **27** → einer alle **2.5 s** |
+| **Sichtbare Änderungen** | **148** in 68 s → eine alle **0.46 s** |
+| Farben (gemessen) | Grün **`#00D759`** · Hell **`#EDEDED`** · Schwarz **`#000000`** · Text weiss `#FFFFFF` |
+| Ton | Voice-Over + Musikbett, durchgehend; −17.7 LUFS, LRA 4.3 LU (stark komprimiert) |
+| Sprechpausen | nur drei: ~0:05, ~0:27, ~0:45 — jede ist eine Pointe |
+| Wortzahl | ca. 130 Wörter auf 67 s ≈ **115 Wörter/Minute** |
 
-Produktseite: gelesen aus `Chregu12/Nexpt-2.0` — `README.md`, `apps/nexpt-work/docs/OVERVIEW.md`,
-`docs/architecture/UOMF-DOMAIN-FIT.md`, `docs/architecture/UOMF-WELTC-DECISION.md`,
-`apps/nexpt-work/docs/business/BUSINESS_CASE_NEXPT.md`.
+**Es ist kein cinematischer Film.** Es ist **kinetische Typografie** — schnell, verspielt,
+selbstironisch. Kein Sprecher im Bild, keine Screenshots, fast kein B-Roll (vier kurze
+Makro-Einstellungen in 67 Sekunden). Die Schrift *ist* der Film.
 
----
+### Der dekodierte Ablauf
 
-## 1. Was diesen Apple-Stil trägt — sieben Regeln
-
-Diese sieben Regeln sind der eigentliche Stil. Wer sie bricht, dreht einen normalen Imagefilm.
-
-| # | Regel | Warum sie wirkt |
+| TC | Was im Bild passiert | Hintergrund |
 |---|---|---|
-| **1** | **Ein Versprechen, datiert und messbar.** Nicht „nachhaltiger", sondern „jedes Produkt CO₂-neutral bis 2030". | Ein überprüfbarer Satz ist Haltung. Ein Adjektiv ist Werbung. |
-| **2** | **Kalter Einstieg ohne Logo.** Erst nach dem Problem kommt die Marke. | Das Publikum hört zu, weil es noch nicht weiss, wer spricht. |
-| **3** | **Sparsamer Text, viel Stille.** ~220 Wörter auf 3:20. Kurze Aussagesätze, keine Nebensätze. | Der Ton trägt, wo Text erklären würde. |
-| **4** | **Zahlen als Vollbild-Typografie.** Keine Charts, keine Bulletpoints. Eine Zahl, ein Bild. | Eine Zahl allein auf der Leinwand ist eine Behauptung, zu der man steht. |
-| **5** | **Makro gegen Mikro.** Weltkarte gegen eine einzelne Hand. Lieferkette gegen ein Bauteil. | Massstabswechsel erzeugt Bedeutung ohne Erklärung. |
-| **6** | **Eine ehrliche Lücke.** Explizit sagen, was noch nicht erreicht ist. | Das ist der teuerste und wirksamste Moment. Er kauft die Glaubwürdigkeit für alles davor. |
-| **7** | **Kein Feature-Tour.** Der Film verkauft eine Verpflichtung, kein Produkt. Screenshots kommen fast nicht vor. | Die Demo läuft nach der Keynote. Der Film macht sie erst sehenswert. |
-
-**Anti-Regeln — das kommt nicht vor:** Sprecher im Bild, Testimonials, Logowand,
-„Wir sind Ihr Partner für…", Musik mit Beat-Drop, Feature-Listen, Bildschirm-Aufnahmen
-mit Mauszeiger, Stock-Footage von lächelnden Menschen am Whiteboard.
+| 0:00 | ` has` → ` has a plan` → grüne Marker-Einfügung **`^AND A PROMISE.`** | hell |
+| 0:03 | „To make  carbon neutral" — Hintergrund kippt mitten im Satz auf Grün | hell → **grün** |
+| 0:04.7 | **`wait`** | schwarz |
+| 0:05.0 | **`no`** | schwarz |
+| 0:05.3 | `☐ we` → `☑ we've ALREADY done that` — die Checkbox hakt sich selbst ab | schwarz |
+| 0:06.7 | „To make every **single  product** carbon neutral by **2030.**" (Marker-Unterstrich) | grün |
+| 0:10 | **`(even yours)`** — geflüsterter Einwurf, grüne Klammern | schwarz |
+| 0:12 | „every ↗`iPHONE`" · „every ↗`MAC`" — Marker-Doodles der Geräte | schwarz |
+| 0:14 | „with 100% recycled `^OR RENEWABLE` materials" | schwarz |
+| 0:17 | `new ways` mit Marker-Strahlenkranz | schwarz |
+| 0:18 | **B-Roll:** Aluminium-Schrott, Wort `aluminum` darüber | Realbild |
+| 0:19 | **B-Roll:** Roboterarm, Wort `tungsten` | Realbild |
+| 0:22 | „We're growing" — Marker-Tannen wachsen ins Bild, füllen den Frame komplett | hell |
+| 0:25 | „all our packaging." + Marker-Paketstapel | hell |
+| 0:27 | „But we can do" | schwarz |
+| 0:28 | **`MORE.`** — riesig, handgeschrieben, grün | schwarz |
+| 0:29 | Fabrik-Icon, dann „goes into our products." | grün |
+| 0:31 | „it's also **`HOW`** they're made." — Wörter tanzen versetzt | grün |
+| 0:33 | „Hundreds of →`distributors`" — Pfeile schiessen von allen Seiten hinein | hell |
+| 0:35 | `assemblers` · `material-makers` — Pfeilnetz baut sich auf | hell |
+| 0:38 | **B-Roll:** Fertigung, „All `upgrading`" (Wort in Grün) | Realbild |
+| 0:39 | **`100%`** riesig, weisser Marker-Strahlenkranz | grün |
+| 0:40 | „renewable energy." + Marker-Kreislaufpfeile | grün |
+| 0:41 | „a lot of them are even going" → **`zero-waste`** (Marker-Unterstrich) | grün → schwarz |
+| 0:43 | „But it's `^STILL` not enough." — **die ehrliche Lücke**, als Marker-Korrektur | schwarz |
+| 0:45 | „Manufacturing" → B-Roll → „is just a part of it." | schwarz → Realbild |
+| 0:47 | „What" → **`all`** formatfüllend, Marker-Unterstrich → „of `YOU`?" | hell → schwarz |
+| 0:48.7 | **`(This is a big one)`** — winzig, mittig, auf leerem Grün | grün |
+| 0:49 | „ devices all over" + Marker-Weltkugel | hell |
+| 0:51 | „And by `2023` … electr[icity] … all of your devices will be **100% renewable.**" (Glow) | hell → grün → schwarz |
+| 0:57 | „So `YOU'RE` a part of `THIS`," — Marker-Bogen verbindet die Wörter | hell |
+| 0:58 | „Because `^EVERYTHING`  is going carbon neutral." | hell |
+| 1:03 | „ has a plan." → `apple.com/`**`2030`** → Logo → Schwarz | hell |
 
 ---
 
-## 2. Die Übertragung: Was ist NEXPTs „carbon neutral by 2030"?
+## 2. Die dreizehn Stil-Regeln
 
-Apples Versprechen funktioniert, weil es **etwas abschafft** (CO₂), **datiert** ist (2030)
-und **prüfbar** (pro Produkt). NEXPT Work braucht ein Äquivalent mit denselben drei Eigenschaften.
+Wer diese Regeln befolgt, trifft den Film. Wer eine davon bricht, dreht ein Erklärvideo.
 
-Was NEXPT Work laut Architektur wirklich abschafft, ist **das zweite System**: die kanonische
+| # | Regel |
+|---|---|
+| **1** | **Die Schrift ist der Film.** Kein Sprecher im Bild, keine Screenshots, kein Bühnenbild. Wörter erscheinen im Takt des Sprechers, eine Zeile, zentriert. |
+| **2** | **Drei Farben, harte Wechsel.** Hell `#EDEDED` · Schwarz `#000000` · Akzent `#00D759`. Der Hintergrund kippt **mitten im Satz** auf den Beat. Keine Verläufe, keine Blenden. |
+| **3** | **Zwei typografische Stimmen.** Die *offizielle* (saubere Grotesk, schwarz oder weiss) und die *Marker-Stimme* (grün, handgeschrieben, Versalien). Die Marker-Stimme **kommentiert** die offizielle. |
+| **4** | **Der Film korrigiert sich selbst.** „has a plan `^AND A PROMISE`" · „To make Apple carbon neutral — *wait. no.* ☑ we've ALREADY done that." **Das ist die Persönlichkeit des Films.** Er denkt vor Publikum laut nach. |
+| **5** | **Caret-Einfügungen und Unterstriche als Live-Korrektur.** `^STILL`, `^EVERYTHING`, `^OR RENEWABLE`. Der grüne Stift bessert den Satz nachträglich aus. |
+| **6** | **UI-Elemente als Pointe.** Die Checkbox hakt sich selbst ab. Kein Interface — ein Witz in Interface-Form. |
+| **7** | **Geflüsterte Einwürfe in Miniaturschrift.** `(even yours)` · `(This is a big one)`. Der Film senkt die Stimme. |
+| **8** | **Marker-Doodles statt Icons.** Handgezeichnetes iPhone, Tannen, Fabrik, Weltkugel, Pfeile, Strahlenkranz. Roh, nicht vektorsauber. |
+| **9** | **Ein Wort als ganzes Bild.** `MORE.` · `all` · `100%` · `zero-waste`. |
+| **10** | **B-Roll nur als Beweisstück.** Vier Einstellungen in 67 s, je ~1 s, immer mit genau einem Wort darüber. Nie als Stimmungsbild. |
+| **11** | **Tempo: alle 0.46 s eine Änderung, alle 2.5 s ein Schnitt.** Wird es langsamer, kippt der Film in Pathos. |
+| **12** | **Der Film spricht das Publikum an.** „of `YOU`?" · „So `YOU'RE` a part of `THIS`." Ab der zweiten Hälfte ist der Zuschauer die Hauptfigur. |
+| **13** | **Schluss ist eine URL.** Kein Claim, keine Logowand. Ein Satz, eine Adresse, Logo, Schwarz. |
+
+**Anti-Regeln:** kein Stock-Footage von lächelnden Teams, kein Sprecher im Bild, keine
+Bulletpoints, keine Bildschirmaufnahmen mit Mauszeiger, keine Weichblende, keine
+Sekunde ohne Bewegung, kein feierlicher Ton.
+
+---
+
+## 3. Die Übertragung auf NEXPT Work
+
+Apples Film funktioniert, weil er **eine Selbstkorrektur** als Dramaturgie benutzt: er nennt
+das naheliegende Versprechen, verwirft es als zu klein und ersetzt es durch das grosse.
+
+NEXPT Work hat exakt diese Struktur schon eingebaut. Das naheliegende Versprechen ist
+„ein Tool für euer Projekt" — das hat jeder. Das grosse ist das UOMF-Modell: die kanonische
 Fünf-Stufen-Hierarchie (`goal → program → deliverable → work_package → action`), `work_mode`
-und der Vokabular-Layer tragen Wasserfall/HERMES, Scrum, SAFe, ITIL und Treuhand auf
-demselben Modell — die Branche ist Konfiguration, nicht Code.
+und der Vokabular-Layer tragen Wasserfall/HERMES, Scrum, SAFe, ITIL und Treuhand **auf
+demselben Modell**. Die Branche ist Konfiguration, nicht Code.
 
 > ### Das Versprechen des Films
-> # „Eine Arbeit. Ein Modell."
-> **Keine zweite Plattform, wenn das Projekt in den Betrieb geht.**
+> # „Ein Modell. Für jede Arbeit."
+> **Projekt und Betrieb. Kein zweites System.**
 
-Das ist der Satz, der als Titelkarte steht, der die vier Kapitel klammert und der am Ende
-wiederholt wird. Alles im Film dient diesem einen Satz.
+### Beat-für-Beat-Entsprechung
 
-**Der Gegner im ersten Akt** ist nicht ein Wettbewerber, sondern der **Systembruch**:
-dieselbe Arbeit, fünfmal modelliert, in fünf Werkzeugen, mit fünf Vokabularen — und der
-Übergang vom Projekt in den Betrieb als Copy-Paste.
-
-### Die vier Kapitel (Apples Materials / Electricity / Transportation / Water)
-
-| Apple | NEXPT Work | Fachlicher Kern | Der Satz |
-|---|---|---|---|
-| Materials | **Struktur** | `canonical_type`, 5 Stufen, `hierarchy_rules` | „Fünf Stufen. Mehr braucht Arbeit nicht." |
-| Electricity | **Sprache** | `vocabulary_entries` je Branche, DE/EN | „Dieselbe Struktur. Eure Wörter." |
-| Transportation | **Modus** | `work_mode`: `change → run → maintenance` | „Ein Projekt endet. Die Arbeit nicht." |
-| Water | **Regel** | Approval-Gates, RACI, Kapazität, Policies | „Governance ist Konfiguration. Nicht Code." |
-
----
-
-## 3. Beat Sheet — 3:20
-
-| TC | Beat | Bild | Ton | Text im Bild |
-|---|---|---|---|---|
-| 0:00–0:12 | **Kalter Einstieg** | Schwarz. Dann: eine einzelne Zeile in einer Tabelle, extremes Makro. Der Cursor blinkt. Schnitt: dieselbe Aufgabe in einem zweiten Werkzeug. Dritten. Vierten. | Stille, dann ein tiefer Ton, der nicht auflöst | — |
-| 0:12–0:35 | **Das Problem** | Split auf 5 Kacheln, alle mit *derselben* Aufgabe in anderem Vokabular: *Story · Arbeitspaket · Incident · Mandat · Change*. Sie driften auseinander. | Sehr leises Sirren, ein Puls | `Dieselbe Arbeit.` → `Fünf Modelle.` |
-| 0:35–0:48 | **Der Bruch** | Ein Balken „Projektabschluss". Dahinter: der Betrieb beginnt bei null. Ein Export als CSV, per Hand wieder eingetippt. | Der Puls bricht ab. Stille. | `Und dann fängt der Betrieb von vorne an.` |
-| 0:48–1:00 | **Titelkarte** | Schwarz → Weiss. Nur Typografie, zentriert, viel Luft. Erstes Auftreten der Marke. | Erster warmer Akkord | **`Eine Arbeit. Ein Modell.`** klein darunter: `NEXPT Work` |
-| 1:00–1:28 | **Kapitel 1 — Struktur** | Fünf Ebenen bauen sich vertikal auf, eine nach der anderen, mit hörbarem Einrasten. Kein UI — reine Geometrie. | Score setzt ein, ruhig | `Ziel · Programm · Ergebnis · Arbeitspaket · Aktion` |
-| 1:28–1:56 | **Kapitel 2 — Sprache** | Dieselbe Geometrie, stehenbleibend. Nur die **Beschriftungen** morphen: Scrum → HERMES → ITIL → Treuhand. Die Struktur bewegt sich nicht. | Score hält, ein Instrument kommt dazu | `Ein Modell.` (Zahl-Vollbild) |
-| 1:56–2:24 | **Kapitel 3 — Modus** | **Das Herzstück.** Ein einzelnes Item, Makro. Der Modus schaltet um: `change` → `run`. Der Rahmen bleibt, das Item wandert nicht in ein anderes System. Weit ziehen: dasselbe Item, jetzt im Betriebs-Board. | Score öffnet sich | `Projekt → Betrieb` · `Dasselbe Item.` |
-| 2:24–2:44 | **Kapitel 4 — Regel** | Ein Gate schliesst. Zwei Rollen bestätigen. Es öffnet. Trocken, mechanisch, ohne Effekt. | Score reduziert sich auf einen Ton | `Konfiguration. Nicht Code.` |
-| 2:44–3:02 | **Die ehrliche Lücke** | Schnitt auf Schwarz. Text allein, keine Musik unter dem ersten Satz. | Musik setzt aus, dann wieder ein | *(siehe Drehbuch — Abstimmung nötig, Abschnitt 8)* |
-| 3:02–3:20 | **Schluss** | Weiss. Die fünf Ebenen ein letztes Mal, klein, ruhig. Dann nur der Satz. | Score löst auf einem offenen Akkord auf | **`Eine Arbeit. Ein Modell.`** → `NEXPT Work` |
-
----
-
-## 4. Drehbuch / Sprechertext
-
-> **Regie:** Eine Stimme, weiblich oder männlich, ruhig, tief, kein Werbeduktus.
-> Tempo langsam. **Die Pausen sind Teil des Textes** — die eckigen Angaben einhalten.
-> Schweizer Hochdeutsch, keine Dialektfärbung, „ss" statt „ß".
-
-```
-[0:12]
-Eine Aufgabe.
-
-[Pause 2s]
-
-Fünf Systeme. Fünf Sprachen. Fünf Wahrheiten.
-
-[0:35]
-Und wenn das Projekt fertig ist,
-fängt der Betrieb noch einmal von vorne an.
-
-[Pause 3s — Bild trägt allein]
-
-[0:48 — Titelkarte, kein Text]
-
-[1:00]
-Arbeit hat eine Struktur.
-Ziel. Programm. Ergebnis. Arbeitspaket. Aktion.
-
-[Pause 2s]
-
-Fünf Stufen. Mehr braucht sie nicht.
-
-[1:28]
-Was sich ändert, ist nicht die Struktur.
-Es sind die Wörter.
-
-Story. Arbeitspaket. Incident. Mandat.
-
-[Pause 2s]
-
-Dieselbe Struktur. Eure Wörter.
-
-[1:56]
-Ein Projekt endet.
-
-[Pause 2s]
-
-Die Arbeit nicht.
-
-Bei uns wechselt sie nicht das System.
-Sie wechselt den Modus.
-
-[2:24]
-Freigaben. Rollen. Kapazität.
-Wer was entscheiden darf, steht nicht im Code.
-
-[Pause 1s]
-
-Es ist Konfiguration.
-
-[2:44 — DIE EHRLICHE LÜCKE, Fassung wählen, s. Abschnitt 8]
-Wir sind nicht fertig.
-Der Betrieb läuft heute noch neben diesem Modell — nicht darin.
-Das steht in unserer Architektur-Dokumentation.
-Nicht im Kleingedruckten.
-
-[Pause 2s]
-
-Wir sagen Ihnen, wo wir stehen.
-Und wohin wir gehen.
-
-[3:02]
-Eine Arbeit.
-
-[Pause 1.5s]
-
-Ein Modell.
-
-[Pause 2s]
-
-NEXPT Work.
-```
-
-**Wortzahl: ca. 120.** Das ist Absicht. Apple-Commitment-Filme laufen bei etwa einem Drittel
-der Wortdichte eines normalen Imagefilms. Wenn beim ersten Schnitt der Impuls kommt,
-„da fehlt noch was" — nicht nachgeben. Da fehlt nichts, da ist Raum.
-
----
-
-## 5. Bildsprache
-
-**Grundsatz: keine Screenshots.** Der Film zeigt das *Modell*, nicht die *Oberfläche*.
-Die Oberfläche kommt in der Demo nach dem Film. Wo doch UI nötig ist (Kapitel 3, Sekunde
-2:10–2:20): rahmenlos, ohne Browserchrom, ohne Mauszeiger, extrem herangezoomt auf ein
-einziges Element.
-
-| Element | Festlegung |
+| Apple | NEXPT Work |
 |---|---|
-| **Palette** | Zwei Zustände: Schwarz (Akt 1, das Problem) und Weiss (ab Titelkarte). Genau **eine** Akzentfarbe aus dem NEXPT-Brand für den aktiven Zustand. Kein Verlauf, kein Glow. |
-| **Typografie** | Eine Schrift, zwei Schnitte. Vollbild-Textkarten: Satz zentriert, mindestens 40 % Weissraum, Zeilenlänge nie über 6 Wörter. |
-| **Bewegung** | Alles bewegt sich mit *ease-out*, nie linear, nie federnd. Elemente rasten ein, sie schweben nicht. Kamera: langsame, gleichmässige Fahrten, kein Handheld. |
-| **Makro-Ebene** | Der Kontrast lebt vom Wechsel: eine Zeile in Grossaufnahme gegen ein Portfolio in der Totalen. Mindestens ein harter Massstabssprung pro Kapitel. |
-| **Menschen** | Höchstens zwei kurze Einstellungen, beide **ohne Blick in die Kamera**: eine Hand an einer Tastatur, jemand, der an einem Board vorbeigeht. Keine Gesichter, kein Lächeln, keine Meetings. |
-| **Bühnenformat** | Master in 16:9, 4K. Zusatz-Export für ultrabreite LED-Wände (32:9) — dabei den Weissraum links/rechts erweitern, **nicht** die Typografie skalieren. |
+| „has a plan `^AND A PROMISE`" | „hat einen Plan `^UND EIN VERSPRECHEN`" |
+| „carbon neutral — *wait. no.* ☑ already done that" | „ein Tool für euer Projekt — *Moment. Nein.* ☑ Das hat jeder." |
+| „every single product by 2030" | „jede Arbeit. In einem Modell." |
+| `(even yours)` | `(auch eure)` |
+| Materialien: Aluminium, Wolfram | Struktur: die fünf Stufen |
+| „it's also **HOW** they're made" | „es ist auch, **WIE** ihr sie nennt" (Vokabular) |
+| „But we can do **MORE.**" | „Aber das ist erst die **HÄLFTE.**" |
+| Lieferkette: Hunderte von Zulieferern | Der Betrieb: Incidents, Changes, Fristen |
+| „But it's `^STILL` not enough" | „Aber es ist `^NOCH` nicht genug" — **die ehrliche Lücke** |
+| „What about all of **YOU**?" | „Und **IHR**?" |
+| „So YOU'RE a part of THIS" | „Eure Regeln. Eure Rollen. Eure Freigaben." |
+| `apple.com/2030` | `nexpt.ch/work` *(URL bestätigen — s. Abschnitt 7)* |
+
+---
+
+## 4. Drehbuch
+
+> **Regie:** Eine Stimme, wach, trocken, leicht amüsiert — **kein Werbeduktus, kein Pathos.**
+> Tempo hoch, ca. 115 Wörter/Minute. Nur drei Pausen, jede ist eine Pointe.
+> Schweizer Hochdeutsch, „ss" statt „ß".
+> **Notation:** `GRÜN` = Marker-Handschrift · `^` = Caret-Einfügung · **[ ]** = Bildanweisung
+
+```
+0:00  [HELL]  NEXPT hat einen Plan.
+              [Marker schreibt dazu:]  ^UND EIN VERSPRECHEN.
+
+0:03  [HELL → GRÜN, Kippen mitten im Satz]
+              Ein Tool für euer Projekt —
+
+0:04  [SCHWARZ]   Moment.
+0:05  [SCHWARZ]   Nein.
+0:05  [SCHWARZ]   ☐ Das hat jeder.   →  ☑ Das hat JEDER.
+
+0:07  [GRÜN]  Ein Modell.
+              Für jede Arbeit.
+              Die ihr macht.
+
+0:10  [SCHWARZ]  (auch die, die keiner sehen will)
+
+0:11  [SCHWARZ]  Arbeit hat eine Struktur.
+              [fünf Zeilen rasten nacheinander ein:]
+              Ziel.  Programm.  Ergebnis.  Arbeitspaket.  Aktion.
+
+0:16  [SCHWARZ]  Fünf Stufen.  ^MEHR BRAUCHT SIE NICHT.
+
+0:18  [B-ROLL: Hand auf Tastatur, Makro]        Sprint.
+0:19  [B-ROLL: Bauplan, Makro]                   Phase.
+0:20  [B-ROLL: Serverleuchten, Makro]            Incident.
+
+0:22  [HELL]  Dieselbe Struktur.
+              [Marker-Vokabeln poppen rundherum auf:]
+              STORY · ARBEITSPAKET · TICKET · MANDAT · AUFTRAG
+
+0:25  [HELL]  Eure Wörter.  ^NICHT UNSERE.
+
+0:27  [SCHWARZ]  Aber das ist erst
+0:28  [SCHWARZ]  die HÄLFTE.
+
+0:29  [GRÜN]  Denn ein Projekt endet.
+
+0:31  [GRÜN]  Die Arbeit  ^NICHT.
+
+0:33  [HELL]  Hunderte von →Tickets
+0:35  [HELL]  →Wartungen  →Fristen  →Changes
+              [Pfeile schiessen von allen Seiten herein]
+
+0:38  [B-ROLL: Bildschirm im Dunkeln]  Alle im  selben Modell.
+
+0:39  [GRÜN]  100%          [Marker-Strahlenkranz]
+0:40  [GRÜN]  dieselbe Struktur.
+0:41  [GRÜN → SCHWARZ]  Kein Export. Kein Übertrag.  ^NULL MIGRATION.
+
+0:43  [SCHWARZ]  Aber es ist  ^NOCH  nicht genug.
+
+0:45  [SCHWARZ]  Ein Datenmodell
+      [B-ROLL]   ist nur ein Teil davon.
+
+0:47  [HELL]  Und
+0:47  [HELL]  IHR ?              [formatfüllend, Marker-Unterstrich]
+
+0:48  [GRÜN]  (das ist der grosse Teil)      [winzig, mittig]
+
+0:49  [HELL]  Eure Freigaben.
+0:50  [HELL]  Eure Rollen.  Eure Regeln.
+
+0:51  [HELL]  Und ab  2026
+0:52  [GRÜN]  steht das alles
+0:54  [SCHWARZ]  nicht
+0:55  [SCHWARZ]  im CODE.        [Glow]
+0:56  [SCHWARZ]  Sondern in der Konfiguration.
+
+0:57  [HELL]  Also gehört  DAS HIER  auch  EUCH.
+              [Marker-Bogen verbindet die Wörter]
+
+0:58  [HELL]  Weil  ^JEDE  Arbeit ein Modell hat.
+
+1:03  [HELL]  NEXPT hat einen Plan.
+1:05  [HELL]  nexpt.ch/ work
+1:07  [HELL]  [Logo] → SCHWARZ
+```
+
+**Wortzahl: ca. 125 auf 67 s.** Das ist doppelt so dicht wie ein normaler Imagefilm und
+genau die gemessene Dichte des Referenzfilms. Wenn der Text beim Einsprechen nicht
+knapp wird, ist er zu lang.
+
+---
+
+## 5. Design-Spezifikation
+
+| Element | Vorgabe |
+|---|---|
+| **Palette** | Hell `#EDEDED` · Schwarz `#000000` · **Akzent: NEXPT-Markenfarbe** in der Sättigung von Apples `#00D759`. Genau drei Farben, sonst keine. |
+| **Akzentfarbe** | Die kritischste Einzelentscheidung. Sie muss auf Hell **und** Schwarz lesbar sein und darf nicht Apple-Grün sein — sonst wirkt der Film wie eine Kopie statt wie eine Verwandtschaft. Falls die Marke keinen tragfähigen Ton hergibt, dafür eine Signaturfarbe definieren. |
+| **Schrift 1 (offiziell)** | Eine geometrische Grotesk, ein Schnitt (Medium), sehr enger Zeilenabstand. |
+| **Schrift 2 (Marker)** | Handgeschrieben, roh, Versalien, leicht schräg. **Echt geschrieben und vektorisiert**, keine Font-Imitation — der Unterschied ist auf der Leinwand sofort sichtbar. |
+| **Bewegung** | Wörter erscheinen hart, ohne Fade. Marker-Elemente werden **gezeichnet** (Strich läuft in 6–10 Frames durch). Hintergrundwechsel = harter Cut auf den Beat, nie eine Blende. |
+| **Satz** | Immer zentriert, immer eine Zeile, ausser bei bewusst versetzten Wörtern („es ist auch, **WIE**…"). Nie mehr als 6 Wörter gleichzeitig. |
+| **B-Roll** | Genau **drei bis vier** Einstellungen, je ~1 s, Makro, hart geschnitten, immer mit einem einzigen Wort darüber. Entweder selbst gedreht (halber Tag) oder Stock. |
+| **Bühnenformat** | Master 16:9 · Ultrawide-Fassung 32:9 für LED-Wände: Weissraum verbreitern, **Typo nicht skalieren**. |
 
 ---
 
 ## 6. Ton
 
-Der Ton macht in diesem Genre etwa die Hälfte der Wirkung — entsprechend budgetieren.
-
-- **Akt 1 (0:00–0:48):** kein Score. Nur Sounddesign — Tastenanschläge, ein tiefer Puls,
-  Raumton. Der Puls bricht bei 0:35 ab. Diese Stille ist der wichtigste Moment vor der Titelkarte.
-- **Akt 2 (1:00–2:44):** ein einziges Score-Stück, das über vier Kapitel schichtweise
-  aufbaut — je Kapitel ein Instrument mehr. Kein Beat, kein Drop, keine Snare.
-- **Akt 3 (2:44):** Musik setzt für den ersten Satz der ehrlichen Lücke **komplett aus**.
-  Trockene Stimme auf Schwarz. Danach kommt sie leiser zurück und löst offen auf.
-- **Musikrechte:** Komposition kaufen, nicht lizenzieren. Ein Stock-Track macht aus dem
-  Film sofort einen Imagefilm — der Score ist hier die Signatur.
-- **Sprachversionen:** Voice-Over statt Sprecher im Bild heisst, die EN-Fassung ist ein
-  Studiotag, kein zweiter Dreh. Von Anfang an so planen.
-- **Messe-Loop-Fassung:** eine Variante **ohne Ton, mit Untertiteln** für den Stand.
-  Am Stand hört niemand zu. Diese Fassung braucht grössere Typografie und ~15 % längere
-  Standzeiten pro Textkarte.
+- **Voice-Over** trägt den Film. Casting ist wichtiger als die Musik: gesucht ist eine Stimme,
+  die trocken und schnell sprechen kann, ohne zu hetzen — und die „Moment. Nein." glaubwürdig sagt.
+- **Musikbett** durchgehend, treibend, ohne Drop. Es hört an den drei Pausen **nicht** auf,
+  sondern dünnt aus. Komposition kaufen, nicht lizenzieren.
+- **Mix:** −16 bis −18 LUFS integriert, stark komprimiert (Referenz: LRA 4.3 LU). Auf der Messe
+  gegen Hallenlärm mischen — Dynamik ist hier keine Tugend.
+- **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
+  trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms.
+- **Stand-Loop-Fassung:** ohne Ton, mit Untertiteln, **Standzeiten +40 %**. Bei 0.46 s pro
+  Änderung ist der Film ohne Sprecher sonst nicht lesbar.
 
 ---
 
 ## 7. Produktion
 
-### Drei Umsetzungstiefen
+### Aufwand
 
-| | **A — Realdreh** | **B — Hybrid** *(Empfehlung)* | **C — Motion Design** |
-|---|---|---|---|
-| **Ansatz** | Gedrehte Bilder: Büro, Baustelle, Serverraum, Treuhandbüro | Wenige gedrehte Makro-Einstellungen + Motion Design für die Modell-Ebenen | Reine Typografie und Geometrie, kein Dreh |
-| **Passt zum Stil?** | Ja, aber nur bei kompromissloser Ausführung | **Ja** — das Modell ist ohnehin abstrakt, das Reale gibt ihm Erdung | Bedingt — wird schnell kühl und austauschbar |
-| **Dauer** | 8–12 Wochen | **5–7 Wochen** | 3–4 Wochen |
-| **Grössenordnung** ¹ | CHF 40–80k | **CHF 12–25k** | CHF 3–8k |
-| **Risiko** | Halbherzig gedrehtes Material zerstört den Stil sofort | Balance zwischen Real und Grafik muss im Storyboard sitzen | Wirkt ohne starken Score wie ein Erklärvideo |
+Das ist **kein Filmdreh**, sondern ein Motion-Design-Projekt mit Voice-Over. Entsprechend
+deutlich günstiger als ein cinematischer Film.
 
-¹ Richtwerte Schweizer Markt, Schätzung meinerseits — kein Angebot. Für Verbindliches
-mindestens zwei Offerten einholen.
+| Position | Aufwand | Grössenordnung ¹ |
+|---|---|---|
+| Copywriting / Feinschliff Drehbuch | 2–3 Tage | CHF 2–4k |
+| Design-Frames (10–12 Keyframes zur Freigabe) | 3–4 Tage | CHF 3–5k |
+| Animation (67 s, ~150 Änderungen) | 10–15 Tage | CHF 8–14k |
+| Marker-Assets (echt geschrieben, vektorisiert) | 1 Tag | CHF 0.8–1.5k |
+| B-Roll (3–4 Makro-Einstellungen) | ½ Drehtag **oder** Stock | CHF 0.5–3k |
+| Voice-Over DE + EN | 1 Studiotag | CHF 1.5–3k |
+| Musik (Komposition) + Sounddesign + Mix | — | CHF 2.5–5k |
+| **Total** | **5–7 Wochen** | **CHF 18–35k** |
 
-**Warum B:** Der Kern des Films (die fünf Ebenen, der Moduswechsel) ist ein abstraktes
-Modell und lässt sich nicht filmen. Gleichzeitig braucht der Film zwei bis drei reale,
-haptische Einstellungen, damit er nicht in reine Grafik kippt. B kauft genau das ein und
-nichts darüber hinaus.
+¹ Richtwerte Schweizer Markt, Schätzung meinerseits — kein Angebot.
+
+**Sparvariante:** Stock-B-Roll statt Dreh, nur DE-Fassung, Musik lizenziert statt komponiert
+→ ca. CHF 10–15k. Die Musik ist dabei der schmerzhafteste Verzicht.
 
 ### Ablauf
 
-1. **Freigabe Kernsatz** — „Eine Arbeit. Ein Modell." trägt oder trägt nicht. Alles Weitere hängt daran.
-2. **Zahlen beschaffen** (Abschnitt 8) — vor dem Storyboard, nicht danach.
-3. **Entscheid ehrliche Lücke** (Abschnitt 8) — verändert Akt 3 grundlegend.
-4. **Storyboard**, Beat für Beat gegen Abschnitt 3.
-5. **Scratch-Voice-Over** selbst einsprechen und gegen das Storyboard legen. Hier fällt auf, ob der Text zu lang ist — er ist es fast immer.
-6. **Score-Briefing parallel zum Animatic**, nicht am Schluss.
-7. **Produktion.**
-8. **Exporte:** Keynote-Master 16:9 · Ultrawide 32:9 · Stand-Loop ohne Ton mit Untertiteln · EN-Fassung · Social-Schnitt 60 s (Akt 1 + Titelkarte + Schluss).
+1. **Akzentfarbe festlegen** — blockiert alles Weitere.
+2. **Drehbuch freigeben**, insbesondere die Selbstkorrektur bei 0:04 und die ehrliche Lücke bei 0:43.
+3. **Scratch-VO** selbst einsprechen und die Länge prüfen. Bei über 70 s: kürzen, nicht langsamer sprechen.
+4. **10–12 Design-Frames** zur Freigabe — nicht das ganze Storyboard.
+5. **Animatic** auf dem Scratch-VO.
+6. **VO final einsprechen**, dann Animation auf die finale Sprachspur.
+7. **Musik und Sounddesign parallel** zur Animation briefen, nicht danach.
+8. **Exporte:** Keynote-Master 16:9 · Ultrawide 32:9 · Stand-Loop stumm mit Untertiteln · EN-Fassung · Social 1:1 und 9:16.
 
 ### Für die Bühne
 
-- Der Film ist der **Opener**, er läuft vor dem ersten gesprochenen Wort. Kein Anmoderieren.
-- **Kein Applaus-Beat am Ende.** Der Film löst offen auf, die Person betritt in die Stille hinein die Bühne und nimmt den Schlusssatz auf: *„Eine Arbeit. Ein Modell. Ich zeige Ihnen, was das heisst."*
-- Saallicht während des Films auf null, inklusive Bühnenlicht. Die Schwarz-auf-Schwarz-Passagen in Akt 1 brauchen das.
-- Ton über die Saal-PA, nicht über die Leinwandlautsprecher. Der tiefe Puls in Akt 1 muss körperlich spürbar sein.
+- Der Film ist der **Opener**, vor dem ersten gesprochenen Wort. Nicht anmoderieren.
+- Er endet **hart auf Schwarz** nach der URL. In diese Stille hinein die Bühne betreten und
+  den Faden aufnehmen: *„Wir haben tatsächlich einen Plan. Ich zeige ihn Ihnen."*
+- Saallicht während des Films auf null — der Film lebt vom Wechsel Hell/Schwarz, bei
+  Restlicht bricht der Kontrast weg.
+- Ton über die Saal-PA, nicht über die Leinwandlautsprecher.
+- **67 Sekunden sind ideal für einen Keynote-Opener.** Nicht der Versuchung nachgeben,
+  ihn auf drei Minuten zu strecken.
 
 ---
 
 ## 8. Offene Punkte
 
-### 8.1 Zahlen — von dir
+### 8.1 Entscheidungen, die du treffen musst
 
-Regel 4 („Zahlen als Vollbild") ist der Kern des Stils und der einzige Teil, den ich nicht
-erfinden darf. Apples Film funktioniert, weil jede Zahl geprüft ist. Ich brauche zwei bis
-drei Zahlen, die belastbar sind:
-
-| Slot | Gesucht | Beispiel für die Form |
+| # | Punkt | Warum es blockiert |
 |---|---|---|
-| Akt 1, 0:25 | Wie viele Werkzeuge führt ein typischer Zielkunde parallel? | „Im Schnitt **7** Systeme." |
-| Kapitel 2, 1:50 | Anzahl Branchen-Vokabulare live | „**5** Branchen. **1** Modell." |
-| Kapitel 3, 2:20 | Was der Moduswechsel spart — Zeit, Doppelerfassungen, Migrationsaufwand | „**0** Migrationen." |
+| 1 | **Akzentfarbe** | Trägt die halbe Identität des Films. Muss auf Hell und Schwarz funktionieren und darf nicht Apple-Grün sein. |
+| 2 | **Die ehrliche Lücke (0:43)** | „Aber es ist `^NOCH` nicht genug" ist bei Apple der Vertrauensmoment. Bei NEXPT gibt es dafür eine reale Grundlage: laut `UOMF-DOMAIN-FIT.md` läuft Betriebsarbeit (ITIL, Treuhand) heute über ein zweites Case-Modell **neben** dem UOMF-Kern. Im verspielten Stil ist das leichter zu sagen als in einem feierlichen Film — aber es bleibt eine Geschäftsleitungs-Entscheidung. |
+| 3 | **Schluss-URL** | Im Drehbuch steht `nexpt.ch/work` als Platzhalter. Die Domain löst aktuell nicht auf. Der Film endet auf dieser Adresse — sie muss am Messetag live sein. |
+| 4 | **Jahreszahl bei 0:51** | „Und ab **2026**" braucht eine Zahl, zu der ihr steht. Apples Kraft kommt aus dem Datum. |
 
-Wenn belastbare Kundenzahlen fehlen: lieber eine Systemzahl aus der Plattform selbst
-(kanonische Stufen, Branchen-Templates, Services) als eine geschätzte Marktzahl. Eine
-geschätzte Zahl auf der Leinwand kostet genau die Glaubwürdigkeit, die Regel 6 aufbauen soll.
+### 8.2 Zahlen — von dir
 
-### 8.2 Die ehrliche Lücke — Entscheidung nötig
+Der Film hat drei Slots für Vollbild-Zahlen. Apples Wirkung beruht darauf, dass jede geprüft ist.
 
-Das ist der stärkste Moment des Films und zugleich der einzige, der Rückfragen auslösen kann.
-Grundlage ist `docs/architecture/UOMF-DOMAIN-FIT.md`: ITIL- und Treuhand-Arbeit läuft heute
-über ein zweites Case-Modell **neben** dem UOMF-Kern, nicht darin. Die Dokumentation nennt das
-selbst „strukturell gebrochen".
+| TC | Slot | Gesucht |
+|---|---|---|
+| 0:16 | `Fünf Stufen.` | ✅ steht — kommt aus dem Modell selbst |
+| 0:39 | `100% dieselbe Struktur` | Belastbar? Sonst durch eine Systemzahl ersetzen (Branchen-Templates, Vokabulare) |
+| 0:41 | `^NULL MIGRATION` | Belegbar beim Übergang Projekt→Betrieb? Falls nicht: streichen, nicht abschwächen |
 
-Genau diese Offenheit ist Apples Move — und sie funktioniert nur, wenn sie echt ist.
-Drei Fassungen, absteigend nach Mut:
+Wenn belastbare Kundenzahlen fehlen: lieber eine Systemzahl aus der Plattform als eine
+geschätzte Marktzahl. Eine unbelegte Zahl auf der Leinwand kostet genau das Vertrauen,
+das Regel 4 und die ehrliche Lücke aufbauen.
 
-- **Fassung 1 — offen** *(im Drehbuch oben, die wirksamste)*
-  > „Wir sind nicht fertig. Der Betrieb läuft heute noch neben diesem Modell — nicht darin."
+### 8.3 Was ich noch brauche
 
-  Maximal glaubwürdig. Setzt voraus, dass ihr die Roadmap dahinter im Gespräch am Stand
-  belegen könnt, und dass die Geschäftsleitung das öffentlich mitträgt.
-
-- **Fassung 2 — als Richtung formuliert** *(sicherer, fast so stark)*
-  > „Projekt und Betrieb in einem Modell — daran arbeiten wir. Wir sagen Ihnen, wo wir stehen."
-
-- **Fassung 3 — weglassen**
-  Nicht empfohlen. Ohne Regel 6 ist es ein gut gemachter Imagefilm, aber kein Film in
-  diesem Stil. Der ehrliche Moment ist das, was die vorherigen zwei Minuten glaubwürdig macht.
-
-### 8.3 Von mir noch zu klären
-
-- Bestätigung, ob das Referenzvideo tatsächlich der ernste Commitment-Film ist (Abschnitt 0).
-- NEXPT Brand-Assets: Schrift, Akzentfarbe, Logo-Sperrzone — für die Typografie-Festlegungen.
-- Messe, Datum und Bühnenformat (Leinwandmasse, Seitenverhältnis, PA vorhanden?).
+- NEXPT Brand-Assets: Schrift, Farben, Logo-Sperrzone.
+- Messe, Datum, Leinwandmasse und Seitenverhältnis.
+- Freigabe, ob der Ton so frech sein darf, wie das Drehbuch ihn anlegt. Der Stil funktioniert
+  nur ganz oder gar nicht — ein halbierter Witz ist schlechter als kein Witz.
