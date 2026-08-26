@@ -94,7 +94,7 @@ R.text=(l,t,st)=>{
     const p  = ease(clamp(dt/0.085,0,1));            // Eintritt in ~2.5 Frames
     const sc = 0.68 + 0.32*p;                        // von 68 % auf volle Grösse
     const dy = (1-p)*0.34;                           // von unten herauf
-    const hi = /^(IHR|EIN|ALLE|DEN|WIE|IHR\?|NIEMAND)$/.test(w);
+    const hi = /^(DU|IHR|EIN|ALLE|DEN|WIE|NIEMAND)$/.test(w);
     return `<span style="display:inline-block;transform:translateY(${dy}em) scale(${sc.toFixed(3)});
       transform-origin:50% 85%;font-size:${hi?1.06:1}em">${w}</span>`;
   }).filter(Boolean);
@@ -177,15 +177,32 @@ R.broll=(l,t,st)=>{  // Platzhalter — hier kommt die echte Makro-Einstellung r
   st.appendChild(d);
 };
 R.card=(l,t,st)=>{  // Der Frame bewegt sich NICHT — nur das Etikett springt um.
-  const label = t>=l.swapAt ? l.swapTo : l.label;
+  const swapped = t>=l.swapAt, label = swapped ? l.swapTo : l.label;
   const d=document.createElement('div'); d.className='lyr ctr';
-  d.innerHTML=`<div style="width:1120px;background:${PAL.light};border-radius:26px;
+  d.innerHTML=`<div style="position:relative;width:1120px;background:${PAL.light};border-radius:26px;
       padding:64px 72px;text-align:left;box-shadow:0 40px 120px rgba(0,0,0,.22)">
-      <div style="display:inline-block;font-size:34px;letter-spacing:.20em;
+      <div id="etikett" style="display:inline-block;font-size:34px;letter-spacing:.20em;
         padding:14px 26px;border-radius:10px;background:${PAL.dark};color:${PAL.light}">${label}</div>
       <div class="txt" style="font-size:82px;color:${PAL.dark};margin-top:34px">${l.title}</div>
       <div style="font-size:36px;color:#6b6b6b;margin-top:20px">${l.meta}</div></div>`;
   st.appendChild(d);
+  if(swapped){
+    // Handgezeichneter Halbkreis um das neue Etikett — der Moment, auf den
+    // der ganze Akt zulaeuft. Wird gezogen, nicht eingeblendet.
+    const p = clamp((t-l.swapAt)/0.42, 0, 1);
+    // im Browser gemessen, nicht geschaetzt: das Etikett steht bei 400,413, 240x69
+    const cx = 520, cy = 448, rx = 156, ry = 62;
+    const r = rnd(4242); let dd = '';
+    const A0 = -Math.PI*1.02, A1 = Math.PI*0.62;           // offener Bogen, kein Kreis
+    const N = 46;
+    for(let i=0;i<=N;i++){
+      const a = A0 + (A1-A0)*(i/N);
+      const j = (r()-0.5)*7;                               // Zittern wie von Hand
+      const x = cx + Math.cos(a)*(rx+j), y = cy + Math.sin(a)*(ry+j*0.5);
+      dd += (i? ' L ':'M ') + x.toFixed(1) + ' ' + y.toFixed(1);
+    }
+    st.appendChild(svgWrap([svgPath(dd, p, mk(t), 11)]));
+  }
 };
 R.arrows=(l,t,st)=>{  // Pfeile schiessen von allen Seiten auf die Mitte
   const paths=[], labels=document.createElement('div'); labels.className='lyr';

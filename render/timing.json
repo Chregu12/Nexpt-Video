@@ -66,13 +66,13 @@
         "t": 0.9,
         "to": "accent"
       },
-      "vo": "Arbeitet so, wie wir es vorsehen —",
+      "vo": "Arbeite so, wie wir es vorsehen —",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "mode": "words",
-          "text": "Arbeitet so, wie wir es vorsehen —",
+          "text": "Arbeite so, wie wir es vorsehen —",
           "size": 84,
           "y": 0.5,
           "step": 0.115
@@ -138,13 +138,13 @@
       "start": 8.9,
       "dur": 3.4,
       "bg": "accent",
-      "vo": "Arbeitet so, wie ihr wollt.",
+      "vo": "Arbeite so, wie du willst.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "mode": "words",
-          "text": "Arbeitet so,",
+          "text": "Arbeite so,",
           "size": 92,
           "y": 0.4,
           "step": 0.115
@@ -153,7 +153,7 @@
           "type": "text",
           "t": 0.9,
           "mode": "words",
-          "text": "wie IHR wollt.",
+          "text": "wie DU willst.",
           "size": 110,
           "y": 0.58,
           "step": 0.115
@@ -163,8 +163,8 @@
           "t": 1.9,
           "draw": 0.35,
           "y": 0.645,
-          "x": 0.505,
-          "w": 0.115
+          "x": 0.47,
+          "w": 0.062
         },
         {
           "type": "doodle",
@@ -188,13 +188,13 @@
       "start": 12.3,
       "dur": 1.4,
       "bg": "dark",
-      "vo": "(ja, auch ihr in der Buchhaltung)",
+      "vo": "(ja, auch du in der Buchhaltung)",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "mode": "words",
-          "text": "(ja, auch ihr in der Buchhaltung)",
+          "text": "(ja, auch du in der Buchhaltung)",
           "size": 44,
           "y": 0.5,
           "color": "accent",
@@ -208,14 +208,14 @@
       "start": 13.7,
       "dur": 8.0,
       "bg": "dark",
-      "vo": "Ihr plant in Sprints. Ihr in Phasen. Ihr in Tickets. Ihr in Fristen. Ihr in Schichten. Ihr in Etappen.",
+      "vo": "Du planst in Sprints. Du in Phasen. Du in Tickets. Du in Fristen. Du in Schichten. Du in Etappen.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "out": 1.28,
           "mode": "words",
-          "text": "Ihr plant in",
+          "text": "Du planst in",
           "size": 78,
           "y": 0.5,
           "x": 0.31,
@@ -246,7 +246,7 @@
           "t": 1.28,
           "out": 2.56,
           "mode": "hard",
-          "text": "Ihr in",
+          "text": "Du in",
           "size": 78,
           "y": 0.5,
           "x": 0.31
@@ -276,7 +276,7 @@
           "t": 2.56,
           "out": 3.84,
           "mode": "hard",
-          "text": "Ihr in",
+          "text": "Du in",
           "size": 78,
           "y": 0.5,
           "x": 0.31
@@ -306,7 +306,7 @@
           "t": 3.84,
           "out": 5.12,
           "mode": "hard",
-          "text": "Ihr in",
+          "text": "Du in",
           "size": 78,
           "y": 0.5,
           "x": 0.31
@@ -336,7 +336,7 @@
           "t": 5.12,
           "out": 6.4,
           "mode": "hard",
-          "text": "Ihr in",
+          "text": "Du in",
           "size": 78,
           "y": 0.5,
           "x": 0.31
@@ -366,7 +366,7 @@
           "t": 6.4,
           "out": null,
           "mode": "hard",
-          "text": "Ihr in",
+          "text": "Du in",
           "size": 78,
           "y": 0.5,
           "x": 0.31
@@ -720,7 +720,7 @@
       "start": 44.1,
       "dur": 9.0,
       "bg": "light",
-      "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker sein Ticket. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
+      "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker seine Tickets. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
       "layers": [
         {
           "type": "role",
@@ -734,7 +734,7 @@
           "t": 2.15,
           "out": 4.15,
           "who": "Der Servicetechniker sieht",
-          "sees": "sein Ticket."
+          "sees": "seine Tickets."
         },
         {
           "type": "role",
@@ -1792,14 +1792,14 @@
         "t": 2.1,
         "to": "dark"
       },
-      "vo": "Ihr seht, was ihr braucht. Dort, wo ihr seid.",
+      "vo": "Du siehst, was du brauchst. Dort, wo du bist.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "out": 2.0,
           "mode": "words",
-          "text": "Ihr seht, was ihr braucht.",
+          "text": "Du siehst, was du brauchst.",
           "size": 92,
           "y": 0.5,
           "step": 0.115
@@ -1808,7 +1808,7 @@
           "type": "text",
           "t": 2.2,
           "mode": "words",
-          "text": "Dort, wo ihr seid.",
+          "text": "Dort, wo du bist.",
           "size": 100,
           "y": 0.5,
           "glow": true,
@@ -1840,14 +1840,14 @@
       "start": 129.3,
       "dur": 5.4,
       "bg": "light",
-      "vo": "Also arbeitet, wie ihr wollt. Wir behalten den Überblick.",
+      "vo": "Also arbeite, wie du willst. Wir behalten den Überblick.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "out": 2.3,
           "mode": "words",
-          "text": "Also arbeitet, wie ihr wollt.",
+          "text": "Also arbeite, wie du willst.",
           "size": 92,
           "y": 0.5,
           "step": 0.115

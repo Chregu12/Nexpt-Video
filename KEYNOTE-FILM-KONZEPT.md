@@ -207,6 +207,23 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 | „So `YOU'RE` a part of `THIS`" | „Also arbeitet, wie ihr wollt." |
 | ` has a plan.` · `apple.com/2030` | `NEXPT hat eine Meinung.` · `nexpt.ch/work` |
 
+
+### 3.7 Die Ansprache: du, ihr, wir
+
+Der Film benutzt drei Personen, und zwar konsequent — das ist keine Stilfrage, sondern
+trägt die Aussage:
+
+| | wer | wo im Film |
+|---|---|---|
+| **du** | der Mensch, der arbeitet | „Arbeite so, wie **du** willst" · „Du planst in Sprints" · „Du siehst, was du brauchst. Dort, wo du bist." |
+| **ihr / euer** | die Organisation | „Wir nennen es, wie **ihr** es nennt" · „**Eure** Wörter. `^NICHT UNSERE`" · „**Eure** Regeln" |
+| **wir** | NEXPT | „**Wir** behalten `^DEN` Überblick" |
+
+Genau darin steckt der Widerspruch, den der Film auflöst: **die Freiheit gehört der Person,
+die Übersicht der Organisation.** Wer beides mit demselben Wort anspricht, verschenkt den
+Kern. Deshalb wechselt die Anrede innerhalb der Akte — und darf beim Sprechen nicht
+eingeebnet werden.
+
 ---
 
 ## 4. Drehbuch
@@ -227,38 +244,38 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
          NEXPT hat ein Versprechen.
          Und eine Meinung.
          └ MARKER  ^UND EINE MEINUNG.   (+1.9s)
- 0:03.2  [HELL]  (2.5s · 02_flip)
-         Arbeitet so, wie wir es vorsehen —.
+ 0:03.2  [HELL → SCHWARZ]  (2.5s · 02_flip)
+         Arbeite so, wie wir es vorsehen —.
          └ MARKER  ^SO WIE WIR   (+1.6s)
- 0:05.7  [SCHWARZ → AKZENT]  (3.2s · 03_moment)
+ 0:05.7  [SCHWARZ]  (3.2s · 03_moment)
          Moment.
          Nein.
          Das machen alle anderen.
  0:08.9  [AKZENT → SCHWARZ]  (3.4s · 04_ihr)
-         Arbeitet so, wie ihr wollt.
+         Arbeite so, wie du willst.
  0:12.3  [SCHWARZ]  (1.4s · 05_aside)
-         (ja, auch ihr in der Buchhaltung)
+         (ja, auch du in der Buchhaltung)
 
 ━━━ FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:13.7  [SCHWARZ → AKZENT]  (8.0s · 06_wege)
-         Ihr plant in Sprints.
-         Ihr in Phasen.
-         Ihr in Tickets.
-         Ihr in Fristen.
-         Ihr in Schichten.
-         Ihr in Etappen.
-         └ MARKER  SPRINTS   (+0.3s)
-         └ MARKER  PHASEN   (+1.6s)
-         └ MARKER  TICKETS   (+2.9s)
-         └ MARKER  FRISTEN   (+4.1s)
-         └ MARKER  SCHICHTEN   (+5.4s)
-         └ MARKER  ETAPPEN   (+6.7s)
+ 0:13.7  [SCHWARZ → AKZENT → HELL → SCHWARZ → AKZENT → HELL]  (8.0s · 06_wege)
+         Du planst in Sprints.
+         Du in Phasen.
+         Du in Tickets.
+         Du in Fristen.
+         Du in Schichten.
+         Du in Etappen.
+         └ MARKER  SPRINTS   (+0.1s)
+         └ MARKER  PHASEN   (+1.4s)
+         └ MARKER  TICKETS   (+2.7s)
+         └ MARKER  FRISTEN   (+4.0s)
+         └ MARKER  SCHICHTEN   (+5.3s)
+         └ MARKER  ETAPPEN   (+6.5s)
  0:21.7  [SCHWARZ → AKZENT]  (2.6s · 07_niemand)
          Niemand muss sich umgewöhnen.
          Niemand.
          └ MARKER  ^NIEMAND.   (+1.1s)
- 0:24.3  [SCHWARZ]  (4.6s · 08_broll)
+ 0:24.3  [SCHWARZ → AKZENT]  (4.6s · 08_broll)
          (kein Text — drei Makro-Einstellungen)
          └ MARKER  ^DIESELBE ARBEIT   (+2.0s)
  0:28.9  [HELL → SCHWARZ]  (4.0s · 09_flut)
@@ -275,13 +292,13 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 
 ━━━ DIE LEUTE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:39.5  [SCHWARZ → AKZENT]  (4.6s · 11a_menschen)
+ 0:39.5  [SCHWARZ → AKZENT → HELL]  (4.6s · 11a_menschen)
          Weil hier nicht das Projekt arbeitet.
          Sondern Menschen.
          └ MARKER  ^MIT NAMEN   (+3.8s)
- 0:44.1  [HELL → SCHWARZ → AKZENT → SCHWARZ]  (9.0s · 11b_rollen)
+ 0:44.1  [HELL → SCHWARZ → AKZENT → HELL → SCHWARZ]  (9.0s · 11b_rollen)
          Die Bauleiterin sieht ihre Etappe.
-         Der Servicetechniker sein Ticket.
+         Der Servicetechniker seine Tickets.
          Die Treuhänderin ihre Frist.
          Die Geschäftsführerin sieht alles.
          └ MARKER  ^ETAPPE   (+2.0s)
@@ -311,7 +328,7 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 
 ━━━ EIN STANDARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:05.5  [AKZENT → SCHWARZ → HELL → SCHWARZ]  (7.5s · 13b_stufen)
+ 1:05.5  [AKZENT → SCHWARZ → HELL → AKZENT → SCHWARZ]  (7.5s · 13b_stufen)
          Fünf Stufen.
          Mehr braucht Arbeit nicht.
          Egal ob Bau, Betrieb oder Buchhaltung — darunter liegt dasselbe Modell.
@@ -320,7 +337,7 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 
 ━━━ ÜBERGANG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:13.0  [SCHWARZ → AKZENT]  (3.6s · 14_ende)
+ 1:13.0  [SCHWARZ → AKZENT → HELL]  (3.6s · 14_ende)
          Und irgendwann ist das Projekt fertig.
          Die Arbeit nicht.
          └ MARKER  ^NICHT.   (+2.4s)
@@ -332,11 +349,11 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
          └ CARD   (+0.0s)
          └ MARKER  ^KEIN NEUES TOOL.   (+2.6s)
          └ MARKER  ^DASSELBE   (+0.9s)
- 1:21.8  [HELL]  (5.3s · 16_pfeile)
+ 1:21.8  [HELL → SCHWARZ → AKZENT]  (5.3s · 16_pfeile)
          Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.
          └ MARKER  ^ALLES   (+1.6s)
          └ MARKER  ^AN EINEN ORT   (+3.4s)
- 1:27.1  [AKZENT → SCHWARZ]  (4.1s · 17_hundert)
+ 1:27.1  [AKZENT → SCHWARZ → HELL]  (4.1s · 17_hundert)
          Hundert Prozent verbunden.
          Kein Export.
          Null Doppelerfassung.
@@ -346,7 +363,7 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 
 ━━━ KORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:31.2  [SCHWARZ]  (2.8s · 18_aendert)
+ 1:31.2  [SCHWARZ → AKZENT]  (2.8s · 18_aendert)
          Und wenn jemand etwas ändert?.
          └ LIVEEDIT   (+1.1s)
          └ MARKER  ^JEMAND   (+0.8s)
@@ -358,7 +375,7 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
          Keine Rundmail.
          Kein Statusbericht.
          Kein Nachfragen.
- 1:41.2  [HELL → SCHWARZ]  (3.3s · 20_transparenz)
+ 1:41.2  [HELL → SCHWARZ → AKZENT]  (3.3s · 20_transparenz)
          Transparenz ist kein Bericht.
          Sie ist ein Nebeneffekt.
          └ MARKER  ^EINFACH SO   (+2.4s)
@@ -368,11 +385,11 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
  1:44.5  [SCHWARZ → AKZENT]  (2.6s · 21_allein)
          Aber Struktur allein ist noch keine Übersicht.
          └ MARKER  ^ALLEIN   (+0.7s)
- 1:47.1  [SCHWARZ → AKZENT]  (4.6s · 22_raster)
+ 1:47.1  [SCHWARZ → AKZENT → HELL]  (4.6s · 22_raster)
          Die meisten nennen Übersicht: eine Tabelle.
          └ GRID   (+1.1s)
          └ MARKER  ^SPALTEN   (+3.4s)
- 1:51.7  [SCHWARZ → AKZENT → HELL]  (5.6s · 22b_stapel)
+ 1:51.7  [SCHWARZ → AKZENT → HELL → SCHWARZ]  (5.6s · 22b_stapel)
          Fünf Dateien.
          Eine Wahrheit.
          Und niemand weiss, welche.
@@ -387,19 +404,19 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 
 ━━━ VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 2:01.3  [HELL → SCHWARZ]  (3.4s · 24_keine)
+ 2:01.3  [HELL → SCHWARZ → AKZENT]  (3.4s · 24_keine)
          Keine Spalten.
          Kein bitte hier eintragen.
          └ MARKER  ^NIE WIEDER   (+2.5s)
  2:04.7  [AKZENT]  (4.6s · 25_seht)
-         Ihr seht, was ihr braucht.
-         Dort, wo ihr seid.
+         Du siehst, was du brauchst.
+         Dort, wo du bist.
          └ MARKER  ^IHR   (+1.8s)
  2:09.3  [HELL → SCHWARZ]  (5.4s · 26_also)
-         Also arbeitet, wie ihr wollt.
+         Also arbeite, wie du willst.
          Wir behalten den Überblick.
          └ MARKER  ^DEN   (+3.4s)
- 2:14.7  [HELL]  (4.0s · 27_ende)
+ 2:14.7  [HELL → SCHWARZ]  (4.0s · 27_ende)
          NEXPT hat eine Meinung.
          └ MARKER  ^EINE STARKE   (+1.1s)
 ```
@@ -441,6 +458,7 @@ Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 | **Bewegung** | Wörter erscheinen hart, ohne Fade. Marker-Elemente werden **gezeichnet** (Strich läuft in 6–10 Frames durch). Hintergrundwechsel = harter Cut auf den Beat, nie eine Blende. |
 | **Satz** | Immer zentriert, immer eine Zeile, ausser bei bewusst versetzten Wörtern. Nie mehr als 6 Wörter gleichzeitig. |
 | **B-Roll** | Genau **drei bis vier** Einstellungen, je ~1 s, Makro, hart geschnitten, immer mit einem einzigen Wort darüber. Entweder selbst gedreht (halber Tag) oder Stock. |
+| **Der Halbkreis (0:38)** | Springt das Etikett auf `BETRIEB`, zieht ein handgezeichneter Bogen einen **offenen** Halbkreis darum — kein geschlossener Kreis, das wirkt gestempelt. In zwölf Frames **gezogen**, nicht eingeblendet, mit Zittern wie von Hand. Position im Browser gemessen, nicht geschätzt. |
 | **Das Element (0:37–0:39)** | Ein einzelnes Kärtchen, formatfüllend, Makro, **absolut statisch**. Nur das Etikett `PROJEKT` → `BETRIEB` springt um, ohne Übergang. Alles andere im Frame — Position, Grösse, Inhalt, sogar ein Textcursor — bleibt bitgenau gleich. Die Aussage entsteht aus dem, was sich **nicht** bewegt. |
 | **Die Live-Korrektur (0:47)** | Der Marker streicht ein Wort durch und schreibt ein neues daneben. Das alte bleibt lesbar — es wird nicht ersetzt, es wird **kommentiert**. In einem Zug gezeichnet, leicht schief, mit Andruckvariation. |
 | **Das Raster (0:55–0:57)** | Die aufwendigste Einstellung des Films. Dünne Linien in der Akzentfarbe, die sich **Zelle für Zelle selbst zeichnen** — erst einzeln lesbar, dann exponentiell schneller, bis der Frame zugewuchert ist (Ziel: >400 sichtbare Zellen). Kein Fade-in, kein Skalieren: das Raster **wächst**. Der Marker-Strich läuft in 8 Frames durch und nimmt das Raster **mit** (Wipe entlang des Strichs, kein Ausblenden). |
