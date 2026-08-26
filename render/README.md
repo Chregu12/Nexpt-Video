@@ -135,9 +135,26 @@ FCPXML kann es nicht.
 |---|---|
 | **Piper** (`scratchvo.py`) | läuft, offline, CPU. Frei nutzbar. **Standard.** |
 | **XTTS-v2** (`xttsvo.py`) | läuft, aber nur in einem eigenen venv — es ist mit der Whisper-Toolchain (transformers 5.x) nicht verträglich. **Coqui Public Model License: nicht kommerziell.** Nur als internes Timing-Muster. |
-| **Qwen3-TTS** | läuft hier **nicht**. Weder `transformers 5.16` noch git main kennen den Typ `qwen3_tts`; es bräuchte Qwens eigenen Inferenz-Stack. |
+| **Qwen3-TTS** (`qwenvo.py`) | lokal **nicht** lauffähig — weder `transformers 5.16` noch git main kennen den Typ `qwen3_tts`. **Über den offiziellen HF-Space aber schon**, auf GPU. Braucht ein kostenloses `HF_TOKEN`; anonym reicht die Quote für rund einen Aufruf. Schickt den Text an einen öffentlichen Dienst. |
 | **ElevenLabs** | echtes TTS, kommerziell nutzbar — braucht einen API-Schlüssel und schickt den Text an einen externen Dienst. |
 | *Whisper-Modelle* | **erzeugen keine Stimme.** Sie erkennen Sprache — siehe Synchronisation oben. |
+
+#### Qwen3-TTS über den Space
+
+```bash
+export HF_TOKEN=hf_...                    # huggingface.co/settings/tokens, Read genügt
+python3 render/qwenvo.py                  # fester Sprecher, über alle Zeilen gleich
+python3 render/qwenvo.py --speaker Dylan --size 0.6B
+python3 render/qwenvo.py --design         # Stimme aus einer Beschreibung
+```
+
+Drei Endpunkte stehen zur Verfügung: `generate_custom_voice` (neun feste Sprecher plus
+Regieanweisung), `generate_voice_design` (Stimme aus einer Beschreibung) und
+`generate_voice_clone`.
+
+**Für eine durchgehende Sprecherstimme den festen Sprecher nehmen.** `voice_design` erzeugt
+die Stimme bei jedem Aufruf neu — über 31 Zeilen kann sie abweichen. Die Regieanweisung ist
+dieselbe wie im Drehbuch: *trocken, wach, leicht amüsiert, kein Werbeton, kein Pathos.*
 
 **Voice Cloning** nur mit Einwilligung der sprechenden Person. `xttsvo.py --ref stimme.wav`
 klont aus etwa 30 Sekunden Referenz. Eine fremde Stimme aus einem fremden Film zu klonen und
