@@ -156,9 +156,29 @@ Regieanweisung), `generate_voice_design` (Stimme aus einer Beschreibung) und
 die Stimme bei jedem Aufruf neu — über 31 Zeilen kann sie abweichen. Die Regieanweisung ist
 dieselbe wie im Drehbuch: *trocken, wach, leicht amüsiert, kein Werbeton, kein Pathos.*
 
-**Voice Cloning** nur mit Einwilligung der sprechenden Person. `xttsvo.py --ref stimme.wav`
-klont aus etwa 30 Sekunden Referenz. Eine fremde Stimme aus einem fremden Film zu klonen und
-als eigene Markenstimme einzusetzen, ist keine Option.
+#### Eigene Stimme klonen
+
+```bash
+export HF_TOKEN=hf_...
+python3 render/qwenvo.py --ref meine-stimme.wav      # nutzt out/referenztext.txt
+python3 render/sync.py out/vo-klon.wav               # Animation darauf ziehen
+python3 render/render.py
+```
+
+**Qwen3-TTS steht unter Apache 2.0** und darf kommerziell verwendet werden — deshalb der
+Weg für den Messefilm. XTTS-v2 (`xttsvo.py --ref`) klont ebenfalls, ist aber nicht
+kommerziell lizenziert.
+
+Der Klon-Endpunkt braucht neben der Aufnahme den **exakten Wortlaut** der Referenz. Darum
+ist `out/referenztext.txt` aus dem echten Drehbuch gebaut: der Wortlaut steht fest, und die
+Stimme ist beim Einsprechen schon im richtigen Register.
+
+**Aufnahme:** ruhiger Raum ohne Hall, 15–25 cm Abstand, leicht seitlich sprechen, ~80
+Sekunden am Stück, Hochdeutsch (die Modelle können kein Schweizerdeutsch). Handy-Sprachmemo
+genügt.
+
+**Klonen nur mit Einwilligung der sprechenden Person.** Eine fremde Stimme aus einem fremden
+Film zu klonen und als eigene Markenstimme einzusetzen, ist keine Option.
 
 ### Scratch-Stimme
 
