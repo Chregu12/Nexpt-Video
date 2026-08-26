@@ -2,7 +2,7 @@
 
 **Konzept, Drehbuch und Produktionsplan**
 Stil-Referenz: Apple, *„Every product carbon neutral by 2030"* — **Frame-für-Frame analysiert**
-Einsatz: Messe- / Event-Keynote (Opener) · Laufzeit: **1:07** · Sprache: DE (EN-Fassung vorgesehen)
+Einsatz: Messe- / Event-Keynote (Opener) · Laufzeit: **1:14** · Sprache: DE (EN-Fassung vorgesehen)
 
 ---
 
@@ -124,56 +124,85 @@ Man kann nicht beides haben.
 
 Genau da setzt der Film sein „**NEIN.**" — an derselben Stelle, an der Apple „**MORE.**" setzt.
 
-Die Auflösung ist das UOMF-Modell: oben eure Sprache, unten **eine** kanonische Struktur
-(`goal → program → deliverable → work_package → action`). Die Freiheit ist echt, weil die
-Struktur darunter liegt und nicht darüber.
+### 3.3 Die zwei Beweise
+
+Nach dem „NEIN." muss der Film liefern. Er tut es mit zwei Belegen, die aufeinander aufbauen:
+
+**Beweis 1 — Der Übergang.** Ein Projekt endet. Die Arbeit nicht. Bei den meisten beginnt
+hier das zweite System: Export, Übertrag, neues Tool, neue Zugänge, neue Wahrheit. Bei NEXPT
+bleibt es **dasselbe Element** — es wechselt den Modus, nicht das System
+(`work_mode: change → run`). Das ist die stärkste einzelne Aussage des Films, weil jeder im
+Saal den Bruch kennt und niemand ihn je akzeptiert hat.
+
+**Beweis 2 — Die Korrektur.** Weil alle im selben Werkzeug arbeiten — Projekt und Betrieb,
+Fachbereich und IT — passiert jede Änderung **im Offenen**. Niemand muss Transparenz
+herstellen; sie ist da, weil niemand woanders arbeitet.
+
+> **Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.**
+
+### 3.4 Der Reim: die Form des Films *ist* die Aussage
+
+Das ist der Grund, warum ausgerechnet dieser Stil zu NEXPT passt — und nicht bloss eine
+hübsche Referenz ist:
+
+| Der Film macht das | Das Produkt macht das |
+|---|---|
+| sagt etwas, merkt dass es falsch war, korrigiert sich laut („Moment. Nein.") | Arbeit wird geändert, während alle zusehen |
+| der grüne Marker streicht durch und schreibt drüber | die Korrektur steht neben dem Original, nicht statt ihm |
+| die Korrektur ist sichtbar, nicht versteckt | Transparenz entsteht, weil niemand woanders arbeitet |
+
+**Der Marker ist deshalb kein Stilmittel, sondern die These.** Wer ihn im Design abschwächt,
+schwächt die Aussage. Bei 0:47 wird das explizit: dort korrigiert der Marker ein Wort im
+Bild, während der Sprecher über Korrekturen spricht.
 
 > ### Das Versprechen des Films
 > # „Arbeitet, wie ihr wollt. Wir behalten den Überblick."
 
-### 3.3 Der Aufbau — sechs Akte auf 67 Sekunden
+### 3.5 Der Aufbau — sieben Akte auf 1:14
 
 | TC | Akt | Was passiert |
 |---|---|---|
 | 0:00–0:11 | **Die Selbstkorrektur** | Der Film nennt das kleine Versprechen („ein Projekt-Tool"), verwirft es laut und ersetzt es durch das grosse: arbeitet, wie **ihr** wollt. |
 | 0:11–0:27 | **Die Freiheit** | Sprints, Phasen, Tickets, Fristen. Niemand muss sich umgewöhnen. Der Frame füllt sich mit **euren** Wörtern. |
 | 0:27–0:29 | **Der Einwand** | „Klingt nach Chaos." → **NEIN.** |
-| 0:29–0:43 | **Die Übersicht** | Darunter liegt ein Modell. Alles fliesst zusammen — ohne Export, ohne Doppelerfassung. |
-| 0:43–0:49 | **Der Gegner** | „Aber Struktur `^ALLEIN` ist keine Übersicht." Das Raster baut sich auf, füllt den Frame — und wird durchgestrichen. |
-| 0:49–1:07 | **Das Versprechen** | Keine Tabellen. `(auch nicht im UI)` Ihr seht, was ihr braucht, dort wo ihr seid. |
+| 0:29–0:34 | **Ein Modell** | Oben eure Sprache, unten eine Struktur. Fünf Stufen. |
+| 0:34–0:45 | **Der Übergang** *(Beweis 1)* | Das Projekt ist fertig — die Arbeit nicht. Dasselbe Element, neuer Modus, kein neues Tool. Alles läuft an einem Ort zusammen. |
+| 0:45–0:52 | **Die Korrektur** *(Beweis 2)* | Jemand ändert etwas — alle sehen es. Transparenz ist kein Bericht. |
+| 0:52–0:59 | **Der Gegner** | „Aber Struktur `^ALLEIN` ist keine Übersicht." Das Raster wuchert den Frame zu — und wird durchgestrichen. |
+| 0:59–1:14 | **Das Versprechen** | Keine Tabellen. `(auch nicht im UI)` Ihr seht, was ihr braucht, dort wo ihr seid. |
 
-### 3.4 Beat-für-Beat-Entsprechung zum Referenzfilm
+### 3.6 Beat-für-Beat-Entsprechung zum Referenzfilm
 
-| TC | Apple | NEXPT Work |
-|---|---|---|
-| 0:00 | „has a plan `^AND A PROMISE`" | „hat ein Versprechen `^UND EINE MEINUNG`" |
-| 0:03 | „carbon neutral —" *(Grün kippt mitten im Satz)* | „Arbeitet, wie wir es vorsehen —" *(kippt)* |
-| 0:04 | *wait. no.* ☑ „already done that" | *Moment. Nein.* ☑ „Das machen alle anderen." |
-| 0:07 | „every single product by **2030**" | „Arbeitet, wie **IHR** wollt." |
-| 0:10 | `(even yours)` | `(ja, auch ihr in der Buchhaltung)` |
-| 0:12 | „every ↗`iPHONE`" · „every ↗`MAC`" | „Ihr in ↗`SPRINTS`" · „Ihr in ↗`PHASEN`" |
-| 0:22 | Marker-Tannen füllen den Frame | Marker-**Vokabeln** füllen den Frame |
-| 0:28 | **`MORE.`** | **`NEIN.`** |
-| 0:31 | „it's also **HOW** they're made" | „unten ist **EINE** Struktur" |
-| 0:33 | Pfeile: distributors, assemblers | Pfeile: Tickets, Stunden, Fristen, Freigaben |
-| 0:39 | **`100%`** renewable energy | **`100%`** verbunden |
-| 0:43 | „But it's `^STILL` not enough" | „Aber Struktur `^ALLEIN` ist keine Übersicht" |
-| 0:47 | **`all`** of `YOU`? | **Das Raster** füllt den Frame |
-| 0:48.7 | `(This is a big one)` | **`(auch nicht im UI)`** |
-| 0:57 | „So `YOU'RE` a part of `THIS`" | „Arbeitet, wie ihr wollt." |
-| 1:03 | ` has a plan.` · `apple.com/2030` | `NEXPT hat eine Meinung.` · `nexpt.ch/work` |
+| Apple | NEXPT Work |
+|---|---|
+| „has a plan `^AND A PROMISE`" | „hat ein Versprechen `^UND EINE MEINUNG`" |
+| „carbon neutral —" *(Farbe kippt mitten im Satz)* | „Arbeitet, wie wir es vorsehen —" *(kippt)* |
+| *wait. no.* ☑ „already done that" | *Moment. Nein.* ☑ „Das machen alle anderen." |
+| „every single product by **2030**" | „Arbeitet so, wie **IHR** wollt." |
+| `(even yours)` | `(ja, auch ihr in der Buchhaltung)` |
+| „every ↗`iPHONE`" · „every ↗`MAC`" | „Ihr in ↗`SPRINTS`" · „Ihr in ↗`PHASEN`" |
+| Marker-Tannen fluten den Frame | Marker-**Vokabeln** fluten den Frame |
+| **`MORE.`** | **`NEIN.`** |
+| „it's also **HOW** they're made" | „unten ist **EINE** Struktur" |
+| Pfeile: distributors, assemblers | Pfeile: Tickets, Stunden, Fristen, Freigaben |
+| **`100%`** renewable energy | **`100%`** verbunden |
+| „But it's `^STILL` not enough" | „Aber Struktur `^ALLEIN` ist keine Übersicht" |
+| **`all`** of `YOU`? | **Das Raster** flutet den Frame |
+| `(This is a big one)` | **`(auch nicht im UI)`** |
+| „So `YOU'RE` a part of `THIS`" | „Also arbeitet, wie ihr wollt." |
+| ` has a plan.` · `apple.com/2030` | `NEXPT hat eine Meinung.` · `nexpt.ch/work` |
 
 ---
 
 ## 4. Drehbuch
 
 > **Regie:** Eine Stimme, wach, trocken, leicht amüsiert — **kein Werbeduktus, kein Pathos.**
-> Tempo hoch, ca. 115 Wörter/Minute. Nur drei Pausen: 0:04, 0:27, 0:44. Jede ist eine Pointe.
+> Tempo hoch, ca. 115 Wörter/Minute. Vier Pausen: 0:04, 0:27, 0:46, 0:52. Jede ist eine Pointe.
 > Schweizer Hochdeutsch, „ss" statt „ß".
 > **Notation:** `MARKER` = grüne Handschrift · `^` = Caret-Einfügung · **[ ]** = Bildanweisung
 
 ```
-━━━ AKT 1 — DIE SELBSTKORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ AKT 1 — DIE SELBSTKORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 0:00  [HELL]   NEXPT hat ein Versprechen.
                [Marker schreibt dazu:]   ^UND EINE MEINUNG.
@@ -182,19 +211,17 @@ Struktur darunter liegt und nicht darüber.
                Arbeitet so, wie wir es vorsehen —
 
 0:04  [SCHWARZ]   Moment.
-
 0:05  [SCHWARZ]   Nein.
-
 0:05  [SCHWARZ]   ☐ Das machen alle anderen.
                   ☑ Das machen ALLE ANDEREN.
 
 0:07  [AKZENT]  Arbeitet so,
-               wie  IHR  wollt.            [Marker-Unterstrich unter IHR]
+               wie  IHR  wollt.               [Marker-Unterstrich unter IHR]
 
 0:10  [SCHWARZ]  (ja, auch ihr in der Buchhaltung)
 
 
-━━━ AKT 2 — DIE FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ AKT 2 — DIE FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 0:11  [SCHWARZ]  Ihr plant in  ↗SPRINTS
 0:12  [SCHWARZ]  Ihr in  ↗PHASEN
@@ -211,15 +238,14 @@ Struktur darunter liegt und nicht darüber.
 
 0:22  [HELL]   Wir nennen es,
                wie  ihr  es nennt.
-               [Marker-Vokabeln poppen auf und fluten den ganzen Frame:
+               [Marker-Vokabeln fluten den Frame:
                 STORY · ARBEITSPAKET · TICKET · MANDAT · AUFTRAG · LOS ·
                 MASSNAHME · FALL · CHARGE · PENDENZ · …]
 
-0:25  [HELL]   Eure Wörter.
-                              ^NICHT UNSERE.
+0:25  [HELL]   Eure Wörter.        ^NICHT UNSERE.
 
 
-━━━ AKT 3 — DER EINWAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ AKT 3 — DER EINWAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 0:27  [SCHWARZ]  Klingt nach Chaos.
 
@@ -229,7 +255,7 @@ Struktur darunter liegt und nicht darüber.
                [riesig, handgeschrieben, formatfüllend]
 
 
-━━━ AKT 4 — DIE ÜBERSICHT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ AKT 4 — EIN MODELL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 0:29  [AKZENT]  Oben ist eure Sprache.
 
@@ -237,76 +263,103 @@ Struktur darunter liegt und nicht darüber.
                [fünf Zeilen rasten hart nacheinander ein:]
                Ziel · Programm · Ergebnis · Arbeitspaket · Aktion
 
-0:33  [HELL]   Hunderte von  →Tickets
-0:34  [HELL]                 →Stunden      →Fristen
-0:35  [HELL]                 →Freigaben    →Änderungen
+
+━━━ AKT 5 — DER ÜBERGANG  (Beweis 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+0:34  [SCHWARZ]  Und irgendwann ist das Projekt fertig.
+
+0:36  [SCHWARZ]  Die Arbeit  ^NICHT.
+
+0:37  [AKZENT]  Dasselbe Element.
+               [EIN Kärtchen, formatfüllend, Makro. Es bewegt sich nicht.]
+
+0:38  [AKZENT]  Neuer Modus.
+               [nur das Etikett wechselt:  PROJEKT  →  BETRIEB.
+                Der Rahmen bleibt exakt stehen — das ist die ganze Pointe.]
+
+0:39  [AKZENT]  ^KEIN NEUES TOOL.
+
+0:41  [HELL]   Hunderte von  →Tickets
+0:42  [HELL]                 →Stunden    →Fristen
+0:43  [HELL]                 →Freigaben  →Änderungen
                [Pfeile schiessen von allen Seiten auf die Mitte zu]
 
-0:37  [HELL]   Alles läuft an einem Ort zusammen.
-
-0:38  [B-ROLL: Bildschirm im Dunkeln, unscharf]   Ohne dass es  jemand  überträgt.
-
-0:39  [AKZENT]  100%                        [Marker-Strahlenkranz]
-0:40  [AKZENT]  verbunden.
-
-0:41  [AKZENT → SCHWARZ]
-               Kein Export.  Keine Kopie.   ^NULL DOPPELERFASSUNG.
+0:44  [AKZENT]  100%                             [Marker-Strahlenkranz]
+0:45  [AKZENT]  verbunden.     Kein Export.   ^NULL DOPPELERFASSUNG.
 
 
-━━━ AKT 5 — DER GEGNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ AKT 6 — DIE KORREKTUR  (Beweis 2) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:43  [SCHWARZ]  Aber Struktur  ^ALLEIN  ist noch keine Übersicht.
+0:46  [SCHWARZ]  Und wenn jemand etwas ändert?
+
+                 [Pause — 0.4 s]
+
+0:47  [SCHWARZ]  [der Marker streicht ein Wort im Bild durch
+                  und schreibt daneben ein neues — live, sichtbar]
+
+0:48  [SCHWARZ]  Sehen es alle.       ^SOFORT.
+
+0:50  [HELL]   Transparenz ist kein Bericht.
+
+0:51  [HELL]   Sie ist ein  Nebeneffekt.
+
+
+━━━ AKT 7 — DER GEGNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+0:52  [SCHWARZ]  Aber Struktur  ^ALLEIN  ist noch keine Übersicht.
 
                  [Pause — 0.5 s]
 
-0:45  [SCHWARZ]  Die meisten nennen Übersicht:
+0:54  [SCHWARZ]  Die meisten nennen Übersicht:
 
-0:46  [SCHWARZ]  eine Tabelle.
+0:55  [SCHWARZ]  eine Tabelle.
                [ein Raster beginnt sich zu zeichnen — Zelle für Zelle,
                 immer schneller, bis es den ganzen Frame ausfüllt]
 
-0:47  [SCHWARZ]  [nur noch Raster, hunderte Zellen, erdrückend]
+0:56  [SCHWARZ]  [nur noch Raster, hunderte Zellen, erdrückend]
 
-0:48  [SCHWARZ]  [ein einziger Marker-Strich fährt quer durch alles]
+0:57  [SCHWARZ]  [ein einziger Marker-Strich fährt quer durch alles
+                  und nimmt das Raster mit]
                  Bei uns gibt es keine.
 
-0:48.7 [AKZENT]  (auch nicht im UI)
+0:58  [AKZENT]  (auch nicht im UI)
                [winzig, mittig, auf leerem Farbfeld]
 
 
-━━━ AKT 6 — DAS VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ AKT 8 — DAS VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:49  [HELL]   Keine Spalten.
-0:50  [HELL]   Keine Filterzeile.
-0:51  [HELL]   Kein  „bitte hier eintragen".
+0:59  [HELL]   Keine Spalten.
+1:00  [HELL]   Kein  „bitte hier eintragen".
 
-0:53  [AKZENT]  Ihr seht, was ihr braucht.
+1:02  [AKZENT]  Ihr seht, was ihr braucht.
 
-0:55  [SCHWARZ]  Dort,  wo ihr  seid.        [Glow auf der letzten Zeile]
+1:04  [SCHWARZ]  Dort,  wo ihr  seid.          [Glow auf der letzten Zeile]
 
-0:57  [HELL]   Also arbeitet,
+1:06  [HELL]   Also arbeitet,
                wie  ihr  wollt.
 
-0:59  [HELL]   Wir behalten  ^DEN  Überblick.
+1:08  [HELL]   Wir behalten  ^DEN  Überblick.
 
-1:03  [HELL]   NEXPT hat eine Meinung.
+1:11  [HELL]   NEXPT hat eine Meinung.
 
-1:05  [HELL]   nexpt.ch/ work
+1:13  [HELL]   nexpt.ch/ work
 
-1:07  [HELL]   [Logo]  →  SCHWARZ
+1:14  [HELL]   [Logo]  →  SCHWARZ
 ```
 
-**Wortzahl: ca. 120 auf 67 s.** Das ist die gemessene Dichte des Referenzfilms. Wenn der
+**Wortzahl: ca. 135 auf 74 s.** Das ist die gemessene Dichte des Referenzfilms. Wenn der
 Text beim Einsprechen nicht knapp wird, ist er zu lang — dann kürzen, nicht langsamer sprechen.
 
-### 4.1 Die vier Momente, an denen der Film gewonnen oder verloren wird
+### 4.1 Die fünf Momente, an denen der Film gewonnen oder verloren wird
 
 | TC | Moment | Warum er trägt |
 |---|---|---|
 | **0:04** | *„Moment. Nein."* | Der Film gibt zu, dass er gerade das Falsche gesagt hat. Ab hier hört das Publikum anders zu — nicht wie bei einem Werbefilm, sondern wie bei jemandem, der nachdenkt. |
 | **0:28** | **`NEIN.`** | Beantwortet den Einwand, den das Publikum in dem Moment tatsächlich denkt. Ein Film, der den Zweifel ausspricht, bevor der Zuschauer ihn formulieren kann, gewinnt ihn. |
-| **0:46–0:48** | **Das Raster** | Der einzige echte Gänsehaut-Moment. Jeder im Saal hat diese Tabelle offen. Sie wächst, erdrückt — und ein Strich macht sie weg. Hier braucht es die beste Animation des ganzen Films. |
-| **0:48.7** | **`(auch nicht im UI)`** | Der schärfste Satz. Jedes Tool behauptet, kein Excel zu sein. Geflüstert, winzig, beiläufig — genau deshalb sitzt er. **Diese Zeile nicht laut sprechen und nicht vergrössern.** |
+| **0:38** | **Das Etikett wechselt, der Rahmen nicht** | Die ganze Projekt→Betrieb-Aussage in einer Einstellung. **Der Frame darf sich hier nicht bewegen** — keine Kamerafahrt, kein Schnitt, kein Skalieren. Nur das Etikett springt um. Bewegt sich sonst irgendetwas, ist die Pointe weg. |
+| **0:47** | **Der Marker korrigiert live** | Hier wird die Form des Films zur Aussage (Abschnitt 3.4). Der Strich muss echt aussehen — leicht schief, in einem Zug, mit Andruckvariation. Eine saubere Animation zerstört den Moment. |
+| **0:55–0:57** | **Das Raster** | Der Gänsehaut-Moment. Jeder im Saal hat diese Tabelle offen. Sie wächst, erdrückt — und ein Strich macht sie weg. Hier braucht es die beste Animation des ganzen Films. |
+| **0:58** | **`(auch nicht im UI)`** | Der schärfste Satz. Jedes Tool behauptet, kein Excel zu sein. Geflüstert, winzig, beiläufig — genau deshalb sitzt er. **Diese Zeile nicht laut sprechen und nicht vergrössern.** |
 
 ### 4.2 Was bewusst *nicht* vorkommt
 
@@ -317,6 +370,12 @@ Text beim Einsprechen nicht knapp wird, ist er zu lang — dann kürzen, nicht l
   Der Film verkauft eine Haltung, die Demo verkauft die Funktion.
 - **Kein Wettbewerber.** Der Gegner ist die Tabelle, nicht Jira. Ein benannter Wettbewerber
   macht den Film klein und angreifbar.
+- **Kein Organigramm.** Der Übergang Projekt→Betrieb wird an **einem** Element gezeigt,
+  nicht an einem Prozessdiagramm. Sobald Kästchen und Pfeile einen Ablauf erklären, ist es
+  ein Erklärvideo.
+
+---
+
 ## 5. Design-Spezifikation
 
 | Element | Vorgabe |
@@ -324,11 +383,13 @@ Text beim Einsprechen nicht knapp wird, ist er zu lang — dann kürzen, nicht l
 | **Palette** | Hell `#EDEDED` · Schwarz `#000000` · **Akzent: NEXPT-Markenfarbe** in der Sättigung von Apples `#00D759`. Genau drei Farben, sonst keine. |
 | **Akzentfarbe** | Die kritischste Einzelentscheidung. Sie muss auf Hell **und** Schwarz lesbar sein und darf nicht Apple-Grün sein — sonst wirkt der Film wie eine Kopie statt wie eine Verwandtschaft. Falls die Marke keinen tragfähigen Ton hergibt, dafür eine Signaturfarbe definieren. |
 | **Schrift 1 (offiziell)** | Eine geometrische Grotesk, ein Schnitt (Medium), sehr enger Zeilenabstand. |
-| **Schrift 2 (Marker)** | Handgeschrieben, roh, Versalien, leicht schräg. **Echt geschrieben und vektorisiert**, keine Font-Imitation — der Unterschied ist auf der Leinwand sofort sichtbar. |
+| **Schrift 2 (Marker)** | Handgeschrieben, roh, Versalien, leicht schräg. **Echt geschrieben und vektorisiert**, keine Font-Imitation — der Unterschied ist auf der Leinwand sofort sichtbar. Der Marker trägt hier die These (3.4), nicht nur den Stil. |
 | **Bewegung** | Wörter erscheinen hart, ohne Fade. Marker-Elemente werden **gezeichnet** (Strich läuft in 6–10 Frames durch). Hintergrundwechsel = harter Cut auf den Beat, nie eine Blende. |
-| **Satz** | Immer zentriert, immer eine Zeile, ausser bei bewusst versetzten Wörtern („es ist auch, **WIE**…"). Nie mehr als 6 Wörter gleichzeitig. |
+| **Satz** | Immer zentriert, immer eine Zeile, ausser bei bewusst versetzten Wörtern. Nie mehr als 6 Wörter gleichzeitig. |
 | **B-Roll** | Genau **drei bis vier** Einstellungen, je ~1 s, Makro, hart geschnitten, immer mit einem einzigen Wort darüber. Entweder selbst gedreht (halber Tag) oder Stock. |
-| **Das Raster (0:46–0:48)** | Die aufwendigste Einstellung des Films und sein Höhepunkt. Dünne Linien in der Akzentfarbe, die sich **Zelle für Zelle selbst zeichnen** — erst einzeln lesbar, dann exponentiell schneller, bis der Frame zugewuchert ist (Ziel: >400 sichtbare Zellen). Kein Fade-in, kein Skalieren: das Raster **wächst**. Der Marker-Strich, der es durchstreicht, läuft in 8 Frames durch und nimmt das Raster **mit** (Wipe entlang des Strichs, kein Ausblenden). |
+| **Das Element (0:37–0:39)** | Ein einzelnes Kärtchen, formatfüllend, Makro, **absolut statisch**. Nur das Etikett `PROJEKT` → `BETRIEB` springt um, ohne Übergang. Alles andere im Frame — Position, Grösse, Inhalt, sogar ein Textcursor — bleibt bitgenau gleich. Die Aussage entsteht aus dem, was sich **nicht** bewegt. |
+| **Die Live-Korrektur (0:47)** | Der Marker streicht ein Wort durch und schreibt ein neues daneben. Das alte bleibt lesbar — es wird nicht ersetzt, es wird **kommentiert**. In einem Zug gezeichnet, leicht schief, mit Andruckvariation. |
+| **Das Raster (0:55–0:57)** | Die aufwendigste Einstellung des Films. Dünne Linien in der Akzentfarbe, die sich **Zelle für Zelle selbst zeichnen** — erst einzeln lesbar, dann exponentiell schneller, bis der Frame zugewuchert ist (Ziel: >400 sichtbare Zellen). Kein Fade-in, kein Skalieren: das Raster **wächst**. Der Marker-Strich läuft in 8 Frames durch und nimmt das Raster **mit** (Wipe entlang des Strichs, kein Ausblenden). |
 | **Die Vokabelflut (0:22–0:25)** | Entspricht Apples Tannen, die den Frame fluten. 30–40 Marker-Vokabeln in unterschiedlichen Grössen und Winkeln, die nacheinander aufpoppen und den Frame füllen. Mindestens fünf davon aus Branchen, die niemand im Saal erwartet — das ist die Pointe. |
 | **Bühnenformat** | Master 16:9 · Ultrawide-Fassung 32:9 für LED-Wände: Weissraum verbreitern, **Typo nicht skalieren**. |
 
@@ -337,15 +398,17 @@ Text beim Einsprechen nicht knapp wird, ist er zu lang — dann kürzen, nicht l
 ## 6. Ton
 
 - **Voice-Over** trägt den Film. Casting ist wichtiger als die Musik: gesucht ist eine Stimme,
-  die trocken und schnell sprechen kann, ohne zu hetzen — und die „Moment. Nein." glaubwürdig sagt — und `(auch nicht im UI)` beiläufig,
-  fast zu leise, hinwerfen kann, ohne die Pointe anzukündigen.
-- **Musikbett** durchgehend, treibend, ohne Drop. Es hört an den drei Pausen (0:04, 0:27, 0:44)
-  **nicht** auf, sondern dünnt aus. Beim Raster-Aufbau (0:46) baut es Druck auf; der Marker-Strich
-  bei 0:48 nimmt Musik **und** Raster gleichzeitig weg — eine halbe Sekunde fast nichts. Komposition kaufen, nicht lizenzieren.
+  die trocken und schnell sprechen kann, ohne zu hetzen — die „Moment. Nein." glaubwürdig sagt
+  und `(auch nicht im UI)` beiläufig, fast zu leise, hinwirft, ohne die Pointe anzukündigen.
+- **Musikbett** durchgehend, treibend, ohne Drop. Es hört an den vier Pausen (0:04, 0:27, 0:46,
+  0:52) **nicht** auf, sondern dünnt aus. Beim Raster-Aufbau (0:55) baut es Druck auf; der
+  Marker-Strich bei 0:57 nimmt Musik **und** Raster gleichzeitig weg — eine halbe Sekunde
+  fast nichts. Komposition kaufen, nicht lizenzieren.
 - **Mix:** −16 bis −18 LUFS integriert, stark komprimiert (Referenz: LRA 4.3 LU). Auf der Messe
   gegen Hallenlärm mischen — Dynamik ist hier keine Tugend.
 - **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
-  trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms.
+  trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms. Der Etikettwechsel bei 0:38
+  bekommt **ein einziges** Klicken — sonst nichts.
 - **Stand-Loop-Fassung:** ohne Ton, mit Untertiteln, **Standzeiten +40 %**. Bei 0.46 s pro
   Änderung ist der Film ohne Sprecher sonst nicht lesbar.
 
@@ -362,41 +425,44 @@ deutlich günstiger als ein cinematischer Film.
 |---|---|---|
 | Copywriting / Feinschliff Drehbuch | 2–3 Tage | CHF 2–4k |
 | Design-Frames (10–12 Keyframes zur Freigabe) | 3–4 Tage | CHF 3–5k |
-| Animation (67 s, ~150 Änderungen) | 10–15 Tage | CHF 8–14k |
-| Raster-Sequenz 0:46–0:48 (der Höhepunkt, separat kalkuliert) | 2–3 Tage | CHF 1.5–3k |
+| Animation (74 s, ~170 Änderungen) | 12–16 Tage | CHF 9–16k |
+| Raster-Sequenz 0:55–0:57 (der Höhepunkt, separat kalkuliert) | 2–3 Tage | CHF 1.5–3k |
 | Marker-Assets (echt geschrieben, vektorisiert) | 1 Tag | CHF 0.8–1.5k |
 | B-Roll (3–4 Makro-Einstellungen) | ½ Drehtag **oder** Stock | CHF 0.5–3k |
 | Voice-Over DE + EN | 1 Studiotag | CHF 1.5–3k |
 | Musik (Komposition) + Sounddesign + Mix | — | CHF 2.5–5k |
-| **Total** | **5–7 Wochen** | **CHF 18–35k** |
+| **Total** | **5–7 Wochen** | **CHF 21–40k** |
 
 ¹ Richtwerte Schweizer Markt, Schätzung meinerseits — kein Angebot.
 
 **Sparvariante:** Stock-B-Roll statt Dreh, nur DE-Fassung, Musik lizenziert statt komponiert
-→ ca. CHF 10–15k. Die Musik ist dabei der schmerzhafteste Verzicht.
+→ ca. CHF 12–18k. Die Musik ist dabei der schmerzhafteste Verzicht.
 
 ### Ablauf
 
 1. **Akzentfarbe festlegen** — blockiert alles Weitere.
-2. **Drehbuch freigeben**, insbesondere die vier tragenden Momente aus Abschnitt 4.1:
-   die Selbstkorrektur (0:04), das `NEIN.` (0:28), das Raster (0:46) und `(auch nicht im UI)` (0:48.7).
-3. **Scratch-VO** selbst einsprechen und die Länge prüfen. Bei über 70 s: kürzen, nicht langsamer sprechen.
-4. **10–12 Design-Frames** zur Freigabe — nicht das ganze Storyboard. Die Raster-Sequenz
-   als eigener Test vorab: sie entscheidet, ob der Film funktioniert.
+2. **Drehbuch freigeben**, insbesondere die fünf tragenden Momente aus Abschnitt 4.1:
+   die Selbstkorrektur (0:04), das `NEIN.` (0:28), der Etikettwechsel (0:38), die Live-Korrektur
+   (0:47) und das Raster (0:55) mit `(auch nicht im UI)`.
+3. **Scratch-VO** selbst einsprechen und die Länge prüfen. Bei über 78 s: kürzen, nicht
+   langsamer sprechen.
+4. **10–12 Design-Frames** zur Freigabe — nicht das ganze Storyboard. Raster-Sequenz und
+   Etikettwechsel vorab als eigene Tests: sie entscheiden, ob der Film funktioniert.
 5. **Animatic** auf dem Scratch-VO.
 6. **VO final einsprechen**, dann Animation auf die finale Sprachspur.
 7. **Musik und Sounddesign parallel** zur Animation briefen, nicht danach.
-8. **Exporte:** Keynote-Master 16:9 · Ultrawide 32:9 · Stand-Loop stumm mit Untertiteln · EN-Fassung · Social 1:1 und 9:16.
+8. **Exporte:** Keynote-Master 16:9 · Ultrawide 32:9 · Stand-Loop stumm mit Untertiteln ·
+   EN-Fassung · Social 1:1 und 9:16.
 
 ### Für die Bühne
 
 - Der Film ist der **Opener**, vor dem ersten gesprochenen Wort. Nicht anmoderieren.
 - Er endet **hart auf Schwarz** nach der URL. In diese Stille hinein die Bühne betreten und
-  den Faden aufnehmen: *„Wir haben tatsächlich einen Plan. Ich zeige ihn Ihnen."*
+  den Faden aufnehmen: *„Wir haben tatsächlich eine Meinung. Ich zeige sie Ihnen."*
 - Saallicht während des Films auf null — der Film lebt vom Wechsel Hell/Schwarz, bei
   Restlicht bricht der Kontrast weg.
 - Ton über die Saal-PA, nicht über die Leinwandlautsprecher.
-- **67 Sekunden sind ideal für einen Keynote-Opener.** Nicht der Versuchung nachgeben,
+- **74 Sekunden sind ideal für einen Keynote-Opener.** Nicht der Versuchung nachgeben,
   ihn auf drei Minuten zu strecken.
 
 ---
@@ -410,18 +476,21 @@ deutlich günstiger als ein cinematischer Film.
 | 1 | **Akzentfarbe** | Trägt die halbe Identität des Films — und hier zusätzlich das Raster und jeden Marker-Strich. Muss auf Hell **und** Schwarz lesbar sein und darf nicht Apple-Grün sein, sonst liest sich der Film als Kopie statt als Verwandtschaft. |
 | 2 | **Der Ton** | Das Drehbuch ist frech: es widerspricht sich selbst, sagt „Nein", flüstert eine Spitze gegen den halben Markt. Der Stil funktioniert **nur ganz oder gar nicht** — ein entschärfter Witz ist schlechter als kein Witz. |
 | 3 | **`(auch nicht im UI)`** | Die schärfste Zeile des Films und eine überprüfbare Behauptung. Wenn irgendwo in NEXPT Work eine tabellarische Ansicht steckt, wird jemand am Stand danach fragen. Entweder ihr steht dazu — oder die Zeile wird zu `(auch nicht in der Oberfläche, in der ihr arbeitet)`. |
-| 4 | **Schluss-URL** | `nexpt.ch/work` ist im Drehbuch ein Platzhalter; die Domain löst aktuell nicht auf. Der Film endet auf dieser Adresse — sie muss am Messetag live sein und die Aussage des Films einlösen. |
+| 4 | **Der Etikettwechsel (0:38)** | Wie heissen die beiden Modi in der Oberfläche, die ihr am Stand zeigt? Der Film schreibt `PROJEKT → BETRIEB`; das sollten dieselben Wörter sein, die die Demo verwendet. |
+| 5 | **Schluss-URL** | `nexpt.ch/work` ist im Drehbuch ein Platzhalter; die Domain löst aktuell nicht auf. Der Film endet auf dieser Adresse — sie muss am Messetag live sein und die Aussage des Films einlösen. |
 
 ### 8.2 Zahlen und Belege — von dir
 
-Der Film macht vier überprüfbare Aussagen. Apples Wirkung beruht darauf, dass jede stimmt.
+Der Film macht sechs überprüfbare Aussagen. Apples Wirkung beruht darauf, dass jede stimmt.
 
 | TC | Aussage | Zu klären |
 |---|---|---|
 | 0:16 | „Niemand muss sich umgewöhnen. `^NIEMAND.`" | Wie viele Methodiken laufen heute live nebeneinander? Die Zahl kann die Zeile ersetzen, wenn sie gut ist. |
 | 0:22 | Vokabelflut | Welche Branchen-Vokabulare sind wirklich geseedet? Die Flut sollte nur echte enthalten. |
-| 0:39 | **`100%`** verbunden | Belastbar? Sonst durch eine Systemzahl ersetzen (Anzahl zusammengeführter Quellen, Services). |
-| 0:41 | `^NULL DOPPELERFASSUNG` | Der stärkste und angreifbarste Satz. Falls nicht belegbar: **streichen, nicht abschwächen.** Eine relativierte Absolutaussage wirkt schlechter als gar keine. |
+| **0:38** | **„Dasselbe Element. Neuer Modus. `^KEIN NEUES TOOL.`"** | **Der wichtigste Beleg des Films.** Laut `UOMF-DOMAIN-FIT.md` läuft Betriebsarbeit (ITIL, Treuhand) heute noch über ein zweites Case-Modell **neben** dem UOMF-Kern. Wenn der Übergang am Messetag nicht an einem echten Element vorführbar ist, muss die Zeile in die Zukunftsform: „Die Arbeit wechselt den Modus. `^NICHT DAS SYSTEM.`" — das verspricht die Richtung statt den erreichten Zustand. |
+| 0:45 | **`100%`** verbunden · `^NULL DOPPELERFASSUNG` | Der stärkste und angreifbarste Satz. Falls nicht belegbar: **streichen, nicht abschwächen.** Eine relativierte Absolutaussage wirkt schlechter als gar keine. |
+| 0:48 | „Sehen es alle. `^SOFORT.`" | Ist die Änderung wirklich sofort bei allen sichtbar (Realtime), oder erst nach Reload? Der Film sagt „sofort" — die Demo muss das aushalten. |
+| 0:58 | `(auch nicht im UI)` | siehe 8.1, Punkt 3. |
 
 Wenn belastbare Kundenzahlen fehlen: lieber eine Systemzahl aus der Plattform als eine
 geschätzte Marktzahl. Eine unbelegte Zahl auf der Leinwand kostet genau das Vertrauen,
@@ -435,11 +504,14 @@ erzeugt genau die Fragen, die die Demo beantwortet.
 1. **Wie sieht „keine Tabelle" konkret aus?** → erster Screen der Demo.
 2. **Wie behaltet ihr wirklich die Übersicht, wenn alle anders arbeiten?** → die fünf
    kanonischen Stufen, einmal an einem echten Beispiel durchgezogen.
-3. **Und wenn das Projekt in den Betrieb geht?** → der Moduswechsel am selben Item.
+3. **Und der Übergang Projekt→Betrieb?** → derselbe Datensatz, den der Film bei 0:38 zeigt,
+   live umgeschaltet. **Diese eine Demo muss sitzen** — sie ist die Einlösung des stärksten
+   Versprechens im Film.
 
 ### 8.4 Was ich noch brauche
 
 - NEXPT Brand-Assets: Schrift, Farben, Logo-Sperrzone.
 - Messe, Datum, Leinwandmasse und Seitenverhältnis.
 - Die echten Branchen-Vokabulare für die Flut bei 0:22.
-- Freigabe des Tons (Punkt 2 oben) — das blockiert am meisten.
+- Die Modus-Bezeichnungen aus der Oberfläche für 0:38.
+- Freigabe des Tons (8.1, Punkt 2) — das blockiert am meisten.
