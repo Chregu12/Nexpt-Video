@@ -1,0 +1,43 @@
+SPRECHERTEXT — NEXPT Keynote-Film, 2:19
+==========================================================
+
+Regie: trocken, wach, leicht amuesiert. Kein Werbeton, kein Pathos.
+Zuegig sprechen, ca. 115 Woerter pro Minute. Punkte sind echte Pausen.
+Vier lange Pausen: nach 'Nein.', nach 'Ein Chaos?', vor 'Sehen es alle'
+und vor 'Die meisten nennen Uebersicht'.
+
+[0:00.00]  NEXPT hat ein Versprechen. Und eine Meinung.
+[0:03.20]  Arbeitet so, wie wir es vorsehen —
+[0:05.70]  Moment. Nein. Das machen alle anderen.
+[0:08.90]  Arbeitet so, wie ihr wollt.
+[0:12.30]  (ja, auch ihr in der Buchhaltung)
+[0:13.70]  Ihr plant in Sprints. Ihr in Phasen. Ihr in Tickets. Ihr in Fristen. Ihr in Schichten. Ihr in Etappen.
+[0:21.70]  Niemand muss sich umgewöhnen. Niemand.
+[0:24.30]  (kein Text — drei Makro-Einstellungen)
+[0:28.90]  Wir nennen es, wie ihr es nennt.
+[0:32.90]  Eure Wörter. Nicht unsere.
+[0:35.50]  Und eure Reihenfolge. Eure Regeln. Euer Tempo.
+[0:39.50]  Weil hier nicht das Projekt arbeitet. Sondern Menschen.
+[0:44.10]  Die Bauleiterin sieht ihre Etappe. Der Servicetechniker sein Ticket. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.
+[0:53.10]  (das ist der Trick)
+[0:54.70]  Vier Sichtweisen. Ein Chaos?
+[0:57.30]  NEIN.
+[0:58.90]  Oben ist eure Sprache. Unten ist ein Standard.
+[1:05.50]  Fünf Stufen. Mehr braucht Arbeit nicht. Egal ob Bau, Betrieb oder Buchhaltung — darunter liegt dasselbe Modell.
+[1:12.97]  Und irgendwann ist das Projekt fertig. Die Arbeit nicht.
+[1:16.57]  Dasselbe Element. Neuer Modus. Kein neues Tool.
+[1:21.77]  Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.
+[1:27.10]  Hundert Prozent verbunden. Kein Export. Null Doppelerfassung.
+[1:31.17]  Und wenn jemand etwas ändert?
+[1:33.97]  Sehen es alle. Sofort.
+[1:36.57]  Keine Rundmail. Kein Statusbericht. Kein Nachfragen.
+[1:41.17]  Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.
+[1:44.50]  Aber Struktur allein ist noch keine Übersicht.
+[1:47.10]  Die meisten nennen Übersicht: eine Tabelle.
+[1:51.70]  Fünf Dateien. Eine Wahrheit. Und niemand weiss, welche.
+[1:57.30]  Bei uns gibt es keine.
+[1:59.70]  (auch nicht im UI)
+[2:01.30]  Keine Spalten. Kein bitte hier eintragen.
+[2:04.70]  Ihr seht, was ihr braucht. Dort, wo ihr seid.
+[2:09.30]  Also arbeitet, wie ihr wollt. Wir behalten den Überblick.
+[2:14.70]  NEXPT hat eine Meinung.
