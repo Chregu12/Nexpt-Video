@@ -29,30 +29,34 @@ sh render/mischen.sh                     # Stimme, Musik, Effekte → out/ton-fi
 
 ## Ton aus denselben Daten wie das Bild
 
-`sounddesign.py` liest `timing.json` und legt jedes Geräusch **auf den Frame, auf dem im
-Bild etwas passiert**:
+`sounddesign.py` erzeugt Bett und Akzente aus `timing.json`. Die Gestaltung folgt der
+**Messung des Referenzfilms**, nicht der Vermutung:
 
-| Ereignis | Geräusch |
+| gemessen an `apple.wav` (75.8 s) | Ergebnis |
 |---|---|
-| Hintergrundwechsel | tiefer Schlag + Klick |
-| Marker, Unterstrich, Doodle | rauer Stiftzug, nimmt zum Ende hin zu |
-| Text-Chunk | winziger Anschlag |
-| Rasteraufbau | 26 Ticks, exponentiell schneller |
-| Strich quer durchs Raster | Whoosh |
-| Etikettwechsel `PROJEKT → BETRIEB` | **ein** Klick, sonst nichts |
-| Checkbox, Stufen, Dateistapel | Klick je Element |
+| Energie an 15 Bildschnitten | Median **0.80× / 0.50× / 0.52×** (Sub/Mitten/Höhen) — sie *fällt*. Nur 2 von 15 tragen einen Anschlag, beide auf B-Roll-Schnitten (Originalton). **Kein Sounddesign auf Bildereignissen.** |
+| Periodizität Sub 25–90 Hz | 0.355 bei 182 BPM = Sprachsilben |
+| Periodizität 3–9 kHz | **0.062 — kein Hut, kein Kick, kein Schlagzeug** |
+| leiseste Fenster (−41 dB) | Dauerton **156–160 Hz (Es3)**, dazu 124 Hz (H2), 52 Hz (Gis1) → getragene **Fläche** |
+| Spektrale Neigung | Sub 57, Bass 59, Tiefmitten 55, Mitten 47, Höhen 39, Luft 30 dB |
+| Schluss | bei 68.0 s **absolute digitale Stille**, kein Ausklang |
 
-An den fünf Halte-Beats zieht sich alles auf 18 % zurück — dort ist die Stille das Ereignis.
+Daraus: eine leise, getragene Fläche, die je Akt die Tonart wechselt — **ohne Puls, ohne
+Percussion**. Effekte nur als seltene Akzente:
 
-Das Musikbett ist ein Puls ohne Drop: Sub auf 1 und 3, Hut auf den Achteln, darüber eine
-Fläche, die je Akt die Tonart wechselt und über den Film Schicht für Schicht wächst. Die
-Stimme drückt die Musik per Sidechain weg.
+```bash
+python3 render/sounddesign.py              # drei Akzente (NEIN., Raster, Etikettwechsel)
+python3 render/sounddesign.py --sfx none   # ganz ohne — Apples Fassung
+python3 render/sounddesign.py --sfx full   # die alte, dichte Fassung zum Vergleich
+```
 
-**Temp-Track, kein Endprodukt.** Für den Film gehört eine Komposition gekauft — ein
-generierter Puls trägt keine 2:19. Aber er sitzt frame-genau auf dem Bild und zeigt, wie
-der Film klingen soll.
+`mischen.sh` mischt auf **−17 LUFS**. Drei Filter nähern die Frequenzneigung an; bewusst
+moderat, weil der Bassüberschuss von der Sprecherstimme kommt (Grundtöne 100–250 Hz) und
+sich nicht wegfiltern lässt, ohne sie dünn zu machen. Ab den Mitten aufwärts liegt die
+Abweichung bei 1.5–3.8 dB.
 
-`mischen.sh` mischt auf **−17 LUFS, LRA ~4.5** — die gemessenen Werte des Referenzfilms.
+**Die Musik des Referenzfilms wird nicht kopiert** — sie ist eine geschützte Komposition.
+Nachgebaut ist ihr Charakter, gemessen statt geraten.
 
 ## Vor jeder Abnahme: `pruefen.py`
 
