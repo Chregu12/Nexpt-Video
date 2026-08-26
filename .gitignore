@@ -3,3 +3,6 @@ out/scenes/
 out/_frames/
 # Piper-Stimmmodelle (~200 MB) — mit render/voices/get-voices.sh laden
 render/voices/*.onnx
+
+# Download-Paket: bündelt nur, was ohnehin im Repo liegt — mit paket.sh neu bauen
+out/*.zip
