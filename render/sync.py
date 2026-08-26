@@ -5,6 +5,9 @@ Zieht die Animation auf die AUFGENOMMENE Stimme.
 Das ist der Ersatz für stundenlanges Schieben in Final Cut. Zwei Wege:
 
   python3 sync.py vo.wav               Wort-Zeitstempel per Whisper, Text abgleichen  (bester Audio-Weg)
+  python3 sync.py vo.wav --model de    deutsch feinabgestimmt (Standard, falls vorhanden)
+  python3 sync.py vo.wav --model ch    Schweizerdeutsch
+  python3 sync.py vo.wav --model small generisch, klein, ohne Zusatzmodell
   python3 sync.py vo.wav --silence     nur Sprachpausen messen (ohne Whisper)
   python3 sync.py vo.wav --gap 0.4     Mindestpause selbst vorgeben statt suchen lassen
   python3 sync.py Projekt.fcpxml       zurücklesen, wie du in FCP geschoben hast
@@ -85,8 +88,24 @@ def whisper_align(path, scenes):
     unabhaengig davon, wo der Sprecher Luft geholt hat."""
     from faster_whisper import WhisperModel
     import difflib
-    size = next((sys.argv[i+1] for i, a in enumerate(sys.argv) if a == "--model"), "small")
-    print(f"Whisper ({size}, CPU) hoert zu …")
+    # Kurzformen auf die lokal konvertierten Modelle; sonst der Name direkt.
+    ALIAS = {"de":   ("asr/whisper-de-turbo",  "whisper-large-v3-turbo-german"),
+             "de-l": ("asr/whisper-de-large",  "whisper-large-v3-german"),
+             "ch":   ("asr/whisper-ch",        "flix-swissgerman-full")}
+    want = next((sys.argv[i+1] for i, a in enumerate(sys.argv) if a == "--model"), None)
+    if want is None:                      # ohne Angabe: deutsches Modell, sonst small
+        want = "de" if (ROOT / ALIAS["de"][0]).exists() else "small"
+    if want in ALIAS:
+        mdir, label = ALIAS[want]
+        if not (ROOT / mdir).exists():
+            print(f"  {label} nicht vorhanden — sh asr/get-modelle.sh {want}")
+            print("  weiche auf 'small' aus")
+            size, label = "small", "small (generisch)"
+        else:
+            size = str(ROOT / mdir)
+    else:
+        size, label = want, want
+    print(f"Whisper ({label}, CPU) hoert zu …")
     model = WhisperModel(size, device="cpu", compute_type="int8")
     segs, _ = model.transcribe(str(path), language="de",
                                word_timestamps=True, vad_filter=True)
