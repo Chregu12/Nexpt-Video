@@ -2,7 +2,7 @@
 
 **Konzept, Drehbuch und Produktionsplan**
 Stil-Referenz: Apple, *„Every product carbon neutral by 2030"* — **Frame-für-Frame analysiert**
-Einsatz: Messe- / Event-Keynote (Opener) · Laufzeit: **1:14** · Sprache: DE (EN-Fassung vorgesehen)
+Einsatz: Messe- / Event-Keynote (Opener) · Laufzeit: **2:19** · Sprache: DE (EN-Fassung vorgesehen)
 
 ---
 
@@ -82,7 +82,7 @@ Wer diese Regeln befolgt, trifft den Film. Wer eine davon bricht, dreht ein Erkl
 | **8** | **Marker-Doodles statt Icons.** Handgezeichnetes iPhone, Tannen, Fabrik, Weltkugel, Pfeile, Strahlenkranz. Roh, nicht vektorsauber. |
 | **9** | **Ein Wort als ganzes Bild.** `MORE.` · `all` · `100%` · `zero-waste`. |
 | **10** | **B-Roll nur als Beweisstück.** Vier Einstellungen in 67 s, je ~1 s, immer mit genau einem Wort darüber. Nie als Stimmungsbild. |
-| **11** | **Tempo: alle 0.46 s eine Änderung, alle 2.5 s ein Schnitt.** Wird es langsamer, kippt der Film in Pathos. |
+| **11** | **Tempo: alle 0.46 s eine Änderung, alle 2.5 s ein Schnitt.** Wird es langsamer, kippt der Film in Pathos. **Das ist die Regel, die am leichtesten verletzt wird** — siehe Abschnitt 9. |
 | **12** | **Der Film spricht das Publikum an.** „of `YOU`?" · „So `YOU'RE` a part of `THIS`." Ab der zweiten Hälfte ist der Zuschauer die Hauptfigur. |
 | **13** | **Schluss ist eine URL.** Kein Claim, keine Logowand. Ein Satz, eine Adresse, Logo, Schwarz. |
 
@@ -162,18 +162,29 @@ Bild, während der Sprecher über Korrekturen spricht.
 > ### Das Versprechen des Films
 > # „Arbeitet, wie ihr wollt. Wir behalten den Überblick."
 
-### 3.5 Der Aufbau — sieben Akte auf 1:14
+### 3.5 Der Aufbau — zehn Akte auf 2:19
 
-| TC | Akt | Was passiert |
+| TC | Akt | Szenen |
 |---|---|---|
-| 0:00–0:11 | **Die Selbstkorrektur** | Der Film nennt das kleine Versprechen („ein Projekt-Tool"), verwirft es laut und ersetzt es durch das grosse: arbeitet, wie **ihr** wollt. |
-| 0:11–0:27 | **Die Freiheit** | Sprints, Phasen, Tickets, Fristen. Niemand muss sich umgewöhnen. Der Frame füllt sich mit **euren** Wörtern. |
-| 0:27–0:29 | **Der Einwand** | „Klingt nach Chaos." → **NEIN.** |
-| 0:29–0:34 | **Ein Modell** | Oben eure Sprache, unten eine Struktur. Fünf Stufen. |
-| 0:34–0:45 | **Der Übergang** *(Beweis 1)* | Das Projekt ist fertig — die Arbeit nicht. Dasselbe Element, neuer Modus, kein neues Tool. Alles läuft an einem Ort zusammen. |
-| 0:45–0:52 | **Die Korrektur** *(Beweis 2)* | Jemand ändert etwas — alle sehen es. Transparenz ist kein Bericht. |
-| 0:52–0:59 | **Der Gegner** | „Aber Struktur `^ALLEIN` ist keine Übersicht." Das Raster wuchert den Frame zu — und wird durchgestrichen. |
-| 0:59–1:14 | **Das Versprechen** | Keine Tabellen. `(auch nicht im UI)` Ihr seht, was ihr braucht, dort wo ihr seid. |
+| 0:00.0–0:13.7 | **Selbstkorrektur** | 5 |
+| 0:13.7–0:39.5 | **Freiheit** | 6 |
+| 0:39.5–0:54.7 | **Die Leute** | 3 |
+| 0:54.7–0:58.9 | **Einwand** | 2 |
+| 0:58.9–1:05.5 | **Ein Modell** | 1 |
+| 1:05.5–1:13.0 | **Ein Standard** | 1 |
+| 1:13.0–1:31.2 | **Übergang** | 4 |
+| 1:31.2–1:44.5 | **Korrektur** | 4 |
+| 1:44.5–2:01.3 | **Gegner** | 5 |
+| 2:01.3–2:18.7 | **Versprechen** | 4 |
+
+**Zur Länge.** Der Referenzfilm ist 1:07. Auf 2:19 kommt man **nicht durch Dehnen** — das
+kippt den Stil sofort ins Pathos, das er gerade vermeidet. Die doppelte Länge ist doppelter
+Film: zwei zusätzliche Akte (*Die Leute*, *Der Dateistapel*), sechs Arbeitsweisen statt vier,
+und ein Gegner, der endlich Gewicht bekommt. 229 Wörter statt 158.
+
+**Der zweite Atem.** Ein Film über zwei Minuten braucht einen Mittelpunkt, an dem er kippt.
+Das ist das **`NEIN.`** bei 0:57 — es sitzt jetzt genau in der Mitte, nicht mehr bei 40 %.
+Davor: alle arbeiten anders. Danach: und trotzdem sieht man alles.
 
 ### 3.6 Beat-für-Beat-Entsprechung zum Referenzfilm
 
@@ -200,161 +211,198 @@ Bild, während der Sprecher über Korrekturen spricht.
 
 ## 4. Drehbuch
 
+> **Automatisch erzeugt aus `render/timing.json`** — Dokument und gerenderter Film können
+> nicht auseinanderlaufen. Neu erzeugen mit `python3 render/drehbuch.py`.
+>
 > **Regie:** Eine Stimme, wach, trocken, leicht amüsiert — **kein Werbeduktus, kein Pathos.**
-> Tempo hoch, ca. 115 Wörter/Minute. Vier Pausen: 0:04, 0:27, 0:46, 0:52. Jede ist eine Pointe.
-> Schweizer Hochdeutsch, „ss" statt „ß".
-> **Notation:** `MARKER` = grüne Handschrift · `^` = Caret-Einfügung · **[ ]** = Bildanweisung
+> Schweizer Hochdeutsch, „ss" statt „ß". `^` = Caret-Einfügung des grünen Markers.
+
+**2:18.7 · 35 Szenen · 229 Wörter · 99 Wörter/Minute**
 
 ```
-━━━ AKT 1 — DIE SELBSTKORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:00  [HELL]   NEXPT hat ein Versprechen.
-               [Marker schreibt dazu:]   ^UND EINE MEINUNG.
+━━━ SELBSTKORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:03  [HELL → AKZENT, Kippen mitten im Satz]
-               Arbeitet so, wie wir es vorsehen —
+ 0:00.0  [HELL → SCHWARZ]  (3.2s · 01_versprechen)
+         NEXPT hat ein Versprechen.
+         Und eine Meinung.
+         └ MARKER  ^UND EINE MEINUNG.   (+1.9s)
+ 0:03.2  [HELL]  (2.5s · 02_flip)
+         Arbeitet so, wie wir es vorsehen —.
+         └ MARKER  ^SO WIE WIR   (+1.6s)
+ 0:05.7  [SCHWARZ → AKZENT]  (3.2s · 03_moment)
+         Moment.
+         Nein.
+         Das machen alle anderen.
+ 0:08.9  [AKZENT → SCHWARZ]  (3.4s · 04_ihr)
+         Arbeitet so, wie ihr wollt.
+ 0:12.3  [SCHWARZ]  (1.4s · 05_aside)
+         (ja, auch ihr in der Buchhaltung)
 
-0:04  [SCHWARZ]   Moment.
-0:05  [SCHWARZ]   Nein.
-0:05  [SCHWARZ]   ☐ Das machen alle anderen.
-                  ☑ Das machen ALLE ANDEREN.
+━━━ FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:07  [AKZENT]  Arbeitet so,
-               wie  IHR  wollt.               [Marker-Unterstrich unter IHR]
+ 0:13.7  [SCHWARZ → AKZENT]  (8.0s · 06_wege)
+         Ihr plant in Sprints.
+         Ihr in Phasen.
+         Ihr in Tickets.
+         Ihr in Fristen.
+         Ihr in Schichten.
+         Ihr in Etappen.
+         └ MARKER  SPRINTS   (+0.3s)
+         └ MARKER  PHASEN   (+1.6s)
+         └ MARKER  TICKETS   (+2.9s)
+         └ MARKER  FRISTEN   (+4.1s)
+         └ MARKER  SCHICHTEN   (+5.4s)
+         └ MARKER  ETAPPEN   (+6.7s)
+ 0:21.7  [SCHWARZ → AKZENT]  (2.6s · 07_niemand)
+         Niemand muss sich umgewöhnen.
+         Niemand.
+         └ MARKER  ^NIEMAND.   (+1.1s)
+ 0:24.3  [SCHWARZ]  (4.6s · 08_broll)
+         (kein Text — drei Makro-Einstellungen)
+         └ MARKER  ^DIESELBE ARBEIT   (+2.0s)
+ 0:28.9  [HELL → SCHWARZ]  (4.0s · 09_flut)
+         Wir nennen es, wie ihr es nennt.
+         └ WORDFLOOD   (+1.2s)
+ 0:32.9  [HELL → SCHWARZ]  (2.6s · 10_eure)
+         Eure Wörter.
+         Nicht unsere.
+         └ MARKER  ^NICHT UNSERE.   (+0.9s)
+ 0:35.5  [HELL → SCHWARZ → AKZENT]  (4.0s · 10b_eures)
+         Und eure Reihenfolge.
+         Eure Regeln.
+         Euer Tempo.
 
-0:10  [SCHWARZ]  (ja, auch ihr in der Buchhaltung)
+━━━ DIE LEUTE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+ 0:39.5  [SCHWARZ → AKZENT]  (4.6s · 11a_menschen)
+         Weil hier nicht das Projekt arbeitet.
+         Sondern Menschen.
+         └ MARKER  ^MIT NAMEN   (+3.8s)
+ 0:44.1  [HELL → SCHWARZ → AKZENT → SCHWARZ]  (9.0s · 11b_rollen)
+         Die Bauleiterin sieht ihre Etappe.
+         Der Servicetechniker sein Ticket.
+         Die Treuhänderin ihre Frist.
+         Die Geschäftsführerin sieht alles.
+         └ MARKER  ^ETAPPE   (+2.0s)
+         └ MARKER  ^TICKET   (+4.2s)
+         └ MARKER  ^FRIST   (+6.3s)
+         └ MARKER  ^ALLES   (+8.1s)
+ 0:53.1  [AKZENT]  (1.6s · 11c_trick)
+         (das ist der Trick)
 
-━━━ AKT 2 — DIE FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ EINWAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:11  [SCHWARZ]  Ihr plant in  ↗SPRINTS
-0:12  [SCHWARZ]  Ihr in  ↗PHASEN
-0:13  [SCHWARZ]  Ihr in  ↗TICKETS
-0:14  [SCHWARZ]  Ihr in  ↗FRISTEN
-               [je ein rohes Marker-Doodle: Timebox, Balken, Ticket, Kalender]
+ 0:54.7  [SCHWARZ → AKZENT]  (2.6s · 12a_chaos)
+         Vier Sichtweisen.
+         Ein Chaos?.
+         └ MARKER  ^ODER?   (+1.9s)
+ 0:57.3  [SCHWARZ]  (1.6s · 12_nein)
+         NEIN.
+         └ MARKER  NEIN.   (+0.0s)
 
-0:16  [SCHWARZ]  Niemand muss sich umgewöhnen.
-                                              ^NIEMAND.
+━━━ EIN MODELL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:18  [B-ROLL: Hand auf Tastatur, Makro]            Sprint.
-0:19  [B-ROLL: Bauplan auf Tisch, Makro]            Phase.
-0:20  [B-ROLL: Serverleuchten im Dunkeln, Makro]    Incident.
+ 0:58.9  [AKZENT → SCHWARZ]  (6.6s · 13_modell)
+         Oben ist eure Sprache.
+         Unten ist ein Standard.
+         └ LEVELS   (+2.9s)
+         └ MARKER  ^OBEN   (+1.8s)
 
-0:22  [HELL]   Wir nennen es,
-               wie  ihr  es nennt.
-               [Marker-Vokabeln fluten den Frame:
-                STORY · ARBEITSPAKET · TICKET · MANDAT · AUFTRAG · LOS ·
-                MASSNAHME · FALL · CHARGE · PENDENZ · …]
+━━━ EIN STANDARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:25  [HELL]   Eure Wörter.        ^NICHT UNSERE.
+ 1:05.5  [AKZENT → SCHWARZ → HELL → SCHWARZ]  (7.5s · 13b_stufen)
+         Fünf Stufen.
+         Mehr braucht Arbeit nicht.
+         Egal ob Bau, Betrieb oder Buchhaltung — darunter liegt dasselbe Modell.
+         └ MARKER  ^MEHR BRAUCHT ARBEIT NICHT.   (+0.8s)
+         └ MARKER  ^IMMER   (+6.3s)
 
+━━━ ÜBERGANG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-━━━ AKT 3 — DER EINWAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 1:13.0  [SCHWARZ → AKZENT]  (3.6s · 14_ende)
+         Und irgendwann ist das Projekt fertig.
+         Die Arbeit nicht.
+         └ MARKER  ^NICHT.   (+2.4s)
+         └ MARKER  ^FERTIG?   (+1.4s)
+ 1:16.6  [AKZENT → SCHWARZ → HELL]  (5.2s · 15_element)
+         Dasselbe Element.
+         Neuer Modus.
+         Kein neues Tool.
+         └ CARD   (+0.0s)
+         └ MARKER  ^KEIN NEUES TOOL.   (+2.6s)
+         └ MARKER  ^DASSELBE   (+0.9s)
+ 1:21.8  [HELL]  (5.3s · 16_pfeile)
+         Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.
+         └ MARKER  ^ALLES   (+1.6s)
+         └ MARKER  ^AN EINEN ORT   (+3.4s)
+ 1:27.1  [AKZENT → SCHWARZ]  (4.1s · 17_hundert)
+         Hundert Prozent verbunden.
+         Kein Export.
+         Null Doppelerfassung.
+         └ SUNBURST   (+0.0s)
+         └ MARKER  ^NULL DOPPELERFASSUNG.   (+1.4s)
+         └ MARKER  ^KEINE KOPIE   (+3.0s)
 
-0:27  [SCHWARZ]  Klingt nach Chaos.
+━━━ KORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-                 [Pause — 0.4 s Schwarz, komplett leer]
+ 1:31.2  [SCHWARZ]  (2.8s · 18_aendert)
+         Und wenn jemand etwas ändert?.
+         └ LIVEEDIT   (+1.1s)
+         └ MARKER  ^JEMAND   (+0.8s)
+ 1:34.0  [SCHWARZ → AKZENT]  (2.6s · 19_alle)
+         Sehen es alle.
+         Sofort.
+         └ MARKER  ^SOFORT.   (+0.8s)
+ 1:36.6  [SCHWARZ → AKZENT → HELL]  (4.6s · 19b_keine)
+         Keine Rundmail.
+         Kein Statusbericht.
+         Kein Nachfragen.
+ 1:41.2  [HELL → SCHWARZ]  (3.3s · 20_transparenz)
+         Transparenz ist kein Bericht.
+         Sie ist ein Nebeneffekt.
+         └ MARKER  ^EINFACH SO   (+2.4s)
 
-0:28  [SCHWARZ]  NEIN.
-               [riesig, handgeschrieben, formatfüllend]
+━━━ GEGNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+ 1:44.5  [SCHWARZ → AKZENT]  (2.6s · 21_allein)
+         Aber Struktur allein ist noch keine Übersicht.
+         └ MARKER  ^ALLEIN   (+0.7s)
+ 1:47.1  [SCHWARZ → AKZENT]  (4.6s · 22_raster)
+         Die meisten nennen Übersicht: eine Tabelle.
+         └ GRID   (+1.1s)
+         └ MARKER  ^SPALTEN   (+3.4s)
+ 1:51.7  [SCHWARZ → AKZENT → HELL]  (5.6s · 22b_stapel)
+         Fünf Dateien.
+         Eine Wahrheit.
+         Und niemand weiss, welche.
+         └ PILE   (+0.0s)
+         └ MARKER  ^WELCHE GILT?   (+2.4s)
+ 1:57.3  [SCHWARZ → AKZENT]  (3.0s · 22c_keine)
+         Bei uns gibt es keine.
+         └ GRID   (+0.0s)
+         └ STRIKE   (+0.6s)
+ 1:59.7  [AKZENT]  (1.6s · 23_ui)
+         (auch nicht im UI)
 
-━━━ AKT 4 — EIN MODELL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-0:29  [AKZENT]  Oben ist eure Sprache.
-
-0:31  [AKZENT]  Unten ist  EIN  Standard.
-               [fünf Zeilen rasten hart nacheinander ein:]
-               Ziel · Programm · Ergebnis · Arbeitspaket · Aktion
-               [Alternative, falls „Standard" zu technisch klingt: „EINE Struktur."
-                „Standard" ist die stärkere Behauptung und hier belegbar — bevorzugen.]
-
-
-━━━ AKT 5 — DER ÜBERGANG  (Beweis 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-0:34  [SCHWARZ]  Und irgendwann ist das Projekt fertig.
-
-0:36  [SCHWARZ]  Die Arbeit  ^NICHT.
-
-0:37  [AKZENT]  Dasselbe Element.
-               [EIN Kärtchen, formatfüllend, Makro. Es bewegt sich nicht.]
-
-0:38  [AKZENT]  Neuer Modus.
-               [nur das Etikett wechselt:  PROJEKT  →  BETRIEB.
-                Der Rahmen bleibt exakt stehen — das ist die ganze Pointe.]
-
-0:39  [AKZENT]  ^KEIN NEUES TOOL.
-
-0:41  [HELL]   Hunderte von  →Tickets
-0:42  [HELL]                 →Stunden    →Fristen
-0:43  [HELL]                 →Freigaben  →Änderungen
-               [Pfeile schiessen von allen Seiten auf die Mitte zu]
-
-0:44  [AKZENT]  100%                             [Marker-Strahlenkranz]
-0:45  [AKZENT]  verbunden.     Kein Export.   ^NULL DOPPELERFASSUNG.
-
-
-━━━ AKT 6 — DIE KORREKTUR  (Beweis 2) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-0:46  [SCHWARZ]  Und wenn jemand etwas ändert?
-
-                 [Pause — 0.4 s]
-
-0:47  [SCHWARZ]  [der Marker streicht ein Wort im Bild durch
-                  und schreibt daneben ein neues — live, sichtbar]
-
-0:48  [SCHWARZ]  Sehen es alle.       ^SOFORT.
-
-0:50  [HELL]   Transparenz ist kein Bericht.
-
-0:51  [HELL]   Sie ist ein  Nebeneffekt.
-
-
-━━━ AKT 7 — DER GEGNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-0:52  [SCHWARZ]  Aber Struktur  ^ALLEIN  ist noch keine Übersicht.
-
-                 [Pause — 0.5 s]
-
-0:54  [SCHWARZ]  Die meisten nennen Übersicht:
-
-0:55  [SCHWARZ]  eine Tabelle.
-               [ein Raster beginnt sich zu zeichnen — Zelle für Zelle,
-                immer schneller, bis es den ganzen Frame ausfüllt]
-
-0:56  [SCHWARZ]  [nur noch Raster, hunderte Zellen, erdrückend]
-
-0:57  [SCHWARZ]  [ein einziger Marker-Strich fährt quer durch alles
-                  und nimmt das Raster mit]
-                 Bei uns gibt es keine.
-
-0:58  [AKZENT]  (auch nicht im UI)
-               [winzig, mittig, auf leerem Farbfeld]
-
-
-━━━ AKT 8 — DAS VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-0:59  [HELL]   Keine Spalten.
-1:00  [HELL]   Kein  „bitte hier eintragen".
-
-1:02  [AKZENT]  Ihr seht, was ihr braucht.
-
-1:04  [SCHWARZ]  Dort,  wo ihr  seid.          [Glow auf der letzten Zeile]
-
-1:06  [HELL]   Also arbeitet,
-               wie  ihr  wollt.
-
-1:08  [HELL]   Wir behalten  ^DEN  Überblick.
-
-1:11  [HELL]   NEXPT hat eine Meinung.
-
-1:13  [HELL]   nexpt.ch/ work
-
-1:14  [HELL]   [Logo]  →  SCHWARZ
+ 2:01.3  [HELL → SCHWARZ]  (3.4s · 24_keine)
+         Keine Spalten.
+         Kein bitte hier eintragen.
+         └ MARKER  ^NIE WIEDER   (+2.5s)
+ 2:04.7  [AKZENT]  (4.6s · 25_seht)
+         Ihr seht, was ihr braucht.
+         Dort, wo ihr seid.
+         └ MARKER  ^IHR   (+1.8s)
+ 2:09.3  [HELL → SCHWARZ]  (5.4s · 26_also)
+         Also arbeitet, wie ihr wollt.
+         Wir behalten den Überblick.
+         └ MARKER  ^DEN   (+3.4s)
+ 2:14.7  [HELL]  (4.0s · 27_ende)
+         NEXPT hat eine Meinung.
+         └ MARKER  ^EINE STARKE   (+1.1s)
 ```
-
-**Wortzahl: ca. 135 auf 74 s.** Das ist die gemessene Dichte des Referenzfilms. Wenn der
-Text beim Einsprechen nicht knapp wird, ist er zu lang — dann kürzen, nicht langsamer sprechen.
 
 ### 4.1 Die fünf Momente, an denen der Film gewonnen oder verloren wird
 
@@ -522,3 +570,38 @@ erzeugt genau die Fragen, die die Demo beantwortet.
 - Die echten Branchen-Vokabulare für die Flut bei 0:22.
 - Die Modus-Bezeichnungen aus der Oberfläche für 0:38 (der Film schreibt `PROJEKT → BETRIEB`).
 - Freigabe des Tons (8.1, Punkt 2) — das blockiert am meisten.
+
+---
+
+## 9. Tempokontrolle — die Regel, die am leichtesten bricht
+
+Regel 11 sagt: alle 0.46 s eine Änderung, alle 2.5 s ein Schnitt. Das lässt sich **messen**,
+mit derselben Methode, mit der der Referenzfilm vermessen wurde:
+
+```bash
+ffmpeg -i film.mp4 -filter:v "select='gt(scene,0.02)',showinfo" -f null - 2>&1 | grep -c pts_time
+#   Schwelle 0.02 = jede sichtbare Änderung   ·   0.30 = nur harte Schnitte
+```
+
+Beim ersten Durchgang des Animatics sah der Film richtig aus und war trotzdem falsch:
+
+| | Apple | Animatic v1 | nach der Korrektur |
+|---|---|---|---|
+| Sichtbare Änderungen | alle **0.46 s** | alle 1.73 s | *siehe unten* |
+| Harte Schnitte | alle **2.52 s** | alle 6.03 s | **alle 2.35 s** ✓ |
+
+Faktor 3.8 zu langsam — und im Einzelbild nicht zu sehen. Ein Film in diesem Stil, der zu
+langsam läuft, wirkt nicht ruhig, sondern **wie eine Präsentation**. Zwei Ursachen:
+
+1. **Der Hintergrund kippte zu selten.** Apple wechselt 27-mal in 67 s, oft mitten im Satz.
+   Eine Szene = eine Farbe ist zu wenig. Jede Szene braucht einen Wechsel auf jedem Beat.
+2. **Zeilen standen still.** Eine Zeile, die in 0.2 s erscheint und dann 2.5 s steht, ist
+   2.3 s totes Bild. Der Wortaufbau muss **den ganzen Halt füllen** und kurz vor dem
+   nächsten Ereignis fertig sein.
+
+**Was stehenbleiben muss.** Nicht alles darf dicht sein. Fünf Beats leben davon, dass nichts
+passiert: `Moment. / Nein.` · `(ja, auch ihr in der Buchhaltung)` · `(das ist der Trick)` ·
+`NEIN.` · `(auch nicht im UI)`. Wer die auch noch füllt, nimmt dem Film seine Pointen.
+Die Stille ist dort das Ereignis.
+
+**Vor jeder Abnahme messen.** Ein Blick auf Standbilder verrät den Fehler nicht.

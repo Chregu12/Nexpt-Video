@@ -27,7 +27,8 @@
           "mode": "words",
           "text": "NEXPT hat ein Versprechen.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.375
         },
         {
           "type": "markerText",
@@ -38,6 +39,14 @@
           "y": 0.36,
           "x": 0.62,
           "draw": 0.45
+        },
+        {
+          "type": "underline",
+          "t": 2.55,
+          "draw": 0.28,
+          "y": 0.585,
+          "x": 0.4,
+          "w": 0.2
         }
       ],
       "bgFlips": [
@@ -65,7 +74,18 @@
           "mode": "words",
           "text": "Arbeitet so, wie wir es vorsehen —",
           "size": 84,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.15
+        },
+        {
+          "type": "markerText",
+          "t": 1.55,
+          "text": "^SO WIE WIR",
+          "size": 42,
+          "rot": -3,
+          "y": 0.33,
+          "x": 0.68,
+          "draw": 0.3
         }
       ]
     },
@@ -126,7 +146,8 @@
           "mode": "words",
           "text": "Arbeitet so,",
           "size": 92,
-          "y": 0.4
+          "y": 0.4,
+          "step": 0.275
         },
         {
           "type": "text",
@@ -134,7 +155,8 @@
           "mode": "words",
           "text": "wie IHR wollt.",
           "size": 110,
-          "y": 0.58
+          "y": 0.58,
+          "step": 0.25
         },
         {
           "type": "underline",
@@ -143,6 +165,14 @@
           "y": 0.645,
           "x": 0.505,
           "w": 0.115
+        },
+        {
+          "type": "doodle",
+          "t": 2.55,
+          "shape": "timebox",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -189,7 +219,7 @@
           "size": 78,
           "y": 0.5,
           "x": 0.31,
-          "step": 0.17
+          "step": 0.31
         },
         {
           "type": "markerText",
@@ -383,7 +413,8 @@
           "mode": "words",
           "text": "Niemand muss sich umgewöhnen.",
           "size": 84,
-          "y": 0.47
+          "y": 0.47,
+          "step": 0.225
         },
         {
           "type": "markerText",
@@ -431,6 +462,16 @@
           "out": 4.0,
           "label": "Serverleuchten im Dunkeln",
           "word": "Incident."
+        },
+        {
+          "type": "markerText",
+          "t": 2.05,
+          "text": "^DIESELBE ARBEIT",
+          "size": 40,
+          "rot": -3,
+          "y": 0.16,
+          "x": 0.5,
+          "draw": 0.3
         }
       ]
     },
@@ -448,7 +489,8 @@
           "mode": "words",
           "text": "Wir nennen es,",
           "size": 86,
-          "y": 0.42
+          "y": 0.42,
+          "step": 0.15
         },
         {
           "type": "text",
@@ -456,7 +498,8 @@
           "mode": "words",
           "text": "wie ihr es nennt.",
           "size": 86,
-          "y": 0.56
+          "y": 0.56,
+          "step": 0.15
         },
         {
           "type": "wordFlood",
@@ -494,6 +537,14 @@
             "AUFGEBOT",
             "TRAKTANDUM"
           ]
+        },
+        {
+          "type": "underline",
+          "t": 2.55,
+          "draw": 0.28,
+          "y": 0.615,
+          "x": 0.4,
+          "w": 0.2
         }
       ],
       "bgFlips": [
@@ -517,7 +568,8 @@
           "mode": "words",
           "text": "Eure Wörter.",
           "size": 100,
-          "y": 0.46
+          "y": 0.46,
+          "step": 0.35
         },
         {
           "type": "markerText",
@@ -528,6 +580,14 @@
           "y": 0.62,
           "x": 0.66,
           "draw": 0.35
+        },
+        {
+          "type": "underline",
+          "t": 1.95,
+          "draw": 0.28,
+          "y": 0.545,
+          "x": 0.41,
+          "w": 0.18
         }
       ],
       "bgFlips": [
@@ -553,7 +613,7 @@
           "text": "Und eure Reihenfolge.",
           "size": 86,
           "y": 0.5,
-          "step": 0.17
+          "step": 0.333
         },
         {
           "type": "text",
@@ -599,7 +659,8 @@
           "mode": "words",
           "text": "Weil hier nicht „das Projekt“ arbeitet.",
           "size": 76,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.358
         },
         {
           "type": "text",
@@ -608,6 +669,16 @@
           "text": "Sondern Menschen.",
           "size": 104,
           "y": 0.5
+        },
+        {
+          "type": "markerText",
+          "t": 3.75,
+          "text": "^MIT NAMEN",
+          "size": 44,
+          "rot": -3,
+          "y": 0.66,
+          "x": 0.66,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -652,6 +723,46 @@
           "out": null,
           "who": "Die Geschäftsführerin sieht",
           "sees": "alles."
+        },
+        {
+          "type": "markerText",
+          "t": 2.05,
+          "text": "^ETAPPE",
+          "size": 40,
+          "rot": -3,
+          "y": 0.24,
+          "x": 0.72,
+          "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 4.2,
+          "text": "^TICKET",
+          "size": 40,
+          "rot": -3,
+          "y": 0.24,
+          "x": 0.28,
+          "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 6.35,
+          "text": "^FRIST",
+          "size": 40,
+          "rot": -3,
+          "y": 0.24,
+          "x": 0.72,
+          "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 8.1,
+          "text": "^ALLES",
+          "size": 40,
+          "rot": -3,
+          "y": 0.24,
+          "x": 0.28,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -713,6 +824,16 @@
           "text": "Ein Chaos?",
           "size": 88,
           "y": 0.5
+        },
+        {
+          "type": "markerText",
+          "t": 1.95,
+          "text": "^ODER?",
+          "size": 44,
+          "rot": -3,
+          "y": 0.33,
+          "x": 0.66,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -757,7 +878,8 @@
           "mode": "words",
           "text": "Oben ist eure Sprache.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.412
         },
         {
           "type": "text",
@@ -765,7 +887,8 @@
           "mode": "words",
           "text": "Unten ist EIN Standard.",
           "size": 92,
-          "y": 0.24
+          "y": 0.24,
+          "step": 0.162
         },
         {
           "type": "levels",
@@ -779,6 +902,24 @@
             "Arbeitspaket",
             "Aktion"
           ]
+        },
+        {
+          "type": "markerText",
+          "t": 1.75,
+          "text": "^OBEN",
+          "size": 42,
+          "rot": -3,
+          "y": 0.3,
+          "x": 0.3,
+          "draw": 0.3
+        },
+        {
+          "type": "doodle",
+          "t": 4.85,
+          "shape": "bar",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.32
         }
       ],
       "bgFlips": [
@@ -823,7 +964,8 @@
           "mode": "words",
           "text": "Bau. Betrieb. Buchhaltung.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.42
         },
         {
           "type": "text",
@@ -831,7 +973,26 @@
           "mode": "words",
           "text": "Darunter dasselbe Modell.",
           "size": 88,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.42
+        },
+        {
+          "type": "underline",
+          "t": 3.35,
+          "draw": 0.28,
+          "y": 0.595,
+          "x": 0.36,
+          "w": 0.28
+        },
+        {
+          "type": "markerText",
+          "t": 6.35,
+          "text": "^IMMER",
+          "size": 42,
+          "rot": -3,
+          "y": 0.3,
+          "x": 0.68,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -864,7 +1025,8 @@
           "mode": "words",
           "text": "Und irgendwann ist das Projekt fertig.",
           "size": 76,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.242
         },
         {
           "type": "text",
@@ -882,6 +1044,16 @@
           "rot": -3,
           "y": 0.62,
           "x": 0.6,
+          "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 1.35,
+          "text": "^FERTIG?",
+          "size": 42,
+          "rot": -3,
+          "y": 0.3,
+          "x": 0.7,
           "draw": 0.3
         }
       ],
@@ -936,6 +1108,24 @@
           "y": 0.115,
           "x": 0.5,
           "draw": 0.35
+        },
+        {
+          "type": "markerText",
+          "t": 0.95,
+          "text": "^DASSELBE",
+          "size": 40,
+          "rot": -3,
+          "y": 0.86,
+          "x": 0.24,
+          "draw": 0.3
+        },
+        {
+          "type": "doodle",
+          "t": 4.25,
+          "shape": "ticket",
+          "x": 0.5,
+          "y": 0.88,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -978,6 +1168,34 @@
             "Änderungen"
           ],
           "stagger": 0.4
+        },
+        {
+          "type": "markerText",
+          "t": 1.65,
+          "text": "^ALLES",
+          "size": 44,
+          "rot": -3,
+          "y": 0.2,
+          "x": 0.24,
+          "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 3.35,
+          "text": "^AN EINEN ORT",
+          "size": 42,
+          "rot": -3,
+          "y": 0.2,
+          "x": 0.74,
+          "draw": 0.3
+        },
+        {
+          "type": "underline",
+          "t": 4.55,
+          "draw": 0.28,
+          "y": 0.955,
+          "x": 0.4,
+          "w": 0.2
         }
       ]
     },
@@ -1028,6 +1246,16 @@
           "y": 0.9,
           "x": 0.5,
           "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 3.05,
+          "text": "^KEINE KOPIE",
+          "size": 40,
+          "rot": -3,
+          "y": 0.2,
+          "x": 0.26,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -1051,7 +1279,8 @@
           "mode": "words",
           "text": "Und wenn jemand etwas ändert?",
           "size": 80,
-          "y": 0.42
+          "y": 0.42,
+          "step": 0.18
         },
         {
           "type": "liveEdit",
@@ -1060,6 +1289,16 @@
           "new": "DONNERSTAG",
           "y": 0.62,
           "draw": 0.4
+        },
+        {
+          "type": "markerText",
+          "t": 0.85,
+          "text": "^JEMAND",
+          "size": 42,
+          "rot": -3,
+          "y": 0.26,
+          "x": 0.7,
+          "draw": 0.3
         }
       ]
     },
@@ -1078,7 +1317,7 @@
           "text": "Sehen es alle.",
           "size": 96,
           "y": 0.45,
-          "step": 0.17
+          "step": 0.183
         },
         {
           "type": "markerText",
@@ -1089,6 +1328,14 @@
           "y": 0.62,
           "x": 0.62,
           "draw": 0.3
+        },
+        {
+          "type": "underline",
+          "t": 1.85,
+          "draw": 0.28,
+          "y": 0.535,
+          "x": 0.4,
+          "w": 0.18
         }
       ],
       "bgFlips": [
@@ -1131,6 +1378,14 @@
           "text": "Kein Nachfragen.",
           "size": 88,
           "y": 0.5
+        },
+        {
+          "type": "doodle",
+          "t": 2.15,
+          "shape": "cal",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -1159,7 +1414,8 @@
           "mode": "words",
           "text": "Transparenz ist kein Bericht.",
           "size": 84,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.188
         },
         {
           "type": "text",
@@ -1167,7 +1423,18 @@
           "mode": "words",
           "text": "Sie ist ein Nebeneffekt.",
           "size": 84,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.42
+        },
+        {
+          "type": "markerText",
+          "t": 2.35,
+          "text": "^EINFACH SO",
+          "size": 42,
+          "rot": -3,
+          "y": 0.3,
+          "x": 0.68,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -1191,7 +1458,8 @@
           "mode": "words",
           "text": "Aber Struktur ist noch keine Übersicht.",
           "size": 72,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.15
         },
         {
           "type": "markerText",
@@ -1202,6 +1470,14 @@
           "y": 0.405,
           "x": 0.395,
           "draw": 0.3
+        },
+        {
+          "type": "underline",
+          "t": 1.95,
+          "draw": 0.28,
+          "y": 0.565,
+          "x": 0.35,
+          "w": 0.3
         }
       ],
       "bgFlips": [
@@ -1226,7 +1502,8 @@
           "mode": "words",
           "text": "Die meisten nennen Übersicht:",
           "size": 72,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.188
         },
         {
           "type": "text",
@@ -1243,6 +1520,16 @@
           "grow": 1.85,
           "cols": 34,
           "rows": 19
+        },
+        {
+          "type": "markerText",
+          "t": 3.35,
+          "text": "^SPALTEN",
+          "size": 44,
+          "rot": -3,
+          "y": 0.14,
+          "x": 0.72,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -1280,7 +1567,7 @@
           "text": "Fünf Dateien. Eine Wahrheit.",
           "size": 64,
           "y": 0.9,
-          "step": 0.17
+          "step": 0.212
         },
         {
           "type": "text",
@@ -1289,7 +1576,17 @@
           "text": "Und niemand weiss, welche.",
           "size": 72,
           "y": 0.9,
-          "step": 0.17
+          "step": 0.162
+        },
+        {
+          "type": "markerText",
+          "t": 2.35,
+          "text": "^WELCHE GILT?",
+          "size": 42,
+          "rot": -3,
+          "y": 0.16,
+          "x": 0.72,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -1330,7 +1627,15 @@
           "text": "Bei uns gibt es keine.",
           "size": 92,
           "y": 0.5,
-          "step": 0.17
+          "step": 0.34
+        },
+        {
+          "type": "underline",
+          "t": 2.15,
+          "draw": 0.28,
+          "y": 0.575,
+          "x": 0.4,
+          "w": 0.2
         }
       ],
       "bgFlips": [
@@ -1382,7 +1687,18 @@
           "mode": "words",
           "text": "Kein „bitte hier eintragen“.",
           "size": 80,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.42
+        },
+        {
+          "type": "markerText",
+          "t": 2.45,
+          "text": "^NIE WIEDER",
+          "size": 42,
+          "rot": -3,
+          "y": 0.28,
+          "x": 0.68,
+          "draw": 0.3
         }
       ],
       "bgFlips": [
@@ -1411,7 +1727,8 @@
           "mode": "words",
           "text": "Ihr seht, was ihr braucht.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.35
         },
         {
           "type": "text",
@@ -1420,7 +1737,26 @@
           "text": "Dort, wo ihr seid.",
           "size": 100,
           "y": 0.5,
-          "glow": true
+          "glow": true,
+          "step": 0.42
+        },
+        {
+          "type": "markerText",
+          "t": 1.75,
+          "text": "^IHR",
+          "size": 44,
+          "rot": -3,
+          "y": 0.28,
+          "x": 0.3,
+          "draw": 0.3
+        },
+        {
+          "type": "doodle",
+          "t": 3.85,
+          "shape": "timebox",
+          "x": 0.5,
+          "y": 0.82,
+          "draw": 0.3
         }
       ]
     },
@@ -1439,7 +1775,8 @@
           "mode": "words",
           "text": "Also arbeitet, wie ihr wollt.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.41
         },
         {
           "type": "text",
@@ -1447,7 +1784,8 @@
           "mode": "words",
           "text": "Wir behalten Überblick.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.217
         },
         {
           "type": "markerText",
@@ -1458,6 +1796,14 @@
           "y": 0.4,
           "x": 0.575,
           "draw": 0.3
+        },
+        {
+          "type": "underline",
+          "t": 1.95,
+          "draw": 0.28,
+          "y": 0.565,
+          "x": 0.36,
+          "w": 0.28
         }
       ],
       "bgFlips": [
@@ -1486,7 +1832,8 @@
           "mode": "words",
           "text": "NEXPT hat eine Meinung.",
           "size": 92,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.362
         },
         {
           "type": "url",
@@ -1496,6 +1843,16 @@
           "accent": "work",
           "size": 88,
           "y": 0.5
+        },
+        {
+          "type": "markerText",
+          "t": 1.15,
+          "text": "^EINE STARKE",
+          "size": 40,
+          "rot": -3,
+          "y": 0.3,
+          "x": 0.68,
+          "draw": 0.3
         }
       ]
     }
