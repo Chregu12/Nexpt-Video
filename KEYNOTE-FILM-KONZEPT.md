@@ -131,8 +131,12 @@ Nach dem „NEIN." muss der Film liefern. Er tut es mit zwei Belegen, die aufein
 **Beweis 1 — Der Übergang.** Ein Projekt endet. Die Arbeit nicht. Bei den meisten beginnt
 hier das zweite System: Export, Übertrag, neues Tool, neue Zugänge, neue Wahrheit. Bei NEXPT
 bleibt es **dasselbe Element** — es wechselt den Modus, nicht das System
-(`work_mode: change → run`). Das ist die stärkste einzelne Aussage des Films, weil jeder im
-Saal den Bruch kennt und niemand ihn je akzeptiert hat.
+(`work_mode: change → run`).
+
+Das trägt, weil alles über **einen Standard** läuft: das **UOMF** — Unified Operating Model
+Framework. Projekt und Betrieb sind keine zwei Anwendungen mit einer Schnittstelle dazwischen,
+sondern zwei Modi desselben Modells. Das ist die stärkste einzelne Aussage des Films, weil
+jeder im Saal den Bruch kennt und niemand ihn je akzeptiert hat.
 
 **Beweis 2 — Die Korrektur.** Weil alle im selben Werkzeug arbeiten — Projekt und Betrieb,
 Fachbereich und IT — passiert jede Änderung **im Offenen**. Niemand muss Transparenz
@@ -183,7 +187,7 @@ Bild, während der Sprecher über Korrekturen spricht.
 | „every ↗`iPHONE`" · „every ↗`MAC`" | „Ihr in ↗`SPRINTS`" · „Ihr in ↗`PHASEN`" |
 | Marker-Tannen fluten den Frame | Marker-**Vokabeln** fluten den Frame |
 | **`MORE.`** | **`NEIN.`** |
-| „it's also **HOW** they're made" | „unten ist **EINE** Struktur" |
+| „it's also **HOW** they're made" | „unten ist **EIN** Standard" |
 | Pfeile: distributors, assemblers | Pfeile: Tickets, Stunden, Fristen, Freigaben |
 | **`100%`** renewable energy | **`100%`** verbunden |
 | „But it's `^STILL` not enough" | „Aber Struktur `^ALLEIN` ist keine Übersicht" |
@@ -259,9 +263,11 @@ Bild, während der Sprecher über Korrekturen spricht.
 
 0:29  [AKZENT]  Oben ist eure Sprache.
 
-0:31  [AKZENT]  Unten ist  EINE  Struktur.
+0:31  [AKZENT]  Unten ist  EIN  Standard.
                [fünf Zeilen rasten hart nacheinander ein:]
                Ziel · Programm · Ergebnis · Arbeitspaket · Aktion
+               [Alternative, falls „Standard" zu technisch klingt: „EINE Struktur."
+                „Standard" ist die stärkere Behauptung und hier belegbar — bevorzugen.]
 
 
 ━━━ AKT 5 — DER ÜBERGANG  (Beweis 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -487,7 +493,7 @@ Der Film macht sechs überprüfbare Aussagen. Apples Wirkung beruht darauf, dass
 |---|---|---|
 | 0:16 | „Niemand muss sich umgewöhnen. `^NIEMAND.`" | Wie viele Methodiken laufen heute live nebeneinander? Die Zahl kann die Zeile ersetzen, wenn sie gut ist. |
 | 0:22 | Vokabelflut | Welche Branchen-Vokabulare sind wirklich geseedet? Die Flut sollte nur echte enthalten. |
-| **0:38** | **„Dasselbe Element. Neuer Modus. `^KEIN NEUES TOOL.`"** | **Der wichtigste Beleg des Films.** Laut `UOMF-DOMAIN-FIT.md` läuft Betriebsarbeit (ITIL, Treuhand) heute noch über ein zweites Case-Modell **neben** dem UOMF-Kern. Wenn der Übergang am Messetag nicht an einem echten Element vorführbar ist, muss die Zeile in die Zukunftsform: „Die Arbeit wechselt den Modus. `^NICHT DAS SYSTEM.`" — das verspricht die Richtung statt den erreichten Zustand. |
+| **0:38** | **„Dasselbe Element. Neuer Modus. `^KEIN NEUES TOOL.`"** | **Der wichtigste Beleg des Films** — und bestätigt: Projekt und Betrieb laufen über **einen** Standard, das UOMF. Die Zeile steht ohne Einschränkung. Einzige Produktionsauflage: dieser Übergang muss in der Demo direkt nach dem Film **an einem echten Element** live umschaltbar sein (siehe 8.3). Was der Film behauptet, zeigt die Demo. |
 | 0:45 | **`100%`** verbunden · `^NULL DOPPELERFASSUNG` | Der stärkste und angreifbarste Satz. Falls nicht belegbar: **streichen, nicht abschwächen.** Eine relativierte Absolutaussage wirkt schlechter als gar keine. |
 | 0:48 | „Sehen es alle. `^SOFORT.`" | Ist die Änderung wirklich sofort bei allen sichtbar (Realtime), oder erst nach Reload? Der Film sagt „sofort" — die Demo muss das aushalten. |
 | 0:58 | `(auch nicht im UI)` | siehe 8.1, Punkt 3. |
@@ -505,13 +511,14 @@ erzeugt genau die Fragen, die die Demo beantwortet.
 2. **Wie behaltet ihr wirklich die Übersicht, wenn alle anders arbeiten?** → die fünf
    kanonischen Stufen, einmal an einem echten Beispiel durchgezogen.
 3. **Und der Übergang Projekt→Betrieb?** → derselbe Datensatz, den der Film bei 0:38 zeigt,
-   live umgeschaltet. **Diese eine Demo muss sitzen** — sie ist die Einlösung des stärksten
-   Versprechens im Film.
+   live umgeschaltet: ein Element, ein Modus-Wechsel, kein Export, keine zweite Anmeldung.
+   **Diese eine Demo muss sitzen** — sie ist die Einlösung des stärksten Versprechens im Film
+   und der sichtbare Beweis für den einen Standard.
 
 ### 8.4 Was ich noch brauche
 
 - NEXPT Brand-Assets: Schrift, Farben, Logo-Sperrzone.
 - Messe, Datum, Leinwandmasse und Seitenverhältnis.
 - Die echten Branchen-Vokabulare für die Flut bei 0:22.
-- Die Modus-Bezeichnungen aus der Oberfläche für 0:38.
+- Die Modus-Bezeichnungen aus der Oberfläche für 0:38 (der Film schreibt `PROJEKT → BETRIEB`).
 - Freigabe des Tons (8.1, Punkt 2) — das blockiert am meisten.
