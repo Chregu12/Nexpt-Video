@@ -16,8 +16,8 @@
     {
       "id": "01_versprechen",
       "act": "1 Selbstkorrektur",
-      "start": 0.43333333333333335,
-      "dur": 2.3666666666666667,
+      "start": 0.0,
+      "dur": 3.2,
       "bg": "light",
       "vo": "NEXPT hat ein Versprechen. Und eine Meinung.",
       "layers": [
@@ -39,13 +39,19 @@
           "x": 0.62,
           "draw": 0.45
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.9,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "02_flip",
       "act": "1 Selbstkorrektur",
-      "start": 2.8,
-      "dur": 2.6,
+      "start": 3.2,
+      "dur": 2.5,
       "bg": "light",
       "bgFlip": {
         "t": 0.9,
@@ -66,8 +72,8 @@
     {
       "id": "03_moment",
       "act": "1 Selbstkorrektur",
-      "start": 5.4,
-      "dur": 3.1666666666666665,
+      "start": 5.7,
+      "dur": 3.2,
       "bg": "dark",
       "vo": "Moment. Nein. Das machen alle anderen.",
       "layers": [
@@ -98,13 +104,19 @@
           "size": 76,
           "y": 0.5
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.6,
+          "to": "accent"
+        }
       ]
     },
     {
       "id": "04_ihr",
       "act": "1 Selbstkorrektur",
-      "start": 8.566666666666666,
-      "dur": 2.033333333333333,
+      "start": 8.9,
+      "dur": 3.4,
       "bg": "accent",
       "vo": "Arbeitet so, wie ihr wollt.",
       "layers": [
@@ -132,159 +144,236 @@
           "x": 0.505,
           "w": 0.115
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.9,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "05_aside",
       "act": "1 Selbstkorrektur",
-      "start": 10.6,
-      "dur": 2.033333333333333,
+      "start": 12.3,
+      "dur": 1.4,
       "bg": "dark",
       "vo": "(ja, auch ihr in der Buchhaltung)",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
-          "mode": "hard",
+          "mode": "words",
           "text": "(ja, auch ihr in der Buchhaltung)",
           "size": 44,
           "y": 0.5,
-          "color": "accent"
+          "color": "accent",
+          "step": 0.17
         }
       ]
     },
     {
       "id": "06_wege",
       "act": "2 Freiheit",
-      "start": 12.633333333333333,
-      "dur": 4.933333333333334,
+      "start": 13.7,
+      "dur": 8.0,
       "bg": "dark",
-      "vo": "Ihr plant in Sprints. Ihr in Phasen. Ihr in Tickets. Ihr in Fristen.",
+      "vo": "Ihr plant in Sprints. Ihr in Phasen. Ihr in Tickets. Ihr in Fristen. Ihr in Schichten. Ihr in Etappen.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
-          "out": 1.2,
-          "mode": "hard",
+          "out": 1.18,
+          "mode": "words",
           "text": "Ihr plant in",
-          "size": 80,
+          "size": 78,
           "y": 0.5,
-          "x": 0.33
+          "x": 0.31,
+          "step": 0.17
         },
         {
           "type": "markerText",
-          "t": 0.35,
-          "out": 1.2,
+          "t": 0.3,
+          "out": 1.18,
           "text": "SPRINTS",
-          "size": 72,
+          "size": 70,
           "rot": -3,
           "y": 0.5,
-          "x": 0.6,
-          "draw": 0.25
+          "x": 0.62,
+          "draw": 0.24
         },
         {
           "type": "doodle",
-          "t": 0.45,
-          "out": 1.2,
+          "t": 0.4,
+          "out": 1.18,
           "shape": "timebox",
-          "x": 0.6,
-          "y": 0.66,
-          "draw": 0.3
+          "x": 0.62,
+          "y": 0.67,
+          "draw": 0.28
         },
         {
           "type": "text",
-          "t": 1.3,
-          "out": 2.5,
+          "t": 1.28,
+          "out": 2.46,
           "mode": "hard",
           "text": "Ihr in",
-          "size": 80,
+          "size": 78,
           "y": 0.5,
-          "x": 0.33
+          "x": 0.31
         },
         {
           "type": "markerText",
-          "t": 1.6,
-          "out": 2.5,
+          "t": 1.58,
+          "out": 2.46,
           "text": "PHASEN",
-          "size": 72,
+          "size": 70,
           "rot": 2,
           "y": 0.5,
-          "x": 0.6,
-          "draw": 0.25
+          "x": 0.62,
+          "draw": 0.24
         },
         {
           "type": "doodle",
-          "t": 1.7,
-          "out": 2.5,
+          "t": 1.6800000000000002,
+          "out": 2.46,
           "shape": "bar",
-          "x": 0.6,
-          "y": 0.66,
-          "draw": 0.3
+          "x": 0.62,
+          "y": 0.67,
+          "draw": 0.28
         },
         {
           "type": "text",
-          "t": 2.6,
-          "out": 3.8,
+          "t": 2.56,
+          "out": 3.74,
           "mode": "hard",
           "text": "Ihr in",
-          "size": 80,
+          "size": 78,
           "y": 0.5,
-          "x": 0.33
+          "x": 0.31
         },
         {
           "type": "markerText",
-          "t": 2.9,
-          "out": 3.8,
+          "t": 2.86,
+          "out": 3.74,
           "text": "TICKETS",
-          "size": 72,
+          "size": 70,
           "rot": -2,
           "y": 0.5,
-          "x": 0.6,
-          "draw": 0.25
+          "x": 0.62,
+          "draw": 0.24
         },
         {
           "type": "doodle",
-          "t": 3.0,
-          "out": 3.8,
+          "t": 2.96,
+          "out": 3.74,
           "shape": "ticket",
-          "x": 0.6,
-          "y": 0.66,
-          "draw": 0.3
+          "x": 0.62,
+          "y": 0.67,
+          "draw": 0.28
         },
         {
           "type": "text",
-          "t": 3.9,
+          "t": 3.84,
+          "out": 5.02,
           "mode": "hard",
           "text": "Ihr in",
-          "size": 80,
+          "size": 78,
           "y": 0.5,
-          "x": 0.33
+          "x": 0.31
         },
         {
           "type": "markerText",
-          "t": 4.2,
+          "t": 4.14,
+          "out": 5.02,
           "text": "FRISTEN",
-          "size": 72,
+          "size": 70,
           "rot": 3,
           "y": 0.5,
-          "x": 0.6,
-          "draw": 0.25
+          "x": 0.62,
+          "draw": 0.24
         },
         {
           "type": "doodle",
-          "t": 4.3,
+          "t": 4.24,
+          "out": 5.02,
           "shape": "cal",
-          "x": 0.6,
-          "y": 0.66,
-          "draw": 0.3
+          "x": 0.62,
+          "y": 0.67,
+          "draw": 0.28
+        },
+        {
+          "type": "text",
+          "t": 5.12,
+          "out": 6.3,
+          "mode": "hard",
+          "text": "Ihr in",
+          "size": 78,
+          "y": 0.5,
+          "x": 0.31
+        },
+        {
+          "type": "markerText",
+          "t": 5.42,
+          "out": 6.3,
+          "text": "SCHICHTEN",
+          "size": 70,
+          "rot": -2,
+          "y": 0.5,
+          "x": 0.62,
+          "draw": 0.24
+        },
+        {
+          "type": "doodle",
+          "t": 5.5200000000000005,
+          "out": 6.3,
+          "shape": "timebox",
+          "x": 0.62,
+          "y": 0.67,
+          "draw": 0.28
+        },
+        {
+          "type": "text",
+          "t": 6.4,
+          "out": null,
+          "mode": "hard",
+          "text": "Ihr in",
+          "size": 78,
+          "y": 0.5,
+          "x": 0.31
+        },
+        {
+          "type": "markerText",
+          "t": 6.7,
+          "out": null,
+          "text": "ETAPPEN",
+          "size": 70,
+          "rot": 2,
+          "y": 0.5,
+          "x": 0.62,
+          "draw": 0.24
+        },
+        {
+          "type": "doodle",
+          "t": 6.800000000000001,
+          "out": null,
+          "shape": "bar",
+          "x": 0.62,
+          "y": 0.67,
+          "draw": 0.28
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.28,
+          "to": "accent"
         }
       ]
     },
     {
       "id": "07_niemand",
       "act": "2 Freiheit",
-      "start": 17.566666666666666,
-      "dur": 2.933333333333333,
+      "start": 21.7,
+      "dur": 2.6,
       "bg": "dark",
       "vo": "Niemand muss sich umgewöhnen. Niemand.",
       "layers": [
@@ -306,13 +395,19 @@
           "x": 0.68,
           "draw": 0.35
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.15,
+          "to": "accent"
+        }
       ]
     },
     {
       "id": "08_broll",
       "act": "2 Freiheit",
-      "start": 20.5,
-      "dur": 2.933333333333333,
+      "start": 24.3,
+      "dur": 4.6,
       "bg": "dark",
       "vo": "(kein Text — drei Makro-Einstellungen)",
       "layers": [
@@ -342,8 +437,8 @@
     {
       "id": "09_flut",
       "act": "2 Freiheit",
-      "start": 23.433333333333334,
-      "dur": 3.1666666666666665,
+      "start": 28.9,
+      "dur": 4.0,
       "bg": "light",
       "vo": "Wir nennen es, wie ihr es nennt.",
       "layers": [
@@ -400,13 +495,19 @@
             "TRAKTANDUM"
           ]
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.6,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "10_eure",
       "act": "2 Freiheit",
-      "start": 26.633333333333333,
-      "dur": 2.033333333333333,
+      "start": 32.9,
+      "dur": 2.6,
       "bg": "light",
       "vo": "Eure Wörter. Nicht unsere.",
       "layers": [
@@ -428,32 +529,204 @@
           "x": 0.66,
           "draw": 0.35
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.95,
+          "to": "dark"
+        }
       ]
     },
     {
-      "id": "11_chaos",
-      "act": "3 Einwand",
-      "start": 28.666666666666668,
-      "dur": 1.1666666666666667,
-      "bg": "dark",
-      "vo": "Klingt nach Chaos.",
+      "id": "10b_eures",
+      "act": "2 Freiheit",
+      "start": 35.5,
+      "dur": 4.0,
+      "bg": "light",
+      "vo": "Und eure Reihenfolge. Eure Regeln. Euer Tempo.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
-          "out": 0.6,
+          "out": 1.25,
+          "mode": "words",
+          "text": "Und eure Reihenfolge.",
+          "size": 86,
+          "y": 0.5,
+          "step": 0.17
+        },
+        {
+          "type": "text",
+          "t": 1.35,
+          "out": 2.5,
           "mode": "hard",
-          "text": "Klingt nach Chaos.",
+          "text": "Eure Regeln.",
+          "size": 86,
+          "y": 0.5
+        },
+        {
+          "type": "text",
+          "t": 2.6,
+          "mode": "hard",
+          "text": "Euer Tempo.",
+          "size": 86,
+          "y": 0.5
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.35,
+          "to": "dark"
+        },
+        {
+          "t": 2.6,
+          "to": "accent"
+        }
+      ]
+    },
+    {
+      "id": "11a_menschen",
+      "act": "3 Die Leute",
+      "start": 39.5,
+      "dur": 4.6,
+      "bg": "dark",
+      "vo": "Weil hier nicht das Projekt arbeitet. Sondern Menschen.",
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "out": 2.4,
+          "mode": "words",
+          "text": "Weil hier nicht „das Projekt“ arbeitet.",
+          "size": 76,
+          "y": 0.5
+        },
+        {
+          "type": "text",
+          "t": 2.55,
+          "mode": "hard",
+          "text": "Sondern Menschen.",
+          "size": 104,
+          "y": 0.5
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 2.55,
+          "to": "accent"
+        }
+      ]
+    },
+    {
+      "id": "11b_rollen",
+      "act": "3 Die Leute",
+      "start": 44.1,
+      "dur": 9.0,
+      "bg": "light",
+      "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker sein Ticket. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
+      "layers": [
+        {
+          "type": "role",
+          "t": 0.0,
+          "out": 2.0,
+          "who": "Die Bauleiterin sieht",
+          "sees": "ihre Etappe."
+        },
+        {
+          "type": "role",
+          "t": 2.15,
+          "out": 4.15,
+          "who": "Der Servicetechniker sieht",
+          "sees": "sein Ticket."
+        },
+        {
+          "type": "role",
+          "t": 4.3,
+          "out": 6.3,
+          "who": "Die Treuhänderin sieht",
+          "sees": "ihre Frist."
+        },
+        {
+          "type": "role",
+          "t": 6.449999999999999,
+          "out": null,
+          "who": "Die Geschäftsführerin sieht",
+          "sees": "alles."
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 2.15,
+          "to": "dark"
+        },
+        {
+          "t": 4.3,
+          "to": "accent"
+        },
+        {
+          "t": 6.45,
+          "to": "dark"
+        }
+      ]
+    },
+    {
+      "id": "11c_trick",
+      "act": "3 Die Leute",
+      "start": 53.1,
+      "dur": 1.6,
+      "bg": "accent",
+      "vo": "(das ist der Trick)",
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "mode": "words",
+          "text": "(das ist der Trick)",
+          "size": 36,
+          "y": 0.5,
+          "step": 0.17
+        }
+      ]
+    },
+    {
+      "id": "12a_chaos",
+      "act": "4 Einwand",
+      "start": 54.7,
+      "dur": 2.6,
+      "bg": "dark",
+      "vo": "Vier Sichtweisen. Ein Chaos?",
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "out": 1.25,
+          "mode": "hard",
+          "text": "Vier Sichtweisen.",
           "size": 88,
           "y": 0.5
+        },
+        {
+          "type": "text",
+          "t": 1.35,
+          "out": 2.2,
+          "mode": "hard",
+          "text": "Ein Chaos?",
+          "size": 88,
+          "y": 0.5
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.35,
+          "to": "accent"
         }
       ]
     },
     {
       "id": "12_nein",
       "act": "3 Einwand",
-      "start": 29.833333333333332,
-      "dur": 0.8,
+      "start": 57.3,
+      "dur": 1.6,
       "bg": "dark",
       "vo": "NEIN.",
       "layers": [
@@ -472,8 +745,8 @@
     {
       "id": "13_modell",
       "act": "4 Ein Modell",
-      "start": 30.633333333333333,
-      "dur": 4.866666666666666,
+      "start": 58.9,
+      "dur": 6.6,
       "bg": "accent",
       "vo": "Oben ist eure Sprache. Unten ist ein Standard.",
       "layers": [
@@ -507,13 +780,80 @@
             "Aktion"
           ]
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 2.0,
+          "to": "dark"
+        }
+      ]
+    },
+    {
+      "id": "13b_stufen",
+      "act": "5 Ein Standard",
+      "start": 65.5,
+      "dur": 7.466666666666667,
+      "bg": "accent",
+      "vo": "Fünf Stufen. Mehr braucht Arbeit nicht. Egal ob Bau, Betrieb oder Buchhaltung — darunter liegt dasselbe Modell.",
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "out": 2.2,
+          "mode": "hard",
+          "text": "Fünf Stufen.",
+          "size": 104,
+          "y": 0.42
+        },
+        {
+          "type": "markerText",
+          "t": 0.85,
+          "out": 2.2,
+          "text": "^MEHR BRAUCHT ARBEIT NICHT.",
+          "size": 50,
+          "rot": -2,
+          "y": 0.6,
+          "x": 0.5,
+          "draw": 0.35
+        },
+        {
+          "type": "text",
+          "t": 2.35,
+          "out": 4.3,
+          "mode": "words",
+          "text": "Bau. Betrieb. Buchhaltung.",
+          "size": 92,
+          "y": 0.5
+        },
+        {
+          "type": "text",
+          "t": 4.45,
+          "mode": "words",
+          "text": "Darunter dasselbe Modell.",
+          "size": 88,
+          "y": 0.5
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.85,
+          "to": "dark"
+        },
+        {
+          "t": 2.35,
+          "to": "light"
+        },
+        {
+          "t": 4.45,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "14_ende",
       "act": "5 Übergang",
-      "start": 35.5,
-      "dur": 3.1333333333333333,
+      "start": 72.96666666666667,
+      "dur": 3.6,
       "bg": "dark",
       "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
       "layers": [
@@ -544,13 +884,19 @@
           "x": 0.6,
           "draw": 0.3
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.9,
+          "to": "accent"
+        }
       ]
     },
     {
       "id": "15_element",
       "act": "5 Übergang",
-      "start": 38.63333333333333,
-      "dur": 4.133333333333334,
+      "start": 76.56666666666666,
+      "dur": 5.2,
       "bg": "accent",
       "vo": "Dasselbe Element. Neuer Modus. Kein neues Tool.",
       "layers": [
@@ -591,12 +937,22 @@
           "x": 0.5,
           "draw": 0.35
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.5,
+          "to": "dark"
+        },
+        {
+          "t": 2.6,
+          "to": "light"
+        }
       ]
     },
     {
       "id": "16_pfeile",
       "act": "5 Übergang",
-      "start": 42.766666666666666,
+      "start": 81.76666666666667,
       "dur": 5.333333333333333,
       "bg": "light",
       "vo": "Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.",
@@ -628,8 +984,8 @@
     {
       "id": "17_hundert",
       "act": "5 Übergang",
-      "start": 48.1,
-      "dur": 3.1,
+      "start": 87.1,
+      "dur": 4.066666666666666,
       "bg": "accent",
       "vo": "Hundert Prozent verbunden. Kein Export. Null Doppelerfassung.",
       "layers": [
@@ -673,13 +1029,19 @@
           "x": 0.5,
           "draw": 0.3
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.55,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "18_aendert",
       "act": "6 Korrektur",
-      "start": 51.2,
-      "dur": 2.033333333333333,
+      "start": 91.16666666666667,
+      "dur": 2.8,
       "bg": "dark",
       "vo": "Und wenn jemand etwas ändert?",
       "layers": [
@@ -704,18 +1066,19 @@
     {
       "id": "19_alle",
       "act": "6 Korrektur",
-      "start": 53.2,
-      "dur": 1.9333333333333333,
+      "start": 93.96666666666667,
+      "dur": 2.6,
       "bg": "dark",
       "vo": "Sehen es alle. Sofort.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
-          "mode": "hard",
+          "mode": "words",
           "text": "Sehen es alle.",
           "size": 96,
-          "y": 0.45
+          "y": 0.45,
+          "step": 0.17
         },
         {
           "type": "markerText",
@@ -727,12 +1090,64 @@
           "x": 0.62,
           "draw": 0.3
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.8,
+          "to": "accent"
+        }
+      ]
+    },
+    {
+      "id": "19b_keine",
+      "act": "7 Korrektur",
+      "start": 96.56666666666666,
+      "dur": 4.6,
+      "bg": "dark",
+      "vo": "Keine Rundmail. Kein Statusbericht. Kein Nachfragen.",
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "out": 1.45,
+          "mode": "hard",
+          "text": "Keine Rundmail.",
+          "size": 88,
+          "y": 0.5
+        },
+        {
+          "type": "text",
+          "t": 1.55,
+          "out": 2.95,
+          "mode": "hard",
+          "text": "Kein Statusbericht.",
+          "size": 88,
+          "y": 0.5
+        },
+        {
+          "type": "text",
+          "t": 3.05,
+          "mode": "hard",
+          "text": "Kein Nachfragen.",
+          "size": 88,
+          "y": 0.5
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.55,
+          "to": "accent"
+        },
+        {
+          "t": 3.05,
+          "to": "light"
+        }
       ]
     },
     {
       "id": "20_transparenz",
       "act": "6 Korrektur",
-      "start": 55.13333333333333,
+      "start": 101.16666666666667,
       "dur": 3.3333333333333335,
       "bg": "light",
       "vo": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.",
@@ -754,13 +1169,19 @@
           "size": 84,
           "y": 0.5
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.05,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "21_allein",
       "act": "7 Gegner",
-      "start": 58.46666666666667,
-      "dur": 2.1,
+      "start": 104.5,
+      "dur": 2.6,
       "bg": "dark",
       "vo": "Aber Struktur allein ist noch keine Übersicht.",
       "layers": [
@@ -782,15 +1203,21 @@
           "x": 0.395,
           "draw": 0.3
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 0.7,
+          "to": "accent"
+        }
       ]
     },
     {
       "id": "22_raster",
       "act": "7 Gegner",
-      "start": 60.56666666666667,
-      "dur": 2.4,
+      "start": 107.1,
+      "dur": 4.6,
       "bg": "dark",
-      "vo": "Die meisten nennen Übersicht: eine Tabelle. Bei uns gibt es keine.",
+      "vo": "Die meisten nennen Übersicht: eine Tabelle.",
       "layers": [
         {
           "type": "text",
@@ -816,45 +1243,127 @@
           "grow": 1.85,
           "cols": 34,
           "rows": 19
-        },
+        }
+      ],
+      "bgFlips": [
         {
-          "type": "strike",
-          "t": 2.033333333333333,
-          "draw": 0.27
+          "t": 1.05,
+          "to": "accent"
+        }
+      ]
+    },
+    {
+      "id": "22b_stapel",
+      "act": "8 Gegner",
+      "start": 111.7,
+      "dur": 5.6,
+      "bg": "dark",
+      "vo": "Fünf Dateien. Eine Wahrheit. Und niemand weiss, welche.",
+      "layers": [
+        {
+          "type": "pile",
+          "t": 0.0,
+          "step": 0.62,
+          "files": [
+            "Planung_2026.xlsx",
+            "Planung_2026_final.xlsx",
+            "Planung_final_v3.xlsx",
+            "Planung_final_v3_NEU.xlsx",
+            "Kopie von Planung_final_v3_NEU(1).xlsx"
+          ]
         },
         {
           "type": "text",
-          "t": 2.033333333333333,
-          "mode": "hard",
+          "t": 3.5,
+          "out": 4.6,
+          "mode": "words",
+          "text": "Fünf Dateien. Eine Wahrheit.",
+          "size": 64,
+          "y": 0.9,
+          "step": 0.17
+        },
+        {
+          "type": "text",
+          "t": 4.7,
+          "mode": "words",
+          "text": "Und niemand weiss, welche.",
+          "size": 72,
+          "y": 0.9,
+          "step": 0.17
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 3.5,
+          "to": "accent"
+        },
+        {
+          "t": 4.7,
+          "to": "light"
+        }
+      ]
+    },
+    {
+      "id": "22c_keine",
+      "act": "8 Gegner",
+      "start": 117.3,
+      "dur": 3.0,
+      "bg": "dark",
+      "vo": "Bei uns gibt es keine.",
+      "layers": [
+        {
+          "type": "grid",
+          "t": 0.0,
+          "grow": 0.5,
+          "cols": 34,
+          "rows": 19
+        },
+        {
+          "type": "strike",
+          "t": 0.62,
+          "draw": 0.3
+        },
+        {
+          "type": "text",
+          "t": 1.05,
+          "mode": "words",
           "text": "Bei uns gibt es keine.",
-          "size": 88,
-          "y": 0.5
+          "size": 92,
+          "y": 0.5,
+          "step": 0.17
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.05,
+          "to": "accent"
         }
       ]
     },
     {
       "id": "23_ui",
       "act": "7 Gegner",
-      "start": 62.96666666666667,
-      "dur": 2.4,
+      "start": 119.7,
+      "dur": 1.6,
       "bg": "accent",
       "vo": "(auch nicht im UI)",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
-          "mode": "hard",
+          "mode": "words",
           "text": "(auch nicht im UI)",
           "size": 34,
-          "y": 0.5
+          "y": 0.5,
+          "step": 0.17
         }
       ]
     },
     {
       "id": "24_keine",
       "act": "8 Versprechen",
-      "start": 65.4,
-      "dur": 3.066666666666667,
+      "start": 121.3,
+      "dur": 3.4,
       "bg": "light",
       "vo": "Keine Spalten. Kein bitte hier eintragen.",
       "layers": [
@@ -875,13 +1384,19 @@
           "size": 80,
           "y": 0.5
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.4,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "25_seht",
       "act": "8 Versprechen",
-      "start": 68.43333333333334,
-      "dur": 3.933333333333333,
+      "start": 124.7,
+      "dur": 4.6,
       "bg": "accent",
       "bgFlip": {
         "t": 2.1,
@@ -912,8 +1427,8 @@
     {
       "id": "26_also",
       "act": "8 Versprechen",
-      "start": 72.36666666666666,
-      "dur": 5.466666666666667,
+      "start": 129.3,
+      "dur": 5.4,
       "bg": "light",
       "vo": "Also arbeitet, wie ihr wollt. Wir behalten den Überblick.",
       "layers": [
@@ -944,13 +1459,19 @@
           "x": 0.575,
           "draw": 0.3
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 2.45,
+          "to": "dark"
+        }
       ]
     },
     {
       "id": "27_ende",
       "act": "8 Versprechen",
-      "start": 77.83333333333333,
-      "dur": 3.3,
+      "start": 134.7,
+      "dur": 4.0,
       "bg": "light",
       "bgFlip": {
         "t": 3.1,

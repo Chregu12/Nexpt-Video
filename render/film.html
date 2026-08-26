@@ -23,7 +23,12 @@ const ease=x=>1-Math.pow(1-clamp(x,0,1),3);                 // ease-out cubic
 const on=(l,t)=>t>=(l.t||0)&&(l.out==null||t<l.out);        // Sichtbarkeitsfenster
 const col=k=>PAL[k]||k;
 
-function bgAt(t){ let b=SCENE.bg; if(SCENE.bgFlip&&t>=SCENE.bgFlip.t) b=SCENE.bgFlip.to; return b; }
+function bgAt(t){
+  let b=SCENE.bg;
+  if(SCENE.bgFlip&&t>=SCENE.bgFlip.t) b=SCENE.bgFlip.to;
+  (SCENE.bgFlips||[]).forEach(f=>{ if(t>=f.t) b=f.to; });   // harte Schnitte auf den Beat
+  return b;
+}
 function fg(t){ return bgAt(t)==='dark'?PAL.onDark:PAL.dark; }
 // Marker-Regel: Akzent auf Hell/Schwarz — aber WEISS auf der Akzentflaeche,
 // sonst verschwindet Gruen auf Gruen. Genau so loest es der Referenzfilm.
@@ -57,8 +62,10 @@ function box(y,html,style=''){
 const R={};
 // Wörter erscheinen einzeln im Sprechtakt — der Kern des Stils
 R.text=(l,t,st)=>{
-  const words=l.text.split(' '), vis = l.mode==='words'
-    ? clamp(Math.floor((t-l.t)/0.14)+1,0,words.length) : words.length;
+  const words=l.text.split(' ');
+  const step = l.step || 0.19;                 // ~ Sprechtakt, nicht schneller
+  const vis = l.mode==='words'
+    ? clamp(Math.floor((t-l.t)/step)+1,0,words.length) : words.length;
   if(vis<=0) return;
   const c = l.color?col(l.color):fg(t);
   const glow = l.glow?`text-shadow:0 0 46px ${PAL.accent}`:'';
@@ -182,6 +189,24 @@ R.liveEdit=(l,t,st)=>{  // Der Marker streicht durch und schreibt daneben — di
   const cx=W/2-l.old.length*22-150;
   st.appendChild(svgWrap([svgPath(roughLine(cx,l.y*H-6,cx+l.old.length*44,l.y*H-14,17,7),
     clamp(p*2.2,0,1),mk(t),10)]));
+};
+R.role=(l,t,st)=>{   // Person und das, was sie sieht — dieselbe Arbeit, andere Sicht
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText='flex-direction:column;gap:26px';
+  const p=clamp((t-l.t)/0.2,0,1);
+  d.innerHTML=`<div style="font-size:50px;color:${fg(t)};opacity:${0.62*p};letter-spacing:.01em">${l.who}</div>
+     <div class="txt" style="font-size:104px;color:${fg(t)}">${l.sees}</div>`;
+  st.appendChild(d);
+};
+R.pile=(l,t,st)=>{   // Dateinamen stapeln sich — jeder im Saal kennt diesen Stapel
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText='flex-direction:column;gap:18px;align-items:flex-start;text-align:left';
+  const n=clamp(Math.floor((t-l.t)/(l.step||0.42))+1,0,l.files.length);
+  for(let i=0;i<n;i++){
+    const last=i===l.files.length-1 && n===l.files.length;
+    d.innerHTML+=`<div style="font-family:'FilmSans',monospace;font-size:${last?54:48}px;
+      color:${last?mk(t):fg(t)};opacity:${last?1:0.35+i*0.14}">${l.files[i]}</div>`;}
+  st.appendChild(d);
 };
 R.grid=(l,t,st)=>{  // wächst Zelle für Zelle, exponentiell schneller — kein Fade, kein Skalieren
   const p=clamp((t-l.t)/l.grow,0,1), k=Math.pow(p,0.55), paths=[];
