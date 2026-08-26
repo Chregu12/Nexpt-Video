@@ -1,0 +1,3 @@
+# ProRes-Master: 267 MB, wird lokal mit `python3 render/render.py` neu erzeugt
+out/scenes/
+out/_frames/

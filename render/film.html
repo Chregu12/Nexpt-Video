@@ -1,0 +1,212 @@
+<meta charset="utf-8">
+<title>NEXPT Keynote — Renderer</title>
+<style>
+  @font-face { font-family:'FilmSans';   src:url('fonts/Inter-SemiBold.ttf')   format('truetype'); }
+  @font-face { font-family:'FilmMarker'; src:url('fonts/PermanentMarker.ttf') format('truetype'); }
+  html,body{margin:0;padding:0;overflow:hidden;background:#000}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+         font-family:'FilmSans',sans-serif;-webkit-font-smoothing:antialiased}
+  .lyr{position:absolute;left:0;top:0;width:100%;height:100%}
+  .ctr{display:flex;align-items:center;justify-content:center;text-align:center}
+  .txt{letter-spacing:-.022em;line-height:1.06;white-space:pre-wrap}
+  .mk{font-family:'FilmMarker',cursive;letter-spacing:.01em}
+  svg{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
+</style>
+<div id="stage"></div>
+<script>
+const W=1920,H=1080;
+let SCENE=null, PAL=null;
+// deterministischer PRNG — gleiche Eingabe, gleicher Frame. Kein Math.random im Renderpfad.
+function rnd(seed){let s=seed>>>0||1;return()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return((s>>>0)%100000)/100000}}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const ease=x=>1-Math.pow(1-clamp(x,0,1),3);                 // ease-out cubic
+const on=(l,t)=>t>=(l.t||0)&&(l.out==null||t<l.out);        // Sichtbarkeitsfenster
+const col=k=>PAL[k]||k;
+
+function bgAt(t){ let b=SCENE.bg; if(SCENE.bgFlip&&t>=SCENE.bgFlip.t) b=SCENE.bgFlip.to; return b; }
+function fg(t){ return bgAt(t)==='dark'?PAL.onDark:PAL.dark; }
+// Marker-Regel: Akzent auf Hell/Schwarz — aber WEISS auf der Akzentflaeche,
+// sonst verschwindet Gruen auf Gruen. Genau so loest es der Referenzfilm.
+function mk(t){ return bgAt(t)==='accent' ? PAL.onDark : PAL.accent; }
+
+// rauer Strich: leicht zitternde Linie, damit nichts wie eine Vektor-Animation aussieht
+function roughLine(x1,y1,x2,y2,seed,amp=6,n=9){
+  const r=rnd(seed); let d=`M ${x1} ${y1}`;
+  for(let i=1;i<=n;i++){const k=i/n;
+    d+=` L ${x1+(x2-x1)*k+(r()-.5)*amp} ${y1+(y2-y1)*k+(r()-.5)*amp}`;}
+  return d;
+}
+function svgPath(d,prog,stroke,wdt,cap='round'){
+  const el=document.createElementNS('http://www.w3.org/2000/svg','path');
+  el.setAttribute('d',d); el.setAttribute('fill','none');
+  el.setAttribute('stroke',stroke); el.setAttribute('stroke-width',wdt);
+  el.setAttribute('stroke-linecap',cap); el.setAttribute('stroke-linejoin','round');
+  const L=2600; el.setAttribute('stroke-dasharray',L);
+  el.setAttribute('stroke-dashoffset',L*(1-ease(prog)));   // Strich läuft durch, statt einzublenden
+  return el;
+}
+function svgWrap(children){
+  const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  s.setAttribute('viewBox',`0 0 ${W} ${H}`); children.forEach(c=>s.appendChild(c)); return s;
+}
+function box(y,html,style=''){
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText=`top:${(y-0.5)*H}px;${style}`; d.innerHTML=html; return d;
+}
+
+const R={};
+// Wörter erscheinen einzeln im Sprechtakt — der Kern des Stils
+R.text=(l,t,st)=>{
+  const words=l.text.split(' '), vis = l.mode==='words'
+    ? clamp(Math.floor((t-l.t)/0.14)+1,0,words.length) : words.length;
+  if(vis<=0) return;
+  const c = l.color?col(l.color):fg(t);
+  const glow = l.glow?`text-shadow:0 0 46px ${PAL.accent}`:'';
+  const html=words.slice(0,vis).map(w=>{
+    const m=w.match(/^(IHR|EIN|ALLE|DEN|WIE)$/);
+    return m?`<span style="font-size:${l.size*1.06}px">${w}</span>`:w;}).join(' ');
+  const dx = l.x!=null ? `left:${(l.x-0.5)*W}px;` : '';
+  st.appendChild(box(l.y, `<div class="txt" style="font-size:${l.size}px;color:${c};${glow};max-width:88%">${html}</div>`, dx));
+};
+R.markerText=(l,t,st)=>{  // Handschrift wächst von links, wie geschrieben
+  const p=ease((t-l.t)/(l.draw||0.3));
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText=`top:${(l.y-0.5)*H}px;left:${((l.x??0.5)-0.5)*W}px`;
+  d.innerHTML=`<div class="mk" style="font-size:${l.size}px;color:${mk(t)};
+      transform:rotate(${l.rot||0}deg);clip-path:inset(0 ${(1-p)*100}% 0 0)">${l.text}</div>`;
+  st.appendChild(d);
+};
+R.underline=(l,t,st)=>{
+  const p=(t-l.t)/(l.draw||0.3), x=l.x*W, y=l.y*H, w=l.w*W;
+  st.appendChild(svgWrap([svgPath(roughLine(x,y,x+w,y+4,7,5),p,mk(t),9)]));
+};
+R.checkbox=(l,t,st)=>{
+  const checked=t>=l.check, s=l.size*0.9, y=l.y*H;
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText=`top:${(l.y-0.5)*H}px`;
+  const label=checked&&l.hi ? l.text.replace(l.hi,`<b style="font-weight:900">${l.hi}</b>`) : l.text;
+  const p=checked?clamp((t-l.check)/0.18,0,1):0, L=180;
+  const tick = checked ? `<svg viewBox="0 0 100 100" style="position:absolute;left:-9%;top:-14%;
+       width:118%;height:128%;overflow:visible"><path d="M 18 52 L 40 74 L 86 16" fill="none"
+       stroke="${mk(t)}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"
+       stroke-dasharray="${L}" stroke-dashoffset="${L*(1-ease(p))}"/></svg>` : '';
+  d.innerHTML=`<div style="display:flex;align-items:center;gap:${s*0.45}px">
+     <div style="position:relative;width:${s*0.82}px;height:${s*0.82}px;
+          border:5px solid ${fg(t)};border-radius:8px">${tick}</div>
+     <div class="txt" style="font-size:${l.size}px;color:${fg(t)}">${label}</div></div>`;
+  st.appendChild(d);
+};
+R.doodle=(l,t,st)=>{
+  const p=(t-l.t)/(l.draw||0.3), x=l.x*W, y=l.y*H, paths=[];
+  const S={timebox:[[-70,-40,70,-40],[70,-40,70,40],[70,40,-70,40],[-70,40,-70,-40],[-30,-40,-30,40]],
+           bar:[[-90,-10,90,-10],[-90,20,30,20],[-90,-40,60,-40]],
+           ticket:[[-80,-45,80,-45],[80,-45,80,45],[80,45,-80,45],[-80,45,-80,-45],[-40,-45,-40,45]],
+           cal:[[-70,-45,70,-45],[70,-45,70,45],[70,45,-70,45],[-70,45,-70,-45],[-70,-15,70,-15],[-25,-45,-25,-60],[25,-45,25,-60]]}[l.shape]||[];
+  S.forEach((s,i)=>paths.push(svgPath(roughLine(x+s[0],y+s[1],x+s[2],y+s[3],31+i*7,4),
+    clamp(p*S.length-i,0,1),mk(t),7)));
+  st.appendChild(svgWrap(paths));
+};
+R.wordFlood=(l,t,st)=>{  // Entspricht Apples Tannen, die den Frame fluten
+  const p=clamp((t-l.t)/l.dur,0,1), r=rnd(99), n=Math.floor(p*l.words.length);
+  const d=document.createElement('div'); d.className='lyr';
+  l.words.forEach((w,i)=>{
+    let x,y,guard=0;
+    do { x=6+r()*88; y=5+r()*90; guard++; }            // Mitte aussparen: dort steht der Satz
+    while (guard<24 && Math.hypot((x-50)/34,(y-50)/17)<1);
+    const rot=(r()-.5)*40, sz=26+r()*46;
+    if(i>=n) return;
+    d.innerHTML+=`<div class="mk" style="position:absolute;left:${x}%;top:${y}%;
+      transform:translate(-50%,-50%) rotate(${rot}deg);font-size:${sz}px;color:${mk(t)}">${w}</div>`;
+  });
+  st.appendChild(d);
+};
+R.levels=(l,t,st)=>{  // fünf Stufen rasten hart ein, keine Blende
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText=`top:${(l.y-0.5)*H}px;flex-direction:column;gap:16px`;
+  l.items.forEach((it,i)=>{ if(t<l.t+i*l.step) return;
+    d.innerHTML+=`<div class="txt" style="font-size:74px;color:${fg(t)}">${it}</div>`;});
+  st.appendChild(d);
+};
+R.broll=(l,t,st)=>{  // Platzhalter — hier kommt die echte Makro-Einstellung rein
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.innerHTML=`<div style="position:absolute;inset:0;background:
+      repeating-linear-gradient(115deg,#141414 0 34px,#1b1b1b 34px 68px)"></div>
+    <div style="position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);
+      font-size:30px;color:#5a5a5a;letter-spacing:.22em">B-ROLL · ${l.label.toUpperCase()}</div>
+    <div class="txt" style="position:relative;font-size:92px;color:#fff;
+      text-shadow:0 6px 40px rgba(0,0,0,.85)">${l.word}</div>`;
+  st.appendChild(d);
+};
+R.card=(l,t,st)=>{  // Der Frame bewegt sich NICHT — nur das Etikett springt um.
+  const label = t>=l.swapAt ? l.swapTo : l.label;
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.innerHTML=`<div style="width:1120px;background:${PAL.light};border-radius:26px;
+      padding:64px 72px;text-align:left;box-shadow:0 40px 120px rgba(0,0,0,.22)">
+      <div style="display:inline-block;font-size:34px;letter-spacing:.20em;
+        padding:14px 26px;border-radius:10px;background:${PAL.dark};color:${PAL.light}">${label}</div>
+      <div class="txt" style="font-size:82px;color:${PAL.dark};margin-top:34px">${l.title}</div>
+      <div style="font-size:36px;color:#6b6b6b;margin-top:20px">${l.meta}</div></div>`;
+  st.appendChild(d);
+};
+R.arrows=(l,t,st)=>{  // Pfeile schiessen von allen Seiten auf die Mitte
+  const paths=[], labels=document.createElement('div'); labels.className='lyr';
+  l.words.forEach((w,i)=>{
+    const p=clamp((t-l.t-i*l.stagger)/0.4,0,1); if(p<=0) return;
+    const a=(-Math.PI/2)+(i-(l.words.length-1)/2)*0.62;
+    const sx=W/2+Math.cos(a)*690, sy=H/2+Math.sin(a)*430;
+    const ex=W/2+Math.cos(a)*260, ey=H/2+Math.sin(a)*180;
+    paths.push(svgPath(roughLine(sx,sy,ex,ey,11+i*13,7),p,mk(t),8));
+    if(p>=1) labels.innerHTML+=`<div class="txt" style="position:absolute;
+      left:${clamp(W/2+Math.cos(a)*760,180,W-180)}px;top:${clamp(H/2+Math.sin(a)*470,90,H-90)}px;
+      transform:translate(-50%,-50%);font-size:52px;color:${PAL.dark}">${w}</div>`;
+  });
+  st.appendChild(svgWrap(paths)); st.appendChild(labels);
+};
+R.sunburst=(l,t,st)=>{
+  const p=(t-l.t)/(l.draw||0.3), paths=[];
+  const yo=(l.y!=null?(l.y-0.5)*H:-70);
+  for(let i=0;i<16;i++){const a=i/16*Math.PI*2;
+    paths.push(svgPath(roughLine(W/2+Math.cos(a)*330,H/2+yo+Math.sin(a)*215,
+      W/2+Math.cos(a)*425,H/2+yo+Math.sin(a)*280,5+i*3,3),clamp(p*2-i*0.03,0,1),'#fff',12));}
+  st.appendChild(svgWrap(paths));
+};
+R.liveEdit=(l,t,st)=>{  // Der Marker streicht durch und schreibt daneben — die These des Films
+  const p=(t-l.t)/(l.draw||0.4);
+  const d=document.createElement('div'); d.className='lyr ctr';
+  d.style.cssText=`top:${(l.y-0.5)*H}px`;
+  d.innerHTML=`<div style="display:flex;align-items:baseline;gap:38px">
+     <div class="txt" style="font-size:84px;color:${fg(t)};opacity:.55">${l.old}</div>
+     <div class="mk" style="font-size:80px;color:${mk(t)};
+       clip-path:inset(0 ${(1-ease(clamp(p*1.6-0.6,0,1)))*100}% 0 0)">${l.new}</div></div>`;
+  st.appendChild(d);
+  const cx=W/2-l.old.length*22-150;
+  st.appendChild(svgWrap([svgPath(roughLine(cx,l.y*H-6,cx+l.old.length*44,l.y*H-14,17,7),
+    clamp(p*2.2,0,1),mk(t),10)]));
+};
+R.grid=(l,t,st)=>{  // wächst Zelle für Zelle, exponentiell schneller — kein Fade, kein Skalieren
+  const p=clamp((t-l.t)/l.grow,0,1), k=Math.pow(p,0.55), paths=[];
+  const nc=Math.floor(k*l.cols), nr=Math.floor(k*l.rows);
+  for(let i=1;i<=nc;i++){const x=i*(W/l.cols);
+    paths.push(svgPath(roughLine(x,0,x,H,200+i,2.5),1,mk(t),2.2));}
+  for(let j=1;j<=nr;j++){const y=j*(H/l.rows);
+    paths.push(svgPath(roughLine(0,y,W,y,400+j,2.5),1,mk(t),2.2));}
+  const g=svgWrap(paths); g.dataset.grid='1'; st.appendChild(g);
+};
+R.strike=(l,t,st)=>{  // nimmt das Raster mit, statt es auszublenden
+  const p=(t-l.t)/(l.draw||0.27);
+  const gs=st.querySelector('[data-grid]');
+  if(gs) gs.style.clipPath=`inset(0 0 0 ${ease(p)*100}%)`;
+  st.appendChild(svgWrap([svgPath(roughLine(120,H*0.80,W-120,H*0.24,77,14,13),p,mk(t),20)]));
+};
+R.url=(l,t,st)=>{
+  st.appendChild(box(l.y,`<div class="txt" style="font-size:${l.size}px;color:${fg(t)}">${l.base}<span style="color:${PAL.accent}">${l.accent}</span></div>`));
+};
+
+window.setup=(scene,pal)=>{SCENE=scene;PAL=pal;};
+window.renderAt=(t)=>{                       // deterministisch: gleiche t → gleicher Frame
+  const st=document.getElementById('stage');
+  st.style.background=col(bgAt(t)); st.innerHTML='';
+  (SCENE.layers||[]).forEach(l=>{ if(on(l,t)&&R[l.type]) R[l.type](l,t,st); });
+  return true;
+};
+</script>
