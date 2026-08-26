@@ -14,18 +14,98 @@
   },
   "scenes": [
     {
+      "id": "00a_wirsind",
+      "act": "0 Wer wir sind",
+      "start": 0.0,
+      "dur": 2.9,
+      "bg": "light",
+      "vo": "Wir sind Raphael und Christian Heusser.",
+      "bgFlips": [
+        {
+          "t": 1.75,
+          "to": "dark"
+        }
+      ],
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "out": 1.75,
+          "mode": "words",
+          "text": "Wir sind",
+          "size": 86,
+          "y": 0.5,
+          "step": 0.115
+        },
+        {
+          "type": "text",
+          "t": 1.75,
+          "mode": "words",
+          "text": "Raphael und Christian Heusser.",
+          "size": 92,
+          "y": 0.5,
+          "step": 0.115
+        }
+      ]
+    },
+    {
+      "id": "00b_warum",
+      "act": "0 Wer wir sind",
+      "start": 2.9,
+      "dur": 4.5,
+      "bg": "accent",
+      "vo": "Wir haben NEXPT gestartet, damit du arbeiten kannst.",
+      "bgFlips": [
+        {
+          "t": 2.3,
+          "to": "light"
+        }
+      ],
+      "layers": [
+        {
+          "type": "text",
+          "t": 0.0,
+          "out": 2.3,
+          "mode": "words",
+          "text": "Wir haben NEXPT gestartet,",
+          "size": 84,
+          "y": 0.5,
+          "step": 0.115
+        },
+        {
+          "type": "text",
+          "t": 2.3,
+          "mode": "words",
+          "text": "damit du arbeiten kannst.",
+          "size": 92,
+          "y": 0.44,
+          "step": 0.115
+        },
+        {
+          "type": "markerText",
+          "t": 3.35,
+          "text": "^STATT ZU ORGANISIEREN.",
+          "size": 62,
+          "rot": -3,
+          "y": 0.62,
+          "x": 0.5,
+          "draw": 0.4
+        }
+      ]
+    },
+    {
       "id": "01_versprechen",
       "act": "1 Selbstkorrektur",
-      "start": 0.0,
+      "start": 7.4,
       "dur": 3.2,
       "bg": "light",
-      "vo": "NEXPT hat ein Versprechen. Und eine Meinung.",
+      "vo": "Und wir haben ein Versprechen. Und eine Meinung.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
           "mode": "words",
-          "text": "NEXPT hat ein Versprechen.",
+          "text": "Und wir haben ein Versprechen.",
           "size": 92,
           "y": 0.5,
           "step": 0.115
@@ -59,7 +139,7 @@
     {
       "id": "02_flip",
       "act": "1 Selbstkorrektur",
-      "start": 3.2,
+      "start": 10.6,
       "dur": 2.5,
       "bg": "light",
       "bgFlip": {
@@ -98,7 +178,7 @@
     {
       "id": "03_moment",
       "act": "1 Selbstkorrektur",
-      "start": 5.7,
+      "start": 13.1,
       "dur": 3.2,
       "bg": "dark",
       "vo": "Moment. Nein. Das machen alle anderen.",
@@ -135,7 +215,7 @@
     {
       "id": "04_ihr",
       "act": "1 Selbstkorrektur",
-      "start": 8.9,
+      "start": 16.3,
       "dur": 3.4,
       "bg": "accent",
       "vo": "Arbeite so, wie du willst.",
@@ -185,7 +265,7 @@
     {
       "id": "05_aside",
       "act": "1 Selbstkorrektur",
-      "start": 12.3,
+      "start": 19.7,
       "dur": 1.4,
       "bg": "dark",
       "vo": "(ja, auch du in der Buchhaltung)",
@@ -205,7 +285,7 @@
     {
       "id": "06_wege",
       "act": "2 Freiheit",
-      "start": 13.7,
+      "start": 21.1,
       "dur": 8.0,
       "bg": "dark",
       "vo": "Du planst in Sprints. Du in Phasen. Du in Tickets. Du in Fristen. Du in Schichten. Du in Etappen.",
@@ -418,7 +498,7 @@
     {
       "id": "07_niemand",
       "act": "2 Freiheit",
-      "start": 21.7,
+      "start": 29.1,
       "dur": 2.6,
       "bg": "dark",
       "vo": "Niemand muss sich umgewöhnen. Niemand.",
@@ -453,7 +533,7 @@
     {
       "id": "08_broll",
       "act": "2 Freiheit",
-      "start": 24.3,
+      "start": 31.7,
       "dur": 4.6,
       "bg": "dark",
       "vo": "(kein Text — drei Makro-Einstellungen)",
@@ -500,7 +580,7 @@
     {
       "id": "09_flut",
       "act": "2 Freiheit",
-      "start": 28.9,
+      "start": 36.3,
       "dur": 4.0,
       "bg": "light",
       "vo": "Wir nennen es, wie ihr es nennt.",
@@ -579,7 +659,7 @@
     {
       "id": "10_eure",
       "act": "2 Freiheit",
-      "start": 32.9,
+      "start": 40.3,
       "dur": 2.6,
       "bg": "light",
       "vo": "Eure Wörter. Nicht unsere.",
@@ -622,7 +702,7 @@
     {
       "id": "10b_eures",
       "act": "2 Freiheit",
-      "start": 35.5,
+      "start": 42.9,
       "dur": 4.0,
       "bg": "light",
       "vo": "Und eure Reihenfolge. Eure Regeln. Euer Tempo.",
@@ -669,7 +749,7 @@
     {
       "id": "11a_menschen",
       "act": "3 Die Leute",
-      "start": 39.5,
+      "start": 46.9,
       "dur": 4.6,
       "bg": "dark",
       "vo": "Weil hier nicht das Projekt arbeitet. Sondern Menschen.",
@@ -717,7 +797,7 @@
     {
       "id": "11b_rollen",
       "act": "3 Die Leute",
-      "start": 44.1,
+      "start": 51.5,
       "dur": 9.0,
       "bg": "light",
       "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker seine Tickets. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
@@ -813,7 +893,7 @@
     {
       "id": "11c_trick",
       "act": "3 Die Leute",
-      "start": 53.1,
+      "start": 60.5,
       "dur": 1.6,
       "bg": "accent",
       "vo": "(das ist der Trick)",
@@ -832,7 +912,7 @@
     {
       "id": "12a_chaos",
       "act": "4 Einwand",
-      "start": 54.7,
+      "start": 62.1,
       "dur": 2.6,
       "bg": "dark",
       "vo": "Vier Sichtweisen. Ein Chaos?",
@@ -876,7 +956,7 @@
     {
       "id": "12_nein",
       "act": "3 Einwand",
-      "start": 57.3,
+      "start": 64.7,
       "dur": 1.6,
       "bg": "dark",
       "vo": "NEIN.",
@@ -896,7 +976,7 @@
     {
       "id": "13_modell",
       "act": "4 Ein Modell",
-      "start": 58.9,
+      "start": 66.3,
       "dur": 6.6,
       "bg": "accent",
       "vo": "Oben ist eure Sprache. Unten ist ein Standard.",
@@ -962,7 +1042,7 @@
     {
       "id": "13b_stufen",
       "act": "5 Ein Standard",
-      "start": 65.5,
+      "start": 72.9,
       "dur": 7.466666666666667,
       "bg": "accent",
       "vo": "Fünf Stufen. Mehr braucht Arbeit nicht. Egal ob Bau, Betrieb oder Buchhaltung — darunter liegt dasselbe Modell.",
@@ -1047,7 +1127,7 @@
     {
       "id": "14_ende",
       "act": "5 Übergang",
-      "start": 72.96666666666667,
+      "start": 80.367,
       "dur": 3.6,
       "bg": "dark",
       "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
@@ -1105,7 +1185,7 @@
     {
       "id": "15_element",
       "act": "5 Übergang",
-      "start": 76.56666666666666,
+      "start": 83.967,
       "dur": 5.2,
       "bg": "accent",
       "vo": "Dasselbe Element. Neuer Modus. Kein neues Tool.",
@@ -1180,7 +1260,7 @@
     {
       "id": "16_pfeile",
       "act": "5 Übergang",
-      "start": 81.76666666666667,
+      "start": 89.167,
       "dur": 5.333333333333333,
       "bg": "light",
       "vo": "Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.",
@@ -1250,7 +1330,7 @@
     {
       "id": "17_hundert",
       "act": "5 Übergang",
-      "start": 87.1,
+      "start": 94.5,
       "dur": 4.066666666666666,
       "bg": "accent",
       "vo": "Hundert Prozent verbunden. Kein Export. Null Doppelerfassung.",
@@ -1320,7 +1400,7 @@
     {
       "id": "18_aendert",
       "act": "6 Korrektur",
-      "start": 91.16666666666667,
+      "start": 98.567,
       "dur": 2.8,
       "bg": "dark",
       "vo": "Und wenn jemand etwas ändert?",
@@ -1363,7 +1443,7 @@
     {
       "id": "19_alle",
       "act": "6 Korrektur",
-      "start": 93.96666666666667,
+      "start": 101.367,
       "dur": 2.6,
       "bg": "dark",
       "vo": "Sehen es alle. Sofort.",
@@ -1406,7 +1486,7 @@
     {
       "id": "19b_keine",
       "act": "7 Korrektur",
-      "start": 96.56666666666666,
+      "start": 103.967,
       "dur": 4.6,
       "bg": "dark",
       "vo": "Keine Rundmail. Kein Statusbericht. Kein Nachfragen.",
@@ -1460,7 +1540,7 @@
     {
       "id": "20_transparenz",
       "act": "6 Korrektur",
-      "start": 101.16666666666667,
+      "start": 108.567,
       "dur": 3.3333333333333335,
       "bg": "light",
       "vo": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.",
@@ -1509,7 +1589,7 @@
     {
       "id": "21_allein",
       "act": "7 Gegner",
-      "start": 104.5,
+      "start": 111.9,
       "dur": 2.6,
       "bg": "dark",
       "vo": "Aber Struktur allein ist noch keine Übersicht.",
@@ -1552,7 +1632,7 @@
     {
       "id": "22_raster",
       "act": "7 Gegner",
-      "start": 107.1,
+      "start": 114.5,
       "dur": 4.6,
       "bg": "dark",
       "vo": "Die meisten nennen Übersicht: eine Tabelle.",
@@ -1608,7 +1688,7 @@
     {
       "id": "22b_stapel",
       "act": "8 Gegner",
-      "start": 111.7,
+      "start": 119.1,
       "dur": 5.6,
       "bg": "dark",
       "vo": "Fünf Dateien. Eine Wahrheit. Und niemand weiss, welche.",
@@ -1673,7 +1753,7 @@
     {
       "id": "22c_keine",
       "act": "8 Gegner",
-      "start": 117.3,
+      "start": 124.7,
       "dur": 3.0,
       "bg": "dark",
       "vo": "Bei uns gibt es keine.",
@@ -1718,7 +1798,7 @@
     {
       "id": "23_ui",
       "act": "7 Gegner",
-      "start": 119.7,
+      "start": 127.7,
       "dur": 1.6,
       "bg": "accent",
       "vo": "(auch nicht im UI)",
@@ -1737,7 +1817,7 @@
     {
       "id": "24_keine",
       "act": "8 Versprechen",
-      "start": 121.3,
+      "start": 129.3,
       "dur": 3.4,
       "bg": "light",
       "vo": "Keine Spalten. Kein bitte hier eintragen.",
@@ -1785,7 +1865,7 @@
     {
       "id": "25_seht",
       "act": "8 Versprechen",
-      "start": 124.7,
+      "start": 132.7,
       "dur": 4.6,
       "bg": "accent",
       "bgFlip": {
@@ -1837,7 +1917,7 @@
     {
       "id": "26_also",
       "act": "8 Versprechen",
-      "start": 129.3,
+      "start": 137.3,
       "dur": 5.4,
       "bg": "light",
       "vo": "Also arbeite, wie du willst. Wir behalten den Überblick.",
@@ -1890,7 +1970,7 @@
     {
       "id": "27_ende",
       "act": "8 Versprechen",
-      "start": 134.7,
+      "start": 142.7,
       "dur": 4.0,
       "bg": "light",
       "bgFlip": {

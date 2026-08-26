@@ -70,15 +70,18 @@ const R={};
 //  5. Über ihre Lebensdauer skaliert die ganze Zeile minimal weiter (~2 %).
 const JIT=[0.55,1.0,0.72,1.5,0.85,1.25,0.6,1.1];   // fest, nicht zufällig: gleicher Frame bei gleicher t
 function chunks(text){
+  // [Text, beginnt ein neues Wort?] — Teile INNERHALB eines Worts duerfen
+  // beim Setzen keine Luecke bekommen, sonst steht da „Chris tian".
   const out=[];
   text.split(' ').forEach(w=>{
-    if(w.length>=8){ const k=Math.ceil(w.length*0.55); out.push(w.slice(0,k),w.slice(k)); }
-    else out.push(w);
+    if(w.length>=8){ const k=Math.ceil(w.length*0.55);
+      out.push([w.slice(0,k),true],[w.slice(k),false]); }
+    else out.push([w,true]);
   });
   return out;
 }
 R.text=(l,t,st)=>{
-  const cs = l.mode==='words' ? chunks(l.text) : [l.text];
+  const cs = l.mode==='words' ? chunks(l.text) : [[l.text,true]];
   const base = l.step || 0.19;
   // Chunk-Zeitpunkte mit ungleichmässigem Takt aufbauen
   const at=[]; let acc=0;
@@ -88,24 +91,26 @@ R.text=(l,t,st)=>{
   const el   = t-(l.t||0);
   const c    = l.color?col(l.color):fg(t);
   const glow = l.glow?`text-shadow:0 0 46px ${PAL.accent}`:'';
-  const parts = cs.map((w,i)=>{
+  let html='';
+  cs.forEach(([w,newWord],i)=>{
     const dt = el - at[i]*scl;
-    if(dt < 0) return '';
+    if(dt < 0) return;
     const p  = ease(clamp(dt/0.085,0,1));            // Eintritt in ~2.5 Frames
     const sc = 0.68 + 0.32*p;                        // von 68 % auf volle Grösse
     const dy = (1-p)*0.34;                           // von unten herauf
     const hi = /^(DU|IHR|EIN|ALLE|DEN|WIE|NIEMAND)$/.test(w);
-    return `<span style="display:inline-block;transform:translateY(${dy}em) scale(${sc.toFixed(3)});
+    if(html && newWord) html += ' ';                 // Luecke nur zwischen echten Woertern
+    html += `<span style="display:inline-block;transform:translateY(${dy}em) scale(${sc.toFixed(3)});
       transform-origin:50% 85%;font-size:${hi?1.06:1}em">${w}</span>`;
-  }).filter(Boolean);
-  if(!parts.length) return;
+  });
+  if(!html) return;
   // ganze Zeile driftet ueber ihre Lebensdauer minimal groesser — ein sehr langsamer Zug
   const life = clamp(el/Math.max(1.2,span+0.9),0,1);
   const lineScale = (1 + 0.022*life).toFixed(4);
   const dx = l.x!=null ? `left:${(l.x-0.5)*W}px;` : '';
   st.appendChild(box(l.y,
     `<div class="txt" style="font-size:${l.size}px;color:${c};${glow};max-width:88%;
-        transform:scale(${lineScale});transform-origin:50% 50%">${parts.join(' ')}</div>`, dx));
+        transform:scale(${lineScale});transform-origin:50% 50%">${html}</div>`, dx));
 };
 R.markerText=(l,t,st)=>{  // Handschrift wächst von links, wie geschrieben
   const p=ease((t-l.t)/(l.draw||0.3));
