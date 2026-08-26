@@ -18,6 +18,8 @@ python3 render/render.py 15 22           # nur diese Szenen (Nummer oder id-Frag
 python3 render/render.py --stills        # nur je ein Standbild pro Szene (Sekunden statt Minuten)
 python3 render/render.py --alpha         # ProRes 4444 mit Alpha statt 422 HQ
 python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
+python3 render/scratchvo.py              # → out/scratch-vo.wav (Wegwerf-Stimme zum Timing-Check)
+python3 render/sync.py <datei>           # Timing auf die echte Stimme ziehen — siehe unten
 ```
 
 ## Dateien
@@ -42,6 +44,48 @@ python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
    und nicht als eine durchgehende Datei.
 6. Die neuen Ist-Zeiten zurück in `timing.json` schreiben und neu rendern — dann sitzt jede
    Animation frame-genau auf der echten Stimme.
+
+## Die Stimme passend machen — ohne stundenlang zu schieben
+
+`sync.py` schreibt die gemessenen Ist-Zeiten in `timing.json` zurück. Danach einmal
+`render.py`, und **jede Animation sitzt frame-genau auf der echten Stimme.** Zwei Wege:
+
+### Weg A — aus dem Schnitt zurücklesen *(massgeblich)*
+
+Du hörst, der Code rechnet nach. Du schiebst in FCP nach Gefühl, bis es sitzt, exportierst
+das Projekt als XML und lässt die Animation nachziehen:
+
+```bash
+# in FCP:  Ablage → Exportieren → XML …   → Projekt.fcpxml
+python3 render/sync.py Projekt.fcpxml
+python3 render/render.py
+```
+
+Der Umlauf ist verlustfrei geprüft: exportiert und zurückgelesen ergibt bit-identische Zeiten.
+Das ist der Weg, dem man trauen kann — er rät nichts.
+
+### Weg B — die Tonspur vermessen *(erster Wurf)*
+
+```bash
+python3 render/sync.py vo.wav
+```
+
+Findet die Sprechpausen und legt jede Szene auf ihren ersten Satz. Das Werkzeug weiss, wie
+viele Sätze es erwartet (44), sucht die passende Pausenschwelle selbst und **weigert sich zu
+raten**, wenn die Zahl nicht aufgeht — dann sagt es das und dehnt ersatzweise global
+(`--fit`). Passt es, prüft es zusätzlich jede Szene auf Plausibilität und meldet alles, was
+stark vom Plan abweicht. Optionen: `--gap 0.4` (Schwelle vorgeben), `--dry` (nur zeigen).
+
+**Weg B ist der schnelle erste Wurf, Weg A die Wahrheit.** Ein Sprecher pausiert an
+Satzenden, nicht an Szenengrenzen — deshalb kann eine verschluckte Pause die Zuordnung
+verschieben. Darum meldet das Werkzeug lieber einen Zweifel, als still etwas Falsches
+zu liefern.
+
+### Scratch-Stimme
+
+`scratchvo.py` erzeugt aus den `vo`-Feldern eine Roboterstimme auf den geplanten Zeiten.
+Nicht für den Film — aber sie macht in zwei Minuten hörbar, wo der Text zu lang ist. Genau
+dafür sprechen Regie und Copywriter sonst selbst eine Scratch-Spur ein.
 
 ## Warum pro Szene ein Clip
 
