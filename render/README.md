@@ -5,8 +5,9 @@ Erzeugt aus `timing.json` ProRes-Clips und ein FCPXML für Final Cut Pro.
 ## Voraussetzungen
 
 ```bash
-pip install playwright
+pip install playwright piper-tts faster-whisper
 python3 -m playwright install chromium     # oder vorhandenes Chromium via CHROME= setzen
+sh render/voices/get-voices.sh             # deutsche Stimmmodelle (~200 MB)
 # ffmpeg mit prores_ks (jedes aktuelle ffmpeg; auf macOS: brew install ffmpeg)
 ```
 
@@ -70,22 +71,41 @@ Das ist der Weg, dem man trauen kann — er rät nichts.
 python3 render/sync.py vo.wav
 ```
 
-Findet die Sprechpausen und legt jede Szene auf ihren ersten Satz. Das Werkzeug weiss, wie
-viele Sätze es erwartet (44), sucht die passende Pausenschwelle selbst und **weigert sich zu
-raten**, wenn die Zahl nicht aufgeht — dann sagt es das und dehnt ersatzweise global
-(`--fit`). Passt es, prüft es zusätzlich jede Szene auf Plausibilität und meldet alles, was
-stark vom Plan abweicht. Optionen: `--gap 0.4` (Schwelle vorgeben), `--dry` (nur zeigen).
+**Whisper hört die Aufnahme ab** und liefert Wort-Zeitstempel. Die erkannten Wörter werden
+gegen das Drehbuch abgeglichen (`difflib`, verträgt Erkennungsfehler), und daraus steht fest,
+wo jede Szene beginnt — unabhängig davon, wo der Sprecher Luft geholt hat. Am Scratch-Take
+gemessen: 96 % der Drehbuchwörter zugeordnet.
 
-**Weg B ist der schnelle erste Wurf, Weg A die Wahrheit.** Ein Sprecher pausiert an
-Satzenden, nicht an Szenengrenzen — deshalb kann eine verschluckte Pause die Zuordnung
-verschieben. Darum meldet das Werkzeug lieber einen Zweifel, als still etwas Falsches
-zu liefern.
+Das Werkzeug meldet die Deckungsquote, prüft jede Szene auf Plausibilität und **weigert
+sich zu raten**, wenn unter 55 % zugeordnet werden. Optionen: `--model medium` (genauer,
+langsamer), `--silence` (ohne Whisper, nur Pausenmessung), `--dry` (nur zeigen).
+
+**Weg B ist der schnelle erste Wurf, Weg A die Wahrheit.** Whisper kann sich verhören;
+FCPXML kann es nicht.
 
 ### Scratch-Stimme
 
-`scratchvo.py` erzeugt aus den `vo`-Feldern eine Roboterstimme auf den geplanten Zeiten.
-Nicht für den Film — aber sie macht in zwei Minuten hörbar, wo der Text zu lang ist. Genau
-dafür sprechen Regie und Copywriter sonst selbst eine Scratch-Spur ein.
+```bash
+python3 render/scratchvo.py                  # neuronale Stimme (Piper, de_DE-thorsten)
+python3 render/scratchvo.py --voice kerstin  # oder eva_k
+python3 render/scratchvo.py --rate 1.08      # langsamer (>1) / schneller (<1)
+python3 render/scratchvo.py --autofit        # zu kurze Szenen automatisch verlängern
+```
+
+Nicht für den Film: der Sprecher muss ein Mensch sein — „Moment. Nein." lebt von trockenem
+Timing, das keine Synthese trifft. Aber die Spur macht in zwei Minuten **messbar**, welche
+Zeile zu lang ist. Der Bericht am Schluss stellt geplant gegen gesprochen:
+
+```
+Szene               geplant  gesprochen   Befund
+16_pfeile             3.00s       4.26s   ⚠ +1.26s  zu lang
+17_hundert            2.00s       3.91s   ⚠ +1.91s  zu lang
+25_seht               4.00s       2.87s     -1.13s  viel Luft
+```
+
+`--autofit` verlängert die zu kurzen Szenen und schreibt `timing.json` neu — **nur
+verlängern, nie kürzen**: „viel Luft" ist oft Absicht, dort läuft nach dem Satz noch eine
+Animation (Unterstrich, Stufen, Vokabelflut). Zwei bis drei Durchläufe konvergieren.
 
 ## Warum pro Szene ein Clip
 

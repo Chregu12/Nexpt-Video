@@ -1,3 +1,5 @@
 # ProRes-Master: 267 MB, wird lokal mit `python3 render/render.py` neu erzeugt
 out/scenes/
 out/_frames/
+# Piper-Stimmmodelle (~200 MB) — mit render/voices/get-voices.sh laden
+render/voices/*.onnx

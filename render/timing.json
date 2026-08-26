@@ -16,8 +16,8 @@
     {
       "id": "01_versprechen",
       "act": "1 Selbstkorrektur",
-      "start": 0.0,
-      "dur": 3.0,
+      "start": 0.43333333333333335,
+      "dur": 2.3666666666666667,
       "bg": "light",
       "vo": "NEXPT hat ein Versprechen. Und eine Meinung.",
       "layers": [
@@ -44,8 +44,8 @@
     {
       "id": "02_flip",
       "act": "1 Selbstkorrektur",
-      "start": 3.0,
-      "dur": 1.6,
+      "start": 2.8,
+      "dur": 2.6,
       "bg": "light",
       "bgFlip": {
         "t": 0.9,
@@ -66,8 +66,8 @@
     {
       "id": "03_moment",
       "act": "1 Selbstkorrektur",
-      "start": 4.6,
-      "dur": 2.4,
+      "start": 5.4,
+      "dur": 3.1666666666666665,
       "bg": "dark",
       "vo": "Moment. Nein. Das machen alle anderen.",
       "layers": [
@@ -103,8 +103,8 @@
     {
       "id": "04_ihr",
       "act": "1 Selbstkorrektur",
-      "start": 7.0,
-      "dur": 3.0,
+      "start": 8.566666666666666,
+      "dur": 2.033333333333333,
       "bg": "accent",
       "vo": "Arbeitet so, wie ihr wollt.",
       "layers": [
@@ -137,8 +137,8 @@
     {
       "id": "05_aside",
       "act": "1 Selbstkorrektur",
-      "start": 10.0,
-      "dur": 1.0,
+      "start": 10.6,
+      "dur": 2.033333333333333,
       "bg": "dark",
       "vo": "(ja, auch ihr in der Buchhaltung)",
       "layers": [
@@ -156,8 +156,8 @@
     {
       "id": "06_wege",
       "act": "2 Freiheit",
-      "start": 11.0,
-      "dur": 5.0,
+      "start": 12.633333333333333,
+      "dur": 4.933333333333334,
       "bg": "dark",
       "vo": "Ihr plant in Sprints. Ihr in Phasen. Ihr in Tickets. Ihr in Fristen.",
       "layers": [
@@ -283,8 +283,8 @@
     {
       "id": "07_niemand",
       "act": "2 Freiheit",
-      "start": 16.0,
-      "dur": 2.0,
+      "start": 17.566666666666666,
+      "dur": 2.933333333333333,
       "bg": "dark",
       "vo": "Niemand muss sich umgewöhnen. Niemand.",
       "layers": [
@@ -311,8 +311,8 @@
     {
       "id": "08_broll",
       "act": "2 Freiheit",
-      "start": 18.0,
-      "dur": 4.0,
+      "start": 20.5,
+      "dur": 2.933333333333333,
       "bg": "dark",
       "vo": "(kein Text — drei Makro-Einstellungen)",
       "layers": [
@@ -342,8 +342,8 @@
     {
       "id": "09_flut",
       "act": "2 Freiheit",
-      "start": 22.0,
-      "dur": 3.0,
+      "start": 23.433333333333334,
+      "dur": 3.1666666666666665,
       "bg": "light",
       "vo": "Wir nennen es, wie ihr es nennt.",
       "layers": [
@@ -405,8 +405,8 @@
     {
       "id": "10_eure",
       "act": "2 Freiheit",
-      "start": 25.0,
-      "dur": 2.0,
+      "start": 26.633333333333333,
+      "dur": 2.033333333333333,
       "bg": "light",
       "vo": "Eure Wörter. Nicht unsere.",
       "layers": [
@@ -433,8 +433,8 @@
     {
       "id": "11_chaos",
       "act": "3 Einwand",
-      "start": 27.0,
-      "dur": 1.0,
+      "start": 28.666666666666668,
+      "dur": 1.1666666666666667,
       "bg": "dark",
       "vo": "Klingt nach Chaos.",
       "layers": [
@@ -452,8 +452,8 @@
     {
       "id": "12_nein",
       "act": "3 Einwand",
-      "start": 28.0,
-      "dur": 1.0,
+      "start": 29.833333333333332,
+      "dur": 0.8,
       "bg": "dark",
       "vo": "NEIN.",
       "layers": [
@@ -472,8 +472,8 @@
     {
       "id": "13_modell",
       "act": "4 Ein Modell",
-      "start": 29.0,
-      "dur": 5.0,
+      "start": 30.633333333333333,
+      "dur": 4.866666666666666,
       "bg": "accent",
       "vo": "Oben ist eure Sprache. Unten ist ein Standard.",
       "layers": [
@@ -512,8 +512,8 @@
     {
       "id": "14_ende",
       "act": "5 Übergang",
-      "start": 34.0,
-      "dur": 3.0,
+      "start": 35.5,
+      "dur": 3.1333333333333333,
       "bg": "dark",
       "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
       "layers": [
@@ -549,8 +549,8 @@
     {
       "id": "15_element",
       "act": "5 Übergang",
-      "start": 37.0,
-      "dur": 4.0,
+      "start": 38.63333333333333,
+      "dur": 4.133333333333334,
       "bg": "accent",
       "vo": "Dasselbe Element. Neuer Modus. Kein neues Tool.",
       "layers": [
@@ -596,8 +596,8 @@
     {
       "id": "16_pfeile",
       "act": "5 Übergang",
-      "start": 41.0,
-      "dur": 3.0,
+      "start": 42.766666666666666,
+      "dur": 5.333333333333333,
       "bg": "light",
       "vo": "Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.",
       "layers": [
@@ -628,8 +628,8 @@
     {
       "id": "17_hundert",
       "act": "5 Übergang",
-      "start": 44.0,
-      "dur": 2.0,
+      "start": 48.1,
+      "dur": 3.1,
       "bg": "accent",
       "vo": "Hundert Prozent verbunden. Kein Export. Null Doppelerfassung.",
       "layers": [
@@ -678,8 +678,8 @@
     {
       "id": "18_aendert",
       "act": "6 Korrektur",
-      "start": 46.0,
-      "dur": 2.0,
+      "start": 51.2,
+      "dur": 2.033333333333333,
       "bg": "dark",
       "vo": "Und wenn jemand etwas ändert?",
       "layers": [
@@ -704,8 +704,8 @@
     {
       "id": "19_alle",
       "act": "6 Korrektur",
-      "start": 48.0,
-      "dur": 2.0,
+      "start": 53.2,
+      "dur": 1.9333333333333333,
       "bg": "dark",
       "vo": "Sehen es alle. Sofort.",
       "layers": [
@@ -732,8 +732,8 @@
     {
       "id": "20_transparenz",
       "act": "6 Korrektur",
-      "start": 50.0,
-      "dur": 2.0,
+      "start": 55.13333333333333,
+      "dur": 3.3333333333333335,
       "bg": "light",
       "vo": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.",
       "layers": [
@@ -759,8 +759,8 @@
     {
       "id": "21_allein",
       "act": "7 Gegner",
-      "start": 52.0,
-      "dur": 2.0,
+      "start": 58.46666666666667,
+      "dur": 2.1,
       "bg": "dark",
       "vo": "Aber Struktur allein ist noch keine Übersicht.",
       "layers": [
@@ -787,8 +787,8 @@
     {
       "id": "22_raster",
       "act": "7 Gegner",
-      "start": 54.0,
-      "dur": 4.0,
+      "start": 60.56666666666667,
+      "dur": 2.4,
       "bg": "dark",
       "vo": "Die meisten nennen Übersicht: eine Tabelle. Bei uns gibt es keine.",
       "layers": [
@@ -819,12 +819,12 @@
         },
         {
           "type": "strike",
-          "t": 3.05,
+          "t": 2.033333333333333,
           "draw": 0.27
         },
         {
           "type": "text",
-          "t": 3.45,
+          "t": 2.033333333333333,
           "mode": "hard",
           "text": "Bei uns gibt es keine.",
           "size": 88,
@@ -835,8 +835,8 @@
     {
       "id": "23_ui",
       "act": "7 Gegner",
-      "start": 58.0,
-      "dur": 1.2,
+      "start": 62.96666666666667,
+      "dur": 2.4,
       "bg": "accent",
       "vo": "(auch nicht im UI)",
       "layers": [
@@ -853,8 +853,8 @@
     {
       "id": "24_keine",
       "act": "8 Versprechen",
-      "start": 59.2,
-      "dur": 2.8,
+      "start": 65.4,
+      "dur": 3.066666666666667,
       "bg": "light",
       "vo": "Keine Spalten. Kein bitte hier eintragen.",
       "layers": [
@@ -880,8 +880,8 @@
     {
       "id": "25_seht",
       "act": "8 Versprechen",
-      "start": 62.0,
-      "dur": 4.0,
+      "start": 68.43333333333334,
+      "dur": 3.933333333333333,
       "bg": "accent",
       "bgFlip": {
         "t": 2.1,
@@ -912,8 +912,8 @@
     {
       "id": "26_also",
       "act": "8 Versprechen",
-      "start": 66.0,
-      "dur": 5.0,
+      "start": 72.36666666666666,
+      "dur": 5.466666666666667,
       "bg": "light",
       "vo": "Also arbeitet, wie ihr wollt. Wir behalten den Überblick.",
       "layers": [
@@ -949,8 +949,8 @@
     {
       "id": "27_ende",
       "act": "8 Versprechen",
-      "start": 71.0,
-      "dur": 3.5,
+      "start": 77.83333333333333,
+      "dur": 3.3,
       "bg": "light",
       "bgFlip": {
         "t": 3.1,

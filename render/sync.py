@@ -4,7 +4,8 @@ Zieht die Animation auf die AUFGENOMMENE Stimme.
 
 Das ist der Ersatz für stundenlanges Schieben in Final Cut. Zwei Wege:
 
-  python3 sync.py vo.wav               Sprachpausen messen und Szenen darauf legen
+  python3 sync.py vo.wav               Wort-Zeitstempel per Whisper, Text abgleichen  (bester Audio-Weg)
+  python3 sync.py vo.wav --silence     nur Sprachpausen messen (ohne Whisper)
   python3 sync.py vo.wav --gap 0.4     Mindestpause selbst vorgeben statt suchen lassen
   python3 sync.py Projekt.fcpxml       zurücklesen, wie du in FCP geschoben hast
   python3 sync.py vo.wav --fit         nur global auf die Gesamtlänge dehnen (Notnagel)
@@ -77,6 +78,51 @@ def apply(new_starts, new_durs):
             if l.get("t", 0) > sc["dur"] - 0.1:
                 l["t"] = max(0.0, snap(sc["dur"] - 0.35))
 
+# ---------------------------------------------------------------- Whisper: Text abgleichen
+def whisper_align(path, scenes):
+    """Whisper hoert zu und gibt Wort-Zeitstempel. Wir gleichen den erkannten
+    Wortstrom gegen das Drehbuch ab — dann steht fest, wo jede Szene beginnt,
+    unabhaengig davon, wo der Sprecher Luft geholt hat."""
+    from faster_whisper import WhisperModel
+    import difflib
+    size = next((sys.argv[i+1] for i, a in enumerate(sys.argv) if a == "--model"), "small")
+    print(f"Whisper ({size}, CPU) hoert zu …")
+    model = WhisperModel(size, device="cpu", compute_type="int8")
+    segs, _ = model.transcribe(str(path), language="de",
+                               word_timestamps=True, vad_filter=True)
+    heard = [(w.word, w.start, w.end) for sg in segs for w in sg.words]
+    norm  = lambda w: re.sub(r"[^a-z0-9\u00e4\u00f6\u00fc\u00df]", "", w.lower())
+
+    want, bounds = [], []                       # Drehbuchwoerter + Szenengrenzen
+    for i, sc in enumerate(scenes):
+        vo = (sc.get("vo") or "").strip()
+        if not vo or vo.startswith("("): continue
+        bounds.append((i, len(want)))
+        want += [norm(w) for w in vo.split() if norm(w)]
+
+    got = [norm(w) for w, _, _ in heard]
+    sm  = difflib.SequenceMatcher(a=want, b=got, autojunk=False)
+    # Drehbuch-Index -> gehoerter Index, ueber die uebereinstimmenden Bloecke
+    m2h = {}
+    for a0, b0, n in sm.get_matching_blocks():
+        for k in range(n): m2h[a0 + k] = b0 + k
+    ratio = len(m2h) / max(1, len(want))
+    print(f"  {len(heard)} Woerter gehoert · {len(want)} im Drehbuch · "
+          f"{ratio:.0%} zugeordnet")
+    if ratio < 0.55:
+        print("  \u26a0 Zu wenig Deckung. Anderes Modell (--model medium) oder --silence.")
+        return None
+
+    def when(idx):                              # naechste gesicherte Zuordnung ab idx
+        for k in range(idx, len(want)):
+            if k in m2h: return heard[m2h[k]][1]
+        return None
+    starts, dur = {}, audio_len(path)
+    for i, wi in bounds:
+        t = when(wi)
+        if t is not None: starts[i] = t
+    return starts, dur, ratio
+
 # ---------------------------------------------------------------- FCPXML zurücklesen
 if src.suffix.lower() == ".fcpxml":
     def secs(v):
@@ -95,6 +141,43 @@ if src.suffix.lower() == ".fcpxml":
 
 # ---------------------------------------------------------------- Audio vermessen
 else:
+    if "--silence" not in sys.argv:
+        try:
+            r = whisper_align(src, scenes)
+        except Exception as e:
+            print(f"Whisper nicht verfuegbar ({type(e).__name__}: {e}) — messe Pausen"); r = None
+        if r:
+            starts, dur, _ = r
+            LEAD = 0.12
+            st = [None] * len(scenes)
+            for i, t in starts.items(): st[i] = max(0.0, t - LEAD)
+            if st[0] is None: st[0] = 0.0
+            last = 0.0                                   # stumme Szenen mittig einpassen
+            for i in range(len(scenes)):
+                if st[i] is None:
+                    nxt = next((x for x in st[i+1:] if x is not None), dur)
+                    st[i] = last + (nxt - last) * 0.5
+                st[i] = max(st[i], last + 1/FPS)         # streng monoton
+                last = st[i]
+            du = [(st[i+1] if i+1 < len(scenes) else dur) - st[i] for i in range(len(scenes))]
+            print(f"  \u2192 {len(starts)} Szenen \u00fcber den Text verankert, Vorlauf {LEAD}s")
+            odd = [(scenes[i]["id"], scenes[i]["dur"], du[i]) for i in range(len(scenes))
+                   if scenes[i]["dur"] > 0 and not 0.45 <= du[i]/scenes[i]["dur"] <= 2.4]
+            if odd:
+                print(f"  \u26a0 {len(odd)} Szene(n) weichen stark vom Plan ab:")
+                for sid, a, b in odd:
+                    print(f"      {sid:<18} geplant {a:>5.2f}s  \u2192  gemessen {b:>5.2f}s")
+            apply(st, du)
+            tot = max(x["start"] + x["dur"] for x in scenes)
+            print(f"\nNeue Gesamtl\u00e4nge: {tot:.2f}s")
+            for x in scenes[:4] + scenes[-2:]:
+                print(f"  {x['id']:<18} {x['start']:>6.2f}s  +{x['dur']:.2f}s")
+            if DRY: print("\n--dry: timing.json unver\u00e4ndert.")
+            else:
+                CFG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+                print("\ntiming.json geschrieben \u2192 jetzt `python3 render.py`")
+            sys.exit(0)
+
     def sentences(v):
         return [x for x in re.split(r"(?<=[.!?])\s+", (v or "").strip()) if x]
     voiced = [i for i, s in enumerate(scenes)
