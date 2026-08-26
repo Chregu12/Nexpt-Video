@@ -21,7 +21,24 @@ python3 render/render.py --alpha         # ProRes 4444 mit Alpha statt 422 HQ
 python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
 python3 render/scratchvo.py              # → out/scratch-vo.wav (Wegwerf-Stimme zum Timing-Check)
 python3 render/sync.py <datei>           # Timing auf die echte Stimme ziehen — siehe unten
+python3 render/pruefen.py                # Tempo und leere Frames prüfen  (--fix repariert)
+python3 render/drehbuch.py               # Abschnitt 4 des Konzepts aus timing.json erzeugen
 ```
+
+## Vor jeder Abnahme: `pruefen.py`
+
+Zwei Fehlerklassen sieht man im Standbild **nicht**, im Lauf aber sofort:
+
+1. **Leere Frames.** Eine Zeile verschwindet, bevor die nächste kommt — ein sichtbarer
+   Aussetzer von zwei, drei Frames. Beim ersten Durchgang waren es 62 Stück.
+   `pruefen.py --fix` schliesst sie, indem es `out` bis zum nächsten Layer-Start zieht.
+2. **Stillstand.** Löcher ohne jedes Ereignis. Fünf Beats *dürfen* still stehen — dort ist
+   die Stille die Pointe (`Moment./Nein.`, beide geflüsterten Einwürfe, `NEIN.`,
+   `(auch nicht im UI)`). Sie stehen in der Liste `HALT` und werden übersprungen.
+
+Dazu die Tempokontrolle gegen den Referenzfilm. Wichtig: die Prüfung zählt auch die
+**einzelnen Wörter** eines Wort-für-Wort-Aufbaus — wer nur Layer-Startzeiten zählt,
+misst sich um den Faktor drei zu langsam.
 
 ## Dateien
 
