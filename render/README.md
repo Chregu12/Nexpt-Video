@@ -129,6 +129,20 @@ langsamer), `--silence` (ohne Whisper, nur Pausenmessung), `--dry` (nur zeigen).
 **Weg B ist der schnelle erste Wurf, Weg A die Wahrheit.** Whisper kann sich verhören;
 FCPXML kann es nicht.
 
+### Stimme erzeugen — und was nicht geht
+
+| Werkzeug | Status |
+|---|---|
+| **Piper** (`scratchvo.py`) | läuft, offline, CPU. Frei nutzbar. **Standard.** |
+| **XTTS-v2** (`xttsvo.py`) | läuft, aber nur in einem eigenen venv — es ist mit der Whisper-Toolchain (transformers 5.x) nicht verträglich. **Coqui Public Model License: nicht kommerziell.** Nur als internes Timing-Muster. |
+| **Qwen3-TTS** | läuft hier **nicht**. Weder `transformers 5.16` noch git main kennen den Typ `qwen3_tts`; es bräuchte Qwens eigenen Inferenz-Stack. |
+| **ElevenLabs** | echtes TTS, kommerziell nutzbar — braucht einen API-Schlüssel und schickt den Text an einen externen Dienst. |
+| *Whisper-Modelle* | **erzeugen keine Stimme.** Sie erkennen Sprache — siehe Synchronisation oben. |
+
+**Voice Cloning** nur mit Einwilligung der sprechenden Person. `xttsvo.py --ref stimme.wav`
+klont aus etwa 30 Sekunden Referenz. Eine fremde Stimme aus einem fremden Film zu klonen und
+als eigene Markenstimme einzusetzen, ist keine Option.
+
 ### Scratch-Stimme
 
 ```bash
