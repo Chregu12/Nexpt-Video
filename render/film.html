@@ -60,20 +60,52 @@ function box(y,html,style=''){
 }
 
 const R={};
-// Wörter erscheinen einzeln im Sprechtakt — der Kern des Stils
+// Der Kern des Stils. Aus der Frame-Analyse des Referenzfilms:
+//  1. Text kommt in CHUNKS, nicht in Wörtern — Apple setzt „plan" als „pl"+"an".
+//  2. Jeder Chunk STEIGT VON UNTEN ins Bild und wächst dabei auf Grösse:
+//     ~68 % Grösse und +0.34em tiefer, in 2–3 Frames auf Position. Sehr schnell.
+//  3. Der Takt ist UNREGELMÄSSIG. Gemessen am Original: Median 0.05s, Maximum 1.7s,
+//     Streuung/Median = 5.3. Bursts, dann Halte — nie ein gleichmässiges Ticken.
+//  4. Die Zeile bleibt mittig und springt bei jedem Chunk neu in die Mitte.
+//  5. Über ihre Lebensdauer skaliert die ganze Zeile minimal weiter (~2 %).
+const JIT=[0.55,1.0,0.72,1.5,0.85,1.25,0.6,1.1];   // fest, nicht zufällig: gleicher Frame bei gleicher t
+function chunks(text){
+  const out=[];
+  text.split(' ').forEach(w=>{
+    if(w.length>=8){ const k=Math.ceil(w.length*0.55); out.push(w.slice(0,k),w.slice(k)); }
+    else out.push(w);
+  });
+  return out;
+}
 R.text=(l,t,st)=>{
-  const words=l.text.split(' ');
-  const step = l.step || 0.19;                 // ~ Sprechtakt, nicht schneller
-  const vis = l.mode==='words'
-    ? clamp(Math.floor((t-l.t)/step)+1,0,words.length) : words.length;
-  if(vis<=0) return;
-  const c = l.color?col(l.color):fg(t);
+  const cs = l.mode==='words' ? chunks(l.text) : [l.text];
+  const base = l.step || 0.19;
+  // Chunk-Zeitpunkte mit ungleichmässigem Takt aufbauen
+  const at=[]; let acc=0;
+  for(let i=0;i<cs.length;i++){ at.push(acc); acc += base*JIT[i%JIT.length]; }
+  const span = acc || base;
+  const scl  = (l.mode==='words' && span>0) ? (l.step ? 1 : 1) : 1;
+  const el   = t-(l.t||0);
+  const c    = l.color?col(l.color):fg(t);
   const glow = l.glow?`text-shadow:0 0 46px ${PAL.accent}`:'';
-  const html=words.slice(0,vis).map(w=>{
-    const m=w.match(/^(IHR|EIN|ALLE|DEN|WIE)$/);
-    return m?`<span style="font-size:${l.size*1.06}px">${w}</span>`:w;}).join(' ');
+  const parts = cs.map((w,i)=>{
+    const dt = el - at[i]*scl;
+    if(dt < 0) return '';
+    const p  = ease(clamp(dt/0.085,0,1));            // Eintritt in ~2.5 Frames
+    const sc = 0.68 + 0.32*p;                        // von 68 % auf volle Grösse
+    const dy = (1-p)*0.34;                           // von unten herauf
+    const hi = /^(IHR|EIN|ALLE|DEN|WIE|IHR\?|NIEMAND)$/.test(w);
+    return `<span style="display:inline-block;transform:translateY(${dy}em) scale(${sc.toFixed(3)});
+      transform-origin:50% 85%;font-size:${hi?1.06:1}em">${w}</span>`;
+  }).filter(Boolean);
+  if(!parts.length) return;
+  // ganze Zeile driftet ueber ihre Lebensdauer minimal groesser — ein sehr langsamer Zug
+  const life = clamp(el/Math.max(1.2,span+0.9),0,1);
+  const lineScale = (1 + 0.022*life).toFixed(4);
   const dx = l.x!=null ? `left:${(l.x-0.5)*W}px;` : '';
-  st.appendChild(box(l.y, `<div class="txt" style="font-size:${l.size}px;color:${c};${glow};max-width:88%">${html}</div>`, dx));
+  st.appendChild(box(l.y,
+    `<div class="txt" style="font-size:${l.size}px;color:${c};${glow};max-width:88%;
+        transform:scale(${lineScale});transform-origin:50% 50%">${parts.join(' ')}</div>`, dx));
 };
 R.markerText=(l,t,st)=>{  // Handschrift wächst von links, wie geschrieben
   const p=ease((t-l.t)/(l.draw||0.3));

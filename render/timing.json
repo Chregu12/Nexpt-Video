@@ -28,7 +28,7 @@
           "text": "NEXPT hat ein Versprechen.",
           "size": 92,
           "y": 0.5,
-          "step": 0.375
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -75,7 +75,7 @@
           "text": "Arbeitet so, wie wir es vorsehen —",
           "size": 84,
           "y": 0.5,
-          "step": 0.15
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -147,7 +147,7 @@
           "text": "Arbeitet so,",
           "size": 92,
           "y": 0.4,
-          "step": 0.275
+          "step": 0.115
         },
         {
           "type": "text",
@@ -156,7 +156,7 @@
           "text": "wie IHR wollt.",
           "size": 110,
           "y": 0.58,
-          "step": 0.25
+          "step": 0.115
         },
         {
           "type": "underline",
@@ -198,7 +198,7 @@
           "size": 44,
           "y": 0.5,
           "color": "accent",
-          "step": 0.17
+          "step": 0.115
         }
       ]
     },
@@ -219,7 +219,7 @@
           "size": 78,
           "y": 0.5,
           "x": 0.31,
-          "step": 0.31
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -414,7 +414,7 @@
           "text": "Niemand muss sich umgewöhnen.",
           "size": 84,
           "y": 0.47,
-          "step": 0.225
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -490,7 +490,7 @@
           "text": "Wir nennen es,",
           "size": 86,
           "y": 0.42,
-          "step": 0.15
+          "step": 0.115
         },
         {
           "type": "text",
@@ -499,7 +499,7 @@
           "text": "wie ihr es nennt.",
           "size": 86,
           "y": 0.56,
-          "step": 0.15
+          "step": 0.115
         },
         {
           "type": "wordFlood",
@@ -569,7 +569,7 @@
           "text": "Eure Wörter.",
           "size": 100,
           "y": 0.46,
-          "step": 0.35
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -613,7 +613,7 @@
           "text": "Und eure Reihenfolge.",
           "size": 86,
           "y": 0.5,
-          "step": 0.333
+          "step": 0.115
         },
         {
           "type": "text",
@@ -660,7 +660,7 @@
           "text": "Weil hier nicht „das Projekt“ arbeitet.",
           "size": 76,
           "y": 0.5,
-          "step": 0.358
+          "step": 0.115
         },
         {
           "type": "text",
@@ -795,7 +795,7 @@
           "text": "(das ist der Trick)",
           "size": 36,
           "y": 0.5,
-          "step": 0.17
+          "step": 0.115
         }
       ]
     },
@@ -879,7 +879,7 @@
           "text": "Oben ist eure Sprache.",
           "size": 92,
           "y": 0.5,
-          "step": 0.412
+          "step": 0.115
         },
         {
           "type": "text",
@@ -888,7 +888,7 @@
           "text": "Unten ist EIN Standard.",
           "size": 92,
           "y": 0.24,
-          "step": 0.162
+          "step": 0.115
         },
         {
           "type": "levels",
@@ -965,7 +965,7 @@
           "text": "Bau. Betrieb. Buchhaltung.",
           "size": 92,
           "y": 0.5,
-          "step": 0.42
+          "step": 0.115
         },
         {
           "type": "text",
@@ -974,7 +974,7 @@
           "text": "Darunter dasselbe Modell.",
           "size": 88,
           "y": 0.5,
-          "step": 0.42
+          "step": 0.115
         },
         {
           "type": "underline",
@@ -1026,7 +1026,7 @@
           "text": "Und irgendwann ist das Projekt fertig.",
           "size": 76,
           "y": 0.5,
-          "step": 0.242
+          "step": 0.115
         },
         {
           "type": "text",
@@ -1280,7 +1280,7 @@
           "text": "Und wenn jemand etwas ändert?",
           "size": 80,
           "y": 0.42,
-          "step": 0.18
+          "step": 0.115
         },
         {
           "type": "liveEdit",
@@ -1317,7 +1317,7 @@
           "text": "Sehen es alle.",
           "size": 96,
           "y": 0.45,
-          "step": 0.183
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1415,7 +1415,7 @@
           "text": "Transparenz ist kein Bericht.",
           "size": 84,
           "y": 0.5,
-          "step": 0.188
+          "step": 0.115
         },
         {
           "type": "text",
@@ -1424,7 +1424,7 @@
           "text": "Sie ist ein Nebeneffekt.",
           "size": 84,
           "y": 0.5,
-          "step": 0.42
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1459,7 +1459,7 @@
           "text": "Aber Struktur ist noch keine Übersicht.",
           "size": 72,
           "y": 0.5,
-          "step": 0.15
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1503,7 +1503,7 @@
           "text": "Die meisten nennen Übersicht:",
           "size": 72,
           "y": 0.5,
-          "step": 0.188
+          "step": 0.115
         },
         {
           "type": "text",
@@ -1567,7 +1567,7 @@
           "text": "Fünf Dateien. Eine Wahrheit.",
           "size": 64,
           "y": 0.9,
-          "step": 0.212
+          "step": 0.115
         },
         {
           "type": "text",
@@ -1576,7 +1576,7 @@
           "text": "Und niemand weiss, welche.",
           "size": 72,
           "y": 0.9,
-          "step": 0.162
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1627,7 +1627,7 @@
           "text": "Bei uns gibt es keine.",
           "size": 92,
           "y": 0.5,
-          "step": 0.34
+          "step": 0.115
         },
         {
           "type": "underline",
@@ -1660,7 +1660,7 @@
           "text": "(auch nicht im UI)",
           "size": 34,
           "y": 0.5,
-          "step": 0.17
+          "step": 0.115
         }
       ]
     },
@@ -1688,7 +1688,7 @@
           "text": "Kein „bitte hier eintragen“.",
           "size": 80,
           "y": 0.5,
-          "step": 0.42
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1728,7 +1728,7 @@
           "text": "Ihr seht, was ihr braucht.",
           "size": 92,
           "y": 0.5,
-          "step": 0.35
+          "step": 0.115
         },
         {
           "type": "text",
@@ -1738,7 +1738,7 @@
           "size": 100,
           "y": 0.5,
           "glow": true,
-          "step": 0.42
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1776,7 +1776,7 @@
           "text": "Also arbeitet, wie ihr wollt.",
           "size": 92,
           "y": 0.5,
-          "step": 0.41
+          "step": 0.115
         },
         {
           "type": "text",
@@ -1785,7 +1785,7 @@
           "text": "Wir behalten Überblick.",
           "size": 92,
           "y": 0.5,
-          "step": 0.217
+          "step": 0.115
         },
         {
           "type": "markerText",
@@ -1833,7 +1833,7 @@
           "text": "NEXPT hat eine Meinung.",
           "size": 92,
           "y": 0.5,
-          "step": 0.362
+          "step": 0.115
         },
         {
           "type": "url",

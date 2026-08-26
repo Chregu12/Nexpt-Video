@@ -23,7 +23,36 @@ python3 render/scratchvo.py              # → out/scratch-vo.wav (Wegwerf-Stimm
 python3 render/sync.py <datei>           # Timing auf die echte Stimme ziehen — siehe unten
 python3 render/pruefen.py                # Tempo und leere Frames prüfen  (--fix repariert)
 python3 render/drehbuch.py               # Abschnitt 4 des Konzepts aus timing.json erzeugen
+python3 render/sounddesign.py            # Musikbett + Effekte aus timing.json
+sh render/mischen.sh                     # Stimme, Musik, Effekte → out/ton-final.wav
 ```
+
+## Ton aus denselben Daten wie das Bild
+
+`sounddesign.py` liest `timing.json` und legt jedes Geräusch **auf den Frame, auf dem im
+Bild etwas passiert**:
+
+| Ereignis | Geräusch |
+|---|---|
+| Hintergrundwechsel | tiefer Schlag + Klick |
+| Marker, Unterstrich, Doodle | rauer Stiftzug, nimmt zum Ende hin zu |
+| Text-Chunk | winziger Anschlag |
+| Rasteraufbau | 26 Ticks, exponentiell schneller |
+| Strich quer durchs Raster | Whoosh |
+| Etikettwechsel `PROJEKT → BETRIEB` | **ein** Klick, sonst nichts |
+| Checkbox, Stufen, Dateistapel | Klick je Element |
+
+An den fünf Halte-Beats zieht sich alles auf 18 % zurück — dort ist die Stille das Ereignis.
+
+Das Musikbett ist ein Puls ohne Drop: Sub auf 1 und 3, Hut auf den Achteln, darüber eine
+Fläche, die je Akt die Tonart wechselt und über den Film Schicht für Schicht wächst. Die
+Stimme drückt die Musik per Sidechain weg.
+
+**Temp-Track, kein Endprodukt.** Für den Film gehört eine Komposition gekauft — ein
+generierter Puls trägt keine 2:19. Aber er sitzt frame-genau auf dem Bild und zeigt, wie
+der Film klingen soll.
+
+`mischen.sh` mischt auf **−17 LUFS, LRA ~4.5** — die gemessenen Werte des Referenzfilms.
 
 ## Vor jeder Abnahme: `pruefen.py`
 
