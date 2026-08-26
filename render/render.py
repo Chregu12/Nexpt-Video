@@ -37,8 +37,11 @@ from playwright.sync_api import sync_playwright
 def encode(frames_dir, dst, dur):
     # prores_ks profile 3 = 422 HQ, 4 = 4444 (mit Alpha); FCP importiert beides nativ
     prof, pix = ("4", "yuva444p10le") if ALPHA else ("3", "yuv422p10le")
+    # Ohne explizite Matrix rechnet swscale RGB->YUV nach bt601, taggt aber bt709:
+    # der Akzent #00D759 kam als #00BA56 heraus. Gemessen, nicht vermutet.
     subprocess.run([FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
         "-framerate", str(FPS), "-i", str(frames_dir / "f_%05d.png"),
+        "-vf", "scale=in_range=full:out_range=tv:in_color_matrix=bt709:out_color_matrix=bt709",
         "-c:v", "prores_ks", "-profile:v", prof, "-pix_fmt", pix,
         "-vendor", "apl0", "-colorspace", "bt709", "-color_primaries", "bt709",
         "-color_trc", "bt709", str(dst)], check=True)

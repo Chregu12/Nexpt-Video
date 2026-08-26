@@ -245,8 +245,8 @@
           "t": 1.9,
           "draw": 0.35,
           "y": 0.645,
-          "x": 0.47,
-          "w": 0.062
+          "x": 0.452,
+          "w": 0.072
         },
         {
           "type": "doodle",
@@ -825,14 +825,14 @@
         {
           "type": "role",
           "t": 2.15,
-          "out": 4.15,
+          "out": 4.2,
           "who": "Der Servicetechniker sieht",
           "sees": "seine Tickets."
         },
         {
           "type": "role",
           "t": 4.3,
-          "out": 6.3,
+          "out": 6.35,
           "who": "Die Treuhänderin sieht",
           "sees": "ihre Frist."
         },
@@ -849,9 +849,10 @@
           "text": "^ETAPPE",
           "size": 55,
           "rot": -3,
-          "y": 0.24,
-          "x": 0.72,
-          "draw": 0.3
+          "y": 0.22,
+          "x": 0.74,
+          "draw": 0.3,
+          "out": 4.05
         },
         {
           "type": "markerText",
@@ -859,9 +860,10 @@
           "text": "^TICKET",
           "size": 55,
           "rot": -3,
-          "y": 0.24,
-          "x": 0.28,
-          "draw": 0.3
+          "y": 0.3,
+          "x": 0.26,
+          "draw": 0.3,
+          "out": 6.2
         },
         {
           "type": "markerText",
@@ -869,9 +871,10 @@
           "text": "^FRIST",
           "size": 55,
           "rot": -3,
-          "y": 0.24,
+          "y": 0.76,
           "x": 0.72,
-          "draw": 0.3
+          "draw": 0.3,
+          "out": 8.35
         },
         {
           "type": "markerText",
@@ -879,7 +882,7 @@
           "text": "^ALLES",
           "size": 55,
           "rot": -3,
-          "y": 0.24,
+          "y": 0.8,
           "x": 0.28,
           "draw": 0.3
         },
@@ -1050,7 +1053,7 @@
           "t": 4.85,
           "shape": "bar",
           "x": 0.5,
-          "y": 0.8,
+          "y": 0.9,
           "draw": 0.32
         }
       ],
@@ -1092,7 +1095,7 @@
         {
           "type": "text",
           "t": 2.35,
-          "out": 4.3,
+          "out": 4.45,
           "mode": "words",
           "text": "Bau. Betrieb. Buchhaltung.",
           "size": 92,
@@ -1106,7 +1109,8 @@
           "text": "Darunter dasselbe Modell.",
           "size": 88,
           "y": 0.5,
-          "step": 0.115
+          "step": 0.115,
+          "out": null
         },
         {
           "type": "underline",
@@ -1157,7 +1161,7 @@
         {
           "type": "text",
           "t": 0.0,
-          "out": 1.7,
+          "out": 1.9,
           "mode": "words",
           "text": "Und irgendwann ist das Projekt fertig.",
           "size": 76,
@@ -1315,8 +1319,8 @@
           "text": "^ALLES",
           "size": 61,
           "rot": -3,
-          "y": 0.2,
-          "x": 0.24,
+          "y": 0.13,
+          "x": 0.17,
           "draw": 0.3
         },
         {
@@ -1325,8 +1329,8 @@
           "text": "^AN EINEN ORT",
           "size": 58,
           "rot": -3,
-          "y": 0.2,
-          "x": 0.74,
+          "y": 0.13,
+          "x": 0.83,
           "draw": 0.3
         },
         {
@@ -1369,11 +1373,11 @@
           "type": "sunburst",
           "t": 0.0,
           "draw": 0.3,
-          "y": 0.42
+          "y": 0.4
         },
         {
           "type": "text",
-          "t": 0.05,
+          "t": 0.0,
           "mode": "hard",
           "text": "100%",
           "size": 200,
@@ -1385,7 +1389,7 @@
           "mode": "hard",
           "text": "verbunden.",
           "size": 86,
-          "y": 0.66
+          "y": 0.7
         },
         {
           "type": "text",
@@ -1393,7 +1397,7 @@
           "mode": "hard",
           "text": "Kein Export.",
           "size": 58,
-          "y": 0.8
+          "y": 0.82
         },
         {
           "type": "markerText",
@@ -1401,7 +1405,7 @@
           "text": "^NULL DOPPELERFASSUNG.",
           "size": 69,
           "rot": -2,
-          "y": 0.9,
+          "y": 0.92,
           "x": 0.5,
           "draw": 0.3
         },
@@ -1534,7 +1538,7 @@
         {
           "type": "text",
           "t": 1.55,
-          "out": 2.95,
+          "out": 3.05,
           "mode": "hard",
           "text": "Kein Statusbericht.",
           "size": 88,
@@ -1744,7 +1748,8 @@
             "Planung_final_v3.xlsx",
             "Planung_final_v3_NEU.xlsx",
             "Kopie von Planung_final_v3_NEU(1).xlsx"
-          ]
+          ],
+          "x": 0.5
         },
         {
           "type": "text",
@@ -1966,7 +1971,7 @@
         {
           "type": "text",
           "t": 0.0,
-          "out": 2.3,
+          "out": 2.45,
           "mode": "words",
           "text": "Also arbeite, wie du willst.",
           "size": 92,
@@ -2024,7 +2029,7 @@
         {
           "type": "text",
           "t": 0.0,
-          "out": 1.7,
+          "out": 1.8,
           "mode": "words",
           "text": "NEXPT hat eine Meinung.",
           "size": 92,
@@ -2034,21 +2039,11 @@
         {
           "type": "url",
           "t": 1.8,
-          "out": 3.1,
+          "out": null,
           "base": "nexpt.ch/",
           "accent": "work",
           "size": 88,
           "y": 0.5
-        },
-        {
-          "type": "markerText",
-          "t": 1.15,
-          "text": "^EINE STARKE",
-          "size": 55,
-          "rot": -3,
-          "y": 0.3,
-          "x": 0.68,
-          "draw": 0.3
         }
       ],
       "bgFlips": [

@@ -29,8 +29,12 @@ def empty_frames():
     for s in cfg["scenes"]:
         for f in range(int(s["dur"] * FPS)):
             t = f / FPS
-            if not [l for l in s.get("layers", [])
-                    if t >= l.get("t", 0) and (l.get("out") is None or t < l["out"])]:
+            TRAEGT = {"text", "role", "card", "pile", "levels", "broll",
+                      "grid", "markerText", "url", "checkbox", "wordFlood", "liveEdit"}
+            sicht = [l for l in s.get("layers", [])
+                     if t >= l.get("t", 0) and (l.get("out") is None or t < l["out"])]
+            # Unterstrich, Doodle, Strahlenkranz allein sind kein Inhalt.
+            if not [l for l in sicht if l["type"] in TRAEGT]:
                 bad.append((s["id"], round(t, 2)))
     return bad
 
