@@ -85,7 +85,10 @@ R.text=(l,t,st)=>{
   const base = l.step || 0.19;
   // Chunk-Zeitpunkte mit ungleichmässigem Takt aufbauen
   const at=[]; let acc=0;
-  for(let i=0;i<cs.length;i++){ at.push(acc); acc += base*JIT[i%JIT.length]; }
+  for(let i=0;i<cs.length;i++){
+    if(i && i===cs.length-1 && l.lastDelay) acc += l.lastDelay;   // letztes Wort spaeter
+    at.push(acc); acc += base*JIT[i%JIT.length];
+  }
   const span = acc || base;
   const scl  = (l.mode==='words' && span>0) ? (l.step ? 1 : 1) : 1;
   const el   = t-(l.t||0);
@@ -104,9 +107,13 @@ R.text=(l,t,st)=>{
       transform-origin:50% 85%;font-size:${hi?1.06:1}em">${w}</span>`;
   });
   if(!html) return;
-  // ganze Zeile driftet ueber ihre Lebensdauer minimal groesser — ein sehr langsamer Zug
-  const life = clamp(el/Math.max(1.2,span+0.9),0,1);
-  const lineScale = (1 + 0.022*life).toFixed(4);
+  // Aus der Frame-Analyse: Apples Zeile WAECHST waehrend des Aufbaus deutlich in den
+  // Frame hinein — sie beginnt klein und erreicht erst mit dem letzten Chunk ihre Groesse.
+  // Danach nur noch ein sehr langsamer Zug. Das ist der Grund, warum es nie stillsteht.
+  const build = clamp(el/Math.max(0.25, span), 0, 1);
+  const after = clamp((el-span)/2.2, 0, 1);
+  const grow  = (l.grow!=null ? l.grow : 0.34);       // Startgroesse = 1 - grow
+  const lineScale = ((1-grow) + grow*ease(build) + 0.035*after).toFixed(4);
   const dx = l.x!=null ? `left:${(l.x-0.5)*W}px;` : '';
   st.appendChild(box(l.y,
     `<div class="txt" style="font-size:${l.size}px;color:${c};${glow};max-width:88%;

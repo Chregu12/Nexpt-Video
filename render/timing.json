@@ -44,7 +44,8 @@
           "text": "Raphael und Christian Heusser.",
           "size": 92,
           "y": 0.5,
-          "step": 0.115
+          "step": 0.115,
+          "lastDelay": 0.85
         }
       ]
     },
@@ -79,7 +80,8 @@
           "text": "damit du arbeiten kannst.",
           "size": 92,
           "y": 0.44,
-          "step": 0.115
+          "step": 0.115,
+          "lastDelay": 0.75
         },
         {
           "type": "markerText",
@@ -568,6 +570,16 @@
           "y": 0.16,
           "x": 0.5,
           "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 3.05,
+          "text": "^EINE ARBEIT",
+          "size": 56,
+          "rot": -3,
+          "y": 0.84,
+          "x": 0.5,
+          "draw": 0.34
         }
       ],
       "bgFlips": [
@@ -770,7 +782,8 @@
           "mode": "hard",
           "text": "Sondern Menschen.",
           "size": 104,
-          "y": 0.5
+          "y": 0.5,
+          "lastDelay": 0.7
         },
         {
           "type": "markerText",
@@ -869,6 +882,14 @@
           "y": 0.24,
           "x": 0.28,
           "draw": 0.3
+        },
+        {
+          "type": "underline",
+          "t": 7.55,
+          "draw": 0.3,
+          "y": 0.6,
+          "x": 0.42,
+          "w": 0.16
         }
       ],
       "bgFlips": [
@@ -984,7 +1005,7 @@
         {
           "type": "text",
           "t": 0.0,
-          "out": 1.9,
+          "out": 2.0,
           "mode": "words",
           "text": "Oben ist eure Sprache.",
           "size": 92,
@@ -998,7 +1019,8 @@
           "text": "Unten ist EIN Standard.",
           "size": 92,
           "y": 0.24,
-          "step": 0.115
+          "step": 0.115,
+          "lastDelay": 0.7
         },
         {
           "type": "levels",
@@ -1015,7 +1037,7 @@
         },
         {
           "type": "markerText",
-          "t": 1.75,
+          "t": 2.65,
           "text": "^OBEN",
           "size": 58,
           "rot": -3,
@@ -1219,7 +1241,7 @@
         },
         {
           "type": "markerText",
-          "t": 2.6,
+          "t": 3.1,
           "text": "^KEIN NEUES TOOL.",
           "size": 66,
           "rot": -2,
@@ -1314,6 +1336,14 @@
           "y": 0.955,
           "x": 0.4,
           "w": 0.2
+        },
+        {
+          "type": "doodle",
+          "t": 4.35,
+          "shape": "bar",
+          "x": 0.5,
+          "y": 0.62,
+          "draw": 0.34
         }
       ],
       "bgFlips": [
@@ -1367,7 +1397,7 @@
         },
         {
           "type": "markerText",
-          "t": 1.4,
+          "t": 2.0,
           "text": "^NULL DOPPELERFASSUNG.",
           "size": 69,
           "rot": -2,
@@ -1412,7 +1442,8 @@
           "text": "Und wenn jemand etwas ändert?",
           "size": 80,
           "y": 0.42,
-          "step": 0.115
+          "step": 0.115,
+          "lastDelay": 0.65
         },
         {
           "type": "liveEdit",
@@ -1672,6 +1703,16 @@
           "y": 0.14,
           "x": 0.72,
           "draw": 0.3
+        },
+        {
+          "type": "markerText",
+          "t": 3.55,
+          "text": "^UND SPALTEN",
+          "size": 54,
+          "rot": 2,
+          "y": 0.86,
+          "x": 0.5,
+          "draw": 0.32
         }
       ],
       "bgFlips": [
@@ -1939,11 +1980,12 @@
           "text": "Wir behalten Überblick.",
           "size": 92,
           "y": 0.5,
-          "step": 0.115
+          "step": 0.115,
+          "lastDelay": 0.8
         },
         {
           "type": "markerText",
-          "t": 3.35,
+          "t": 4.05,
           "text": "^DEN",
           "size": 77,
           "rot": -3,
