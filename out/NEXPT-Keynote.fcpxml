@@ -32,12 +32,12 @@
     <asset id="a27" name="23_ui" uid="86D82C5FA20A47D408525FAEACAD5ABB" start="0s" duration="4800/3000s" hasVideo="1" format="r1" videoSources="1"><media-rep kind="original-media" sig="4E492377F1E9E0CE14753A134BE00296" src="scenes/23_ui.mov"/></asset>
     <asset id="a28" name="25_seht" uid="A5870BE4E0CA9BA869C592B61D1CCF06" start="0s" duration="15700/3000s" hasVideo="1" format="r1" videoSources="1"><media-rep kind="original-media" sig="A9F438291FDF2B58118D5725B1DC53CD" src="scenes/25_seht.mov"/></asset>
     <asset id="a29" name="26_also" uid="A887F7A99A209C5A79D0F4E52ACCB0F3" start="0s" duration="18500/3000s" hasVideo="1" format="r1" videoSources="1"><media-rep kind="original-media" sig="676B17C8F3F5A304071DF93B93260CC4" src="scenes/26_also.mov"/></asset>
-    <asset id="a30" name="27_ende" uid="5CD8C9F49C28636DACBE467433E7D435" start="0s" duration="13700/3000s" hasVideo="1" format="r1" videoSources="1"><media-rep kind="original-media" sig="F1E944DD8E8838258A180A18C4C99F65" src="scenes/27_ende.mov"/></asset>
+    <asset id="a30" name="27_ende" uid="5CD8C9F49C28636DACBE467433E7D435" start="0s" duration="18600/3000s" hasVideo="1" format="r1" videoSources="1"><media-rep kind="original-media" sig="F1E944DD8E8838258A180A18C4C99F65" src="scenes/27_ende.mov"/></asset>
   </resources>
   <library name="NEXPT Video">
     <event name="NEXPT Keynote">
       <project name="NEXPT Work — Keynote-Film">
-        <sequence format="r1" duration="401400/3000s" tcStart="0s" tcFormat="NDF"
+        <sequence format="r1" duration="406300/3000s" tcStart="0s" tcFormat="NDF"
                   audioLayout="stereo" audioRate="48k">
           <spine>
             <asset-clip ref="a1" offset="0/3000s" name="00a_wirsind" start="0s" duration="9900/3000s" format="r1" tcFormat="NDF"><marker start="0s" duration="100/3000s" value="Akt 0 Wer wir sind · 00a_wirsind"/><marker start="0s" duration="100/3000s" value="VO: Wir sind Raphael und Christian Heusser."/></asset-clip>
@@ -69,7 +69,7 @@
             <asset-clip ref="a27" offset="348700/3000s" name="23_ui" start="0s" duration="4800/3000s" format="r1" tcFormat="NDF"><marker start="0s" duration="100/3000s" value="Akt 7 Gegner · 23_ui"/><marker start="0s" duration="100/3000s" value="VO: (auch nicht im UI)"/></asset-clip>
             <asset-clip ref="a28" offset="353500/3000s" name="25_seht" start="0s" duration="15700/3000s" format="r1" tcFormat="NDF"><marker start="0s" duration="100/3000s" value="Akt 8 Versprechen · 25_seht"/><marker start="0s" duration="100/3000s" value="VO: Du siehst, was du brauchst. Dort, wo du bist."/><marker start="6300/3000s" duration="100/3000s" value="BG → dark"/></asset-clip>
             <asset-clip ref="a29" offset="369200/3000s" name="26_also" start="0s" duration="18500/3000s" format="r1" tcFormat="NDF"><marker start="0s" duration="100/3000s" value="Akt 8 Versprechen · 26_also"/><marker start="0s" duration="100/3000s" value="VO: Also arbeite, wie du willst. Wir behalten den Überblick."/></asset-clip>
-            <asset-clip ref="a30" offset="387700/3000s" name="27_ende" start="0s" duration="13700/3000s" format="r1" tcFormat="NDF"><marker start="0s" duration="100/3000s" value="Akt 8 Versprechen · 27_ende"/><marker start="0s" duration="100/3000s" value="VO: NEXPT hat eine Meinung."/><marker start="9300/3000s" duration="100/3000s" value="BG → dark"/></asset-clip>
+            <asset-clip ref="a30" offset="387700/3000s" name="27_ende" start="0s" duration="18600/3000s" format="r1" tcFormat="NDF"><marker start="0s" duration="100/3000s" value="Akt 8 Versprechen · 27_ende"/><marker start="0s" duration="100/3000s" value="VO: NEXPT ist dein Partner für deine Prozesse."/><marker start="9300/3000s" duration="100/3000s" value="BG → dark"/></asset-clip>
           </spine>
         </sequence>
       </project>

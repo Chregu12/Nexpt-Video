@@ -600,8 +600,8 @@
           "text": "^ETAPPE",
           "size": 55,
           "rot": -3,
-          "y": 0.22,
-          "x": 0.74,
+          "y": 0.16,
+          "x": 0.76,
           "draw": 0.3,
           "out": 4.05
         },
@@ -611,8 +611,8 @@
           "text": "^TICKET",
           "size": 55,
           "rot": -3,
-          "y": 0.3,
-          "x": 0.26,
+          "y": 0.16,
+          "x": 0.24,
           "draw": 0.3,
           "out": 6.2
         },
@@ -622,8 +622,8 @@
           "text": "^FRIST",
           "size": 55,
           "rot": -3,
-          "y": 0.76,
-          "x": 0.72,
+          "y": 0.16,
+          "x": 0.76,
           "draw": 0.3,
           "out": 8.35
         },
@@ -633,8 +633,8 @@
           "text": "^ALLES",
           "size": 55,
           "rot": -3,
-          "y": 0.8,
-          "x": 0.28,
+          "y": 0.16,
+          "x": 0.24,
           "draw": 0.3
         },
         {
@@ -644,6 +644,46 @@
           "y": 0.6,
           "x": 0.42,
           "w": 0.16
+        },
+        {
+          "type": "doodle",
+          "t": 0.55,
+          "out": 2.0,
+          "shape": "helm",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.34,
+          "sc": 1.5
+        },
+        {
+          "type": "doodle",
+          "t": 2.7,
+          "out": 4.15,
+          "shape": "schluessel",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.34,
+          "sc": 1.5
+        },
+        {
+          "type": "doodle",
+          "t": 4.85,
+          "out": 6.3,
+          "shape": "stempel",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.34,
+          "sc": 1.5
+        },
+        {
+          "type": "doodle",
+          "t": 7.0,
+          "out": null,
+          "shape": "auge",
+          "x": 0.5,
+          "y": 0.8,
+          "draw": 0.34,
+          "sc": 1.5
         }
       ],
       "bgFlips": [
@@ -862,6 +902,16 @@
           "y": 0.3,
           "x": 0.7,
           "draw": 0.3
+        },
+        {
+          "type": "doodle",
+          "t": 0.75,
+          "out": 2.05,
+          "shape": "uhr",
+          "x": 0.5,
+          "y": 0.76,
+          "draw": 0.4,
+          "sc": 1.5
         }
       ],
       "bgFlips": [
@@ -1521,7 +1571,18 @@
           "shape": "timebox",
           "x": 0.5,
           "y": 0.82,
-          "draw": 0.3
+          "draw": 0.3,
+          "sc": 1.6
+        },
+        {
+          "type": "doodle",
+          "t": 1.15,
+          "out": 2.35,
+          "shape": "auge",
+          "x": 0.5,
+          "y": 0.74,
+          "draw": 0.36,
+          "sc": 1.6
         }
       ]
     },
@@ -1583,28 +1644,37 @@
       "id": "27_ende",
       "act": "8 Versprechen",
       "start": 129.24,
-      "dur": 4.56,
+      "dur": 6.2,
       "bg": "light",
       "bgFlip": {
         "t": 3.1,
         "to": "dark"
       },
-      "vo": "NEXPT hat eine Meinung.",
+      "vo": "NEXPT ist dein Partner für deine Prozesse.",
       "layers": [
         {
           "type": "text",
           "t": 0.0,
-          "out": 1.8,
+          "out": 3.55,
           "mode": "words",
-          "text": "NEXPT hat eine Meinung.",
-          "size": 92,
-          "y": 0.5,
+          "text": "NEXPT ist dein Partner",
+          "size": 88,
+          "y": 0.42,
+          "step": 0.145
+        },
+        {
+          "type": "text",
+          "t": 1.55,
+          "out": 3.55,
+          "mode": "words",
+          "text": "für deine Prozesse.",
+          "size": 88,
+          "y": 0.58,
           "step": 0.145
         },
         {
           "type": "url",
-          "t": 1.8,
-          "out": null,
+          "t": 3.55,
           "base": "nexpt.ch/",
           "accent": "work",
           "size": 88,
@@ -1613,7 +1683,7 @@
       ],
       "bgFlips": [
         {
-          "t": 1.15,
+          "t": 3.55,
           "to": "dark"
         }
       ]

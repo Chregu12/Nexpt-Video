@@ -234,7 +234,7 @@ eingeebnet werden.
 > **Regie:** Eine Stimme, wach, trocken, leicht amüsiert — **kein Werbeduktus, kein Pathos.**
 > Schweizer Hochdeutsch, „ss" statt „ß". `^` = Caret-Einfügung des grünen Markers.
 
-**2:13.8 · 30 Szenen · 191 Wörter · 86 Wörter/Minute**
+**2:15.4 · 30 Szenen · 194 Wörter · 86 Wörter/Minute**
 
 ```
 
@@ -390,8 +390,8 @@ eingeebnet werden.
          Also arbeite, wie du willst.
          Wir behalten den Überblick.
          └ MARKER  ^DEN   (+4.0s)
- 2:09.2  [HELL → SCHWARZ]  (4.6s · 27_ende)
-         NEXPT hat eine Meinung.
+ 2:09.2  [HELL → SCHWARZ]  (6.2s · 27_ende)
+         NEXPT ist dein Partner für deine Prozesse.
 ```
 
 ### 4.1 Die fünf Momente, an denen der Film gewonnen oder verloren wird
