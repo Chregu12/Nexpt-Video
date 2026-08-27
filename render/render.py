@@ -11,8 +11,19 @@ aufgenommene Off-Stimme schieben laesst.
     python3 render.py --stills        # nur je ein Standbild pro Szene (schnell)
     python3 render.py --alpha         # ProRes 4444 mit Alpha statt 422 HQ
 """
-import json, os, subprocess, sys, shutil
+import hashlib, json, os, subprocess, sys, shutil
 from pathlib import Path
+
+def fingerabdruck(scene, film_html):
+    """Ein Clip ist genau dann aktuell, wenn Szenendefinition UND Renderer
+    unveraendert sind. Ein Zeitstempelvergleich gegen timing.json wuerde bei
+    jeder Aenderung an EINER Szene alle 30 Clips als veraltet melden."""
+    roh = json.dumps(scene, sort_keys=True, ensure_ascii=False) + film_html
+    return hashlib.sha256(roh.encode()).hexdigest()[:16]
+
+def stempel_lesen(pfad):
+    try: return json.loads(pfad.read_text(encoding="utf-8"))
+    except Exception: return {}
 
 ROOT = Path(__file__).resolve().parent
 OUT  = ROOT.parent / "out"
@@ -31,6 +42,9 @@ scenes  = [s for s in cfg["scenes"]
            if not args or any(a in s["id"] or a == s["id"].split("_")[0] for a in args)]
 
 OUT.mkdir(exist_ok=True); (OUT / "scenes").mkdir(exist_ok=True); (OUT / "stills").mkdir(exist_ok=True)
+FILM_HTML = (ROOT / "film.html").read_text(encoding="utf-8")
+STEMPEL   = OUT / "scenes" / "stempel.json"
+stempel   = stempel_lesen(STEMPEL)
 
 from playwright.sync_api import sync_playwright
 
@@ -72,6 +86,8 @@ with sync_playwright() as p:
         dst = OUT / "scenes" / f"{s['id']}.mov"
         encode(tmp, dst, s["dur"])
         shutil.rmtree(tmp)
+        stempel[s["id"]] = fingerabdruck(s, FILM_HTML)
+        STEMPEL.write_text(json.dumps(stempel, indent=1, ensure_ascii=False), encoding="utf-8")
         print(f"  ✓ {s['id']:<18} {s['dur']:>4.1f}s  {n:>3} frames  "
               f"{dst.stat().st_size/1e6:>5.1f} MB")
     br.close()

@@ -22,7 +22,17 @@ FF = os.environ.get("FFMPEG") or \
 cfg = json.loads((ROOT / "timing.json").read_text(encoding="utf-8"))
 src_mtime = (ROOT / "timing.json").stat().st_mtime
 film_mtime = (ROOT / "film.html").stat().st_mtime
-neuer_als = max(src_mtime, film_mtime)
+# Fingerabdruck je Szene statt Zeitstempelvergleich: eine Aenderung an EINER
+# Szene darf nicht alle 30 Clips als veraltet melden.
+import hashlib
+FILM_HTML = (ROOT / "film.html").read_text(encoding="utf-8")
+def fingerabdruck(scene):
+    roh = json.dumps(scene, sort_keys=True, ensure_ascii=False) + FILM_HTML
+    return hashlib.sha256(roh.encode()).hexdigest()[:16]
+try:
+    stempel = json.loads((OUT / "scenes" / "stempel.json").read_text(encoding="utf-8"))
+except Exception:
+    stempel = {}
 
 fehler = []
 if subprocess.run(["pgrep", "-f", "render.py"], capture_output=True).returncode == 0:
@@ -37,8 +47,12 @@ for s in cfg["scenes"]:
     p = OUT / "scenes" / f"{s['id']}.mov"
     if not p.exists():
         fehler.append(f"{s['id']}: Clip fehlt"); continue
-    if p.stat().st_mtime < neuer_als - 1:
-        fehler.append(f"{s['id']}: Clip aelter als die Quelle — nicht neu gerendert")
+    soll_fp = fingerabdruck(s)
+    ist_fp  = stempel.get(s["id"])
+    if ist_fp is None:
+        fehler.append(f"{s['id']}: kein Fingerabdruck — bitte neu rendern")
+    elif ist_fp != soll_fp:
+        fehler.append(f"{s['id']}: Szene geaendert seit dem Rendern")
     r = subprocess.run([FF, "-hide_banner", "-i", str(p)], capture_output=True, text=True).stderr
     m = re.search(r"Duration: (\d+):(\d+):([\d.]+)", r)
     if not m:

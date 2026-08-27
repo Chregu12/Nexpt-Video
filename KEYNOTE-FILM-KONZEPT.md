@@ -277,8 +277,6 @@ eingeebnet werden.
          └ MARKER  FRISTEN   (+5.5s)
  0:32.1  [SCHWARZ]  (4.0s · 08_broll)
          (kein Text — drei Makro-Einstellungen)
-         └ MARKER  ^DIESELBE ARBEIT   (+3.9s)
-         └ MARKER  ^EINE ARBEIT   (+5.2s)
  0:36.1  [HELL]  (5.4s · 09_flut)
          Wir nennen es, wie ihr es nennt.
          └ WORDFLOOD   (+1.2s)
