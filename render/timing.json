@@ -396,30 +396,70 @@
       "id": "08_broll",
       "act": "2 Freiheit",
       "start": 32.08,
-      "dur": 4.0,
-      "bg": "dark",
-      "vo": "(kein Text — drei Makro-Einstellungen)",
+      "dur": 6.0,
+      "bg": "light",
+      "vo": "Softwareteam. Baustelle. Betrieb.",
       "layers": [
         {
-          "type": "broll",
+          "type": "card",
           "t": 0.0,
-          "out": 1.3,
-          "label": "Hand auf Tastatur",
-          "word": "Sprint."
+          "out": 1.95,
+          "label": "SPRINT",
+          "title": "Login-Flow überarbeiten",
+          "meta": "US-812 · Team Delta"
         },
         {
-          "type": "broll",
-          "t": 1.3,
-          "out": 2.6,
-          "label": "Bauplan auf Tisch",
-          "word": "Phase."
+          "type": "text",
+          "t": 0.5,
+          "out": 1.9,
+          "mode": "hard",
+          "text": "Softwareteam.",
+          "size": 64,
+          "y": 0.845
         },
         {
-          "type": "broll",
-          "t": 2.6,
+          "type": "card",
+          "t": 1.95,
+          "out": 3.9,
+          "label": "PHASE",
+          "title": "Fassadensanierung Nord",
+          "meta": "AP-4711 · M. Keller"
+        },
+        {
+          "type": "text",
+          "t": 2.45,
+          "out": 3.85,
+          "mode": "hard",
+          "text": "Baustelle.",
+          "size": 64,
+          "y": 0.845
+        },
+        {
+          "type": "card",
+          "t": 3.9,
           "out": null,
-          "label": "Serverleuchten im Dunkeln",
-          "word": "Incident."
+          "label": "INCIDENT",
+          "title": "Kasse 3 offline",
+          "meta": "INC-2098 · Pikettdienst"
+        },
+        {
+          "type": "text",
+          "t": 4.4,
+          "out": null,
+          "mode": "hard",
+          "text": "Betrieb.",
+          "size": 64,
+          "y": 0.845
+        }
+      ],
+      "bgFlips": [
+        {
+          "t": 1.95,
+          "to": "accent"
+        },
+        {
+          "t": 3.9,
+          "to": "dark"
         }
       ]
     },

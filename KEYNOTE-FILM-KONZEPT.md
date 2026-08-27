@@ -234,7 +234,7 @@ eingeebnet werden.
 > **Regie:** Eine Stimme, wach, trocken, leicht amüsiert — **kein Werbeduktus, kein Pathos.**
 > Schweizer Hochdeutsch, „ss" statt „ß". `^` = Caret-Einfügung des grünen Markers.
 
-**2:15.4 · 30 Szenen · 194 Wörter · 86 Wörter/Minute**
+**2:15.4 · 30 Szenen · 197 Wörter · 87 Wörter/Minute**
 
 ```
 
@@ -275,8 +275,13 @@ eingeebnet werden.
          └ MARKER  PHASEN   (+1.9s)
          └ MARKER  TICKETS   (+3.7s)
          └ MARKER  FRISTEN   (+5.5s)
- 0:32.1  [SCHWARZ]  (4.0s · 08_broll)
-         (kein Text — drei Makro-Einstellungen)
+ 0:32.1  [HELL → AKZENT → SCHWARZ]  (6.0s · 08_broll)
+         Softwareteam.
+         Baustelle.
+         Betrieb.
+         └ CARD   (+0.0s)
+         └ CARD   (+1.9s)
+         └ CARD   (+3.9s)
  0:36.1  [HELL]  (5.4s · 09_flut)
          Wir nennen es, wie ihr es nennt.
          └ WORDFLOOD   (+1.2s)

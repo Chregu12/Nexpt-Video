@@ -224,7 +224,9 @@ R.broll=(l,t,st)=>{  // Platzhalter — hier kommt die echte Makro-Einstellung r
   st.appendChild(d);
 };
 R.card=(l,t,st)=>{  // Der Frame bewegt sich NICHT — nur das Etikett springt um.
-  const swapped = t>=l.swapAt, label = swapped ? l.swapTo : l.label;
+  // Ohne swapAt ist es eine ruhende Karte: dieselbe Form, andere Welt.
+  const swapped = l.swapAt!=null && t>=l.swapAt;
+  const label = swapped ? l.swapTo : l.label;
   const d=document.createElement('div'); d.className='lyr ctr';
   d.innerHTML=`<div style="position:relative;width:1120px;background:${PAL.light};border-radius:26px;
       padding:64px 72px;text-align:left;box-shadow:0 40px 120px rgba(0,0,0,.22)">
