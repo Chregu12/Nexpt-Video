@@ -9,3 +9,11 @@ render/voices/*.onnx
 
 # Download-Paket: bündelt nur, was ohnehin im Repo liegt — mit paket.sh neu bauen
 out/*.zip
+
+# Lizenzierter Musiktrack — gehoert nicht ins Repo, liegt beim Lizenznehmer.
+# Auch der Schnitt daraus: out/music.wav ist der Track fast unveraendert, nur
+# gekuerzt. Er wird mit `python3 render/musik.py` neu erzeugt. Die fertigen
+# Mischungen bleiben drin — dort liegt die Stimme darueber, sie sind das
+# Arbeitsergebnis und nicht der Track.
+out/_musik/
+out/music.wav

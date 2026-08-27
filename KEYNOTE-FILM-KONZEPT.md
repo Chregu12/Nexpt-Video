@@ -448,26 +448,49 @@ eingeebnet werden.
 - **Voice-Over** trägt den Film. Casting ist wichtiger als die Musik: gesucht ist eine Stimme,
   die trocken und schnell sprechen kann, ohne zu hetzen — die „Moment. Nein." glaubwürdig sagt
   und `(auch nicht im UI)` beiläufig, fast zu leise, hinwirft, ohne die Pointe anzukündigen.
-- **Kein Musikbett — Percussion Sound Design.** Die Referenz („Rhythm Mischief", Cold Storage
-  Percussion Unit, ~118 BPM) ist streng genommen kein Song: Marschtrommel, Snare, Rim Clicks,
-  gedämpfte Toms, kaum Melodie, kaum Bass, viel Leerraum. Das Prinzip lautet: **Text erscheint →
-  tak. Bewegung → rrrat-tak. Pause → Stille.**
-  Der Prototyp hatte zusätzlich eine getragene Fläche; sie ist raus, weil sie den Mix gemessen
-  auf 147 BPM gezogen hat, obwohl die Percussion auf 118 lief. Was sie im Bass gefüllt hat,
-  macht jetzt die Marschtrommel.
+- **Musik: „Rhythm Mischief"** (Cold Storage Percussion Unit, Track Club) — derselbe Track wie
+  im Referenzfilm, lizenziert statt nachgebaut. Gemessen am gelieferten File: **118.00 BPM**,
+  erster Downbeat bei 0.222 s, Takt 2.0339 s, 89 volle Takte auf 3:03.
 
-  | | Tempo | Puls-Stärke | Stille |
+  Der Track ist 47.6 s länger als der Film. Geschnitten wird er von `render/musik.py` an genau
+  **einer** Stelle — beide Kanten auf einer Takt-Eins, damit die Naht im Puls verschwindet:
+
+  | | Takte | Track | Film |
   |---|---|---|---|
-  | Referenzfilm | 117 BPM | 0.18 | 12 % |
-  | NEXPT, Mischung | 117 BPM | 0.11 | 10 % |
-  | NEXPT, Percussion allein | 117 BPM | 0.09 | 25 % |
+  | Teil 1 | 0 – 58 | 0:00 – 1:58 | 0:00 – 1:58 |
+  | Schnitt | 58 → 81 | | bei 1:57.96, auf `25_seht` |
+  | Teil 2 | 81 – Ende | 2:45 – 3:03 | 1:58 – 2:15 |
 
-  Auf jeder Viertel sitzt ein hörbarer Schlag, dazwischen wird frei gespielt, drei von achtzehn
-  Takten schweigen ganz. An den fünf Halte-Beats setzt die Percussion komplett aus — dort ist die
-  Stille das Ereignis. Für die finale Fassung: **Komposition kaufen, nicht lizenzieren** — der
-  Referenztrack selbst ist geschützt und für einen kommerziellen Messefilm keine Option.
-- **Mix:** −16 bis −18 LUFS integriert, stark komprimiert (Referenz: LRA 4.3 LU). Auf der Messe
-  gegen Hallenlärm mischen — Dynamik ist hier keine Tugend.
+  Der Grund, warum nur **ein** Schnitt nötig ist: der Verlauf des Tracks passt fast ohne Zutun
+  auf die Dramaturgie. Das ist Zufall, aber ein brauchbarer — beide leben vom selben Wechsel aus
+  Spannung und Auflösung.
+
+  | Track | | Film |
+  |---|---|---|
+  | Breakdown 0:49 – 0:55 | ↔ | `(das ist der Trick)` 0:51.7 · „Vier Sichtweisen. Ein Chaos?" 0:53.3 |
+  | Hochpunkt 1:19 – 1:38 | ↔ | „100% verbunden." 1:23.7 · „Sehen es alle. SOFORT." 1:31.5 |
+  | Absturz 1:38 – 1:44 | ↔ | „Aber Struktur ist noch keine Übersicht. ALLEIN" 1:38.2 |
+
+  Der Absturz des Tracks liegt **0.4 s** vor dem Einwand des Films. Dort muss der Schnitt gar
+  nichts tun.
+
+  Zwei der fünf Halte-Beats deckt der Track selbst ab (`11c_trick` und `12_nein` fallen in den
+  Breakdown). Die anderen drei — `03_moment`, `05_aside`, `23_ui` — liegen mitten im Groove;
+  dort zieht die Musik auf 28 % zurück. Am Filmende: 0.3 s Blende, danach absolute Stille, wie
+  in der Referenz.
+
+  **Eigene Percussion ist damit aus.** Sie liegt als `sounddesign.py --drums` weiter bereit,
+  aber sie auf einen Schlagzeugtrack zu legen ergibt Matsch statt Betonung. Der Referenzfilm hat
+  gemessen ohnehin **kein** Sounddesign auf den Bildereignissen.
+
+  **Lizenz:** Der Track gehört Track Club und liegt bewusst **nicht** im Repo (`out/_musik/`
+  steht in `.gitignore`). Für Messe und Web braucht es eine Lizenz, die kommerzielle Nutzung
+  deckt, ausgestellt auf NEXPT — nicht auf eine Privatperson. Das gelieferte File ist ausserdem
+  128 kbit/s AAC; für die Endfassung die WAV aus dem Track-Club-Konto ziehen.
+- **Mix:** −16.3 LUFS integriert, **LRA 4.3 LU** — gemessen deckungsgleich mit der Referenz.
+  Mit dem echten Track darf der Kompressor deutlich milder stehen (Ratio 2.5 statt 4): der Track
+  ist bereits gemastert, und die harte Fassung hat die Mischung auf LRA 2.9 gequetscht. Die
+  Standfassung ohne Stimme wird härter gefahren, weil dort die Wörter die Lücken nicht füllen.
 - **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
   trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms. Der Etikettwechsel bei 0:38
   bekommt **ein einziges** Klicken — sonst nichts.

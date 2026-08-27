@@ -22,7 +22,7 @@ Daraus folgt dieser Aufbau: eine leise, getragene Flaeche, die je Akt die
 Tonart wechselt, ohne Puls und ohne Percussion. Effekte nur als seltene
 Akzente, per --sfx steuerbar.
 
-    python3 sounddesign.py                -> out/music.wav, out/sfx.wav
+    python3 sounddesign.py                -> out/sfx.wav
     python3 sounddesign.py --sfx none     ganz ohne Effekte (Apples Fassung)
     python3 sounddesign.py --drums        Schlagzeug auf die Einblendungen
     python3 sounddesign.py --drums --bpm 118
@@ -70,24 +70,15 @@ def lowpass(x, fc):
     X *= 1.0 / (1.0 + (f / fc) ** 3)        # sanfte 18 dB/Okt-Neigung
     return np.fft.irfft(X, len(x))
 
-# ── Kein Bett ─────────────────────────────────────────────────────────────
-# Hier stand bis eben eine getragene Flaeche: Grundton, Quinte, Oktave, je Akt
-# eine andere Tonart. Sie ist raus, und zwar gemessen begruendet:
+# ── Musik gehoert hier nicht mehr her ─────────────────────────────────────
+# Hier stand eine selbstgebaute Flaeche, spaeter eine stille Spur. Beides ist
+# weg: out/music.wav kommt jetzt aus render/musik.py, dem Schnitt des
+# lizenzierten Tracks. Dieses Skript schreibt die Datei nicht mehr an —
+# sonst haette der naechste Lauf den Schnitt ueberschrieben.
 #
-#   Apple                  119 BPM (Staerke 0.13) · Stille 13%
-#   NEXPT Percussion        66 BPM (Staerke 0.01) · Stille 76%
-#   NEXPT Grundierung      155 BPM (Staerke 0.76) · Stille  6%   <- die Flaeche
-#
-# Die Flaeche hat den Gesamtmix auf 147 BPM gezogen, obwohl die Percussion auf
-# 118 laeuft. Ihr Atmen (7.3s), die Akt-Rampen und das Ducking ergaben zusammen
-# genau die Periodizitaet, die im Mix als eigenes Tempo gelesen wurde. Das
-# `music *= 0.16` half nicht: `wav()` normalisiert danach ohnehin auf Peak 0.62.
-#
-# Dazu die Vorgabe selbst: keine Pads, keine Synth-Akkorde, keine Flaechen,
-# kein melodisches Leadinstrument. „Percussion Sound Design statt Song."
-# Also traegt die Percussion allein — und das Tiefe kommt aus der
-# Marschtrommel, nicht aus einem Sinus.
-music = np.zeros(N)
+# Was die Flaeche gekostet hat, zur Erinnerung: sie hat den Mix gemessen auf
+# 147 BPM gezogen, obwohl die Percussion auf 118 lief. Ihr Atmen (7.3s), die
+# Akt-Rampen und das Ducking ergaben zusammen eine eigene Periodizitaet.
 acts = []
 for s in cfg["scenes"]:
     a = s["act"]
@@ -301,9 +292,8 @@ def wav(path, x, peak):
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
         w.writeframes((np.clip(x, -1, 1) * 32767).astype("<i2").tobytes())
 
-wav(OUT / "music.wav", music, 0.0)      # still: die Percussion traegt allein
 if "--drums" in sys.argv:
     wav(OUT / "drums.wav", drums, 0.80)
     print(f"out/drums.wav — Schlaege auf den Bildereignissen")
 wav(OUT / "sfx.wav",   sfx,   0.55 if SFX_MODE != "none" else 0.0)
-print(f"out/music.wav (still, kein Bett) · out/sfx.wav (Modus: {SFX_MODE})   {TOT:.1f}s")
+print(f"out/sfx.wav (Modus: {SFX_MODE})   {TOT:.1f}s — Musik kommt aus musik.py")
