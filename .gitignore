@@ -17,3 +17,6 @@ out/*.zip
 # Arbeitsergebnis und nicht der Track.
 out/_musik/
 out/music.wav
+
+# Sicherungskopie von takt.py — der Stand davor steht ohnehin in der Historie
+render/timing.json.vor-takt

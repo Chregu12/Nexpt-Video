@@ -234,85 +234,85 @@ eingeebnet werden.
 > **Regie:** Eine Stimme, wach, trocken, leicht amüsiert — **kein Werbeduktus, kein Pathos.**
 > Schweizer Hochdeutsch, „ss" statt „ß". `^` = Caret-Einfügung des grünen Markers.
 
-**2:15.4 · 30 Szenen · 197 Wörter · 87 Wörter/Minute**
+**2:18.3 · 30 Szenen · 197 Wörter · 85 Wörter/Minute**
 
 ```
 
 ━━━ WER WIR SIND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:00.0  [HELL]  (3.3s · 00a_wirsind)
+ 0:00.0  [HELL]  (3.6s · 00a_wirsind)
          Wir sind Raphael und Christian Heusser.
- 0:03.3  [HELL]  (5.1s · 00b_warum)
+ 0:03.6  [HELL]  (5.1s · 00b_warum)
          Wir haben NEXPT gestartet, damit du arbeiten kannst.
-         └ MARKER  ^STATT ZU ORGANISIEREN.   (+3.4s)
+         └ MARKER  ^STATT ZU ORGANISIEREN.   (+3.3s)
 
 ━━━ SELBSTKORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:08.4  [HELL]  (3.6s · 01_versprechen)
+ 0:08.6  [HELL]  (3.6s · 01_versprechen)
          Und wir haben ein Versprechen.
          Und eine Meinung.
-         └ MARKER  ^UND EINE MEINUNG.   (+1.9s)
- 0:12.1  [HELL → AKZENT]  (2.9s · 02_flip)
+         └ MARKER  ^UND EINE MEINUNG.   (+2.0s)
+ 0:12.2  [HELL → AKZENT]  (2.5s · 02_flip)
          Arbeite so, wie wir es vorsehen —.
-         └ MARKER  ^SO WIE WIR   (+1.6s)
- 0:14.9  [SCHWARZ]  (3.6s · 03_moment)
+         └ MARKER  ^SO WIE WIR   (+1.5s)
+ 0:14.7  [SCHWARZ]  (4.1s · 03_moment)
          Moment.
          Nein.
          Das machen alle anderen.
- 0:18.6  [AKZENT]  (3.9s · 04_ihr)
+ 0:18.8  [AKZENT]  (3.7s · 04_ihr)
          Arbeite so, wie du willst.
  0:22.5  [SCHWARZ]  (1.4s · 05_aside)
          (ja, auch du in der Buchhaltung)
 
 ━━━ FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:23.9  [HELL → AKZENT]  (8.2s · 06_wege)
+ 0:23.9  [HELL → AKZENT]  (8.4s · 06_wege)
          Du planst in Sprints.
          Du in Phasen.
          Du in Tickets.
          Du in Fristen.
-         └ MARKER  SPRINTS   (+0.1s)
-         └ MARKER  PHASEN   (+1.9s)
-         └ MARKER  TICKETS   (+3.7s)
-         └ MARKER  FRISTEN   (+5.5s)
- 0:32.1  [HELL → AKZENT → SCHWARZ]  (6.0s · 08_broll)
+         └ MARKER  SPRINTS   (+0.3s)
+         └ MARKER  PHASEN   (+1.8s)
+         └ MARKER  TICKETS   (+3.8s)
+         └ MARKER  FRISTEN   (+5.6s)
+ 0:32.3  [HELL → AKZENT → SCHWARZ]  (5.8s · 08_broll)
          Softwareteam.
          Baustelle.
          Betrieb.
          └ CARD   (+0.0s)
-         └ CARD   (+1.9s)
-         └ CARD   (+3.9s)
- 0:36.1  [HELL]  (5.4s · 09_flut)
+         └ CARD   (+2.0s)
+         └ CARD   (+4.1s)
+ 0:38.1  [HELL]  (5.1s · 09_flut)
          Wir nennen es, wie ihr es nennt.
          └ WORDFLOOD   (+1.2s)
 
 ━━━ DIE LEUTE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:41.5  [HELL → AKZENT]  (10.3s · 11b_rollen)
+ 0:43.2  [HELL → AKZENT]  (10.4s · 11b_rollen)
          Die Bauleiterin sieht ihre Etappe.
          Der Servicetechniker seine Tickets.
          Die Treuhänderin ihre Frist.
          Die Geschäftsführerin sieht alles.
          └ MARKER  ^ETAPPE   (+2.0s)
          └ MARKER  ^TICKET   (+4.2s)
-         └ MARKER  ^FRIST   (+6.3s)
+         └ MARKER  ^FRIST   (+6.4s)
          └ MARKER  ^ALLES   (+8.1s)
- 0:51.7  [AKZENT]  (1.6s · 11c_trick)
+ 0:53.6  [AKZENT]  (1.5s · 11c_trick)
          (das ist der Trick)
 
 ━━━ EINWAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:53.3  [SCHWARZ]  (3.0s · 12a_chaos)
+ 0:55.2  [SCHWARZ]  (3.1s · 12a_chaos)
          Vier Sichtweisen.
          Ein Chaos?.
          └ MARKER  ^ODER?   (+1.9s)
- 0:56.3  [SCHWARZ]  (1.6s · 12_nein)
+ 0:58.2  [SCHWARZ]  (1.5s · 12_nein)
          NEIN.
          └ MARKER  NEIN.   (+0.0s)
 
 ━━━ EIN MODELL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:57.9  [HELL → AKZENT]  (10.7s · 13_modell)
+ 0:59.7  [HELL → AKZENT]  (10.7s · 13_modell)
          Oben ist eure Sprache.
          Unten ist ein Standard.
          Egal ob Bau, Betrieb oder Buchhaltung.
@@ -321,79 +321,79 @@ eingeebnet werden.
 
 ━━━ ÜBERGANG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:08.6  [HELL]  (4.1s · 14_ende)
+ 1:10.4  [HELL]  (3.8s · 14_ende)
          Und irgendwann ist das Projekt fertig.
          Die Arbeit nicht.
-         └ MARKER  ^NICHT.   (+2.4s)
+         └ MARKER  ^NICHT.   (+2.3s)
          └ MARKER  ^FERTIG?   (+1.4s)
- 1:12.7  [AKZENT → HELL]  (5.9s · 15_element)
+ 1:14.2  [AKZENT → HELL]  (6.1s · 15_element)
          Dasselbe Element.
          Neuer Modus.
          Kein neues Tool.
          └ CARD   (+0.0s)
          └ MARKER  ^KEIN NEUES TOOL.   (+3.1s)
          └ MARKER  ^DASSELBE   (+0.9s)
- 1:18.7  [HELL]  (5.0s · 16_pfeile)
+ 1:20.3  [HELL]  (5.1s · 16_pfeile)
          Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.
-         └ MARKER  ^ALLES   (+1.6s)
-         └ MARKER  ^AN EINEN ORT   (+3.4s)
- 1:23.7  [AKZENT]  (4.6s · 17_hundert)
+         └ MARKER  ^ALLES   (+1.8s)
+         └ MARKER  ^AN EINEN ORT   (+3.3s)
+ 1:25.4  [AKZENT]  (4.6s · 17_hundert)
          Hundert Prozent verbunden.
          Kein Export.
          Null Doppelerfassung.
          └ SUNBURST   (+0.0s)
          └ MARKER  ^NULL DOPPELERFASSUNG.   (+2.0s)
-         └ MARKER  ^KEINE KOPIE   (+3.0s)
+         └ MARKER  ^KEINE KOPIE   (+3.1s)
 
 ━━━ KORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:28.3  [SCHWARZ]  (3.2s · 18_aendert)
+ 1:30.0  [SCHWARZ]  (3.3s · 18_aendert)
          Und wenn jemand etwas ändert?.
          └ LIVEEDIT   (+1.1s)
          └ MARKER  ^JEMAND   (+0.8s)
- 1:31.5  [SCHWARZ]  (3.0s · 19_alle)
+ 1:33.3  [SCHWARZ]  (3.2s · 19_alle)
          Sehen es alle.
          Sofort.
-         └ MARKER  ^SOFORT.   (+0.8s)
- 1:34.4  [HELL]  (3.8s · 20_transparenz)
+         └ MARKER  ^SOFORT.   (+0.7s)
+ 1:36.5  [HELL]  (3.7s · 20_transparenz)
          Transparenz ist kein Bericht.
          Sie ist ein Nebeneffekt.
-         └ MARKER  ^EINFACH SO   (+2.4s)
+         └ MARKER  ^EINFACH SO   (+2.3s)
 
 ━━━ GEGNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:38.2  [SCHWARZ]  (3.0s · 21_allein)
+ 1:40.2  [SCHWARZ]  (3.1s · 21_allein)
          Aber Struktur allein ist noch keine Übersicht.
-         └ MARKER  ^ALLEIN   (+0.7s)
- 1:41.2  [SCHWARZ]  (5.2s · 22_raster)
+         └ MARKER  ^ALLEIN   (+0.8s)
+ 1:43.2  [SCHWARZ]  (5.3s · 22_raster)
          Die meisten nennen Übersicht: eine Tabelle.
          └ GRID   (+1.1s)
-         └ MARKER  ^SPALTEN   (+3.4s)
-         └ MARKER  ^UND SPALTEN   (+3.5s)
- 1:46.4  [SCHWARZ → HELL]  (6.4s · 22b_stapel)
+         └ MARKER  ^SPALTEN   (+3.3s)
+         └ MARKER  ^UND SPALTEN   (+3.6s)
+ 1:48.6  [SCHWARZ → HELL]  (6.4s · 22b_stapel)
          Fünf Dateien.
          Eine Wahrheit.
          Und niemand weiss, welche.
          └ PILE   (+0.0s)
-         └ MARKER  ^WELCHE GILT?   (+2.4s)
- 1:52.8  [SCHWARZ]  (3.4s · 22c_keine)
+         └ MARKER  ^WELCHE GILT?   (+2.3s)
+ 1:54.9  [SCHWARZ]  (3.3s · 22c_keine)
          Bei uns gibt es keine.
          └ GRID   (+0.0s)
-         └ STRIKE   (+0.6s)
- 1:56.2  [AKZENT]  (1.6s · 23_ui)
+         └ STRIKE   (+0.5s)
+ 1:58.2  [AKZENT]  (1.3s · 23_ui)
          (auch nicht im UI)
 
 ━━━ VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:57.8  [AKZENT → SCHWARZ]  (5.2s · 25_seht)
+ 1:59.5  [AKZENT → SCHWARZ]  (5.3s · 25_seht)
          Du siehst, was du brauchst.
          Dort, wo du bist.
          └ MARKER  ^IHR   (+1.8s)
- 2:03.1  [HELL]  (6.2s · 26_also)
+ 2:04.8  [HELL]  (6.4s · 26_also)
          Also arbeite, wie du willst.
          Wir behalten den Überblick.
-         └ MARKER  ^DEN   (+4.0s)
- 2:09.2  [HELL → SCHWARZ]  (6.2s · 27_ende)
+         └ MARKER  ^DEN   (+4.1s)
+ 2:11.2  [HELL → SCHWARZ]  (7.1s · 27_ende)
          NEXPT ist dein Partner für deine Prozesse.
 ```
 
@@ -450,43 +450,69 @@ eingeebnet werden.
   und `(auch nicht im UI)` beiläufig, fast zu leise, hinwirft, ohne die Pointe anzukündigen.
 - **Musik: „Rhythm Mischief"** (Cold Storage Percussion Unit, Track Club) — derselbe Track wie
   im Referenzfilm, lizenziert statt nachgebaut. Gemessen am gelieferten File: **118.00 BPM**,
-  erster Downbeat bei 0.222 s, Takt 2.0339 s, 89 volle Takte auf 3:03.
+  erster Downbeat bei 0.222 s, Takt 2.0339 s, 89 volle Takte auf 3:03. Der Track spielt sehr
+  eng auf sein eigenes Raster (Median 3 ms zum Sechzehntel), lebt aber vom Leerraum: von
+  272 Vierteln tragen nur **36 %** einen starken Anschlag, von 1088 Sechzehnteln nur **16 %**.
 
-  Der Track ist 47.6 s länger als der Film. Geschnitten wird er von `render/musik.py` an genau
-  **einer** Stelle — beide Kanten auf einer Takt-Eins, damit die Naht im Puls verschwindet:
+- **Sitzt Apples Schrift auf dem Takt? Nein.** Das war die naheliegende Annahme, und sie ist
+  falsch. 145 Bildereignisse des Referenzfilms gegen sein eigenes 118er Raster, drei
+  Auflösungen — jedes Mal exakt Zufallsniveau:
 
-  | | Takte | Track | Film |
+  | Raster | | innerhalb 60 ms | Zufall |
   |---|---|---|---|
-  | Teil 1 | 0 – 58 | 0:00 – 1:58 | 0:00 – 1:58 |
-  | Schnitt | 58 → 81 | | bei 1:57.96, auf `25_seht` |
-  | Teil 2 | 81 – Ende | 2:45 – 3:03 | 1:58 – 2:15 |
+  | Viertel | 508 ms | 24 % | 24 % |
+  | Achtel | 254 ms | 48 % | 47 % |
+  | Sechzehntel | 127 ms | 91 % | 94 % |
 
-  Der Grund, warum nur **ein** Schnitt nötig ist: der Verlauf des Tracks passt fast ohne Zutun
-  auf die Dramaturgie. Das ist Zufall, aber ein brauchbarer — beide leben vom selben Wechsel aus
-  Spannung und Auflösung.
+  Auch die Abstände zwischen Apples Bildereignissen häufen sich nicht auf Vielfachen des Beats,
+  sondern fallen glatt ab — sie folgen der Kadenz der Schrift, nicht der Musik. Was dort den
+  Eindruck von Synchronität macht, ist nur die gemeinsame Atemfrequenz: Apples Bild wechselt im
+  Mittel alle 0.52 s, ein Beat dauert 0.51 s.
+
+- **Wir machen es trotzdem — und anders als Apple.** Nur die Musik zu verschieben brachte
+  gemessen 19 % statt 12 % Zufallsniveau; das ist die Decke bei festem Tempo gegen einen auf die
+  Stimme geschnittenen Film. Deshalb liegt jetzt der **Film** auf dem Raster (`render/takt.py`):
+  Szenendauern auf Achtel, grosse Ereignisse auf Sechzehntel, alles bei 118.00 BPM ab Filmzeit
+  0.000. Der Film ist damit **genau 68 Takte** lang. In einem zweiten Durchgang wandert jedes
+  grosse Ereignis auf den nächsten **tatsächlichen** Anschlag des Tracks, sofern einer in
+  Reichweite liegt — das abstrakte Raster allein hilft nicht, wenn der Schlagzeuger dort Pause
+  macht.
+
+  | | vorher | Raster allein | Raster + echte Anschläge |
+  |---|---|---|---|
+  | grosse Bildereignisse auf einem Anschlag | 15 % | 16 % | **45 %** |
+  | Szenenanfänge | 23 % | 23 % | **53 %** |
+  | (Zufallsniveau) | 14 % | 14 % | 14 % |
+
+  Der Preis: Median 85 ms Änderung je Szenendauer, max 249 ms. Das sieht einzeln niemand.
+
+  **Nicht** gerastert werden die Text-Chunks. Ihre Abstände (`step * JIT`) sind das
+  Handschriftliche an der Animation und aus dem Referenzfilm abgemessen; sie auf
+  Zweiunddreissigstel zu zwingen würde die Schrift zum Metronom machen.
+
+- **Der Schnitt** (`render/musik.py`): Takte 0–58 laufen durch, dann weiter ab Takt 80 bis zum
+  Dateiende, Versatz 0. Die Naht liegt auf einer Takt-Eins bei 1:57.97, ein Viertel vor dem
+  Halte-Beat `23_ui`. Der zweite Teil bringt den Schlussaufbau des Tracks auf die letzten
+  20 Sekunden. Und die Dramaturgie passt weiterhin ohne Zutun:
 
   | Track | | Film |
   |---|---|---|
-  | Breakdown 0:49 – 0:55 | ↔ | `(das ist der Trick)` 0:51.7 · „Vier Sichtweisen. Ein Chaos?" 0:53.3 |
-  | Hochpunkt 1:19 – 1:38 | ↔ | „100% verbunden." 1:23.7 · „Sehen es alle. SOFORT." 1:31.5 |
-  | Absturz 1:38 – 1:44 | ↔ | „Aber Struktur ist noch keine Übersicht. ALLEIN" 1:38.2 |
-
-  Der Absturz des Tracks liegt **0.4 s** vor dem Einwand des Films. Dort muss der Schnitt gar
-  nichts tun.
+  | Breakdown 48.8–54.9 s | ↔ | `(das ist der Trick)` 53.6 s |
+  | Hochpunkt 79.3–97.6 s | ↔ | „100% verbunden." 85.4 s · „Sehen es alle. SOFORT." 93.3 s |
+  | Absturz 97.6–103.7 s | ↔ | „…noch keine Übersicht. ALLEIN" 100.2 s |
 
   Zwei der fünf Halte-Beats deckt der Track selbst ab (`11c_trick` und `12_nein` fallen in den
-  Breakdown). Die anderen drei — `03_moment`, `05_aside`, `23_ui` — liegen mitten im Groove;
-  dort zieht die Musik auf 28 % zurück. Am Filmende: 0.3 s Blende, danach absolute Stille, wie
-  in der Referenz.
+  Breakdown — dort ist der nächste Anschlag 5.3 s entfernt). Die anderen drei liegen im Groove
+  und werden auf 28 % gezogen. Am Ende 0.3 s Blende, danach absolute Stille wie in der Referenz.
 
-  **Eigene Percussion ist damit aus.** Sie liegt als `sounddesign.py --drums` weiter bereit,
-  aber sie auf einen Schlagzeugtrack zu legen ergibt Matsch statt Betonung. Der Referenzfilm hat
-  gemessen ohnehin **kein** Sounddesign auf den Bildereignissen.
+  **Eigene Percussion ist aus.** Sie liegt als `mischen.sh --drums` bereit, aber sie auf einen
+  Schlagzeugtrack zu legen ergibt Matsch statt Betonung.
 
-  **Lizenz:** Der Track gehört Track Club und liegt bewusst **nicht** im Repo (`out/_musik/`
-  steht in `.gitignore`). Für Messe und Web braucht es eine Lizenz, die kommerzielle Nutzung
-  deckt, ausgestellt auf NEXPT — nicht auf eine Privatperson. Das gelieferte File ist ausserdem
-  128 kbit/s AAC; für die Endfassung die WAV aus dem Track-Club-Konto ziehen.
+  **Lizenz:** Der Track gehört Track Club. `out/_musik/` und `out/music.wav` stehen in
+  `.gitignore` — der Track und der blosse Schnitt daraus gehören dem Lizenznehmer, nicht dem
+  Repository. Für Messe und Web braucht es eine Lizenz mit kommerzieller Nutzung, ausgestellt
+  auf NEXPT. Das gelieferte File ist 128 kbit/s AAC; für die Endfassung die WAV aus dem Konto.
+
 - **Mix:** −16.3 LUFS integriert, **LRA 4.3 LU** — gemessen deckungsgleich mit der Referenz.
   Mit dem echten Track darf der Kompressor deutlich milder stehen (Ratio 2.5 statt 4): der Track
   ist bereits gemastert, und die harte Fassung hat die Mischung auf LRA 2.9 gequetscht. Die

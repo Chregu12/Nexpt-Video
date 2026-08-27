@@ -6,7 +6,7 @@ Keynote-Film für **NEXPT Work** — Konzept, Drehbuch und lauffähige Render-Pi
 |---|---|
 | [**KEYNOTE-FILM-KONZEPT.md**](./KEYNOTE-FILM-KONZEPT.md) | Frame-für-Frame-Analyse des Referenzfilms (Apple, *„Every product carbon neutral by 2030"*), 13 Stil-Regeln, Story, vollständiges Drehbuch, Design-Spezifikation, Produktionsplan. |
 | [**render/**](./render/) | Pipeline: `timing.json` → ProRes-Clips → FCPXML. Siehe [render/README.md](./render/README.md). |
-| **out/NEXPT-Keynote-ANIMATIC.mp4** | Der komplette Film als Animatic, 1:14, 1920×1080/30p. |
+| **out/NEXPT-Keynote-ANIMATIC.mp4** | Der komplette Film als Animatic, 2:18, 1920×1080/30p. |
 | **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro, 27 Clips mit Markern. |
 | **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | Dasselbe mit Roboter-Scratchstimme — macht die Textlänge sofort hörbar. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Bild plus Percussion, keine Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf den Rhythmus. |

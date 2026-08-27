@@ -5,7 +5,12 @@ Prüft timing.json auf die Fehler, die man im Standbild nicht sieht.
     python3 pruefen.py            nur melden
     python3 pruefen.py --fix      Löcher schliessen und Szenenanfänge ziehen
 
-Drei Prüfungen:
+Vier Prüfungen:
+  0. ZEITACHSE     — `start` muss die laufende Summe der `dur` sein. Das Bild
+     entsteht durch Aneinanderhängen der DAUERN, der Ton aus den STARTS; laufen
+     die auseinander, driften Bild und Ton, ohne dass ein Standbild das zeigt.
+     Genau das war hier 2.00 s lang der Fall (ab 09_flut), weil 08_broll
+     verlängert wurde, ohne die Startzeiten mitzuziehen.
   1. LEERE FRAMES  — eine Zeile verschwindet, bevor die nächste kommt. Im Lauf
      ein sichtbarer Aussetzer, im Standbild unsichtbar.
   2. STILLSTAND    — Löcher ohne jedes Ereignis. Fünf Beats duerfen still stehen,
@@ -23,6 +28,15 @@ FIX  = "--fix" in sys.argv
 
 # Diese Beats leben davon, dass nichts passiert.
 HALT = {"05_aside", "11c_trick", "12_nein", "23_ui", "03_moment"}
+
+def zeitachse():
+    """Stimmen `start` und die laufende Summe der `dur` überein?"""
+    bad, lauf = [], 0.0
+    for s in cfg["scenes"]:
+        if abs(s["start"] - lauf) > 0.01:
+            bad.append((s["id"], s["start"], round(lauf, 2)))
+        lauf += s["dur"]
+    return bad, lauf
 
 def empty_frames():
     bad = []
@@ -87,7 +101,18 @@ def stillstand():
         if gap > 1.6: out.append((s["id"], round(gap, 1)))
     return out
 
-print("1 · LEERE FRAMES")
+print("0 · ZEITACHSE")
+zbad, zlauf = zeitachse()
+if zbad:
+    print(f"    ✗ {len(zbad)} Szene(n) mit falschem start — Bild und Ton driften:")
+    for i, (sid, ist, soll) in enumerate(zbad[:6]):
+        print(f"        {sid:<16} start {ist:.2f} statt {soll:.2f}  ({soll-ist:+.2f}s)")
+    if len(zbad) > 6: print(f"        … und {len(zbad)-6} weitere")
+    print("      `python3 takt.py` rechnet die Startzeiten aus den Dauern neu.")
+else:
+    print(f"    ✓ start = laufende Summe der Dauern, Film {zlauf:.2f}s")
+
+print("\n1 · LEERE FRAMES")
 bad = empty_frames()
 if bad and FIX:
     n = close_gaps()

@@ -1,1550 +1,1550 @@
 {
-  "meta": {
-    "title": "NEXPT Work — Keynote-Film",
-    "fps": 30,
-    "width": 1920,
-    "height": 1080,
-    "note": "Einzige Datei, die nach der VO-Aufnahme angefasst wird. Zeiten in Sekunden."
-  },
-  "palette": {
-    "light": "#EDEDED",
-    "dark": "#000000",
-    "accent": "#00D759",
-    "onDark": "#FFFFFF"
-  },
-  "scenes": [
+ "meta": {
+  "title": "NEXPT Work — Keynote-Film",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "note": "Einzige Datei, die nach der VO-Aufnahme angefasst wird. Zeiten in Sekunden."
+ },
+ "palette": {
+  "light": "#EDEDED",
+  "dark": "#000000",
+  "accent": "#00D759",
+  "onDark": "#FFFFFF"
+ },
+ "scenes": [
+  {
+   "id": "00a_wirsind",
+   "act": "0 Wer wir sind",
+   "start": 0.0,
+   "dur": 3.5593,
+   "bg": "light",
+   "vo": "Wir sind Raphael und Christian Heusser.",
+   "layers": [
     {
-      "id": "00a_wirsind",
-      "act": "0 Wer wir sind",
-      "start": 0.0,
-      "dur": 3.31,
-      "bg": "light",
-      "vo": "Wir sind Raphael und Christian Heusser.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 1.75,
-          "mode": "words",
-          "text": "Wir sind",
-          "size": 86,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 1.75,
-          "mode": "words",
-          "text": "Raphael und Christian Heusser.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145,
-          "lastDelay": 0.85
-        }
-      ]
+     "type": "text",
+     "t": 0.0,
+     "out": 1.75,
+     "mode": "words",
+     "text": "Wir sind",
+     "size": 86,
+     "y": 0.5,
+     "step": 0.145
     },
     {
-      "id": "00b_warum",
-      "act": "0 Wer wir sind",
-      "start": 3.31,
-      "dur": 5.13,
-      "bg": "light",
-      "vo": "Wir haben NEXPT gestartet, damit du arbeiten kannst.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 2.3,
-          "mode": "words",
-          "text": "Wir haben NEXPT gestartet,",
-          "size": 84,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 2.3,
-          "mode": "words",
-          "text": "damit du arbeiten kannst.",
-          "size": 92,
-          "y": 0.44,
-          "step": 0.145,
-          "lastDelay": 0.75
-        },
-        {
-          "type": "markerText",
-          "t": 3.35,
-          "text": "^STATT ZU ORGANISIEREN.",
-          "size": 62,
-          "rot": -3,
-          "y": 0.62,
-          "x": 0.5,
-          "draw": 0.4
-        }
-      ]
-    },
-    {
-      "id": "01_versprechen",
-      "act": "1 Selbstkorrektur",
-      "start": 8.44,
-      "dur": 3.65,
-      "bg": "light",
-      "vo": "Und wir haben ein Versprechen. Und eine Meinung.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Und wir haben ein Versprechen.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 1.9,
-          "text": "^UND EINE MEINUNG.",
-          "size": 75,
-          "rot": -4,
-          "y": 0.36,
-          "x": 0.62,
-          "draw": 0.45
-        },
-        {
-          "type": "underline",
-          "t": 2.55,
-          "draw": 0.28,
-          "y": 0.585,
-          "x": 0.4,
-          "w": 0.2
-        }
-      ]
-    },
-    {
-      "id": "02_flip",
-      "act": "1 Selbstkorrektur",
-      "start": 12.09,
-      "dur": 2.85,
-      "bg": "light",
-      "vo": "Arbeite so, wie wir es vorsehen —",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Arbeite so, wie wir es vorsehen —",
-          "size": 84,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 1.55,
-          "text": "^SO WIE WIR",
-          "size": 58,
-          "rot": -3,
-          "y": 0.33,
-          "x": 0.68,
-          "draw": 0.3
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.95,
-          "to": "accent"
-        }
-      ]
-    },
-    {
-      "id": "03_moment",
-      "act": "1 Selbstkorrektur",
-      "start": 14.94,
-      "dur": 3.65,
-      "bg": "dark",
-      "vo": "Moment. Nein. Das machen alle anderen.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 0.6,
-          "mode": "hard",
-          "text": "Moment.",
-          "size": 96,
-          "y": 0.5
-        },
-        {
-          "type": "text",
-          "t": 0.6,
-          "out": 1.2,
-          "mode": "hard",
-          "text": "Nein.",
-          "size": 96,
-          "y": 0.5
-        },
-        {
-          "type": "checkbox",
-          "t": 1.2,
-          "check": 1.75,
-          "text": "Das machen alle anderen.",
-          "hi": "ALLE ANDEREN",
-          "size": 76,
-          "y": 0.5
-        }
-      ]
-    },
-    {
-      "id": "04_ihr",
-      "act": "1 Selbstkorrektur",
-      "start": 18.59,
-      "dur": 3.88,
-      "bg": "accent",
-      "vo": "Arbeite so, wie du willst.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Arbeite so,",
-          "size": 92,
-          "y": 0.4,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 0.9,
-          "mode": "words",
-          "text": "wie DU willst.",
-          "size": 110,
-          "y": 0.58,
-          "step": 0.145
-        },
-        {
-          "type": "underline",
-          "t": 1.9,
-          "draw": 0.35,
-          "y": 0.645,
-          "x": 0.452,
-          "w": 0.072
-        },
-        {
-          "type": "doodle",
-          "t": 2.55,
-          "shape": "timebox",
-          "x": 0.5,
-          "y": 0.8,
-          "draw": 0.3
-        }
-      ]
-    },
-    {
-      "id": "05_aside",
-      "act": "1 Selbstkorrektur",
-      "start": 22.47,
-      "dur": 1.4,
-      "bg": "dark",
-      "vo": "(ja, auch du in der Buchhaltung)",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "(ja, auch du in der Buchhaltung)",
-          "size": 44,
-          "y": 0.5,
-          "color": "accent",
-          "step": 0.145
-        }
-      ]
-    },
-    {
-      "id": "06_wege",
-      "act": "2 Freiheit",
-      "start": 23.87,
-      "dur": 8.21,
-      "bg": "light",
-      "vo": "Du planst in Sprints. Du in Phasen. Du in Tickets. Du in Fristen.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 1.8,
-          "mode": "hard",
-          "text": "Du planst in",
-          "size": 78,
-          "y": 0.5,
-          "x": 0.31
-        },
-        {
-          "type": "markerText",
-          "t": 0.14,
-          "out": 1.7,
-          "text": "SPRINTS",
-          "size": 70,
-          "rot": -3,
-          "y": 0.5,
-          "x": 0.62,
-          "draw": 0.24
-        },
-        {
-          "type": "doodle",
-          "t": 0.26,
-          "out": 1.7,
-          "shape": "timebox",
-          "x": 0.62,
-          "y": 0.67,
-          "draw": 0.3
-        },
-        {
-          "type": "text",
-          "t": 1.8,
-          "out": 3.6,
-          "mode": "hard",
-          "text": "Du in",
-          "size": 78,
-          "y": 0.5,
-          "x": 0.31
-        },
-        {
-          "type": "markerText",
-          "t": 1.94,
-          "out": 3.5,
-          "text": "PHASEN",
-          "size": 70,
-          "rot": 2,
-          "y": 0.5,
-          "x": 0.62,
-          "draw": 0.24
-        },
-        {
-          "type": "doodle",
-          "t": 2.06,
-          "out": 3.5,
-          "shape": "bar",
-          "x": 0.62,
-          "y": 0.67,
-          "draw": 0.3
-        },
-        {
-          "type": "text",
-          "t": 3.6,
-          "out": 5.4,
-          "mode": "hard",
-          "text": "Du in",
-          "size": 78,
-          "y": 0.5,
-          "x": 0.31
-        },
-        {
-          "type": "markerText",
-          "t": 3.74,
-          "out": 5.3,
-          "text": "TICKETS",
-          "size": 70,
-          "rot": -2,
-          "y": 0.5,
-          "x": 0.62,
-          "draw": 0.24
-        },
-        {
-          "type": "doodle",
-          "t": 3.8600000000000003,
-          "out": 5.3,
-          "shape": "ticket",
-          "x": 0.62,
-          "y": 0.67,
-          "draw": 0.3
-        },
-        {
-          "type": "text",
-          "t": 5.4,
-          "out": null,
-          "mode": "hard",
-          "text": "Du in",
-          "size": 78,
-          "y": 0.5,
-          "x": 0.31
-        },
-        {
-          "type": "markerText",
-          "t": 5.54,
-          "out": null,
-          "text": "FRISTEN",
-          "size": 70,
-          "rot": 3,
-          "y": 0.5,
-          "x": 0.62,
-          "draw": 0.24
-        },
-        {
-          "type": "doodle",
-          "t": 5.66,
-          "out": null,
-          "shape": "cal",
-          "x": 0.62,
-          "y": 0.67,
-          "draw": 0.3
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 4.0,
-          "to": "accent"
-        }
-      ]
-    },
-    {
-      "id": "08_broll",
-      "act": "2 Freiheit",
-      "start": 32.08,
-      "dur": 6.0,
-      "bg": "light",
-      "vo": "Softwareteam. Baustelle. Betrieb.",
-      "layers": [
-        {
-          "type": "card",
-          "t": 0.0,
-          "out": 1.95,
-          "label": "SPRINT",
-          "title": "Login-Flow überarbeiten",
-          "meta": "US-812 · Team Delta"
-        },
-        {
-          "type": "text",
-          "t": 0.5,
-          "out": 1.9,
-          "mode": "hard",
-          "text": "Softwareteam.",
-          "size": 64,
-          "y": 0.845
-        },
-        {
-          "type": "card",
-          "t": 1.95,
-          "out": 3.9,
-          "label": "PHASE",
-          "title": "Fassadensanierung Nord",
-          "meta": "AP-4711 · M. Keller"
-        },
-        {
-          "type": "text",
-          "t": 2.45,
-          "out": 3.85,
-          "mode": "hard",
-          "text": "Baustelle.",
-          "size": 64,
-          "y": 0.845
-        },
-        {
-          "type": "card",
-          "t": 3.9,
-          "out": null,
-          "label": "INCIDENT",
-          "title": "Kasse 3 offline",
-          "meta": "INC-2098 · Pikettdienst"
-        },
-        {
-          "type": "text",
-          "t": 4.4,
-          "out": null,
-          "mode": "hard",
-          "text": "Betrieb.",
-          "size": 64,
-          "y": 0.845
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.95,
-          "to": "accent"
-        },
-        {
-          "t": 3.9,
-          "to": "dark"
-        }
-      ]
-    },
-    {
-      "id": "09_flut",
-      "act": "2 Freiheit",
-      "start": 36.08,
-      "dur": 5.4,
-      "bg": "light",
-      "vo": "Wir nennen es, wie ihr es nennt.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Wir nennen es,",
-          "size": 86,
-          "y": 0.42,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 0.6,
-          "mode": "words",
-          "text": "wie ihr es nennt.",
-          "size": 86,
-          "y": 0.56,
-          "step": 0.145
-        },
-        {
-          "type": "wordFlood",
-          "t": 1.25,
-          "dur": 2.6,
-          "words": [
-            "STORY",
-            "ARBEITSPAKET",
-            "TICKET",
-            "MANDAT",
-            "AUFTRAG",
-            "LOS",
-            "MASSNAHME",
-            "FALL",
-            "CHARGE",
-            "PENDENZ",
-            "VORGANG",
-            "POSITION",
-            "ETAPPE",
-            "RAPPORT",
-            "DOSSIER",
-            "SCHRITT",
-            "LIEFERUNG",
-            "PRÜFUNG",
-            "ANTRAG",
-            "BAUTEIL",
-            "LEISTUNG",
-            "FRIST"
-          ]
-        },
-        {
-          "type": "underline",
-          "t": 2.55,
-          "draw": 0.28,
-          "y": 0.615,
-          "x": 0.4,
-          "w": 0.2
-        }
-      ]
-    },
-    {
-      "id": "11b_rollen",
-      "act": "3 Die Leute",
-      "start": 41.48,
-      "dur": 10.26,
-      "bg": "light",
-      "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker seine Tickets. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
-      "layers": [
-        {
-          "type": "role",
-          "t": 0.0,
-          "out": 2.05,
-          "who": "Die Bauleiterin sieht",
-          "sees": "ihre Etappe."
-        },
-        {
-          "type": "role",
-          "t": 2.15,
-          "out": 4.2,
-          "who": "Der Servicetechniker sieht",
-          "sees": "seine Tickets."
-        },
-        {
-          "type": "role",
-          "t": 4.3,
-          "out": 6.35,
-          "who": "Die Treuhänderin sieht",
-          "sees": "ihre Frist."
-        },
-        {
-          "type": "role",
-          "t": 6.449999999999999,
-          "out": null,
-          "who": "Die Geschäftsführerin sieht",
-          "sees": "alles."
-        },
-        {
-          "type": "markerText",
-          "t": 2.05,
-          "text": "^ETAPPE",
-          "size": 55,
-          "rot": -3,
-          "y": 0.16,
-          "x": 0.76,
-          "draw": 0.3,
-          "out": 4.05
-        },
-        {
-          "type": "markerText",
-          "t": 4.2,
-          "text": "^TICKET",
-          "size": 55,
-          "rot": -3,
-          "y": 0.16,
-          "x": 0.24,
-          "draw": 0.3,
-          "out": 6.2
-        },
-        {
-          "type": "markerText",
-          "t": 6.35,
-          "text": "^FRIST",
-          "size": 55,
-          "rot": -3,
-          "y": 0.16,
-          "x": 0.76,
-          "draw": 0.3,
-          "out": 8.35
-        },
-        {
-          "type": "markerText",
-          "t": 8.1,
-          "text": "^ALLES",
-          "size": 55,
-          "rot": -3,
-          "y": 0.16,
-          "x": 0.24,
-          "draw": 0.3
-        },
-        {
-          "type": "underline",
-          "t": 7.55,
-          "draw": 0.3,
-          "y": 0.6,
-          "x": 0.42,
-          "w": 0.16
-        },
-        {
-          "type": "doodle",
-          "t": 0.55,
-          "out": 2.0,
-          "shape": "helm",
-          "x": 0.5,
-          "y": 0.8,
-          "draw": 0.34,
-          "sc": 1.5
-        },
-        {
-          "type": "doodle",
-          "t": 2.7,
-          "out": 4.15,
-          "shape": "schluessel",
-          "x": 0.5,
-          "y": 0.8,
-          "draw": 0.34,
-          "sc": 1.5
-        },
-        {
-          "type": "doodle",
-          "t": 4.85,
-          "out": 6.3,
-          "shape": "stempel",
-          "x": 0.5,
-          "y": 0.8,
-          "draw": 0.34,
-          "sc": 1.5
-        },
-        {
-          "type": "doodle",
-          "t": 7.0,
-          "out": null,
-          "shape": "auge",
-          "x": 0.5,
-          "y": 0.8,
-          "draw": 0.34,
-          "sc": 1.5
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 5.3,
-          "to": "accent"
-        }
-      ]
-    },
-    {
-      "id": "11c_trick",
-      "act": "3 Die Leute",
-      "start": 51.74,
-      "dur": 1.6,
-      "bg": "accent",
-      "vo": "(das ist der Trick)",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "(das ist der Trick)",
-          "size": 36,
-          "y": 0.5,
-          "step": 0.145
-        }
-      ]
-    },
-    {
-      "id": "12a_chaos",
-      "act": "4 Einwand",
-      "start": 53.34,
-      "dur": 2.96,
-      "bg": "dark",
-      "vo": "Vier Sichtweisen. Ein Chaos?",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 1.35,
-          "mode": "hard",
-          "text": "Vier Sichtweisen.",
-          "size": 88,
-          "y": 0.5
-        },
-        {
-          "type": "text",
-          "t": 1.35,
-          "out": 2.2,
-          "mode": "hard",
-          "text": "Ein Chaos?",
-          "size": 88,
-          "y": 0.5
-        },
-        {
-          "type": "markerText",
-          "t": 1.95,
-          "text": "^ODER?",
-          "size": 61,
-          "rot": -3,
-          "y": 0.33,
-          "x": 0.66,
-          "draw": 0.3
-        }
-      ]
-    },
-    {
-      "id": "12_nein",
-      "act": "3 Einwand",
-      "start": 56.3,
-      "dur": 1.6,
-      "bg": "dark",
-      "vo": "NEIN.",
-      "layers": [
-        {
-          "type": "markerText",
-          "t": 0.0,
-          "text": "NEIN.",
-          "size": 300,
-          "rot": -2,
-          "y": 0.5,
-          "x": 0.5,
-          "draw": 0.28
-        }
-      ]
-    },
-    {
-      "id": "13_modell",
-      "act": "4 Ein Modell",
-      "start": 57.9,
-      "dur": 10.72,
-      "bg": "light",
-      "vo": "Oben ist eure Sprache. Unten ist ein Standard. Egal ob Bau, Betrieb oder Buchhaltung.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 2.9,
-          "mode": "words",
-          "text": "Oben ist eure Sprache.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 1.75,
-          "out": 2.9,
-          "text": "^OBEN",
-          "size": 58,
-          "rot": -3,
-          "y": 0.3,
-          "x": 0.3,
-          "draw": 0.3
-        },
-        {
-          "type": "text",
-          "t": 2.9,
-          "mode": "words",
-          "text": "Unten ist EIN Standard.",
-          "size": 92,
-          "y": 0.24,
-          "step": 0.145,
-          "lastDelay": 0.45
-        },
-        {
-          "type": "levels",
-          "t": 4.6,
-          "step": 0.42,
-          "y": 0.6,
-          "items": [
-            "Ziel",
-            "Programm",
-            "Ergebnis",
-            "Arbeitspaket",
-            "Aktion"
-          ]
-        },
-        {
-          "type": "text",
-          "t": 7.3,
-          "mode": "words",
-          "text": "Bau. Betrieb. Buchhaltung.",
-          "size": 72,
-          "y": 0.9,
-          "step": 0.145
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 4.6,
-          "to": "accent"
-        }
-      ]
-    },
-    {
-      "id": "14_ende",
-      "act": "5 Übergang",
-      "start": 68.62,
-      "dur": 4.1,
-      "bg": "light",
-      "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 1.9,
-          "mode": "words",
-          "text": "Und irgendwann ist das Projekt fertig.",
-          "size": 76,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 1.9,
-          "mode": "hard",
-          "text": "Die Arbeit",
-          "size": 96,
-          "y": 0.46
-        },
-        {
-          "type": "markerText",
-          "t": 2.35,
-          "text": "^NICHT.",
-          "size": 86,
-          "rot": -3,
-          "y": 0.62,
-          "x": 0.6,
-          "draw": 0.3
-        },
-        {
-          "type": "markerText",
-          "t": 1.35,
-          "text": "^FERTIG?",
-          "size": 58,
-          "rot": -3,
-          "y": 0.3,
-          "x": 0.7,
-          "draw": 0.3
-        },
-        {
-          "type": "doodle",
-          "t": 0.75,
-          "out": 2.05,
-          "shape": "uhr",
-          "x": 0.5,
-          "y": 0.76,
-          "draw": 0.4,
-          "sc": 1.5
-        }
-      ]
-    },
-    {
-      "id": "15_element",
-      "act": "5 Übergang",
-      "start": 72.72,
-      "dur": 5.93,
-      "bg": "accent",
-      "vo": "Dasselbe Element. Neuer Modus. Kein neues Tool.",
-      "layers": [
-        {
-          "type": "card",
-          "t": 0.0,
-          "label": "PROJEKT",
-          "swapTo": "BETRIEB",
-          "swapAt": 1.55,
-          "title": "Fassadensanierung Nord",
-          "meta": "AP-4711 · Zuständig: M. Keller"
-        },
-        {
-          "type": "text",
-          "t": 0.15,
-          "out": 1.4,
-          "mode": "hard",
-          "text": "Dasselbe Element.",
-          "size": 64,
-          "y": 0.115
-        },
-        {
-          "type": "text",
-          "t": 1.5,
-          "out": 2.4,
-          "mode": "hard",
-          "text": "Neuer Modus.",
-          "size": 64,
-          "y": 0.115
-        },
-        {
-          "type": "markerText",
-          "t": 3.1,
-          "text": "^KEIN NEUES TOOL.",
-          "size": 66,
-          "rot": -2,
-          "y": 0.115,
-          "x": 0.5,
-          "draw": 0.35
-        },
-        {
-          "type": "markerText",
-          "t": 0.95,
-          "text": "^DASSELBE",
-          "size": 55,
-          "rot": -3,
-          "y": 0.86,
-          "x": 0.24,
-          "draw": 0.3
-        },
-        {
-          "type": "doodle",
-          "t": 4.25,
-          "shape": "ticket",
-          "x": 0.5,
-          "y": 0.88,
-          "draw": 0.3
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 3.4,
-          "to": "light"
-        }
-      ]
-    },
-    {
-      "id": "16_pfeile",
-      "act": "5 Übergang",
-      "start": 78.65,
-      "dur": 5.0,
-      "bg": "light",
-      "vo": "Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "hard",
-          "text": "Hunderte von",
-          "size": 72,
-          "y": 0.9,
-          "x": 0.5
-        },
-        {
-          "type": "arrows",
-          "t": 0.35,
-          "dur": 2.2,
-          "words": [
-            "Tickets",
-            "Stunden",
-            "Fristen",
-            "Freigaben",
-            "Änderungen"
-          ],
-          "stagger": 0.4
-        },
-        {
-          "type": "markerText",
-          "t": 1.65,
-          "text": "^ALLES",
-          "size": 61,
-          "rot": -3,
-          "y": 0.13,
-          "x": 0.17,
-          "draw": 0.3
-        },
-        {
-          "type": "markerText",
-          "t": 3.35,
-          "text": "^AN EINEN ORT",
-          "size": 58,
-          "rot": -3,
-          "y": 0.13,
-          "x": 0.83,
-          "draw": 0.3
-        },
-        {
-          "type": "underline",
-          "t": 4.55,
-          "draw": 0.28,
-          "y": 0.955,
-          "x": 0.4,
-          "w": 0.2
-        },
-        {
-          "type": "doodle",
-          "t": 4.35,
-          "shape": "bar",
-          "x": 0.5,
-          "y": 0.62,
-          "draw": 0.34
-        }
-      ]
-    },
-    {
-      "id": "17_hundert",
-      "act": "5 Übergang",
-      "start": 83.65,
-      "dur": 4.64,
-      "bg": "accent",
-      "vo": "Hundert Prozent verbunden. Kein Export. Null Doppelerfassung.",
-      "layers": [
-        {
-          "type": "sunburst",
-          "t": 0.0,
-          "draw": 0.3,
-          "y": 0.4
-        },
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "hard",
-          "text": "100%",
-          "size": 200,
-          "y": 0.42
-        },
-        {
-          "type": "text",
-          "t": 0.55,
-          "mode": "hard",
-          "text": "verbunden.",
-          "size": 86,
-          "y": 0.7
-        },
-        {
-          "type": "text",
-          "t": 1.05,
-          "mode": "hard",
-          "text": "Kein Export.",
-          "size": 58,
-          "y": 0.82
-        },
-        {
-          "type": "markerText",
-          "t": 2.0,
-          "text": "^NULL DOPPELERFASSUNG.",
-          "size": 69,
-          "rot": -2,
-          "y": 0.92,
-          "x": 0.5,
-          "draw": 0.3
-        },
-        {
-          "type": "markerText",
-          "t": 3.05,
-          "text": "^KEINE KOPIE",
-          "size": 55,
-          "rot": -3,
-          "y": 0.2,
-          "x": 0.26,
-          "draw": 0.3
-        }
-      ]
-    },
-    {
-      "id": "18_aendert",
-      "act": "6 Korrektur",
-      "start": 88.29,
-      "dur": 3.19,
-      "bg": "dark",
-      "vo": "Und wenn jemand etwas ändert?",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Und wenn jemand etwas ändert?",
-          "size": 80,
-          "y": 0.42,
-          "step": 0.145,
-          "lastDelay": 0.65
-        },
-        {
-          "type": "liveEdit",
-          "t": 1.15,
-          "old": "Dienstag",
-          "new": "DONNERSTAG",
-          "y": 0.62,
-          "draw": 0.4
-        },
-        {
-          "type": "markerText",
-          "t": 0.85,
-          "text": "^JEMAND",
-          "size": 58,
-          "rot": -3,
-          "y": 0.26,
-          "x": 0.7,
-          "draw": 0.3
-        }
-      ]
-    },
-    {
-      "id": "19_alle",
-      "act": "6 Korrektur",
-      "start": 91.48,
-      "dur": 2.96,
-      "bg": "dark",
-      "vo": "Sehen es alle. Sofort.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Sehen es alle.",
-          "size": 96,
-          "y": 0.45,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 0.8,
-          "text": "^SOFORT.",
-          "size": 72,
-          "rot": -3,
-          "y": 0.62,
-          "x": 0.62,
-          "draw": 0.3
-        },
-        {
-          "type": "underline",
-          "t": 1.85,
-          "draw": 0.28,
-          "y": 0.535,
-          "x": 0.4,
-          "w": 0.18
-        }
-      ]
-    },
-    {
-      "id": "20_transparenz",
-      "act": "6 Korrektur",
-      "start": 94.44,
-      "dur": 3.8,
-      "bg": "light",
-      "vo": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 1.05,
-          "mode": "words",
-          "text": "Transparenz ist kein Bericht.",
-          "size": 84,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 1.05,
-          "mode": "words",
-          "text": "Sie ist ein Nebeneffekt.",
-          "size": 84,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 2.35,
-          "text": "^EINFACH SO",
-          "size": 58,
-          "rot": -3,
-          "y": 0.3,
-          "x": 0.68,
-          "draw": 0.3
-        }
-      ]
-    },
-    {
-      "id": "21_allein",
-      "act": "7 Gegner",
-      "start": 98.24,
-      "dur": 2.96,
-      "bg": "dark",
-      "vo": "Aber Struktur allein ist noch keine Übersicht.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "Aber Struktur ist noch keine Übersicht.",
-          "size": 72,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 0.7,
-          "text": "^ALLEIN",
-          "size": 72,
-          "rot": -4,
-          "y": 0.405,
-          "x": 0.395,
-          "draw": 0.3
-        },
-        {
-          "type": "underline",
-          "t": 1.95,
-          "draw": 0.28,
-          "y": 0.565,
-          "x": 0.35,
-          "w": 0.3
-        }
-      ]
-    },
-    {
-      "id": "22_raster",
-      "act": "7 Gegner",
-      "start": 101.2,
-      "dur": 5.24,
-      "bg": "dark",
-      "vo": "Die meisten nennen Übersicht: eine Tabelle.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 1.05,
-          "mode": "words",
-          "text": "Die meisten nennen Übersicht:",
-          "size": 72,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 1.05,
-          "out": 1.9,
-          "mode": "hard",
-          "text": "eine Tabelle.",
-          "size": 96,
-          "y": 0.5
-        },
-        {
-          "type": "grid",
-          "t": 1.15,
-          "grow": 1.85,
-          "cols": 34,
-          "rows": 19
-        },
-        {
-          "type": "markerText",
-          "t": 3.35,
-          "text": "^SPALTEN",
-          "size": 61,
-          "rot": -3,
-          "y": 0.14,
-          "x": 0.72,
-          "draw": 0.3
-        },
-        {
-          "type": "markerText",
-          "t": 3.55,
-          "text": "^UND SPALTEN",
-          "size": 54,
-          "rot": 2,
-          "y": 0.86,
-          "x": 0.5,
-          "draw": 0.32
-        }
-      ]
-    },
-    {
-      "id": "22b_stapel",
-      "act": "8 Gegner",
-      "start": 106.44,
-      "dur": 6.38,
-      "bg": "dark",
-      "vo": "Fünf Dateien. Eine Wahrheit. Und niemand weiss, welche.",
-      "layers": [
-        {
-          "type": "pile",
-          "t": 0.0,
-          "step": 0.62,
-          "files": [
-            "Planung_2026.xlsx",
-            "Planung_2026_final.xlsx",
-            "Planung_final_v3.xlsx",
-            "Planung_final_v3_NEU.xlsx",
-            "Kopie von Planung_final_v3_NEU(1).xlsx"
-          ],
-          "x": 0.5
-        },
-        {
-          "type": "text",
-          "t": 3.5,
-          "out": 4.6,
-          "mode": "words",
-          "text": "Fünf Dateien. Eine Wahrheit.",
-          "size": 64,
-          "y": 0.9,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 4.7,
-          "mode": "words",
-          "text": "Und niemand weiss, welche.",
-          "size": 72,
-          "y": 0.9,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 2.35,
-          "text": "^WELCHE GILT?",
-          "size": 58,
-          "rot": -3,
-          "y": 0.16,
-          "x": 0.72,
-          "draw": 0.3
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 3.6,
-          "to": "light"
-        }
-      ]
-    },
-    {
-      "id": "22c_keine",
-      "act": "8 Gegner",
-      "start": 112.82,
-      "dur": 3.42,
-      "bg": "dark",
-      "vo": "Bei uns gibt es keine.",
-      "layers": [
-        {
-          "type": "grid",
-          "t": 0.0,
-          "grow": 0.5,
-          "cols": 34,
-          "rows": 19
-        },
-        {
-          "type": "strike",
-          "t": 0.62,
-          "draw": 0.3
-        },
-        {
-          "type": "text",
-          "t": 1.05,
-          "mode": "words",
-          "text": "Bei uns gibt es keine.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "underline",
-          "t": 2.15,
-          "draw": 0.28,
-          "y": 0.575,
-          "x": 0.4,
-          "w": 0.2
-        }
-      ]
-    },
-    {
-      "id": "23_ui",
-      "act": "7 Gegner",
-      "start": 116.24,
-      "dur": 1.6,
-      "bg": "accent",
-      "vo": "(auch nicht im UI)",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "mode": "words",
-          "text": "(auch nicht im UI)",
-          "size": 34,
-          "y": 0.5,
-          "step": 0.145
-        }
-      ]
-    },
-    {
-      "id": "25_seht",
-      "act": "8 Versprechen",
-      "start": 117.84,
-      "dur": 5.24,
-      "bg": "accent",
-      "vo": "Du siehst, was du brauchst. Dort, wo du bist.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 2.0,
-          "mode": "words",
-          "text": "Du siehst, was du brauchst.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 2.2,
-          "mode": "words",
-          "text": "Dort, wo du bist.",
-          "size": 100,
-          "y": 0.5,
-          "glow": true,
-          "step": 0.145
-        },
-        {
-          "type": "markerText",
-          "t": 1.75,
-          "text": "^IHR",
-          "size": 61,
-          "rot": -3,
-          "y": 0.28,
-          "x": 0.3,
-          "draw": 0.3
-        },
-        {
-          "type": "doodle",
-          "t": 3.85,
-          "shape": "timebox",
-          "x": 0.5,
-          "y": 0.82,
-          "draw": 0.3,
-          "sc": 1.6
-        },
-        {
-          "type": "doodle",
-          "t": 1.15,
-          "out": 2.35,
-          "shape": "auge",
-          "x": 0.5,
-          "y": 0.74,
-          "draw": 0.36,
-          "sc": 1.6
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 2.6,
-          "to": "dark"
-        }
-      ]
-    },
-    {
-      "id": "26_also",
-      "act": "8 Versprechen",
-      "start": 123.08,
-      "dur": 6.16,
-      "bg": "light",
-      "vo": "Also arbeite, wie du willst. Wir behalten den Überblick.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 2.45,
-          "mode": "words",
-          "text": "Also arbeite, wie du willst.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 2.45,
-          "mode": "words",
-          "text": "Wir behalten Überblick.",
-          "size": 92,
-          "y": 0.5,
-          "step": 0.145,
-          "lastDelay": 0.8
-        },
-        {
-          "type": "markerText",
-          "t": 4.05,
-          "text": "^DEN",
-          "size": 77,
-          "rot": -3,
-          "y": 0.4,
-          "x": 0.575,
-          "draw": 0.3
-        },
-        {
-          "type": "underline",
-          "t": 1.95,
-          "draw": 0.28,
-          "y": 0.565,
-          "x": 0.36,
-          "w": 0.28
-        }
-      ]
-    },
-    {
-      "id": "27_ende",
-      "act": "8 Versprechen",
-      "start": 129.24,
-      "dur": 6.2,
-      "bg": "light",
-      "vo": "NEXPT ist dein Partner für deine Prozesse.",
-      "layers": [
-        {
-          "type": "text",
-          "t": 0.0,
-          "out": 3.55,
-          "mode": "words",
-          "text": "NEXPT ist dein Partner",
-          "size": 88,
-          "y": 0.42,
-          "step": 0.145
-        },
-        {
-          "type": "text",
-          "t": 1.55,
-          "out": 3.55,
-          "mode": "words",
-          "text": "für deine Prozesse.",
-          "size": 88,
-          "y": 0.58,
-          "step": 0.145
-        },
-        {
-          "type": "url",
-          "t": 3.55,
-          "base": "nexpt.ch/",
-          "accent": "work",
-          "size": 88,
-          "y": 0.5
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 3.55,
-          "to": "dark"
-        }
-      ]
+     "type": "text",
+     "t": 1.75,
+     "mode": "words",
+     "text": "Raphael und Christian Heusser.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145,
+     "lastDelay": 0.85
     }
-  ]
+   ]
+  },
+  {
+   "id": "00b_warum",
+   "act": "0 Wer wir sind",
+   "start": 3.5593,
+   "dur": 5.0847,
+   "bg": "light",
+   "vo": "Wir haben NEXPT gestartet, damit du arbeiten kannst.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 2.3,
+     "mode": "words",
+     "text": "Wir haben NEXPT gestartet,",
+     "size": 84,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 2.3,
+     "mode": "words",
+     "text": "damit du arbeiten kannst.",
+     "size": 92,
+     "y": 0.44,
+     "step": 0.145,
+     "lastDelay": 0.75
+    },
+    {
+     "type": "markerText",
+     "t": 3.3051,
+     "text": "^STATT ZU ORGANISIEREN.",
+     "size": 62,
+     "rot": -3,
+     "y": 0.62,
+     "x": 0.5,
+     "draw": 0.4
+    }
+   ]
+  },
+  {
+   "id": "01_versprechen",
+   "act": "1 Selbstkorrektur",
+   "start": 8.644,
+   "dur": 3.5593,
+   "bg": "light",
+   "vo": "Und wir haben ein Versprechen. Und eine Meinung.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Und wir haben ein Versprechen.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 2.0358,
+     "text": "^UND EINE MEINUNG.",
+     "size": 75,
+     "rot": -4,
+     "y": 0.36,
+     "x": 0.62,
+     "draw": 0.45
+    },
+    {
+     "type": "underline",
+     "t": 2.445,
+     "draw": 0.28,
+     "y": 0.585,
+     "x": 0.4,
+     "w": 0.2
+    }
+   ]
+  },
+  {
+   "id": "02_flip",
+   "act": "1 Selbstkorrektur",
+   "start": 12.2033,
+   "dur": 2.5429,
+   "bg": "light",
+   "vo": "Arbeite so, wie wir es vorsehen —",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Arbeite so, wie wir es vorsehen —",
+     "size": 84,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 1.5254,
+     "text": "^SO WIE WIR",
+     "size": 58,
+     "rot": -3,
+     "y": 0.33,
+     "x": 0.68,
+     "draw": 0.3
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 0.8898,
+     "to": "accent"
+    }
+   ]
+  },
+  {
+   "id": "03_moment",
+   "act": "1 Selbstkorrektur",
+   "start": 14.7462,
+   "dur": 4.0693,
+   "bg": "dark",
+   "vo": "Moment. Nein. Das machen alle anderen.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 0.6,
+     "mode": "hard",
+     "text": "Moment.",
+     "size": 96,
+     "y": 0.5
+    },
+    {
+     "type": "text",
+     "t": 0.6,
+     "out": 1.2,
+     "mode": "hard",
+     "text": "Nein.",
+     "size": 96,
+     "y": 0.5
+    },
+    {
+     "type": "checkbox",
+     "t": 1.2,
+     "check": 1.75,
+     "text": "Das machen alle anderen.",
+     "hi": "ALLE ANDEREN",
+     "size": 76,
+     "y": 0.5
+    }
+   ]
+  },
+  {
+   "id": "04_ihr",
+   "act": "1 Selbstkorrektur",
+   "start": 18.8155,
+   "dur": 3.7152,
+   "bg": "accent",
+   "vo": "Arbeite so, wie du willst.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Arbeite so,",
+     "size": 92,
+     "y": 0.4,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 0.9,
+     "mode": "words",
+     "text": "wie DU willst.",
+     "size": 110,
+     "y": 0.58,
+     "step": 0.145
+    },
+    {
+     "type": "underline",
+     "t": 2.0317,
+     "draw": 0.35,
+     "y": 0.645,
+     "x": 0.452,
+     "w": 0.072
+    },
+    {
+     "type": "doodle",
+     "t": 2.5424,
+     "shape": "timebox",
+     "x": 0.5,
+     "y": 0.8,
+     "draw": 0.3
+    }
+   ]
+  },
+  {
+   "id": "05_aside",
+   "act": "1 Selbstkorrektur",
+   "start": 22.5307,
+   "dur": 1.3675,
+   "bg": "dark",
+   "vo": "(ja, auch du in der Buchhaltung)",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "(ja, auch du in der Buchhaltung)",
+     "size": 44,
+     "y": 0.5,
+     "color": "accent",
+     "step": 0.145
+    }
+   ]
+  },
+  {
+   "id": "06_wege",
+   "act": "2 Freiheit",
+   "start": 23.8982,
+   "dur": 8.3906,
+   "bg": "light",
+   "vo": "Du planst in Sprints. Du in Phasen. Du in Tickets. Du in Fristen.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 1.8,
+     "mode": "hard",
+     "text": "Du planst in",
+     "size": 78,
+     "y": 0.5,
+     "x": 0.31
+    },
+    {
+     "type": "markerText",
+     "t": 0.2578,
+     "out": 1.7846,
+     "text": "SPRINTS",
+     "size": 70,
+     "rot": -3,
+     "y": 0.5,
+     "x": 0.62,
+     "draw": 0.24
+    },
+    {
+     "type": "doodle",
+     "t": 0.2542,
+     "out": 1.6525,
+     "shape": "timebox",
+     "x": 0.62,
+     "y": 0.67,
+     "draw": 0.3
+    },
+    {
+     "type": "text",
+     "t": 1.8,
+     "out": 3.6,
+     "mode": "hard",
+     "text": "Du in",
+     "size": 78,
+     "y": 0.5,
+     "x": 0.31
+    },
+    {
+     "type": "markerText",
+     "t": 1.7846,
+     "out": 3.6,
+     "text": "PHASEN",
+     "size": 70,
+     "rot": 2,
+     "y": 0.5,
+     "x": 0.62,
+     "draw": 0.24
+    },
+    {
+     "type": "doodle",
+     "t": 2.0339,
+     "out": 3.5593,
+     "shape": "bar",
+     "x": 0.62,
+     "y": 0.67,
+     "draw": 0.3
+    },
+    {
+     "type": "text",
+     "t": 3.6,
+     "out": 5.4,
+     "mode": "hard",
+     "text": "Du in",
+     "size": 78,
+     "y": 0.5,
+     "x": 0.31
+    },
+    {
+     "type": "markerText",
+     "t": 3.8163,
+     "out": 5.5932,
+     "text": "TICKETS",
+     "size": 70,
+     "rot": -2,
+     "y": 0.5,
+     "x": 0.62,
+     "draw": 0.24
+    },
+    {
+     "type": "doodle",
+     "t": 3.8136,
+     "out": 5.339,
+     "shape": "ticket",
+     "x": 0.62,
+     "y": 0.67,
+     "draw": 0.3
+    },
+    {
+     "type": "text",
+     "t": 5.4,
+     "out": null,
+     "mode": "hard",
+     "text": "Du in",
+     "size": 78,
+     "y": 0.5,
+     "x": 0.31
+    },
+    {
+     "type": "markerText",
+     "t": 5.5932,
+     "out": null,
+     "text": "FRISTEN",
+     "size": 70,
+     "rot": 3,
+     "y": 0.5,
+     "x": 0.62,
+     "draw": 0.24
+    },
+    {
+     "type": "doodle",
+     "t": 5.851,
+     "out": null,
+     "shape": "cal",
+     "x": 0.62,
+     "y": 0.67,
+     "draw": 0.3
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 3.8163,
+     "to": "accent"
+    }
+   ]
+  },
+  {
+   "id": "08_broll",
+   "act": "2 Freiheit",
+   "start": 32.2888,
+   "dur": 5.8467,
+   "bg": "light",
+   "vo": "Softwareteam. Baustelle. Betrieb.",
+   "layers": [
+    {
+     "type": "card",
+     "t": 0.0,
+     "out": 2.0347,
+     "label": "SPRINT",
+     "title": "Login-Flow überarbeiten",
+     "meta": "US-812 · Team Delta"
+    },
+    {
+     "type": "text",
+     "t": 0.5,
+     "out": 2.0347,
+     "mode": "hard",
+     "text": "Softwareteam.",
+     "size": 64,
+     "y": 0.845
+    },
+    {
+     "type": "card",
+     "t": 2.0347,
+     "out": 4.0686,
+     "label": "PHASE",
+     "title": "Fassadensanierung Nord",
+     "meta": "AP-4711 · M. Keller"
+    },
+    {
+     "type": "text",
+     "t": 2.45,
+     "out": 4.0693,
+     "mode": "hard",
+     "text": "Baustelle.",
+     "size": 64,
+     "y": 0.845
+    },
+    {
+     "type": "card",
+     "t": 4.0693,
+     "out": null,
+     "label": "INCIDENT",
+     "title": "Kasse 3 offline",
+     "meta": "INC-2098 · Pikettdienst"
+    },
+    {
+     "type": "text",
+     "t": 4.4,
+     "out": null,
+     "mode": "hard",
+     "text": "Betrieb.",
+     "size": 64,
+     "y": 0.845
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 2.0347,
+     "to": "accent"
+    },
+    {
+     "t": 4.0693,
+     "to": "dark"
+    }
+   ]
+  },
+  {
+   "id": "09_flut",
+   "act": "2 Freiheit",
+   "start": 38.1355,
+   "dur": 5.087,
+   "bg": "light",
+   "vo": "Wir nennen es, wie ihr es nennt.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Wir nennen es,",
+     "size": 86,
+     "y": 0.42,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 0.6,
+     "mode": "words",
+     "text": "wie ihr es nennt.",
+     "size": 86,
+     "y": 0.56,
+     "step": 0.145
+    },
+    {
+     "type": "wordFlood",
+     "t": 1.25,
+     "dur": 2.6,
+     "words": [
+      "STORY",
+      "ARBEITSPAKET",
+      "TICKET",
+      "MANDAT",
+      "AUFTRAG",
+      "LOS",
+      "MASSNAHME",
+      "FALL",
+      "CHARGE",
+      "PENDENZ",
+      "VORGANG",
+      "POSITION",
+      "ETAPPE",
+      "RAPPORT",
+      "DOSSIER",
+      "SCHRITT",
+      "LIEFERUNG",
+      "PRÜFUNG",
+      "ANTRAG",
+      "BAUTEIL",
+      "LEISTUNG",
+      "FRIST"
+     ]
+    },
+    {
+     "type": "underline",
+     "t": 2.5424,
+     "draw": 0.28,
+     "y": 0.615,
+     "x": 0.4,
+     "w": 0.2
+    }
+   ]
+  },
+  {
+   "id": "11b_rollen",
+   "act": "3 Die Leute",
+   "start": 43.2225,
+   "dur": 10.4215,
+   "bg": "light",
+   "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker seine Tickets. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
+   "layers": [
+    {
+     "type": "role",
+     "t": 0.0,
+     "out": 2.15,
+     "who": "Die Bauleiterin sieht",
+     "sees": "ihre Etappe."
+    },
+    {
+     "type": "role",
+     "t": 2.15,
+     "out": 4.2203,
+     "who": "Der Servicetechniker sieht",
+     "sees": "seine Tickets."
+    },
+    {
+     "type": "role",
+     "t": 4.3,
+     "out": 6.3559,
+     "who": "Die Treuhänderin sieht",
+     "sees": "ihre Frist."
+    },
+    {
+     "type": "role",
+     "t": 6.449999999999999,
+     "out": null,
+     "who": "Die Geschäftsführerin sieht",
+     "sees": "alles."
+    },
+    {
+     "type": "markerText",
+     "t": 2.0339,
+     "text": "^ETAPPE",
+     "size": 55,
+     "rot": -3,
+     "y": 0.16,
+     "x": 0.76,
+     "draw": 0.3,
+     "out": 4.2203
+    },
+    {
+     "type": "markerText",
+     "t": 4.2203,
+     "text": "^TICKET",
+     "size": 55,
+     "rot": -3,
+     "y": 0.16,
+     "x": 0.24,
+     "draw": 0.3,
+     "out": 6.3559
+    },
+    {
+     "type": "markerText",
+     "t": 6.3559,
+     "text": "^FRIST",
+     "size": 55,
+     "rot": -3,
+     "y": 0.16,
+     "x": 0.76,
+     "draw": 0.3,
+     "out": 8.3898
+    },
+    {
+     "type": "markerText",
+     "t": 8.1356,
+     "text": "^ALLES",
+     "size": 55,
+     "rot": -3,
+     "y": 0.16,
+     "x": 0.24,
+     "draw": 0.3
+    },
+    {
+     "type": "underline",
+     "t": 7.5,
+     "draw": 0.3,
+     "y": 0.6,
+     "x": 0.42,
+     "w": 0.16
+    },
+    {
+     "type": "doodle",
+     "t": 0.5085,
+     "out": 2.0339,
+     "shape": "helm",
+     "x": 0.5,
+     "y": 0.8,
+     "draw": 0.34,
+     "sc": 1.5
+    },
+    {
+     "type": "doodle",
+     "t": 2.798,
+     "out": 4.3234,
+     "shape": "schluessel",
+     "x": 0.5,
+     "y": 0.8,
+     "draw": 0.34,
+     "sc": 1.5
+    },
+    {
+     "type": "doodle",
+     "t": 4.7311,
+     "out": 6.2565,
+     "shape": "stempel",
+     "x": 0.5,
+     "y": 0.8,
+     "draw": 0.34,
+     "sc": 1.5
+    },
+    {
+     "type": "doodle",
+     "t": 6.9915,
+     "out": null,
+     "shape": "auge",
+     "x": 0.5,
+     "y": 0.8,
+     "draw": 0.34,
+     "sc": 1.5
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 5.339,
+     "to": "accent"
+    }
+   ]
+  },
+  {
+   "id": "11c_trick",
+   "act": "3 Die Leute",
+   "start": 53.644,
+   "dur": 1.5254,
+   "bg": "accent",
+   "vo": "(das ist der Trick)",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "(das ist der Trick)",
+     "size": 36,
+     "y": 0.5,
+     "step": 0.145
+    }
+   ]
+  },
+  {
+   "id": "12a_chaos",
+   "act": "4 Einwand",
+   "start": 55.1694,
+   "dur": 3.0508,
+   "bg": "dark",
+   "vo": "Vier Sichtweisen. Ein Chaos?",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 1.35,
+     "mode": "hard",
+     "text": "Vier Sichtweisen.",
+     "size": 88,
+     "y": 0.5
+    },
+    {
+     "type": "text",
+     "t": 1.35,
+     "out": 2.2,
+     "mode": "hard",
+     "text": "Ein Chaos?",
+     "size": 88,
+     "y": 0.5
+    },
+    {
+     "type": "markerText",
+     "t": 1.9068,
+     "text": "^ODER?",
+     "size": 61,
+     "rot": -3,
+     "y": 0.33,
+     "x": 0.66,
+     "draw": 0.3
+    }
+   ]
+  },
+  {
+   "id": "12_nein",
+   "act": "3 Einwand",
+   "start": 58.2202,
+   "dur": 1.5254,
+   "bg": "dark",
+   "vo": "NEIN.",
+   "layers": [
+    {
+     "type": "markerText",
+     "t": 0.0,
+     "text": "NEIN.",
+     "size": 300,
+     "rot": -2,
+     "y": 0.5,
+     "x": 0.5,
+     "draw": 0.28
+    }
+   ]
+  },
+  {
+   "id": "13_modell",
+   "act": "4 Ein Modell",
+   "start": 59.7456,
+   "dur": 10.678,
+   "bg": "light",
+   "vo": "Oben ist eure Sprache. Unten ist ein Standard. Egal ob Bau, Betrieb oder Buchhaltung.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 2.9,
+     "mode": "words",
+     "text": "Oben ist eure Sprache.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 1.7797,
+     "out": 4.6,
+     "text": "^OBEN",
+     "size": 58,
+     "rot": -3,
+     "y": 0.3,
+     "x": 0.3,
+     "draw": 0.3
+    },
+    {
+     "type": "text",
+     "t": 2.9,
+     "mode": "words",
+     "text": "Unten ist EIN Standard.",
+     "size": 92,
+     "y": 0.24,
+     "step": 0.145,
+     "lastDelay": 0.45
+    },
+    {
+     "type": "levels",
+     "t": 4.6,
+     "step": 0.42,
+     "y": 0.6,
+     "items": [
+      "Ziel",
+      "Programm",
+      "Ergebnis",
+      "Arbeitspaket",
+      "Aktion"
+     ]
+    },
+    {
+     "type": "text",
+     "t": 7.3,
+     "mode": "words",
+     "text": "Bau. Betrieb. Buchhaltung.",
+     "size": 72,
+     "y": 0.9,
+     "step": 0.145
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 4.581,
+     "to": "accent"
+    }
+   ]
+  },
+  {
+   "id": "14_ende",
+   "act": "5 Übergang",
+   "start": 70.4236,
+   "dur": 3.815,
+   "bg": "light",
+   "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 1.9,
+     "mode": "words",
+     "text": "Und irgendwann ist das Projekt fertig.",
+     "size": 76,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 1.9,
+     "mode": "hard",
+     "text": "Die Arbeit",
+     "size": 96,
+     "y": 0.46
+    },
+    {
+     "type": "markerText",
+     "t": 2.2881,
+     "text": "^NICHT.",
+     "size": 86,
+     "rot": -3,
+     "y": 0.62,
+     "x": 0.6,
+     "draw": 0.3
+    },
+    {
+     "type": "markerText",
+     "t": 1.3983,
+     "text": "^FERTIG?",
+     "size": 58,
+     "rot": -3,
+     "y": 0.3,
+     "x": 0.7,
+     "draw": 0.3
+    },
+    {
+     "type": "doodle",
+     "t": 0.7627,
+     "out": 2.0339,
+     "shape": "uhr",
+     "x": 0.5,
+     "y": 0.76,
+     "draw": 0.4,
+     "sc": 1.5
+    }
+   ]
+  },
+  {
+   "id": "15_element",
+   "act": "5 Übergang",
+   "start": 74.2386,
+   "dur": 6.1003,
+   "bg": "accent",
+   "vo": "Dasselbe Element. Neuer Modus. Kein neues Tool.",
+   "layers": [
+    {
+     "type": "card",
+     "t": 0.0,
+     "label": "PROJEKT",
+     "swapTo": "BETRIEB",
+     "swapAt": 1.5254,
+     "title": "Fassadensanierung Nord",
+     "meta": "AP-4711 · Zuständig: M. Keller"
+    },
+    {
+     "type": "text",
+     "t": 0.15,
+     "out": 1.5,
+     "mode": "hard",
+     "text": "Dasselbe Element.",
+     "size": 64,
+     "y": 0.115
+    },
+    {
+     "type": "text",
+     "t": 1.5,
+     "out": 3.0508,
+     "mode": "hard",
+     "text": "Neuer Modus.",
+     "size": 64,
+     "y": 0.115
+    },
+    {
+     "type": "markerText",
+     "t": 3.0508,
+     "text": "^KEIN NEUES TOOL.",
+     "size": 66,
+     "rot": -2,
+     "y": 0.115,
+     "x": 0.5,
+     "draw": 0.35
+    },
+    {
+     "type": "markerText",
+     "t": 0.8898,
+     "text": "^DASSELBE",
+     "size": 55,
+     "rot": -3,
+     "y": 0.86,
+     "x": 0.24,
+     "draw": 0.3
+    },
+    {
+     "type": "doodle",
+     "t": 4.1949,
+     "shape": "ticket",
+     "x": 0.5,
+     "y": 0.88,
+     "draw": 0.3
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 3.4656,
+     "to": "light"
+    }
+   ]
+  },
+  {
+   "id": "16_pfeile",
+   "act": "5 Übergang",
+   "start": 80.3389,
+   "dur": 5.0847,
+   "bg": "light",
+   "vo": "Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "hard",
+     "text": "Hunderte von",
+     "size": 72,
+     "y": 0.9,
+     "x": 0.5
+    },
+    {
+     "type": "arrows",
+     "t": 0.35,
+     "dur": 2.2,
+     "words": [
+      "Tickets",
+      "Stunden",
+      "Fristen",
+      "Freigaben",
+      "Änderungen"
+     ],
+     "stagger": 0.4
+    },
+    {
+     "type": "markerText",
+     "t": 1.7742,
+     "text": "^ALLES",
+     "size": 61,
+     "rot": -3,
+     "y": 0.13,
+     "x": 0.17,
+     "draw": 0.3
+    },
+    {
+     "type": "markerText",
+     "t": 3.3051,
+     "text": "^AN EINEN ORT",
+     "size": 58,
+     "rot": -3,
+     "y": 0.13,
+     "x": 0.83,
+     "draw": 0.3
+    },
+    {
+     "type": "underline",
+     "t": 4.5722,
+     "draw": 0.28,
+     "y": 0.955,
+     "x": 0.4,
+     "w": 0.2
+    },
+    {
+     "type": "doodle",
+     "t": 4.322,
+     "shape": "bar",
+     "x": 0.5,
+     "y": 0.62,
+     "draw": 0.34
+    }
+   ]
+  },
+  {
+   "id": "17_hundert",
+   "act": "5 Übergang",
+   "start": 85.4236,
+   "dur": 4.5763,
+   "bg": "accent",
+   "vo": "Hundert Prozent verbunden. Kein Export. Null Doppelerfassung.",
+   "layers": [
+    {
+     "type": "sunburst",
+     "t": 0.0,
+     "draw": 0.3,
+     "y": 0.4
+    },
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "hard",
+     "text": "100%",
+     "size": 200,
+     "y": 0.42
+    },
+    {
+     "type": "text",
+     "t": 0.55,
+     "mode": "hard",
+     "text": "verbunden.",
+     "size": 86,
+     "y": 0.7
+    },
+    {
+     "type": "text",
+     "t": 1.05,
+     "mode": "hard",
+     "text": "Kein Export.",
+     "size": 58,
+     "y": 0.82
+    },
+    {
+     "type": "markerText",
+     "t": 2.0339,
+     "text": "^NULL DOPPELERFASSUNG.",
+     "size": 69,
+     "rot": -2,
+     "y": 0.92,
+     "x": 0.5,
+     "draw": 0.3
+    },
+    {
+     "type": "markerText",
+     "t": 3.0508,
+     "text": "^KEINE KOPIE",
+     "size": 55,
+     "rot": -3,
+     "y": 0.2,
+     "x": 0.26,
+     "draw": 0.3
+    }
+   ]
+  },
+  {
+   "id": "18_aendert",
+   "act": "6 Korrektur",
+   "start": 89.9999,
+   "dur": 3.3051,
+   "bg": "dark",
+   "vo": "Und wenn jemand etwas ändert?",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Und wenn jemand etwas ändert?",
+     "size": 80,
+     "y": 0.42,
+     "step": 0.145,
+     "lastDelay": 0.65
+    },
+    {
+     "type": "liveEdit",
+     "t": 1.1441,
+     "old": "Dienstag",
+     "new": "DONNERSTAG",
+     "y": 0.62,
+     "draw": 0.4
+    },
+    {
+     "type": "markerText",
+     "t": 0.7597,
+     "text": "^JEMAND",
+     "size": 58,
+     "rot": -3,
+     "y": 0.26,
+     "x": 0.7,
+     "draw": 0.3
+    }
+   ]
+  },
+  {
+   "id": "19_alle",
+   "act": "6 Korrektur",
+   "start": 93.305,
+   "dur": 3.2015,
+   "bg": "dark",
+   "vo": "Sehen es alle. Sofort.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Sehen es alle.",
+     "size": 96,
+     "y": 0.45,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 0.6647,
+     "text": "^SOFORT.",
+     "size": 72,
+     "rot": -3,
+     "y": 0.62,
+     "x": 0.62,
+     "draw": 0.3
+    },
+    {
+     "type": "underline",
+     "t": 1.9068,
+     "draw": 0.28,
+     "y": 0.535,
+     "x": 0.4,
+     "w": 0.18
+    }
+   ]
+  },
+  {
+   "id": "20_transparenz",
+   "act": "6 Korrektur",
+   "start": 96.5065,
+   "dur": 3.6629,
+   "bg": "light",
+   "vo": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 1.05,
+     "mode": "words",
+     "text": "Transparenz ist kein Bericht.",
+     "size": 84,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 1.05,
+     "mode": "words",
+     "text": "Sie ist ein Nebeneffekt.",
+     "size": 84,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 2.2881,
+     "text": "^EINFACH SO",
+     "size": 58,
+     "rot": -3,
+     "y": 0.3,
+     "x": 0.68,
+     "draw": 0.3
+    }
+   ]
+  },
+  {
+   "id": "21_allein",
+   "act": "7 Gegner",
+   "start": 100.1694,
+   "dur": 3.0508,
+   "bg": "dark",
+   "vo": "Aber Struktur allein ist noch keine Übersicht.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "Aber Struktur ist noch keine Übersicht.",
+     "size": 72,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 0.7627,
+     "text": "^ALLEIN",
+     "size": 72,
+     "rot": -4,
+     "y": 0.405,
+     "x": 0.395,
+     "draw": 0.3
+    },
+    {
+     "type": "underline",
+     "t": 1.9068,
+     "draw": 0.28,
+     "y": 0.565,
+     "x": 0.35,
+     "w": 0.3
+    }
+   ]
+  },
+  {
+   "id": "22_raster",
+   "act": "7 Gegner",
+   "start": 103.2202,
+   "dur": 5.339,
+   "bg": "dark",
+   "vo": "Die meisten nennen Übersicht: eine Tabelle.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 1.05,
+     "mode": "words",
+     "text": "Die meisten nennen Übersicht:",
+     "size": 72,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 1.05,
+     "out": 3.3051,
+     "mode": "hard",
+     "text": "eine Tabelle.",
+     "size": 96,
+     "y": 0.5
+    },
+    {
+     "type": "grid",
+     "t": 1.1441,
+     "grow": 1.85,
+     "cols": 34,
+     "rows": 19
+    },
+    {
+     "type": "markerText",
+     "t": 3.3051,
+     "text": "^SPALTEN",
+     "size": 61,
+     "rot": -3,
+     "y": 0.14,
+     "x": 0.72,
+     "draw": 0.3
+    },
+    {
+     "type": "markerText",
+     "t": 3.5593,
+     "text": "^UND SPALTEN",
+     "size": 54,
+     "rot": 2,
+     "y": 0.86,
+     "x": 0.5,
+     "draw": 0.32
+    }
+   ]
+  },
+  {
+   "id": "22b_stapel",
+   "act": "8 Gegner",
+   "start": 108.5592,
+   "dur": 6.3559,
+   "bg": "dark",
+   "vo": "Fünf Dateien. Eine Wahrheit. Und niemand weiss, welche.",
+   "layers": [
+    {
+     "type": "pile",
+     "t": 0.0,
+     "step": 0.62,
+     "files": [
+      "Planung_2026.xlsx",
+      "Planung_2026_final.xlsx",
+      "Planung_final_v3.xlsx",
+      "Planung_final_v3_NEU.xlsx",
+      "Kopie von Planung_final_v3_NEU(1).xlsx"
+     ],
+     "x": 0.5
+    },
+    {
+     "type": "text",
+     "t": 3.5,
+     "out": 4.7,
+     "mode": "words",
+     "text": "Fünf Dateien. Eine Wahrheit.",
+     "size": 64,
+     "y": 0.9,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 4.7,
+     "mode": "words",
+     "text": "Und niemand weiss, welche.",
+     "size": 72,
+     "y": 0.9,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 2.2881,
+     "text": "^WELCHE GILT?",
+     "size": 58,
+     "rot": -3,
+     "y": 0.16,
+     "x": 0.72,
+     "draw": 0.3
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 3.5593,
+     "to": "light"
+    }
+   ]
+  },
+  {
+   "id": "22c_keine",
+   "act": "8 Gegner",
+   "start": 114.9151,
+   "dur": 3.3051,
+   "bg": "dark",
+   "vo": "Bei uns gibt es keine.",
+   "layers": [
+    {
+     "type": "grid",
+     "t": 0.0,
+     "grow": 0.5,
+     "cols": 34,
+     "rows": 19
+    },
+    {
+     "type": "strike",
+     "t": 0.5099,
+     "draw": 0.3
+    },
+    {
+     "type": "text",
+     "t": 1.05,
+     "mode": "words",
+     "text": "Bei uns gibt es keine.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "underline",
+     "t": 2.0337,
+     "draw": 0.28,
+     "y": 0.575,
+     "x": 0.4,
+     "w": 0.2
+    }
+   ]
+  },
+  {
+   "id": "23_ui",
+   "act": "7 Gegner",
+   "start": 118.2202,
+   "dur": 1.2703,
+   "bg": "accent",
+   "vo": "(auch nicht im UI)",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "mode": "words",
+     "text": "(auch nicht im UI)",
+     "size": 34,
+     "y": 0.5,
+     "step": 0.145
+    }
+   ]
+  },
+  {
+   "id": "25_seht",
+   "act": "8 Versprechen",
+   "start": 119.4905,
+   "dur": 5.3406,
+   "bg": "accent",
+   "vo": "Du siehst, was du brauchst. Dort, wo du bist.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 2.2,
+     "mode": "words",
+     "text": "Du siehst, was du brauchst.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 2.2,
+     "mode": "words",
+     "text": "Dort, wo du bist.",
+     "size": 100,
+     "y": 0.5,
+     "glow": true,
+     "step": 0.145
+    },
+    {
+     "type": "markerText",
+     "t": 1.7797,
+     "text": "^IHR",
+     "size": 61,
+     "rot": -3,
+     "y": 0.28,
+     "x": 0.3,
+     "draw": 0.3
+    },
+    {
+     "type": "doodle",
+     "t": 3.8136,
+     "shape": "timebox",
+     "x": 0.5,
+     "y": 0.82,
+     "draw": 0.3,
+     "sc": 1.6
+    },
+    {
+     "type": "doodle",
+     "t": 1.0158,
+     "out": 2.1598,
+     "shape": "auge",
+     "x": 0.5,
+     "y": 0.74,
+     "draw": 0.36,
+     "sc": 1.6
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 2.5424,
+     "to": "dark"
+    }
+   ]
+  },
+  {
+   "id": "26_also",
+   "act": "8 Versprechen",
+   "start": 124.8311,
+   "dur": 6.3552,
+   "bg": "light",
+   "vo": "Also arbeite, wie du willst. Wir behalten den Überblick.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 2.45,
+     "mode": "words",
+     "text": "Also arbeite, wie du willst.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 2.45,
+     "mode": "words",
+     "text": "Wir behalten Überblick.",
+     "size": 92,
+     "y": 0.5,
+     "step": 0.145,
+     "lastDelay": 0.8
+    },
+    {
+     "type": "markerText",
+     "t": 4.0678,
+     "text": "^DEN",
+     "size": 77,
+     "rot": -3,
+     "y": 0.4,
+     "x": 0.575,
+     "draw": 0.3
+    },
+    {
+     "type": "underline",
+     "t": 1.9068,
+     "draw": 0.28,
+     "y": 0.565,
+     "x": 0.36,
+     "w": 0.28
+    }
+   ]
+  },
+  {
+   "id": "27_ende",
+   "act": "8 Versprechen",
+   "start": 131.1863,
+   "dur": 7.1188,
+   "bg": "light",
+   "vo": "NEXPT ist dein Partner für deine Prozesse.",
+   "layers": [
+    {
+     "type": "text",
+     "t": 0.0,
+     "out": 3.55,
+     "mode": "words",
+     "text": "NEXPT ist dein Partner",
+     "size": 88,
+     "y": 0.42,
+     "step": 0.145
+    },
+    {
+     "type": "text",
+     "t": 1.55,
+     "out": 3.55,
+     "mode": "words",
+     "text": "für deine Prozesse.",
+     "size": 88,
+     "y": 0.58,
+     "step": 0.145
+    },
+    {
+     "type": "url",
+     "t": 3.55,
+     "base": "nexpt.ch/",
+     "accent": "work",
+     "size": 88,
+     "y": 0.5
+    }
+   ],
+   "bgFlips": [
+    {
+     "t": 3.5593,
+     "to": "dark"
+    }
+   ]
+  }
+ ]
 }
