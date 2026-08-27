@@ -31,17 +31,20 @@ cd "$(dirname "$0")/.." || exit 1
 FF=${FFMPEG:-ffmpeg}
 
 V_STIMME=1.0; V_DRUMS=0.0; ZIEL=out/ton-final.wav
-# Mit Stimme fuellen die Woerter die Luecken, die Mischung darf also atmen.
-# Ohne Stimme steht die Musik allein und wird in der Halle sonst zu weit —
-# gemessen 6.7 LU gegen 4.3 mit Stimme. Die Standfassung wird deshalb
-# haerter gefahren.
-KOMP=2.5; LRA=7
+# Der Kompressor steht sehr mild. Mit dem lizenzierten Track brauchte die
+# Standfassung noch eine haertere Einstellung (Ratio 4), weil die Musik ohne
+# Stimme sonst 6.7 LU weit wurde. Der eigene Loop ist von sich aus gleich-
+# maessig — gemessen kommt die Mischung damit auf 3.5 bis 4.0 LU, und haerter
+# zu fahren nimmt nur noch die Anschlaege weg, ohne die Dynamik zu aendern
+# (Ratio 2.5 -> 1.6 bewegt sie um 0.4 LU). Beide Fassungen laufen deshalb
+# gleich.
+KOMP=2; LRA=8
 # Die 175-Hz-Senke raeumt die Grundtoene der Sprecherstimme frei. Ohne Stimme
 # wuerde sie der Trommel den Bauch wegnehmen, also faellt sie dann weg.
 G175=-3.5
 for a in "$@"; do
   case "$a" in
-    --ohne-stimme) V_STIMME=0.0; G175=0; KOMP=4; LRA=5
+    --ohne-stimme) V_STIMME=0.0; G175=0
                    ZIEL=out/ton-final-ohne-stimme.wav ;;
     --drums)       V_DRUMS=0.55 ;;
   esac

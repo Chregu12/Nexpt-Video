@@ -448,11 +448,39 @@ eingeebnet werden.
 - **Voice-Over** trägt den Film. Casting ist wichtiger als die Musik: gesucht ist eine Stimme,
   die trocken und schnell sprechen kann, ohne zu hetzen — die „Moment. Nein." glaubwürdig sagt
   und `(auch nicht im UI)` beiläufig, fast zu leise, hinwirft, ohne die Pointe anzukündigen.
-- **Musik: „Rhythm Mischief"** (Cold Storage Percussion Unit, Track Club) — derselbe Track wie
-  im Referenzfilm, lizenziert statt nachgebaut. Gemessen am gelieferten File: **118.00 BPM**,
-  erster Downbeat bei 0.222 s, Takt 2.0339 s, 89 volle Takte auf 3:03. Der Track spielt sehr
-  eng auf sein eigenes Raster (Median 3 ms zum Sechzehntel), lebt aber vom Leerraum: von
-  272 Vierteln tragen nur **36 %** einen starken Anschlag, von 1088 Sechzehnteln nur **16 %**.
+- **Musik: eigener 16-Takt-Loop**, arrangiert statt geloopt. Gemessen: 33.54 s, **118.01 BPM**,
+  erster Downbeat 0.480 s, danach digitale Stille — ein sauberer Loop. Er spielt sehr eng auf
+  sein eigenes Raster (Median 1–2 ms zum Sechzehntel) und hat mit 38 starken Anschlägen auf
+  33.5 s dieselbe Dichte wie die Referenz: 52 % der Viertel tragen einen Schlag. Er braucht
+  keine Lizenz und ist deshalb die Standardquelle.
+
+  Was ihm fehlt, ist der Verlauf. Die Pegel der 16 Takte liegen zwischen −22.4 und −14.4 dB und
+  fast alle zwischen −15 und −16: kein Breakdown, kein Hochpunkt, kein Absturz. Deshalb weist
+  `render/musik.py` jedem der **68 Filmtakte** einen Quelltakt zu — die dünnen (0, 12, 15) an
+  die Rückzüge, die dichten (14, 9, 13) an die Hochpunkte, dazu drei Takte echte Stille.
+  Aufeinanderfolgende Quelltakte werden als ein Block kopiert, es gibt also nur an den Sprüngen
+  eine Naht.
+
+  ```
+  ▃▅▄▅▆▆▆▅▅▆▇▄▆▆▆▆▅▆▆▇▆▆▆▇▆▆▄  ▃▅▆▆▆▆▅▆▆▇▆▆▆▇▇▆▇▆▇▇▄▃▅▆▆▆▆▅▆ ▆▇▆▆▇▇▆▇▇
+  0         10        20        30        40        50        60   Takt
+  ```
+
+  Die Lücke bei Takt 27–28 ist `(das ist der Trick)` / „NEIN.", der Einbruch bei 49–50 ist
+  „Aber Struktur ist noch keine Übersicht", die Lücke bei 58 ist `(auch nicht im UI)`.
+
+  `musik.py` wählt die Betriebsart selbst: Quelle **kürzer** als der Film → arrangieren, Quelle
+  **länger** → auf Taktkanten schneiden. Das Zielraster ist immer das des Films (118.00 exakt),
+  nicht das der Quelle — bei 118.01 wären das über 68 Takte 12 ms Auseinanderlaufen.
+
+- **Der lizenzierte Weg bleibt offen.** „Rhythm Mischief" (Cold Storage Percussion Unit, Track
+  Club) ist derselbe Track wie im Referenzfilm: 118.00 BPM, 89 Takte auf 3:03. Sein Vorteil ist
+  genau das, was dem Loop fehlt — er bringt seine Dramaturgie mit, und sie fällt fast ohne
+  Zutun auf die des Films (Breakdown ↔ `(das ist der Trick)`, Hochpunkt ↔ „100% verbunden.",
+  Absturz ↔ „…noch keine Übersicht"). Aufruf:
+  `python3 render/musik.py out/_musik/rhythm-mischief.m4a`. Für Messe und Web bräuchte es dann
+  eine Track-Club-Lizenz mit kommerzieller Nutzung, ausgestellt auf NEXPT. `out/_musik/` und
+  `out/music.wav` stehen in `.gitignore`.
 
 - **Sitzt Apples Schrift auf dem Takt? Nein.** Das war die naheliegende Annahme, und sie ist
   falsch. 145 Bildereignisse des Referenzfilms gegen sein eigenes 118er Raster, drei
@@ -490,33 +518,23 @@ eingeebnet werden.
   Handschriftliche an der Animation und aus dem Referenzfilm abgemessen; sie auf
   Zweiunddreissigstel zu zwingen würde die Schrift zum Metronom machen.
 
-- **Der Schnitt** (`render/musik.py`): Takte 0–58 laufen durch, dann weiter ab Takt 80 bis zum
-  Dateiende, Versatz 0. Die Naht liegt auf einer Takt-Eins bei 1:57.97, ein Viertel vor dem
-  Halte-Beat `23_ui`. Der zweite Teil bringt den Schlussaufbau des Tracks auf die letzten
-  20 Sekunden. Und die Dramaturgie passt weiterhin ohne Zutun:
+  **Wichtig beim Wechsel des Tracks:** der Film ist auf die Anschläge *eines bestimmten* Tracks
+  gezogen. Eine neue Musik heisst deshalb immer diese Reihenfolge — sonst fällt das Alignment
+  auf Zufallsniveau zurück (gemessen 21 % statt 45 %, als der Loop auf den alten Stand traf):
 
-  | Track | | Film |
-  |---|---|---|
-  | Breakdown 48.8–54.9 s | ↔ | `(das ist der Trick)` 53.6 s |
-  | Hochpunkt 79.3–97.6 s | ↔ | „100% verbunden." 85.4 s · „Sehen es alle. SOFORT." 93.3 s |
-  | Absturz 97.6–103.7 s | ↔ | „…noch keine Übersicht. ALLEIN" 100.2 s |
+  ```bash
+  python3 render/musik.py <neue-quelle>   # Anschläge in Filmzeit schreiben
+  python3 render/takt.py                  # Film darauf rastern
+  python3 render/render.py                # 30 Clips neu
+  python3 render/scratchvo.py && python3 render/sounddesign.py
+  sh render/mischen.sh && python3 render/bauen.py --neu
+  ```
 
-  Zwei der fünf Halte-Beats deckt der Track selbst ab (`11c_trick` und `12_nein` fallen in den
-  Breakdown — dort ist der nächste Anschlag 5.3 s entfernt). Die anderen drei liegen im Groove
-  und werden auf 28 % gezogen. Am Ende 0.3 s Blende, danach absolute Stille wie in der Referenz.
-
-  **Eigene Percussion ist aus.** Sie liegt als `mischen.sh --drums` bereit, aber sie auf einen
-  Schlagzeugtrack zu legen ergibt Matsch statt Betonung.
-
-  **Lizenz:** Der Track gehört Track Club. `out/_musik/` und `out/music.wav` stehen in
-  `.gitignore` — der Track und der blosse Schnitt daraus gehören dem Lizenznehmer, nicht dem
-  Repository. Für Messe und Web braucht es eine Lizenz mit kommerzieller Nutzung, ausgestellt
-  auf NEXPT. Das gelieferte File ist 128 kbit/s AAC; für die Endfassung die WAV aus dem Konto.
-
-- **Mix:** −16.3 LUFS integriert, **LRA 4.3 LU** — gemessen deckungsgleich mit der Referenz.
-  Mit dem echten Track darf der Kompressor deutlich milder stehen (Ratio 2.5 statt 4): der Track
-  ist bereits gemastert, und die harte Fassung hat die Mischung auf LRA 2.9 gequetscht. Die
-  Standfassung ohne Stimme wird härter gefahren, weil dort die Wörter die Lücken nicht füllen.
+- **Mix:** −16.6 LUFS / **LRA 4.0** mit Stimme, −16.2 / 3.4 ohne (Referenz: −17.7 / 4.3). Der
+  Kompressor steht sehr mild (Ratio 2), weil der eigene Loop von sich aus gleichmässig ist —
+  härter zu fahren nimmt nur die Anschläge weg, ohne die Dynamik zu ändern (Ratio 2.5 → 1.6
+  bewegt sie um 0.4 LU). Beide Fassungen laufen deshalb gleich; die frühere härtere
+  Standeinstellung ist entfallen.
 - **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
   trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms. Der Etikettwechsel bei 0:38
   bekommt **ein einziges** Klicken — sonst nichts.
