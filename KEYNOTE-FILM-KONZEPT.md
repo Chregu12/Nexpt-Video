@@ -556,21 +556,39 @@ eingeebnet werden.
   die Millisekunde, was passiert, während eine Schnitterkennung nur „Bewegung bei 84.2 s"
   melden könnte.
 
-- **Sounddesign** (`render/sfx.py`) baut daraus fünf Ebenen: `impact` für Schnitte und
-  Hintergrundwechsel, `whoosh` für Marker und Pfeile (dem Strich im Stereobild folgend),
-  `click` für Zeilenanfänge, `tick` für den Rasteraufbau, `riser` als Anlauf vor den grossen
-  Punkten. Kalibriert an der Messung, nicht geschätzt:
+- **Sounddesign aus echten Aufnahmen** (`render/proben.py` → `render/sfx.py`). Die erste
+  Fassung war synthetisiert — Sinus plus gefiltertes Rauschen — und klang entsprechend nach
+  Roboter. Für echte Aufnahmen gab es drei Wege, zwei davon sind zu:
+
+  | Quelle | |
+  |---|---|
+  | Freesound | braucht ein API-Token (401 ohne). Mit Token und CC0-Filter der sauberste Weg — die Lizenz steht je Datei fest. |
+  | archive.org | erreichbar, aber der CC0-Bestand ist Grillenzirpen, Küchenwecker und etliche als „public domain" fehldeklarierte Kauf-Libraries. Für einen kommerziellen Messefilm nicht brauchbar, und zwar nicht wegen der Qualität. |
+  | **Der eigene Loop** | echte Perkussion, gehört dem Lizenznehmer, und die Schläge passen per Konstruktion — es sind dieselben Instrumente, derselbe Raum, dieselbe Aufnahme. |
+
+  `proben.py` schneidet daraus **12 Proben** in drei Klassen (Stock/Rim, Klack, Snare),
+  ausgewählt nach Sauberkeit — je mehr Luft hinter einem Schlag, desto weniger blutet der
+  Nachbar hinein. Was der Loop **nicht** hergibt, ist eine tiefe Trommel: sein tiefster
+  Schwerpunkt liegt bei 988 Hz. Die Impacts entstehen deshalb wie im Studio — eine echte
+  Aufnahme zwei Oktaven tief transponiert für die Textur, ein Sinus darunter für das Fundament,
+  das das Mikrofon nicht hatte. Whooshes und Riser sind rückwärts gespielte, gedehnte Schläge.
 
   | | Referenz | NEXPT |
   |---|---|---|
-  | Bandbalance Sub/Bass/TM/M/H/Luft | 0 / −3.3 / −10.4 / −16.6 / −26.8 / −29.3 dB | auf ±1.1 dB angeglichen |
-  | Abklingzeit der Akzente | Median 649 ms | 0.55–1.05 s je Art |
-  | Akzentspitze über dem Bett | +11.0 dB | **+11.5 dB** |
-  | Akzent zum Bildereignis | Median +15 ms | **+3 ms**, 86 % innerhalb 50 ms |
+  | Bandbalance Sub/Bass/TM/M/H/Luft | 0 / −3.3 / −10.4 / −16.6 / −26.8 / −29.3 dB | auf **±0.2 dB** angeglichen |
+  | Akzentspitze über dem Bett | +11.0 dB | **+10.9 dB** |
+  | Akzent zum Bildereignis | +15 ms, 63 % innerhalb 100 ms | **±0 ms**, 62 % innerhalb 50 ms |
 
   Die Entzerrung rät nicht: sie misst die gebaute Spur, hält sie gegen die Referenzkurve und
-  wendet die Differenz an, begrenzt auf ±10 dB. Die erste, von Hand eingestellte Fassung lag bei
-  Mitten −38 dB gegen −17 und bei Luft −92 gegen −29 — also völlig daneben.
+  wendet die Differenz an, begrenzt auf ±10 dB. Und jeder Klang wird auf seine eigene **Spitze**
+  ausgerichtet, nicht auf seinen Anfang — ein fester Vorlauf passte zum Sinusfenster der
+  synthetischen Fassung, die echten Aufnahmen haben ihre Spitze woanders.
+
+  **Die Grenze, offen gesagt:** ohne Sample-Library bleibt das Sounddesign auf das beschränkt,
+  was aus einem Stock-und-Snare-Loop zu holen ist. Für die Endfassung ist entweder ein
+  Freesound-Token (CC0, gratis) oder eine kommerzielle Library (Splice, Soundly, Boom — CHF
+  100–300 im Jahr) der Weg, und für einen Film, der die Firma an der Messe vertritt, wäre ein
+  Sounddesigner das Geld wert.
 
 - **Die Halte-Beats bleiben stumm.** Im Cue Sheet stehen sie als eigene Einträge mit `stille`.
   „(das ist der Trick)", „NEIN.", „(auch nicht im UI)" leben davon, dass nichts passiert. Und von

@@ -1,0 +1,25 @@
+{
+ "quelle": "apple-style-118.mp3",
+ "sr": 48000,
+ "proben": {
+  "tick": [
+   "tick1.wav",
+   "tick2.wav",
+   "tick3.wav",
+   "tick4.wav"
+  ],
+  "klick": [
+   "klick1.wav",
+   "klick2.wav",
+   "klick3.wav",
+   "klick4.wav"
+  ],
+  "snare": [
+   "snare1.wav",
+   "snare2.wav",
+   "snare3.wav",
+   "snare4.wav"
+  ]
+ },
+ "hinweis": "Echte Schlaege aus dem eigenen Musikloop. Keine tiefe Trommel enthalten — der tiefste Schwerpunkt der Quelle liegt bei 988 Hz."
+}
