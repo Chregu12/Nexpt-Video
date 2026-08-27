@@ -13,13 +13,14 @@
 cd "$(dirname "$0")/.." || exit 1
 FF=${FFMPEG:-ffmpeg}
 "$FF" -hide_banner -loglevel error -y \
-  -i out/scratch-vo.wav -i out/music.wav -i out/sfx.wav \
+  -i out/scratch-vo.wav -i out/music.wav -i out/sfx.wav -i out/drums.wav \
   -filter_complex "\
     [0:a]aresample=48000,volume=1.0,asplit=2[vo][vk]; \
     [1:a]aresample=48000,volume=0.115[mu]; \
     [2:a]aresample=48000,volume=0.34[fx]; \
+    [3:a]aresample=48000,volume=0.42[dr]; \
     [mu][vk]sidechaincompress=threshold=0.05:ratio=6:attack=8:release=260[mud]; \
-    [mud][fx][vo]amix=inputs=3:normalize=0, \
+    [mud][fx][dr][vo]amix=inputs=4:normalize=0, \
       equalizer=f=45:t=q:w=0.8:g=3.5, \
       equalizer=f=175:t=q:w=1.2:g=-3.5, \
       treble=f=7000:g=2.5, \

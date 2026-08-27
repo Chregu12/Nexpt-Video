@@ -24,7 +24,16 @@ Akzente, per --sfx steuerbar.
 
     python3 sounddesign.py                -> out/music.wav, out/sfx.wav
     python3 sounddesign.py --sfx none     ganz ohne Effekte (Apples Fassung)
-    python3 sounddesign.py --sfx full     die alte, dichte Fassung zum Vergleich
+    python3 sounddesign.py --drums        Schlagzeug auf die Einblendungen
+    python3 sounddesign.py --drums --bpm 118
+
+SCHLAGZEUG: Der Referenzfilm hat keins - nach HPSS-Trennung liegt die
+Regelmaessigkeit der Anschlaege bei 0.00 (420 Anschlaege, mittlerer Abstand
+0.159s, Streuung 0.166s: das sind Konsonanten). --drums ist deshalb kein
+Nachbau, sondern eine eigene Entscheidung. Die Schlaege sitzen nicht auf
+einem Raster, sondern auf den BILDEREIGNISSEN aus timing.json - Kick auf
+jeden Hintergrundwechsel, Snare auf jeden Marker, Hut auf jeden Text-Chunk.
+Das Schlagzeug spielt also die Schrift.
 """
 import json, os, shutil, subprocess, sys, wave
 from pathlib import Path
@@ -49,6 +58,12 @@ def place(buf, sig, t, gain=1.0):
     if i < 0 or i >= len(buf): return
     k = min(len(sig), len(buf) - i)
     buf[i:i+k] += sig[:k] * gain
+
+def bp(x, lo, hi):
+    """Bandpass ueber FFT — reicht fuer Sounddesign."""
+    X = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1/SR)
+    X[(f < lo) | (f > hi)] = 0
+    return np.fft.irfft(X, len(x))
 
 def lowpass(x, fc):
     X = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1/SR)
@@ -127,6 +142,64 @@ if SFX_MODE != "none":
             klick = np.sin(2*np.pi*900*t) * env(n, 0.0008, 0.05, 3.5)
             place(sfx, klick, scn["15_element"]["start"] + c[0]["swapAt"], 0.20)
 
+# ── Schlagzeug: spielt die Schrift, nicht ein Raster ─────────────────────
+drums = np.zeros(N)
+if "--drums" in sys.argv:
+    def kick(dur=0.16):
+        n=int(dur*SR); t=np.arange(n)/SR
+        return np.sin(2*np.pi*(96*np.exp(-t*26)+44)*t) * env(n,0.001,dur,2.8)
+    def snare(dur=0.13):
+        n=int(dur*SR)
+        k=bp(rng.standard_normal(n),260,5200)*env(n,0.0008,dur,2.4)
+        t=np.arange(n)/SR
+        return k*0.85 + np.sin(2*np.pi*195*t)*env(n,0.001,0.05,3.0)*0.35
+    def hat(dur=0.028):
+        n=int(dur*SR)
+        return bp(rng.standard_normal(n),6500,15000)*env(n,0.0004,dur,1.4)
+    def rim(dur=0.05):
+        n=int(dur*SR); t=np.arange(n)/SR
+        return (np.sin(2*np.pi*1750*t)*env(n,0.0005,dur,3.2)*0.6
+                + bp(rng.standard_normal(n),2500,9000)*env(n,0.0004,0.012,1.5)*0.4)
+
+    JIT=[0.55,1.0,0.72,1.5,0.85,1.25,0.6,1.1]     # identisch zu film.html
+    def chunk_n(text):
+        return sum(2 if len(w)>=8 else 1 for w in text.split())
+
+    for s_ in cfg["scenes"]:
+        t0, still = s_["start"], s_["id"] in HALT
+        g = 0.0 if still else 1.0                  # Halte-Beats bleiben still
+        place(drums, kick(), t0, 0.85*g)           # jede Szene beginnt mit einem Schlag
+        for f in s_.get("bgFlips", []):
+            place(drums, kick(), t0+f["t"], 0.80*g)
+        for l in s_.get("layers", []):
+            lt, ty = t0 + l.get("t", 0), l["type"]
+            if ty == "text" and l.get("mode") == "words":
+                st_, acc = l.get("step", 0.145), 0.0
+                n_ = chunk_n(l["text"])
+                for i in range(n_):
+                    if i and l.get("lastDelay") and i == n_-1: acc += l["lastDelay"]
+                    place(drums, hat(), lt+acc, (0.20 if i else 0.30)*g)
+                    acc += st_ * JIT[i % len(JIT)]
+            elif ty == "markerText":
+                place(drums, snare(), lt+ (l.get("draw",0.3)*0.55), 0.62*g)
+            elif ty in ("underline","doodle"):
+                place(drums, rim(), lt, 0.34*g)
+            elif ty == "levels":
+                for k in range(len(l["items"])):
+                    place(drums, rim(), lt+k*l["step"], 0.45*g)
+            elif ty == "pile":
+                for k in range(len(l["files"])):
+                    place(drums, snare(), lt+k*l.get("step",.42), 0.30+0.09*k)
+            elif ty == "grid":
+                for k in range(20):
+                    place(drums, hat(), lt+l["grow"]*(k/20)**1.7, 0.10+0.02*k)
+            elif ty == "card" and l.get("swapAt") is not None:
+                place(drums, kick(0.20), t0+l["swapAt"], 0.95)
+            elif ty == "strike":
+                place(drums, kick(0.26), lt+0.1, 1.0); place(drums, snare(0.2), lt+0.1, 0.7)
+            elif ty == "role":
+                place(drums, rim(), lt, 0.40*g)
+
 def wav(path, x, peak):
     x = np.nan_to_num(x)
     m = np.max(np.abs(x)) or 1.0
@@ -136,5 +209,8 @@ def wav(path, x, peak):
         w.writeframes((np.clip(x, -1, 1) * 32767).astype("<i2").tobytes())
 
 wav(OUT / "music.wav", music, 0.62)
+if "--drums" in sys.argv:
+    wav(OUT / "drums.wav", drums, 0.80)
+    print(f"out/drums.wav — Schlaege auf den Bildereignissen")
 wav(OUT / "sfx.wav",   sfx,   0.55 if SFX_MODE != "none" else 0.0)
 print(f"out/music.wav (Flaeche, kein Puls) · out/sfx.wav (Modus: {SFX_MODE})   {TOT:.1f}s")
