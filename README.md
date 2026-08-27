@@ -11,6 +11,7 @@ Keynote-Film für **NEXPT Work** — Konzept, Drehbuch und lauffähige Render-Pi
 | **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | Dasselbe mit Roboter-Scratchstimme — macht die Textlänge sofort hörbar. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Bild plus Percussion, keine Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf den Rhythmus. |
 | **out/scratch-vo.wav** | Die Scratch-Tonspur einzeln. |
+| **out/analysis/cue_sheet.json** | Jeder Hit Point des Films: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren. |
 | `out/_musik/` | Der lizenzierte Musiktrack. **Nicht im Repo** — die Lizenz hängt am Lizenznehmer, nicht am Repository. Eigene Kopie dort ablegen, dann `python3 render/musik.py`. |
 | **out/stills/** | Ein Standbild je Szene. |
 | `out/scenes/*.mov` | ProRes 422 HQ, ein Clip je Szene. Nicht im Repo (267 MB) — lokal mit `python3 render/render.py` erzeugen. |
@@ -27,11 +28,13 @@ python3 render/sync.py <vo.wav|Projekt.fcpxml>   # Timing auf die echte Stimme z
 Ton und Zusammenbau, mit der Stimme als Schalter:
 
 ```bash
-python3 render/sounddesign.py                     # Effekte
-python3 render/musik.py                           # lizenzierten Track auf den Film schneiden
+python3 render/cuesheet.py                        # Hit Points -> out/analysis/cue_sheet.json
+python3 render/sfx.py                             # Whooshes, Clicks, Impacts, Riser
+python3 render/musik.py                           # Musik auf den Film legen
 sh render/mischen.sh                              # Mischung mit Stimme
 sh render/mischen.sh --ohne-stimme                # Mischung ohne Stimme
 sh render/mischen.sh --drums                      # zusätzlich eigene Percussion (aus)
+sh render/mischen.sh --ohne-effekte               # zum Vergleich, ohne Sounddesign
 python3 render/bauen.py                           # Film mit Stimme
 python3 render/bauen.py --ohne-stimme             # Film ohne Stimme
 ```

@@ -530,14 +530,63 @@ eingeebnet werden.
   sh render/mischen.sh && python3 render/bauen.py --neu
   ```
 
-- **Mix:** −16.6 LUFS / **LRA 4.0** mit Stimme, −16.2 / 3.4 ohne (Referenz: −17.7 / 4.3). Der
-  Kompressor steht sehr mild (Ratio 2), weil der eigene Loop von sich aus gleichmässig ist —
-  härter zu fahren nimmt nur die Anschläge weg, ohne die Dynamik zu ändern (Ratio 2.5 → 1.6
-  bewegt sie um 0.4 LU). Beide Fassungen laufen deshalb gleich; die frühere härtere
-  Standeinstellung ist entfallen.
-- **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
-  trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms. Der Etikettwechsel bei 0:38
-  bekommt **ein einziges** Klicken — sonst nichts.
+- **Zwei Referenzen, zwei Handschriften.** Apple legt Musik unter das Bild und hat gemessen
+  **kein** Sounddesign auf den Bildereignissen: an 15 Schnitten fällt die Energie im Median auf
+  0.80× (Sub), 0.50× (Mitten), 0.52× (Höhen) — sie steigt also nicht. Samsung macht das
+  Gegenteil: Music-to-Picture plus Sounddesign. Der Film folgt jetzt der zweiten Schule.
+
+  Selbst nachgemessen am Samsung-Film (78.3 s) — und an einer Stelle kommt etwas anderes heraus
+  als in der Vorlage:
+
+  | | gemessen | Vorlage |
+  |---|---|---|
+  | Onsets | 285 = 3.64/s | 172 = 2.20/s |
+  | harte Schnitte | 10, alle 7.8 s | 13 |
+  | Schnitt → Akzent | 4 von 10, Median **+84 ms** | alle 13 innerhalb 120 ms |
+  | Bewegung → Akzent | 19 von 30, Median **+15 ms** | 90 % innerhalb 100 ms |
+
+  Die Zählungen hängen an der Schwelle des Detektors, da sind beide Werte vertretbar. Der Befund
+  darunter ist es nicht: die Referenz vertont vor allem **Bewegung** — dort sitzt der Akzent
+  praktisch auf dem Bild. Der Schnitt bekommt seltener einen, und dann träge dahinter. Die erste
+  Fassung hatte das genau umgekehrt gewichtet (Schnitt laut, Marker leise); jetzt ist es gedreht.
+
+- **Das Cue Sheet** (`render/cuesheet.py` → `out/analysis/cue_sheet.json`) ist die Vorlage zum
+  Komponieren: **139 Hit Points** auf 2:18 = 1.01/s, je mit Zeit, Takt.Zählzeit, Szene, Art,
+  Stärke und Stereoposition. Es wird **nicht** aus dem Video gemessen — `timing.json` weiss auf
+  die Millisekunde, was passiert, während eine Schnitterkennung nur „Bewegung bei 84.2 s"
+  melden könnte.
+
+- **Sounddesign** (`render/sfx.py`) baut daraus fünf Ebenen: `impact` für Schnitte und
+  Hintergrundwechsel, `whoosh` für Marker und Pfeile (dem Strich im Stereobild folgend),
+  `click` für Zeilenanfänge, `tick` für den Rasteraufbau, `riser` als Anlauf vor den grossen
+  Punkten. Kalibriert an der Messung, nicht geschätzt:
+
+  | | Referenz | NEXPT |
+  |---|---|---|
+  | Bandbalance Sub/Bass/TM/M/H/Luft | 0 / −3.3 / −10.4 / −16.6 / −26.8 / −29.3 dB | auf ±1.1 dB angeglichen |
+  | Abklingzeit der Akzente | Median 649 ms | 0.55–1.05 s je Art |
+  | Akzentspitze über dem Bett | +11.0 dB | **+11.5 dB** |
+  | Akzent zum Bildereignis | Median +15 ms | **+3 ms**, 86 % innerhalb 50 ms |
+
+  Die Entzerrung rät nicht: sie misst die gebaute Spur, hält sie gegen die Referenzkurve und
+  wendet die Differenz an, begrenzt auf ±10 dB. Die erste, von Hand eingestellte Fassung lag bei
+  Mitten −38 dB gegen −17 und bei Luft −92 gegen −29 — also völlig daneben.
+
+- **Die Halte-Beats bleiben stumm.** Im Cue Sheet stehen sie als eigene Einträge mit `stille`.
+  „(das ist der Trick)", „NEIN.", „(auch nicht im UI)" leben davon, dass nichts passiert. Und von
+  den 157 Text-Chunks bekommt nur der erste je Zeile einen Klick — alle zu vertonen wäre
+  Geprassel.
+
+- **Mix:** −14.4 LUFS / LRA 3.9 (Apple −17.7 / 4.3 · Samsung −13.6 / 7.7). Wir liegen bei der
+  Lautheit nahe an Samsung — auf der Messe trägt das — und bei der Dynamik näher an Apple, weil
+  unser Film durchgehend gesprochen ist und deshalb weniger atmet. Die Musik hat **zwei**
+  Sidechains: sie tritt unter der Stimme zurück und unter jedem Akzent (Ratio 8, Attack 4 ms).
+  Das ist die „gezielte musikalische Pause, damit Effekte hörbar bleiben" — nur automatisch statt
+  von Hand geschrieben.
+
+  Zum Vergleichen: `sh render/mischen.sh --ohne-effekte` baut dieselbe Mischung ohne
+  Sounddesign.
+
 - **Stand-Loop-Fassung:** Die Stimme ist ein Schalter — `sh render/mischen.sh --ohne-stimme`
   und `python3 render/bauen.py --ohne-stimme` bauen `NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4`:
   dasselbe Bild, nur Percussion und Effekte. Ohne Stimme fällt zweierlei weg — das Ducking,

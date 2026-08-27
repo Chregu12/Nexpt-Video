@@ -22,7 +22,7 @@ Daraus folgt dieser Aufbau: eine leise, getragene Flaeche, die je Akt die
 Tonart wechselt, ohne Puls und ohne Percussion. Effekte nur als seltene
 Akzente, per --sfx steuerbar.
 
-    python3 sounddesign.py                -> out/sfx.wav
+    python3 sounddesign.py --drums        -> out/drums.wav (optional, aus)
     python3 sounddesign.py --sfx none     ganz ohne Effekte (Apples Fassung)
     python3 sounddesign.py --drums        Schlagzeug auf die Einblendungen
     python3 sounddesign.py --drums --bpm 118
@@ -85,38 +85,13 @@ for s in cfg["scenes"]:
     if not acts or acts[-1][0] != a: acts.append([a, s["start"], 0])
     acts[-1][2] = s["start"] + s["dur"]
 
-# ── Effekte: nur wenige Akzente ───────────────────────────────────────────
+# ── Effekte gehoeren hier nicht mehr her ──────────────────────────────────
+# Hier standen drei sparsame Akzente — passend zur ersten Referenz, die
+# gemessen KEIN Sounddesign auf den Bildereignissen hat. Die zweite Referenz
+# hat es, und zwar 134 Akzente statt drei. Das baut jetzt render/sfx.py aus
+# out/analysis/cue_sheet.json; diese Datei schreibt out/sfx.wav nicht mehr an,
+# sonst haette der naechste Lauf das Sounddesign ueberschrieben.
 sfx = np.zeros(N)
-def env(n, a, d, p=2.0):
-    at = np.linspace(0, 1, max(1, int(a*SR)))
-    dc = np.linspace(1, 0, max(1, n-len(at))) ** p
-    return np.concatenate([at, dc])[:n]
-
-def impact(dur=0.9):                       # tiefer Schwung, kein Schlag
-    n = int(dur*SR); t = np.arange(n)/SR
-    return (np.sin(2*np.pi*(44 + 26*np.exp(-t*9))*t) * env(n, 0.05, dur, 2.4))
-
-def swell(dur=0.7):                        # Rauschanstieg, endet im Nichts
-    n = int(dur*SR)
-    x = rng.standard_normal(n)
-    X = np.fft.rfft(x); f = np.fft.rfftfreq(n, 1/SR)
-    X *= np.clip(1 - np.abs(f-1400)/3200, 0, 1)
-    return np.fft.irfft(X, n) * (np.linspace(0, 1, n) ** 2)
-
-if SFX_MODE != "none":
-    scn = {s["id"]: s for s in cfg["scenes"]}
-    # Genau drei Akzente — an den drei Momenten, die den Film tragen.
-    if "12_nein" in scn:
-        place(sfx, impact(1.1), scn["12_nein"]["start"], 0.55)
-    if "22c_keine" in scn:
-        st = [l for l in scn["22c_keine"]["layers"] if l["type"] == "strike"]
-        if st: place(sfx, swell(0.8), scn["22c_keine"]["start"] + st[0]["t"] - 0.55, 0.42)
-    if "15_element" in scn:
-        c = [l for l in scn["15_element"]["layers"] if l["type"] == "card"]
-        if c:
-            n = int(0.05*SR); t = np.arange(n)/SR
-            klick = np.sin(2*np.pi*900*t) * env(n, 0.0008, 0.05, 3.5)
-            place(sfx, klick, scn["15_element"]["start"] + c[0]["swapAt"], 0.20)
 
 # ── Drumline-Percussion ──────────────────────────────────────────────────
 # Referenz: „Rhythm Mischief" (Cold Storage Percussion Unit), ~118 BPM —
@@ -295,5 +270,4 @@ def wav(path, x, peak):
 if "--drums" in sys.argv:
     wav(OUT / "drums.wav", drums, 0.80)
     print(f"out/drums.wav — Schlaege auf den Bildereignissen")
-wav(OUT / "sfx.wav",   sfx,   0.55 if SFX_MODE != "none" else 0.0)
-print(f"out/sfx.wav (Modus: {SFX_MODE})   {TOT:.1f}s — Musik kommt aus musik.py")
+print(f"out/drums.wav  {TOT:.1f}s — Musik aus musik.py, Effekte aus sfx.py")

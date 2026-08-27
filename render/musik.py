@@ -2,8 +2,8 @@
 """
 Die Musikspur auf den Film legen. Zwei Betriebsarten, automatisch gewaehlt:
 
-    kuerzer als der Film   -> LOOP: die Takte werden auf 68 Filmtakte
-                              arrangiert, nach der Dramaturgie ausgewaehlt
+    kuerzer als der Film   -> LOOP: die Schleife laeuft durch, laengentreu
+                              auf das Filmraster gerechnet
     laenger als der Film   -> SCHNITT: der Track wird auf Taktkanten gekuerzt
 
     python3 musik.py                        out/_musik/apple-style-118.mp3
@@ -121,96 +121,52 @@ print(f"gemessen: {BPM:.2f} BPM · erster Takt {DB0:.3f}s · Takt {BAR:.4f}s")
 if "--raster" in sys.argv:
     sys.exit(0)
 
-# ── Loop-Modus: kurze Schleife auf Filmlaenge arrangieren ─────────────────
-# Der zweite gelieferte Track ist keine Komposition ueber 3 Minuten, sondern
-# ein sauberer 16-Takt-Loop: 33.54 s, 118.01 BPM, erster Downbeat 0.480 s,
-# danach digitale Stille. Gemessen spielt er sehr eng auf sein eigenes Raster
-# (Median 1-2 ms zum Sechzehntel) und hat mit 38 starken Anschlaegen auf
-# 33.5 s dieselbe Dichte wie die Referenz — 52% der Viertel tragen einen
-# Schlag.
+# ── Loop-Modus: die Schleife laufen lassen ───────────────────────────────
+# Der eigene Track ist ein sauberer 16-Takt-Loop: 33.54 s, 118.01 BPM, erster
+# Downbeat 0.480 s, danach digitale Stille. 68 Filmtakte sind also 4¼
+# Durchlaeufe.
 #
-# Was ihm fehlt, ist der Verlauf. Die Pegel der 16 Takte liegen zwischen
-# -22.4 und -14.4 dB und fast alle zwischen -15 und -16: kein Breakdown, kein
-# Hochpunkt, kein Absturz. Genau die drei Stellen also, an denen der
-# lizenzierte Track dem Film ohne Zutun gefolgt ist.
+# HIER STAND EIN ARRANGEMENT, UND ES WAR EIN FEHLER. Die Idee war, die 16
+# Takte nach der Dramaturgie neu zu sortieren — duenne Takte an die Rueckzuege,
+# dichte an die Hochpunkte. Gemessen sah das gut aus. Gehoert war es schlecht,
+# und die Messung sagt auch warum:
 #
-# Deshalb wird hier arrangiert statt geloopt. Die 68 Takte des Films bekommen
-# je einen Takt aus dem Loop zugewiesen, ausgewaehlt nach dem, was der Film an
-# dieser Stelle braucht — und `None` heisst Stille. Aufeinanderfolgende
-# Quelltakte werden als EIN Block kopiert, es gibt also nur an den Spruengen
-# eine Naht.
+#   26 Nahtstellen auf 2:18, also eine alle fuenf Sekunden
+#   16 der 27 Bloecke waren nur EINEN Takt lang — der Loop sprang dort im
+#      Zweisekundentakt, jede Phrase wurde mittendrin abgeschnitten
+#   25 der 195 Anschlaege liegen naeher als 30 ms an einer Taktkante, und die
+#      Kante selbst ist leise (-46 dB kurz davor): der erste Schlag eines
+#      Takts sitzt also GENAU auf der Naht. Die 24-ms-Blende hat ihn dort
+#      jedes Mal angefressen — 26 mal ein „whoomp" statt einem „tak".
 #
-# Pegel der Quelltakte, gemessen (dB):
-#   0:-22.4  1:-17.9  2:-15.0  3:-14.9  4:-15.0  5:-14.7  6:-17.5  7:-15.9
-#   8:-15.3  9:-14.6 10:-15.2 11:-16.1 12:-19.7 13:-14.7 14:-14.4 15:-18.1
-# Duenn ist damit 0, 12, 15, 1, 6 — dicht ist 14, 9, 5, 13, 3.
-ARRANGEMENT = [
-    # Takt 0-3 · Intro: „Wir sind Raphael und Christian Heusser."
-    0, 1, 12, 15,
-    # Takt 4-6 · „Und wir haben ein Versprechen." — der Groove kommt
-    2, 3, 4,
-    # Takt 7-8 · „Moment. Nein." — zieht zurueck
-    6, 15,
-    # Takt 9-10 · „Arbeite so, wie DU willst."
-    5, 9,
-    # Takt 11 · „(ja, auch du in der Buchhaltung)"
-    12,
-    # Takt 12-18 · Sprints, Phasen, Tickets, Fristen · Softwareteam, Baustelle
-    2, 3, 4, 5, 6, 7, 8,
-    # Takt 19-20 · „Wir nennen es, wie ihr es nennt."
-    9, 10,
-    # Takt 21-26 · Die Leute, Etappe/Ticket/Frist — baut auf, wird dann duenn
-    11, 8, 9, 10, 13, 12,
-    # Takt 27-28 · „(das ist der Trick)" · „Ein Chaos?" · „NEIN." — Stille
-    None, None,
-    # Takt 29-34 · „Oben ist eure Sprache. Unten ist EIN Standard." — duenn zurueck
-    0, 1, 2, 3, 4, 5,
-    # Takt 35-41 · Uebergang Projekt -> Betrieb, baut auf
-    6, 7, 8, 9, 10, 11, 13,
-    # Takt 42-48 · „100% verbunden." · „Sehen es alle. SOFORT." — Hochpunkt
-    14, 9, 13, 14, 5, 9, 14,
-    # Takt 49-50 · „Aber Struktur ist noch keine Uebersicht. ALLEIN" — Absturz
-    12, 0,
-    # Takt 51-57 · Tabelle, Dateistapel, „Bei uns gibt es keine." — baut wieder auf
-    1, 2, 3, 4, 5, 6, 7,
-    # Takt 58 · „(auch nicht im UI)" — Stille
-    None,
-    # Takt 59-67 · „Du siehst, was du brauchst." bis „NEXPT ist dein Partner"
-    8, 9, 10, 13, 14, 9, 13, 14, 14,
-]
+# Ein Loop ist an seiner eigenen Rundung nahtlos, an jeder anderen Stelle
+# nicht. Deshalb laeuft er jetzt einfach durch. Was der Film an Rueckzuegen
+# braucht, macht das Ducking an den Halte-Beats weiter unten — das ist eine
+# Pegelbewegung und schneidet nichts.
+def loop_legen(roh, db0, bar_quelle, n_quelltakte, takte_film, bar_ziel, sr):
+    """Legt den Loop laengentreu auf das Filmraster und wiederholt ihn.
 
-def arrangieren(roh, db0, bar_quelle, n_quelltakte, takte_film, bar_ziel, sr):
-    """Baut aus den Quelltakten die Filmlaenge. Laeuft eine Folge von
-    Quelltakten aufeinander, wird sie als ein Block kopiert — dann gibt es
-    dort gar keine Naht. Nur an den Spruengen wird geblendet."""
-    if len(ARRANGEMENT) != takte_film:
-        raise SystemExit(f"ARRANGEMENT hat {len(ARRANGEMENT)} Takte, "
-                         f"der Film {takte_film}. Beides muss gleich sein.")
-    N = int((takte_film * bar_ziel + 0.5) * sr)
+    Die Quelle laeuft mit 118.01, der Film mit 118.00 — ueber 68 Takte waeren
+    das 12 ms Auseinanderlaufen. Der Loop wird deshalb EINMAL auf die exakte
+    Ziellaenge gerechnet (3.2 ms auf 32.5 s, also 0.01 %) und danach nur noch
+    aneinandergehaengt. So bleibt er bis zum Schluss im Raster, und die einzige
+    Naht ist die des Loops selbst."""
+    i0 = int(db0 * sr)
+    i1 = min(len(roh), int((db0 + n_quelltakte * bar_quelle) * sr))
+    quelle_ = roh[i0:i1]
+    ziel_n  = int(round(n_quelltakte * bar_ziel * sr))
+    alt = np.arange(len(quelle_))
+    neu_ = np.linspace(0, len(quelle_) - 1, ziel_n)
+    schleife = np.stack([np.interp(neu_, alt, quelle_[:, k]) for k in range(2)], axis=1)
+
+    N = int(round(takte_film * bar_ziel * sr))
     aus = np.zeros((N, 2))
-    blende = int(0.024 * sr)
-    i = 0
-    while i < takte_film:
-        if ARRANGEMENT[i] is None:
-            i += 1; continue
-        j = i
-        while (j + 1 < takte_film and ARRANGEMENT[j+1] is not None
-               and ARRANGEMENT[j+1] == ARRANGEMENT[j] + 1
-               and ARRANGEMENT[j+1] < n_quelltakte):
-            j += 1
-        s0 = db0 + ARRANGEMENT[i] * bar_quelle
-        laenge = (j - i + 1) * bar_quelle
-        i0 = int(s0 * sr); i1 = min(len(roh), int((s0 + laenge) * sr))
-        block = roh[i0:i1].copy()
-        ziel = int(i * bar_ziel * sr)
-        m = min(len(block), N - ziel)
-        if m > 2 * blende:
-            block = block[:m]
-            block[:blende]  *= np.sqrt(np.linspace(0, 1, blende))[:, None]
-            block[-blende:] *= np.sqrt(np.linspace(1, 0, blende))[:, None]
-            aus[ziel:ziel+m] += block
-        i = j + 1
-    return aus
+    pos = 0
+    while pos < N:
+        m = min(len(schleife), N - pos)
+        aus[pos:pos+m] += schleife[:m]
+        pos += m
+    return aus, len(schleife)/sr
 
 # ── Der Schnitt ───────────────────────────────────────────────────────────
 # (von Takt, bis Takt, Versatz in Sekunden).
@@ -262,19 +218,13 @@ TAKTE_FILM = int(round(TOT / (240/118.0)))
 LOOP = len(roh)/SR < TOT - 1.0
 
 if LOOP:
-    # Das Zielraster ist das des FILMS (118.00 BPM exakt), nicht das der
-    # Quelle. Der Loop misst 118.01 — ueber 68 Takte waeren das 12 ms
-    # Auseinanderlaufen. Die Quelltakte werden deshalb auf die Ziel-Taktlaenge
-    # gelegt; der Unterschied betraegt 0.17 ms je Takt und ist nicht hoerbar.
     BAR_ZIEL = 240/118.0
     n_quell  = int((len(roh)/SR - DB0) / BAR + 1e-6)
-    print(f"  Loop mit {n_quell} Takten -> {TAKTE_FILM} Takte Film, arrangiert")
-    musik = arrangieren(roh, DB0, BAR, n_quell, TAKTE_FILM, BAR_ZIEL, SR)
+    musik, laenge = loop_legen(roh, DB0, BAR, n_quell, TAKTE_FILM, BAR_ZIEL, SR)
     if len(musik) < N: musik = np.vstack([musik, np.zeros((N-len(musik), 2))])
     musik = musik[:N]
-    still = sum(1 for x in ARRANGEMENT if x is None)
-    print(f"  {still} Takte Stille, {len(set(x for x in ARRANGEMENT if x is not None))} "
-          f"von {n_quell} Quelltakten verwendet")
+    print(f"  Loop mit {n_quell} Takten ({laenge:.3f}s) -> {TAKTE_FILM} Takte Film, "
+          f"{TAKTE_FILM/n_quell:.2f} Durchlaeufe, {TAKTE_FILM//n_quell} Nahtstellen")
 else:
     musik = np.zeros((N, 2))
     # Die Teile werden nacheinander gesetzt; der Versatz jedes Teils verschiebt
