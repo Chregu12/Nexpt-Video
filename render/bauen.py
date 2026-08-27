@@ -10,8 +10,13 @@ dieses Skript ab:
   3. Clips waren zwar vollstaendig, aber aelter als timing.json - die
      Dauerpruefung greift dort nicht, weil sich nur Farben geaendert hatten.
 
-    python3 bauen.py            pruefen und bauen
-    python3 bauen.py --check    nur pruefen
+    python3 bauen.py                  pruefen und bauen
+    python3 bauen.py --check          nur pruefen
+    python3 bauen.py --ohne-stimme    Fassung ohne Voice-Over bauen
+    python3 bauen.py --neu            Bild neu kodieren, auch wenn es aktuell ist
+
+--ohne-stimme legt die Standloop-Fassung an: Bild plus Percussion, keine
+Sprache. Die Tonspur dazu kommt aus `sh render/mischen.sh --ohne-stimme`.
 """
 import json, os, re, subprocess, sys, glob
 from pathlib import Path
@@ -68,19 +73,37 @@ if fehler:
 print(f"✓ {len(soll)} Clips vollstaendig, aktuell und in Solldauer")
 if "--check" in sys.argv: sys.exit(0)
 
-liste = OUT / "concat.txt"
-liste.write_text("".join(f"file 'scenes/{s['id']}.mov'\n" for s in cfg["scenes"]), encoding="utf-8")
+# Das Bild einmal kodieren, nicht je Tonfassung. Die Fingerabdruckpruefung
+# oben hat schon bestaetigt, dass die Clips zur timing.json passen — bleibt
+# die Frage, ob der Zusammenschnitt juenger ist als der juengste Clip.
+# --neu erzwingt die Kodierung trotzdem.
 V = OUT / "NEXPT-Keynote-ANIMATIC.mp4"
-subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0",
-    "-i", str(liste), "-vf",
-    "scale=in_range=tv:out_range=tv:in_color_matrix=bt709:out_color_matrix=bt709",
-    "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
-    "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
-    "-movflags", "+faststart", str(V)], check=True, cwd=OUT)
-liste.unlink()
+juengster = max(( OUT / "scenes" / f"{s['id']}.mov").stat().st_mtime for s in cfg["scenes"])
+if V.exists() and V.stat().st_mtime > juengster and "--neu" not in sys.argv:
+    print(f"· {V.name} ist aktuell — Bild nicht neu kodiert (--neu erzwingt es)")
+else:
+    liste = OUT / "concat.txt"
+    liste.write_text("".join(f"file 'scenes/{s['id']}.mov'\n" for s in cfg["scenes"]), encoding="utf-8")
+    subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0",
+        "-i", str(liste), "-vf",
+        "scale=in_range=tv:out_range=tv:in_color_matrix=bt709:out_color_matrix=bt709",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
+        "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
+        "-movflags", "+faststart", str(V)], check=True, cwd=OUT)
+    liste.unlink()
+# Feature-Flag Stimme: mit Voice-Over die Scratchfassung, ohne die
+# Standloop-Fassung. Beide bekommen dasselbe Bild — nur der Ton wechselt.
+OHNE = "--ohne-stimme" in sys.argv
+ton  = OUT / ("ton-final-ohne-stimme.wav" if OHNE else "ton-final.wav")
+ziel = OUT / ("NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4" if OHNE
+              else "NEXPT-Keynote-ANIMATIC-SCRATCH.mp4")
+if not ton.exists():
+    schalter = " --ohne-stimme" if OHNE else ""
+    print(f"{ton.name} fehlt — erst `sh render/mischen.sh{schalter}` laufen lassen.")
+    sys.exit(1)
 subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-y", "-i", str(V),
-    "-i", str(OUT/"ton-final.wav"), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-    "-shortest", "-movflags", "+faststart",
-    str(OUT/"NEXPT-Keynote-ANIMATIC-SCRATCH.mp4")], check=True)
+    "-i", str(ton), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+    "-shortest", "-movflags", "+faststart", str(ziel)], check=True)
 tot = max(s["start"]+s["dur"] for s in cfg["scenes"])
-print(f"✓ gebaut: {int(tot//60)}:{tot%60:04.1f}")
+print(f"✓ gebaut: {ziel.name} — {int(tot//60)}:{tot%60:04.1f}"
+      f"{' (ohne Stimme)' if OHNE else ''}")

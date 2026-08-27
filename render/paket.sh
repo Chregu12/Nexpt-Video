@@ -8,6 +8,7 @@ cd "$(dirname "$0")/.." || exit 1
 rm -f out/NEXPT-Keynote-Paket.zip
 zip -q -r out/NEXPT-Keynote-Paket.zip \
   out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4 out/NEXPT-Keynote-ANIMATIC.mp4 \
+  out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4 \
   out/NEXPT-Keynote.fcpxml out/scratch-vo.wav out/stills \
   render KEYNOTE-FILM-KONZEPT.md README.md \
   -x "render/voices/*.onnx" "render/fonts/*" "render/asr/whisper-*/*"

@@ -471,8 +471,12 @@ eingeebnet werden.
 - **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
   trockenes Geräusch. Das ist der halbe Effekt des Referenzfilms. Der Etikettwechsel bei 0:38
   bekommt **ein einziges** Klicken — sonst nichts.
-- **Stand-Loop-Fassung:** ohne Ton, mit Untertiteln, **Standzeiten +40 %**. Bei 0.46 s pro
-  Änderung ist der Film ohne Sprecher sonst nicht lesbar.
+- **Stand-Loop-Fassung:** Die Stimme ist ein Schalter — `sh render/mischen.sh --ohne-stimme`
+  und `python3 render/bauen.py --ohne-stimme` bauen `NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4`:
+  dasselbe Bild, nur Percussion und Effekte. Ohne Stimme fällt zweierlei weg — das Ducking,
+  weil nichts mehr duckt, und die 175-Hz-Senke, die nur die Grundtöne der Stimme freiräumte.
+  Für den Stand kommen **Untertitel** dazu; wenn dort niemand mitliest, gehören die
+  **Standzeiten +40 %**, weil der Film ohne Sprecher sonst nicht lesbar ist.
 
 ---
 
