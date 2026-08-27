@@ -120,9 +120,9 @@ for i,(_, a, b) in enumerate(acts):
     while t < b - 0.4:
         halbton = FIGUR[k % len(FIGUR)]
         # jeder zweite Anschlag leiser, das gibt der Figur einen Atem
-        amp = 0.34 if k % 2 == 0 else 0.20
+        amp = 0.13 if k % 2 == 0 else 0.07
         place(music, anschlag(f0 * 2**(halbton/12), 0.9, amp), t)
-        t += schlag * (1.0 if k % 4 != 3 else 1.5)    # kleine Verzoegerung am Taktende
+        t += schlag * (2.0 if k % 4 != 3 else 3.0)    # halb so dicht, Luft dazwischen
         k += 1
 
 # ── Bass auf die Eins ────────────────────────────────────────────────────
@@ -131,7 +131,7 @@ for i,(_, a, b) in enumerate(acts):
     t = a + 0.25
     while t < b - 0.3:
         n=int(0.55*SR); tt=np.arange(n)/SR
-        place(music, np.sin(2*np.pi*f0*tt)*np.exp(-tt*3.0)*np.minimum(1,tt/0.008), t, 0.30)
+        place(music, np.sin(2*np.pi*f0*tt)*np.exp(-tt*3.0)*np.minimum(1,tt/0.008), t, 0.11)
         t += schlag*2
 
 music = lowpass(music, 2600)               # Instrument braucht mehr Luft als die Flaeche allein
@@ -180,63 +180,120 @@ if SFX_MODE != "none":
             klick = np.sin(2*np.pi*900*t) * env(n, 0.0008, 0.05, 3.5)
             place(sfx, klick, scn["15_element"]["start"] + c[0]["swapAt"], 0.20)
 
-# ── Schlagzeug: spielt die Schrift, nicht ein Raster ─────────────────────
+# ── Drumline-Percussion ──────────────────────────────────────────────────
+# Referenz: „Rhythm Mischief" (Cold Storage Percussion Unit), ~118 BPM —
+# Drumline-Snare, Toms, Rim Clicks, kurze gedaempfte Schlaege, mit
+# Free-Jazz-Freiheit. Genau diese Freiheit hat meinen frueheren Test
+# scheitern lassen: er verlangte Regelmaessigkeit und haette damit auch
+# einen echten Schlagzeuger durchfallen lassen.
+#
+# Hier laeuft eine Groove-Ebene auf 118 BPM, und die AKZENTE sitzen auf
+# den Bildereignissen aus timing.json. Der Groove traegt, das Bild fuehrt.
 drums = np.zeros(N)
 if "--drums" in sys.argv:
-    def kick(dur=0.16):
-        n=int(dur*SR); t=np.arange(n)/SR
-        return np.sin(2*np.pi*(96*np.exp(-t*26)+44)*t) * env(n,0.001,dur,2.8)
-    def snare(dur=0.13):
-        n=int(dur*SR)
-        k=bp(rng.standard_normal(n),260,5200)*env(n,0.0008,dur,2.4)
-        t=np.arange(n)/SR
-        return k*0.85 + np.sin(2*np.pi*195*t)*env(n,0.001,0.05,3.0)*0.35
-    def hat(dur=0.028):
-        n=int(dur*SR)
-        return bp(rng.standard_normal(n),6500,15000)*env(n,0.0004,dur,1.4)
-    def rim(dur=0.05):
-        n=int(dur*SR); t=np.arange(n)/SR
-        return (np.sin(2*np.pi*1750*t)*env(n,0.0005,dur,3.2)*0.6
-                + bp(rng.standard_normal(n),2500,9000)*env(n,0.0004,0.012,1.5)*0.4)
+    BPM = float(arg("--bpm", "118")); BEAT = 60.0/BPM; S16 = BEAT/4
 
-    JIT=[0.55,1.0,0.72,1.5,0.85,1.25,0.6,1.1]     # identisch zu film.html
-    def chunk_n(text):
-        return sum(2 if len(w)>=8 else 1 for w in text.split())
+    def snare(dur=0.115, hell=1.0, amp=1.0):
+        """Marching Snare: trocken, hell, sehr kurz."""
+        n=int(dur*SR); t=np.arange(n)/SR
+        k = bp(rng.standard_normal(n), 320, 9000*hell) * np.exp(-t*46)
+        k += bp(rng.standard_normal(n), 2600, 11000) * np.exp(-t*95) * 0.55   # Teppich
+        k += np.sin(2*np.pi*205*t) * np.exp(-t*60) * 0.22                     # Kessel
+        return k * np.minimum(1, t/0.0006) * amp
 
+    def buzz(dur=0.30, amp=0.55):
+        """Wirbel: viele Schlaege, abnehmend."""
+        n=int(dur*SR); out=np.zeros(n); t=0.0; a=1.0
+        while t < dur-0.03:
+            h=snare(0.045, 1.0, a); k=int(t*SR)
+            out[k:k+len(h)] += h[:max(0,len(out)-k)]
+            t += 0.021 + rng.random()*0.006; a *= 0.90
+        return out*amp
+
+    def tom(f0=118, dur=0.24, amp=1.0):
+        n=int(dur*SR); t=np.arange(n)/SR
+        v = np.sin(2*np.pi*(f0*np.exp(-t*7)+f0*0.62)*t) * np.exp(-t*13)
+        v += bp(rng.standard_normal(n), 200, 2600) * np.exp(-t*55) * 0.30
+        return v * np.minimum(1, t/0.001) * amp
+
+    def rim(dur=0.055, amp=1.0):
+        """Das Klack-Klack: Stock auf Rand."""
+        n=int(dur*SR); t=np.arange(n)/SR
+        v = bp(rng.standard_normal(n), 1500, 7000) * np.exp(-t*130)
+        v += np.sin(2*np.pi*1680*t) * np.exp(-t*110) * 0.45
+        return v * np.minimum(1, t/0.0004) * amp
+
+    def gedaempft(dur=0.07, amp=1.0):
+        """Kurzer, stark gedaempfter Schlag."""
+        n=int(dur*SR); t=np.arange(n)/SR
+        return bp(rng.standard_normal(n), 500, 4200) * np.exp(-t*80) * np.minimum(1,t/0.0006) * amp
+
+    # Groove: 16tel-Raster, Drumline-Muster mit Synkopen und Geisternoten.
+    # 16 Positionen je Takt. S=Snare, g=Geisternote, r=Rim, t=Tom, .=Pause
+    # Zehn Muster statt vier, dazu leere und sehr duenne Takte. Gemessen war
+    # meine erste Fassung mit Staerke 0.665 viel metronomischer als das Original
+    # (0.104) - Free Jazz heisst, dass das Muster bricht.
+    MUSTER = [
+      # Fast die Haelfte der Takte ist leer oder fast leer. Genau das meint
+      # „negative space": der Groove setzt aus und kommt wieder.
+      "..g.S..g..r.S.g.",  "................",  "....S.......S...",
+      "..g.S.tg..r.S...",  "................",  "..r.........r...",
+      "S..gr.g.S...r...",  "................",  "....S...........",
+      "..g.S..g..r.....",  "t...............",  "................",
+      "..r.S..t....S...",  "................",  "......r.........",
+      "....S..g........",  "................",  "..g.S..g..r.S.tt",
+    ]
+    ende = TOT
+    takt = 0; t = 0.0
+    folge = [int(rng.integers(0, len(MUSTER))) for _ in range(400)]   # fest, nicht zufaellig je Lauf
+    stille_bis = -1.0
+    while t < ende:
+        if t < stille_bis:                      # bewusster Aussetzer
+            t += BEAT*4; takt += 1; continue
+        if rng.random() < 0.16:                 # gelegentlich ganz aufhoeren
+            stille_bis = t + BEAT*4*(1 if rng.random()<0.6 else 2)
+        m = MUSTER[folge[takt % len(folge)]]
+        for i16, z in enumerate(m):
+            tt = t + i16*S16
+            if tt >= ende: break
+            still = any(sc["id"] in HALT and sc["start"] <= tt < sc["start"]+sc["dur"]
+                        for sc in cfg["scenes"])
+            if still: continue
+            # Versatz und Anschlagstaerke schwanken — ein Schlagzeuger spielt
+            # nie zweimal gleich. Ohne das klingt es wie ein Drumcomputer.
+            swing = (S16*0.16 if i16 % 2 else 0.0) + (rng.random()-0.5)*0.012
+            dyn   = 0.72 + rng.random()*0.5
+            if   z=="S": place(drums, snare(0.115,1.0,1.0), tt+swing, 0.52*dyn)
+            elif z=="g": place(drums, snare(0.075,0.8,0.34), tt+swing, 0.30*dyn)
+            elif z=="r": place(drums, rim(), tt+swing, 0.42*dyn)
+            elif z=="t": place(drums, tom(118+rng.random()*22), tt+swing, 0.40*dyn)
+        t += BEAT*4; takt += 1
+
+    # Akzente auf die Bildereignisse — hier fuehrt das Bild den Groove.
     for s_ in cfg["scenes"]:
-        t0, still = s_["start"], s_["id"] in HALT
-        g = 0.0 if still else 1.0                  # Halte-Beats bleiben still
-        place(drums, kick(), t0, 0.85*g)           # jede Szene beginnt mit einem Schlag
+        t0 = s_["start"]
+        if s_["id"] in HALT: continue
+        place(drums, tom(96, 0.30), t0, 0.62)                    # jeder Szenenanfang
         for f in s_.get("bgFlips", []):
-            place(drums, kick(), t0+f["t"], 0.80*g)
+            place(drums, snare(0.13,1.0,1.0), t0+f["t"], 0.72)   # Hintergrundwechsel
         for l in s_.get("layers", []):
             lt, ty = t0 + l.get("t", 0), l["type"]
-            if ty == "text" and l.get("mode") == "words":
-                st_, acc = l.get("step", 0.145), 0.0
-                n_ = chunk_n(l["text"])
-                for i in range(n_):
-                    if i and l.get("lastDelay") and i == n_-1: acc += l["lastDelay"]
-                    place(drums, hat(), lt+acc, (0.20 if i else 0.30)*g)
-                    acc += st_ * JIT[i % len(JIT)]
-            elif ty == "markerText":
-                place(drums, snare(), lt+ (l.get("draw",0.3)*0.55), 0.62*g)
-            elif ty in ("underline","doodle"):
-                place(drums, rim(), lt, 0.34*g)
+            if ty == "markerText":
+                place(drums, rim(0.06,1.0), lt + l.get("draw",0.3)*0.5, 0.55)
             elif ty == "levels":
                 for k in range(len(l["items"])):
-                    place(drums, rim(), lt+k*l["step"], 0.45*g)
+                    place(drums, gedaempft(), lt+k*l["step"], 0.48)
             elif ty == "pile":
                 for k in range(len(l["files"])):
-                    place(drums, snare(), lt+k*l.get("step",.42), 0.30+0.09*k)
-            elif ty == "grid":
-                for k in range(20):
-                    place(drums, hat(), lt+l["grow"]*(k/20)**1.7, 0.10+0.02*k)
+                    place(drums, snare(0.10,0.9,0.7), lt+k*l.get("step",.42), 0.30+0.10*k)
             elif ty == "card" and l.get("swapAt") is not None:
-                place(drums, kick(0.20), t0+l["swapAt"], 0.95)
+                place(drums, tom(88, 0.36), t0+l["swapAt"], 0.95)
             elif ty == "strike":
-                place(drums, kick(0.26), lt+0.1, 1.0); place(drums, snare(0.2), lt+0.1, 0.7)
-            elif ty == "role":
-                place(drums, rim(), lt, 0.40*g)
+                place(drums, buzz(0.34,0.8), lt-0.30, 0.85)      # Wirbel in den Strich hinein
+                place(drums, snare(0.15,1.0,1.0), lt+0.10, 0.95)
+            elif ty == "grid":
+                for k in range(14):
+                    place(drums, rim(0.04, 0.6), lt+l["grow"]*(k/14)**1.7, 0.16+0.03*k)
 
 def wav(path, x, peak):
     x = np.nan_to_num(x)

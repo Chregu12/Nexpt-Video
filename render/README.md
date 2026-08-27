@@ -35,15 +35,32 @@ sh render/mischen.sh                     # Stimme, Musik, Effekte → out/ton-fi
 
 | gemessen an `apple.wav` (75.8 s) | Ergebnis |
 |---|---|
-| Energie an 15 Bildschnitten | Median **0.80× / 0.50× / 0.52×** (Sub/Mitten/Höhen) — sie *fällt*. Nur 2 von 15 tragen einen Anschlag, beide auf B-Roll-Schnitten (Originalton). **Kein Sounddesign auf Bildereignissen.** |
-| Periodizität Sub 25–90 Hz | 0.355 bei 182 BPM = Sprachsilben |
-| Periodizität 3–9 kHz | **0.062 — kein Hut, kein Kick, kein Schlagzeug** |
-| leiseste Fenster (−41 dB) | Dauerton **156–160 Hz (Es3)**, dazu 124 Hz (H2), 52 Hz (Gis1) → getragene **Fläche** |
+| Energie an 15 Bildschnitten | Median **0.80× / 0.50× / 0.52×** — sie *fällt*. Kein Sounddesign auf Bildereignissen. |
+| Periodizität, perkussiv (HPSS) | **119.7 BPM, Stärke 0.104** — vorhanden, aber sehr frei gespielt |
+| leiseste Fenster (−41 dB) | Dauerton **156–160 Hz (Es3)** → getragene Fläche |
 | Spektrale Neigung | Sub 57, Bass 59, Tiefmitten 55, Mitten 47, Höhen 39, Luft 30 dB |
-| Schluss | bei 68.0 s **absolute digitale Stille**, kein Ausklang |
+| Schluss | bei 68.0 s **absolute digitale Stille** |
 
-Daraus: eine leise, getragene Fläche, die je Akt die Tonart wechselt — **ohne Puls, ohne
-Percussion**. Effekte nur als seltene Akzente:
+**Der Track ist identifiziert:** „Rhythm Mischief" von Cold Storage Percussion Unit,
+~118 BPM — Drumline-Snare, Toms, Rim Clicks, kurze gedämpfte Schläge, mit Free-Jazz-Freiheit.
+
+**Zwei Fehlschlüsse meinerseits, beide dokumentiert:** Mein erster Test suchte nach
+Perkussion mit einem Regelmässigkeits-Kriterium (>0.6) — daran wäre auch ein echter
+Schlagzeuger gescheitert; frei gespielte Drumline-Percussion ist absichtlich unregelmässig.
+Mein zweiter Test suchte nach einem Melodieinstrument und fand einen Bass, wo Percussion war.
+
+Daraus gebaut: eine sehr leise Fläche mit sparsamer Melodiefigur, darüber eine
+**Drumline-Percussion** auf 118 BPM. Der Groove läuft, die **Akzente sitzen auf den
+Bildereignissen** aus `timing.json` — Snare auf jeden Hintergrundwechsel, Rim Click auf
+jeden Marker, gedämpfter Schlag auf jede der fünf Stufen, Tom auf den Etikettwechsel,
+Wirbel in den Strich durchs Raster hinein.
+
+**Viel Leerraum:** 18 Muster, davon die Hälfte leer oder fast leer, dazu eingestreute
+Aussetzer von ein bis zwei Takten. Anschlagstärke und Versatz schwanken je Schlag, sonst
+klingt es wie ein Drumcomputer. Gemessene Regelmässigkeit: **0.283** — von 0.665 in der
+ersten Fassung heruntergearbeitet; das Original liegt bei 0.104.
+
+Effekte nur als seltene Akzente:
 
 ```bash
 python3 render/sounddesign.py              # drei Akzente (NEIN., Raster, Etikettwechsel)
