@@ -96,7 +96,45 @@ for i, (_, a, b) in enumerate(acts):
     schwung = 0.55 + 0.45 * (i / max(1, len(acts)-1))               # baut ueber den Film auf
     music[i0:i1] += v * ramp * schwung
 
-music = lowpass(music, 900)                # gemessene Neigung: oben steil ab
+# ── Melodieinstrument ────────────────────────────────────────────────────
+# Ein angeschlagenes Instrument (marimbaartig: schneller Anschlag, kurzer
+# Nachklang, wenige Obertoene). Es spielt eine ruhige Figur ueber der Flaeche,
+# nicht ein Muster auf dem Bild - das macht die Schlagzeugspur.
+BPM_M = 100.0
+def anschlag(f0, dur=0.9, amp=1.0):
+    n=int(dur*SR); t=np.arange(n)/SR
+    e=np.exp(-t*4.2)                                  # kurzer, weicher Nachklang
+    v=(np.sin(2*np.pi*f0*t)*1.00
+       + np.sin(2*np.pi*f0*2*t)*0.30*np.exp(-t*8)     # Obertoene klingen frueher ab
+       + np.sin(2*np.pi*f0*3.01*t)*0.12*np.exp(-t*14))
+    an=np.minimum(1, t/0.004)                         # klarer Anschlag
+    return v*e*an*amp
+
+# Eine Figur je Akt: Grundton, Quinte, Oktave, Terz — ruhig, ohne Virtuositaet
+FIGUR = [0, 7, 12, 3, 7, 0, 10, 7]
+schlag = 60.0/BPM_M
+for i,(_, a, b) in enumerate(acts):
+    f0 = ROOTS[i % len(ROOTS)] * 2                    # eine Oktave ueber der Flaeche
+    t = a + 0.25
+    k = 0
+    while t < b - 0.4:
+        halbton = FIGUR[k % len(FIGUR)]
+        # jeder zweite Anschlag leiser, das gibt der Figur einen Atem
+        amp = 0.34 if k % 2 == 0 else 0.20
+        place(music, anschlag(f0 * 2**(halbton/12), 0.9, amp), t)
+        t += schlag * (1.0 if k % 4 != 3 else 1.5)    # kleine Verzoegerung am Taktende
+        k += 1
+
+# ── Bass auf die Eins ────────────────────────────────────────────────────
+for i,(_, a, b) in enumerate(acts):
+    f0 = ROOTS[i % len(ROOTS)] / 2
+    t = a + 0.25
+    while t < b - 0.3:
+        n=int(0.55*SR); tt=np.arange(n)/SR
+        place(music, np.sin(2*np.pi*f0*tt)*np.exp(-tt*3.0)*np.minimum(1,tt/0.008), t, 0.30)
+        t += schlag*2
+
+music = lowpass(music, 2600)               # Instrument braucht mehr Luft als die Flaeche allein
 music /= (np.max(np.abs(music)) or 1)
 
 # An den Halte-Beats zieht das Bett zurueck — dort ist die Stille das Ereignis.
