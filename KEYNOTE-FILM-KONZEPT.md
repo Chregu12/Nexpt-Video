@@ -240,33 +240,33 @@ eingeebnet werden.
 
 ━━━ WER WIR SIND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:00.0  [HELL → SCHWARZ]  (3.3s · 00a_wirsind)
+ 0:00.0  [HELL]  (3.3s · 00a_wirsind)
          Wir sind Raphael und Christian Heusser.
- 0:03.3  [AKZENT → HELL]  (5.1s · 00b_warum)
+ 0:03.3  [HELL]  (5.1s · 00b_warum)
          Wir haben NEXPT gestartet, damit du arbeiten kannst.
          └ MARKER  ^STATT ZU ORGANISIEREN.   (+3.4s)
 
 ━━━ SELBSTKORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:08.4  [HELL → SCHWARZ]  (3.6s · 01_versprechen)
+ 0:08.4  [HELL]  (3.6s · 01_versprechen)
          Und wir haben ein Versprechen.
          Und eine Meinung.
          └ MARKER  ^UND EINE MEINUNG.   (+1.9s)
- 0:12.1  [HELL → SCHWARZ]  (2.9s · 02_flip)
+ 0:12.1  [HELL → AKZENT]  (2.9s · 02_flip)
          Arbeite so, wie wir es vorsehen —.
          └ MARKER  ^SO WIE WIR   (+1.6s)
  0:14.9  [SCHWARZ]  (3.6s · 03_moment)
          Moment.
          Nein.
          Das machen alle anderen.
- 0:18.6  [AKZENT → SCHWARZ]  (3.9s · 04_ihr)
+ 0:18.6  [AKZENT]  (3.9s · 04_ihr)
          Arbeite so, wie du willst.
  0:22.5  [SCHWARZ]  (1.4s · 05_aside)
          (ja, auch du in der Buchhaltung)
 
 ━━━ FREIHEIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:23.9  [SCHWARZ → HELL → SCHWARZ → AKZENT]  (8.2s · 06_wege)
+ 0:23.9  [HELL → AKZENT]  (8.2s · 06_wege)
          Du planst in Sprints.
          Du in Phasen.
          Du in Tickets.
@@ -275,17 +275,17 @@ eingeebnet werden.
          └ MARKER  PHASEN   (+1.9s)
          └ MARKER  TICKETS   (+3.7s)
          └ MARKER  FRISTEN   (+5.5s)
- 0:32.1  [SCHWARZ → AKZENT]  (4.0s · 08_broll)
+ 0:32.1  [SCHWARZ]  (4.0s · 08_broll)
          (kein Text — drei Makro-Einstellungen)
          └ MARKER  ^DIESELBE ARBEIT   (+3.9s)
          └ MARKER  ^EINE ARBEIT   (+5.2s)
- 0:36.1  [HELL → SCHWARZ]  (5.4s · 09_flut)
+ 0:36.1  [HELL]  (5.4s · 09_flut)
          Wir nennen es, wie ihr es nennt.
          └ WORDFLOOD   (+1.2s)
 
 ━━━ DIE LEUTE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:41.5  [HELL → SCHWARZ → AKZENT → HELL → SCHWARZ]  (10.3s · 11b_rollen)
+ 0:41.5  [HELL → AKZENT]  (10.3s · 11b_rollen)
          Die Bauleiterin sieht ihre Etappe.
          Der Servicetechniker seine Tickets.
          Die Treuhänderin ihre Frist.
@@ -299,7 +299,7 @@ eingeebnet werden.
 
 ━━━ EINWAND ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:53.3  [SCHWARZ → AKZENT]  (3.0s · 12a_chaos)
+ 0:53.3  [SCHWARZ]  (3.0s · 12a_chaos)
          Vier Sichtweisen.
          Ein Chaos?.
          └ MARKER  ^ODER?   (+1.9s)
@@ -309,7 +309,7 @@ eingeebnet werden.
 
 ━━━ EIN MODELL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 0:57.9  [AKZENT → SCHWARZ]  (10.7s · 13_modell)
+ 0:57.9  [HELL → AKZENT]  (10.7s · 13_modell)
          Oben ist eure Sprache.
          Unten ist ein Standard.
          Egal ob Bau, Betrieb oder Buchhaltung.
@@ -318,23 +318,23 @@ eingeebnet werden.
 
 ━━━ ÜBERGANG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:08.6  [SCHWARZ → AKZENT → HELL]  (4.1s · 14_ende)
+ 1:08.6  [HELL]  (4.1s · 14_ende)
          Und irgendwann ist das Projekt fertig.
          Die Arbeit nicht.
          └ MARKER  ^NICHT.   (+2.4s)
          └ MARKER  ^FERTIG?   (+1.4s)
- 1:12.7  [AKZENT → SCHWARZ → HELL]  (5.9s · 15_element)
+ 1:12.7  [AKZENT → HELL]  (5.9s · 15_element)
          Dasselbe Element.
          Neuer Modus.
          Kein neues Tool.
          └ CARD   (+0.0s)
          └ MARKER  ^KEIN NEUES TOOL.   (+3.1s)
          └ MARKER  ^DASSELBE   (+0.9s)
- 1:18.7  [HELL → SCHWARZ → AKZENT]  (5.0s · 16_pfeile)
+ 1:18.7  [HELL]  (5.0s · 16_pfeile)
          Hunderte von Tickets, Stunden, Fristen, Freigaben, Änderungen.
          └ MARKER  ^ALLES   (+1.6s)
          └ MARKER  ^AN EINEN ORT   (+3.4s)
- 1:23.7  [AKZENT → SCHWARZ → HELL]  (4.6s · 17_hundert)
+ 1:23.7  [AKZENT]  (4.6s · 17_hundert)
          Hundert Prozent verbunden.
          Kein Export.
          Null Doppelerfassung.
@@ -344,36 +344,36 @@ eingeebnet werden.
 
 ━━━ KORREKTUR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:28.3  [SCHWARZ → AKZENT]  (3.2s · 18_aendert)
+ 1:28.3  [SCHWARZ]  (3.2s · 18_aendert)
          Und wenn jemand etwas ändert?.
          └ LIVEEDIT   (+1.1s)
          └ MARKER  ^JEMAND   (+0.8s)
- 1:31.5  [SCHWARZ → AKZENT]  (3.0s · 19_alle)
+ 1:31.5  [SCHWARZ]  (3.0s · 19_alle)
          Sehen es alle.
          Sofort.
          └ MARKER  ^SOFORT.   (+0.8s)
- 1:34.4  [HELL → SCHWARZ → AKZENT]  (3.8s · 20_transparenz)
+ 1:34.4  [HELL]  (3.8s · 20_transparenz)
          Transparenz ist kein Bericht.
          Sie ist ein Nebeneffekt.
          └ MARKER  ^EINFACH SO   (+2.4s)
 
 ━━━ GEGNER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:38.2  [SCHWARZ → AKZENT]  (3.0s · 21_allein)
+ 1:38.2  [SCHWARZ]  (3.0s · 21_allein)
          Aber Struktur allein ist noch keine Übersicht.
          └ MARKER  ^ALLEIN   (+0.7s)
- 1:41.2  [SCHWARZ → AKZENT → HELL]  (5.2s · 22_raster)
+ 1:41.2  [SCHWARZ]  (5.2s · 22_raster)
          Die meisten nennen Übersicht: eine Tabelle.
          └ GRID   (+1.1s)
          └ MARKER  ^SPALTEN   (+3.4s)
          └ MARKER  ^UND SPALTEN   (+3.5s)
- 1:46.4  [SCHWARZ → AKZENT → HELL → SCHWARZ]  (6.4s · 22b_stapel)
+ 1:46.4  [SCHWARZ → HELL]  (6.4s · 22b_stapel)
          Fünf Dateien.
          Eine Wahrheit.
          Und niemand weiss, welche.
          └ PILE   (+0.0s)
          └ MARKER  ^WELCHE GILT?   (+2.4s)
- 1:52.8  [SCHWARZ → AKZENT]  (3.4s · 22c_keine)
+ 1:52.8  [SCHWARZ]  (3.4s · 22c_keine)
          Bei uns gibt es keine.
          └ GRID   (+0.0s)
          └ STRIKE   (+0.6s)
@@ -382,11 +382,11 @@ eingeebnet werden.
 
 ━━━ VERSPRECHEN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- 1:57.8  [AKZENT]  (5.2s · 25_seht)
+ 1:57.8  [AKZENT → SCHWARZ]  (5.2s · 25_seht)
          Du siehst, was du brauchst.
          Dort, wo du bist.
          └ MARKER  ^IHR   (+1.8s)
- 2:03.1  [HELL → SCHWARZ]  (6.2s · 26_also)
+ 2:03.1  [HELL]  (6.2s · 26_also)
          Also arbeite, wie du willst.
          Wir behalten den Überblick.
          └ MARKER  ^DEN   (+4.0s)

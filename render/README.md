@@ -22,6 +22,7 @@ python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
 python3 render/scratchvo.py              # → out/scratch-vo.wav (Wegwerf-Stimme zum Timing-Check)
 python3 render/sync.py <datei>           # Timing auf die echte Stimme ziehen — siehe unten
 python3 render/pruefen.py                # Tempo und leere Frames prüfen  (--fix repariert)
+python3 render/bauen.py                  # prüfen und zusammenbauen (--check nur prüfen)
 python3 render/drehbuch.py               # Abschnitt 4 des Konzepts aus timing.json erzeugen
 python3 render/sounddesign.py            # Musikbett + Effekte aus timing.json
 sh render/mischen.sh                     # Stimme, Musik, Effekte → out/ton-final.wav
@@ -57,6 +58,20 @@ Abweichung bei 1.5–3.8 dB.
 
 **Die Musik des Referenzfilms wird nicht kopiert** — sie ist eine geschützte Komposition.
 Nachgebaut ist ihr Charakter, gemessen statt geraten.
+
+## Zusammenbauen nur mit `bauen.py`
+
+Drei Fehler sind mir beim Zusammenbau mehrfach passiert; `bauen.py` fängt alle drei ab und
+verweigert im Zweifel den Bau:
+
+1. **Zusammenbau gestartet, während der Render noch lief** — halb geschriebene Clips landeten
+   im Film (einmal wurde daraus eine 41-Sekunden-Datei). Ursache war jedes Mal ein `&` oder
+   `nohup … &` in einem ohnehin im Hintergrund laufenden Befehl, wodurch er sofort zurückkam
+   und fälschlich „fertig" meldete.
+2. **Clips gestrichener Szenen** lagen noch im Ordner und liefen mit.
+3. **Clips waren vollständig, aber veraltet** — die Dauerprüfung greift dort nicht, wenn sich
+   nur Farben oder Positionen geändert haben. Deshalb prüft `bauen.py` zusätzlich, ob jeder
+   Clip **jünger als `timing.json` und `film.html`** ist.
 
 ## Vor jeder Abnahme: `pruefen.py`
 

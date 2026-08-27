@@ -20,12 +20,6 @@
       "dur": 3.31,
       "bg": "light",
       "vo": "Wir sind Raphael und Christian Heusser.",
-      "bgFlips": [
-        {
-          "t": 1.75,
-          "to": "dark"
-        }
-      ],
       "layers": [
         {
           "type": "text",
@@ -54,14 +48,8 @@
       "act": "0 Wer wir sind",
       "start": 3.31,
       "dur": 5.13,
-      "bg": "accent",
+      "bg": "light",
       "vo": "Wir haben NEXPT gestartet, damit du arbeiten kannst.",
-      "bgFlips": [
-        {
-          "t": 2.3,
-          "to": "light"
-        }
-      ],
       "layers": [
         {
           "type": "text",
@@ -130,12 +118,6 @@
           "x": 0.4,
           "w": 0.2
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.9,
-          "to": "dark"
-        }
       ]
     },
     {
@@ -144,10 +126,6 @@
       "start": 12.09,
       "dur": 2.85,
       "bg": "light",
-      "bgFlip": {
-        "t": 0.9,
-        "to": "accent"
-      },
       "vo": "Arbeite so, wie wir es vorsehen —",
       "layers": [
         {
@@ -172,8 +150,8 @@
       ],
       "bgFlips": [
         {
-          "t": 1.55,
-          "to": "dark"
+          "t": 0.95,
+          "to": "accent"
         }
       ]
     },
@@ -256,12 +234,6 @@
           "y": 0.8,
           "draw": 0.3
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.9,
-          "to": "dark"
-        }
       ]
     },
     {
@@ -289,7 +261,7 @@
       "act": "2 Freiheit",
       "start": 23.87,
       "dur": 8.21,
-      "bg": "dark",
+      "bg": "light",
       "vo": "Du planst in Sprints. Du in Phasen. Du in Tickets. Du in Fristen.",
       "layers": [
         {
@@ -415,15 +387,7 @@
       ],
       "bgFlips": [
         {
-          "t": 1.8,
-          "to": "light"
-        },
-        {
-          "t": 3.6,
-          "to": "dark"
-        },
-        {
-          "t": 5.4,
+          "t": 4.0,
           "to": "accent"
         }
       ]
@@ -478,12 +442,6 @@
           "x": 0.5,
           "draw": 0.34,
           "out": 6.45
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 2.05,
-          "to": "accent"
         }
       ]
     },
@@ -549,12 +507,6 @@
           "y": 0.615,
           "x": 0.4,
           "w": 0.2
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.6,
-          "to": "dark"
         }
       ]
     },
@@ -688,20 +640,8 @@
       ],
       "bgFlips": [
         {
-          "t": 2.05,
-          "to": "dark"
-        },
-        {
-          "t": 4.2,
+          "t": 5.3,
           "to": "accent"
-        },
-        {
-          "t": 6.35,
-          "to": "light"
-        },
-        {
-          "t": 8.1,
-          "to": "dark"
         }
       ]
     },
@@ -760,12 +700,6 @@
           "x": 0.66,
           "draw": 0.3
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.35,
-          "to": "accent"
-        }
       ]
     },
     {
@@ -793,7 +727,7 @@
       "act": "4 Ein Modell",
       "start": 57.9,
       "dur": 10.72,
-      "bg": "accent",
+      "bg": "light",
       "vo": "Oben ist eure Sprache. Unten ist ein Standard. Egal ob Bau, Betrieb oder Buchhaltung.",
       "layers": [
         {
@@ -852,8 +786,8 @@
       ],
       "bgFlips": [
         {
-          "t": 1.75,
-          "to": "dark"
+          "t": 4.6,
+          "to": "accent"
         }
       ]
     },
@@ -862,7 +796,7 @@
       "act": "5 Übergang",
       "start": 68.62,
       "dur": 4.1,
-      "bg": "dark",
+      "bg": "light",
       "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
       "layers": [
         {
@@ -912,16 +846,6 @@
           "y": 0.76,
           "draw": 0.4,
           "sc": 1.5
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.35,
-          "to": "accent"
-        },
-        {
-          "t": 2.35,
-          "to": "light"
         }
       ]
     },
@@ -991,11 +915,7 @@
       ],
       "bgFlips": [
         {
-          "t": 0.95,
-          "to": "dark"
-        },
-        {
-          "t": 2.6,
+          "t": 3.4,
           "to": "light"
         }
       ]
@@ -1066,16 +986,6 @@
           "y": 0.62,
           "draw": 0.34
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.65,
-          "to": "dark"
-        },
-        {
-          "t": 3.35,
-          "to": "accent"
-        }
       ]
     },
     {
@@ -1136,16 +1046,6 @@
           "x": 0.26,
           "draw": 0.3
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.55,
-          "to": "dark"
-        },
-        {
-          "t": 3.05,
-          "to": "light"
-        }
       ]
     },
     {
@@ -1184,12 +1084,6 @@
           "x": 0.7,
           "draw": 0.3
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.85,
-          "to": "accent"
-        }
       ]
     },
     {
@@ -1226,12 +1120,6 @@
           "y": 0.535,
           "x": 0.4,
           "w": 0.18
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.8,
-          "to": "accent"
         }
       ]
     },
@@ -1272,16 +1160,6 @@
           "x": 0.68,
           "draw": 0.3
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.05,
-          "to": "dark"
-        },
-        {
-          "t": 2.35,
-          "to": "accent"
-        }
       ]
     },
     {
@@ -1318,12 +1196,6 @@
           "y": 0.565,
           "x": 0.35,
           "w": 0.3
-        }
-      ],
-      "bgFlips": [
-        {
-          "t": 0.7,
-          "to": "accent"
         }
       ]
     },
@@ -1381,16 +1253,6 @@
           "x": 0.5,
           "draw": 0.32
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.05,
-          "to": "accent"
-        },
-        {
-          "t": 3.35,
-          "to": "light"
-        }
       ]
     },
     {
@@ -1446,16 +1308,8 @@
       ],
       "bgFlips": [
         {
-          "t": 2.35,
-          "to": "accent"
-        },
-        {
-          "t": 3.5,
+          "t": 3.6,
           "to": "light"
-        },
-        {
-          "t": 4.7,
-          "to": "dark"
         }
       ]
     },
@@ -1496,12 +1350,6 @@
           "x": 0.4,
           "w": 0.2
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 1.05,
-          "to": "accent"
-        }
       ]
     },
     {
@@ -1529,10 +1377,6 @@
       "start": 117.84,
       "dur": 5.24,
       "bg": "accent",
-      "bgFlip": {
-        "t": 2.1,
-        "to": "dark"
-      },
       "vo": "Du siehst, was du brauchst. Dort, wo du bist.",
       "layers": [
         {
@@ -1584,6 +1428,12 @@
           "draw": 0.36,
           "sc": 1.6
         }
+      ],
+      "bgFlips": [
+        {
+          "t": 2.6,
+          "to": "dark"
+        }
       ]
     },
     {
@@ -1632,12 +1482,6 @@
           "x": 0.36,
           "w": 0.28
         }
-      ],
-      "bgFlips": [
-        {
-          "t": 2.45,
-          "to": "dark"
-        }
       ]
     },
     {
@@ -1646,10 +1490,6 @@
       "start": 129.24,
       "dur": 6.2,
       "bg": "light",
-      "bgFlip": {
-        "t": 3.1,
-        "to": "dark"
-      },
       "vo": "NEXPT ist dein Partner für deine Prozesse.",
       "layers": [
         {
