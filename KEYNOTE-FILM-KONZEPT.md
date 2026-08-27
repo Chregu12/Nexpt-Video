@@ -18,7 +18,7 @@ Drittelsekundentakt, Farbmessung, Audio-Spektrogramm und Lautheitsmessung.
 | **Harte Schnitte** | **27** → einer alle **2.5 s** |
 | **Sichtbare Änderungen** | **148** in 68 s → eine alle **0.46 s** |
 | Farben (gemessen) | Grün **`#00D759`** · Hell **`#EDEDED`** · Schwarz **`#000000`** · Text weiss `#FFFFFF` |
-| Ton | Voice-Over + Musikbett, durchgehend; −17.7 LUFS, LRA 4.3 LU (stark komprimiert) |
+| Ton | Voice-Over + Percussion-Track („Rhythm Mischief", ~118 BPM), kein Pad; −17.7 LUFS, LRA 4.3 LU |
 | Sprechpausen | nur drei: ~0:05, ~0:27, ~0:45 — jede ist eine Pointe |
 | Wortzahl | ca. 130 Wörter auf 67 s ≈ **115 Wörter/Minute** |
 
@@ -448,10 +448,24 @@ eingeebnet werden.
 - **Voice-Over** trägt den Film. Casting ist wichtiger als die Musik: gesucht ist eine Stimme,
   die trocken und schnell sprechen kann, ohne zu hetzen — die „Moment. Nein." glaubwürdig sagt
   und `(auch nicht im UI)` beiläufig, fast zu leise, hinwirft, ohne die Pointe anzukündigen.
-- **Musikbett** durchgehend, treibend, ohne Drop. Es hört an den vier Pausen (0:04, 0:27, 0:46,
-  0:52) **nicht** auf, sondern dünnt aus. Beim Raster-Aufbau (0:55) baut es Druck auf; der
-  Marker-Strich bei 0:57 nimmt Musik **und** Raster gleichzeitig weg — eine halbe Sekunde
-  fast nichts. Komposition kaufen, nicht lizenzieren.
+- **Kein Musikbett — Percussion Sound Design.** Die Referenz („Rhythm Mischief", Cold Storage
+  Percussion Unit, ~118 BPM) ist streng genommen kein Song: Marschtrommel, Snare, Rim Clicks,
+  gedämpfte Toms, kaum Melodie, kaum Bass, viel Leerraum. Das Prinzip lautet: **Text erscheint →
+  tak. Bewegung → rrrat-tak. Pause → Stille.**
+  Der Prototyp hatte zusätzlich eine getragene Fläche; sie ist raus, weil sie den Mix gemessen
+  auf 147 BPM gezogen hat, obwohl die Percussion auf 118 lief. Was sie im Bass gefüllt hat,
+  macht jetzt die Marschtrommel.
+
+  | | Tempo | Puls-Stärke | Stille |
+  |---|---|---|---|
+  | Referenzfilm | 117 BPM | 0.18 | 12 % |
+  | NEXPT, Mischung | 117 BPM | 0.11 | 10 % |
+  | NEXPT, Percussion allein | 117 BPM | 0.09 | 25 % |
+
+  Auf jeder Viertel sitzt ein hörbarer Schlag, dazwischen wird frei gespielt, drei von achtzehn
+  Takten schweigen ganz. An den fünf Halte-Beats setzt die Percussion komplett aus — dort ist die
+  Stille das Ereignis. Für die finale Fassung: **Komposition kaufen, nicht lizenzieren** — der
+  Referenztrack selbst ist geschützt und für einen kommerziellen Messefilm keine Option.
 - **Mix:** −16 bis −18 LUFS integriert, stark komprimiert (Referenz: LRA 4.3 LU). Auf der Messe
   gegen Hallenlärm mischen — Dynamik ist hier keine Tugend.
 - **Sounddesign:** jeder Marker-Strich und jeder Hintergrundwechsel bekommt ein kurzes,
