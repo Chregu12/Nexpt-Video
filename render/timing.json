@@ -102,7 +102,7 @@
     },
     {
      "type": "markerText",
-     "t": 2.0358,
+     "t": 1.9068,
      "text": "^UND EINE MEINUNG.",
      "size": 75,
      "rot": -4,
@@ -112,7 +112,7 @@
     },
     {
      "type": "underline",
-     "t": 2.445,
+     "t": 2.5424,
      "draw": 0.28,
      "y": 0.585,
      "x": 0.4,
@@ -124,7 +124,7 @@
    "id": "02_flip",
    "act": "1 Selbstkorrektur",
    "start": 12.2033,
-   "dur": 2.5429,
+   "dur": 2.7966,
    "bg": "light",
    "vo": "Arbeite so, wie wir es vorsehen —",
    "layers": [
@@ -150,7 +150,7 @@
    ],
    "bgFlips": [
     {
-     "t": 0.8898,
+     "t": 1.0147,
      "to": "accent"
     }
    ]
@@ -158,8 +158,8 @@
   {
    "id": "03_moment",
    "act": "1 Selbstkorrektur",
-   "start": 14.7462,
-   "dur": 4.0693,
+   "start": 14.9999,
+   "dur": 3.3061,
    "bg": "dark",
    "vo": "Moment. Nein. Das machen alle anderen.",
    "layers": [
@@ -195,8 +195,8 @@
   {
    "id": "04_ihr",
    "act": "1 Selbstkorrektur",
-   "start": 18.8155,
-   "dur": 3.7152,
+   "start": 18.306,
+   "dur": 4.0668,
    "bg": "accent",
    "vo": "Arbeite so, wie du willst.",
    "layers": [
@@ -220,7 +220,7 @@
     },
     {
      "type": "underline",
-     "t": 2.0317,
+     "t": 2.0289,
      "draw": 0.35,
      "y": 0.645,
      "x": 0.452,
@@ -239,8 +239,8 @@
   {
    "id": "05_aside",
    "act": "1 Selbstkorrektur",
-   "start": 22.5307,
-   "dur": 1.3675,
+   "start": 22.3728,
+   "dur": 1.5254,
    "bg": "dark",
    "vo": "(ja, auch du in der Buchhaltung)",
    "layers": [
@@ -260,7 +260,7 @@
    "id": "06_wege",
    "act": "2 Freiheit",
    "start": 23.8982,
-   "dur": 8.3906,
+   "dur": 8.1308,
    "bg": "light",
    "vo": "Du planst in Sprints. Du in Phasen. Du in Tickets. Du in Fristen.",
    "layers": [
@@ -276,8 +276,8 @@
     },
     {
      "type": "markerText",
-     "t": 0.2578,
-     "out": 1.7846,
+     "t": 0.1271,
+     "out": 1.8,
      "text": "SPRINTS",
      "size": 70,
      "rot": -3,
@@ -306,8 +306,8 @@
     },
     {
      "type": "markerText",
-     "t": 1.7846,
-     "out": 3.6,
+     "t": 2.0327,
+     "out": 5.4,
      "text": "PHASEN",
      "size": 70,
      "rot": 2,
@@ -336,8 +336,8 @@
     },
     {
      "type": "markerText",
-     "t": 3.8163,
-     "out": 5.5932,
+     "t": 3.5623,
+     "out": 5.4,
      "text": "TICKETS",
      "size": 70,
      "rot": -2,
@@ -377,7 +377,7 @@
     },
     {
      "type": "doodle",
-     "t": 5.851,
+     "t": 5.5911,
      "out": null,
      "shape": "cal",
      "x": 0.62,
@@ -387,7 +387,7 @@
    ],
    "bgFlips": [
     {
-     "t": 3.8163,
+     "t": 4.0673,
      "to": "accent"
     }
    ]
@@ -395,15 +395,15 @@
   {
    "id": "08_broll",
    "act": "2 Freiheit",
-   "start": 32.2888,
-   "dur": 5.8467,
+   "start": 32.029,
+   "dur": 6.1065,
    "bg": "light",
    "vo": "Softwareteam. Baustelle. Betrieb.",
    "layers": [
     {
      "type": "card",
      "t": 0.0,
-     "out": 2.0347,
+     "out": 1.9068,
      "label": "SPRINT",
      "title": "Login-Flow überarbeiten",
      "meta": "US-812 · Team Delta"
@@ -411,7 +411,7 @@
     {
      "type": "text",
      "t": 0.5,
-     "out": 2.0347,
+     "out": 1.9068,
      "mode": "hard",
      "text": "Softwareteam.",
      "size": 64,
@@ -419,8 +419,8 @@
     },
     {
      "type": "card",
-     "t": 2.0347,
-     "out": 4.0686,
+     "t": 1.9068,
+     "out": 3.9474,
      "label": "PHASE",
      "title": "Fassadensanierung Nord",
      "meta": "AP-4711 · M. Keller"
@@ -428,7 +428,7 @@
     {
      "type": "text",
      "t": 2.45,
-     "out": 4.0693,
+     "out": 3.9474,
      "mode": "hard",
      "text": "Baustelle.",
      "size": 64,
@@ -436,7 +436,7 @@
     },
     {
      "type": "card",
-     "t": 4.0693,
+     "t": 3.9474,
      "out": null,
      "label": "INCIDENT",
      "title": "Kasse 3 offline",
@@ -454,11 +454,11 @@
    ],
    "bgFlips": [
     {
-     "t": 2.0347,
+     "t": 1.9068,
      "to": "accent"
     },
     {
-     "t": 4.0693,
+     "t": 3.9474,
      "to": "dark"
     }
    ]
@@ -467,7 +467,7 @@
    "id": "09_flut",
    "act": "2 Freiheit",
    "start": 38.1355,
-   "dur": 5.087,
+   "dur": 5.5935,
    "bg": "light",
    "vo": "Wir nennen es, wie ihr es nennt.",
    "layers": [
@@ -531,8 +531,8 @@
   {
    "id": "11b_rollen",
    "act": "3 Die Leute",
-   "start": 43.2225,
-   "dur": 10.4215,
+   "start": 43.729,
+   "dur": 10.0426,
    "bg": "light",
    "vo": "Die Bauleiterin sieht ihre Etappe. Der Servicetechniker seine Tickets. Die Treuhänderin ihre Frist. Die Geschäftsführerin sieht alles.",
    "layers": [
@@ -546,7 +546,7 @@
     {
      "type": "role",
      "t": 2.15,
-     "out": 4.2203,
+     "out": 4.3,
      "who": "Der Servicetechniker sieht",
      "sees": "seine Tickets."
     },
@@ -573,11 +573,11 @@
      "y": 0.16,
      "x": 0.76,
      "draw": 0.3,
-     "out": 4.2203
+     "out": 4.0693
     },
     {
      "type": "markerText",
-     "t": 4.2203,
+     "t": 4.0693,
      "text": "^TICKET",
      "size": 55,
      "rot": -3,
@@ -627,8 +627,8 @@
     },
     {
      "type": "doodle",
-     "t": 2.798,
-     "out": 4.3234,
+     "t": 2.6695,
+     "out": 4.1949,
      "shape": "schluessel",
      "x": 0.5,
      "y": 0.8,
@@ -637,8 +637,8 @@
     },
     {
      "type": "doodle",
-     "t": 4.7311,
-     "out": 6.2565,
+     "t": 4.8305,
+     "out": 6.3559,
      "shape": "stempel",
      "x": 0.5,
      "y": 0.8,
@@ -647,7 +647,7 @@
     },
     {
      "type": "doodle",
-     "t": 6.9915,
+     "t": 7.1198,
      "out": null,
      "shape": "auge",
      "x": 0.5,
@@ -666,8 +666,8 @@
   {
    "id": "11c_trick",
    "act": "3 Die Leute",
-   "start": 53.644,
-   "dur": 1.5254,
+   "start": 53.7716,
+   "dur": 1.3978,
    "bg": "accent",
    "vo": "(das ist der Trick)",
    "layers": [
@@ -744,7 +744,7 @@
    "id": "13_modell",
    "act": "4 Ein Modell",
    "start": 59.7456,
-   "dur": 10.678,
+   "dur": 10.9272,
    "bg": "light",
    "vo": "Oben ist eure Sprache. Unten ist ein Standard. Egal ob Bau, Betrieb oder Buchhaltung.",
    "layers": [
@@ -760,8 +760,8 @@
     },
     {
      "type": "markerText",
-     "t": 1.7797,
-     "out": 4.6,
+     "t": 1.6509,
+     "out": 2.9,
      "text": "^OBEN",
      "size": 58,
      "rot": -3,
@@ -804,7 +804,7 @@
    ],
    "bgFlips": [
     {
-     "t": 4.581,
+     "t": 4.5763,
      "to": "accent"
     }
    ]
@@ -812,8 +812,8 @@
   {
    "id": "14_ende",
    "act": "5 Übergang",
-   "start": 70.4236,
-   "dur": 3.815,
+   "start": 70.6728,
+   "dur": 3.8186,
    "bg": "light",
    "vo": "Und irgendwann ist das Projekt fertig. Die Arbeit nicht.",
    "layers": [
@@ -870,8 +870,8 @@
   {
    "id": "15_element",
    "act": "5 Übergang",
-   "start": 74.2386,
-   "dur": 6.1003,
+   "start": 74.4914,
+   "dur": 5.8475,
    "bg": "accent",
    "vo": "Dasselbe Element. Neuer Modus. Kein neues Tool.",
    "layers": [
@@ -914,7 +914,7 @@
     },
     {
      "type": "markerText",
-     "t": 0.8898,
+     "t": 0.7587,
      "text": "^DASSELBE",
      "size": 55,
      "rot": -3,
@@ -933,7 +933,7 @@
    ],
    "bgFlips": [
     {
-     "t": 3.4656,
+     "t": 3.4322,
      "to": "light"
     }
    ]
@@ -970,7 +970,7 @@
     },
     {
      "type": "markerText",
-     "t": 1.7742,
+     "t": 1.6525,
      "text": "^ALLES",
      "size": 61,
      "rot": -3,
@@ -990,7 +990,7 @@
     },
     {
      "type": "underline",
-     "t": 4.5722,
+     "t": 4.5763,
      "draw": 0.28,
      "y": 0.955,
      "x": 0.4,
@@ -1070,7 +1070,7 @@
    "id": "18_aendert",
    "act": "6 Korrektur",
    "start": 89.9999,
-   "dur": 3.3051,
+   "dur": 3.5591,
    "bg": "dark",
    "vo": "Und wenn jemand etwas ändert?",
    "layers": [
@@ -1094,7 +1094,7 @@
     },
     {
      "type": "markerText",
-     "t": 0.7597,
+     "t": 0.8898,
      "text": "^JEMAND",
      "size": 58,
      "rot": -3,
@@ -1107,8 +1107,8 @@
   {
    "id": "19_alle",
    "act": "6 Korrektur",
-   "start": 93.305,
-   "dur": 3.2015,
+   "start": 93.559,
+   "dur": 3.0534,
    "bg": "dark",
    "vo": "Sehen es alle. Sofort.",
    "layers": [
@@ -1123,7 +1123,7 @@
     },
     {
      "type": "markerText",
-     "t": 0.6647,
+     "t": 0.7627,
      "text": "^SOFORT.",
      "size": 72,
      "rot": -3,
@@ -1133,7 +1133,7 @@
     },
     {
      "type": "underline",
-     "t": 1.9068,
+     "t": 2.0317,
      "draw": 0.28,
      "y": 0.535,
      "x": 0.4,
@@ -1144,8 +1144,8 @@
   {
    "id": "20_transparenz",
    "act": "6 Korrektur",
-   "start": 96.5065,
-   "dur": 3.6629,
+   "start": 96.6124,
+   "dur": 3.557,
    "bg": "light",
    "vo": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt.",
    "layers": [
@@ -1221,7 +1221,7 @@
    "id": "22_raster",
    "act": "7 Gegner",
    "start": 103.2202,
-   "dur": 5.339,
+   "dur": 5.5943,
    "bg": "dark",
    "vo": "Die meisten nennen Übersicht: eine Tabelle.",
    "layers": [
@@ -1276,8 +1276,8 @@
   {
    "id": "22b_stapel",
    "act": "8 Gegner",
-   "start": 108.5592,
-   "dur": 6.3559,
+   "start": 108.8145,
+   "dur": 6.1006,
    "bg": "dark",
    "vo": "Fünf Dateien. Eine Wahrheit. Und niemand weiss, welche.",
    "layers": [
@@ -1348,7 +1348,7 @@
     },
     {
      "type": "strike",
-     "t": 0.5099,
+     "t": 0.6356,
      "draw": 0.3
     },
     {
@@ -1362,7 +1362,7 @@
     },
     {
      "type": "underline",
-     "t": 2.0337,
+     "t": 2.2876,
      "draw": 0.28,
      "y": 0.575,
      "x": 0.4,
@@ -1374,7 +1374,7 @@
    "id": "23_ui",
    "act": "7 Gegner",
    "start": 118.2202,
-   "dur": 1.2703,
+   "dur": 1.7747,
    "bg": "accent",
    "vo": "(auch nicht im UI)",
    "layers": [
@@ -1392,8 +1392,8 @@
   {
    "id": "25_seht",
    "act": "8 Versprechen",
-   "start": 119.4905,
-   "dur": 5.3406,
+   "start": 119.9949,
+   "dur": 5.0897,
    "bg": "accent",
    "vo": "Du siehst, was du brauchst. Dort, wo du bist.",
    "layers": [
@@ -1438,8 +1438,8 @@
     },
     {
      "type": "doodle",
-     "t": 1.0158,
-     "out": 2.1598,
+     "t": 1.0188,
+     "out": 2.1628,
      "shape": "auge",
      "x": 0.5,
      "y": 0.74,
@@ -1457,8 +1457,8 @@
   {
    "id": "26_also",
    "act": "8 Versprechen",
-   "start": 124.8311,
-   "dur": 6.3552,
+   "start": 125.0846,
+   "dur": 6.1017,
    "bg": "light",
    "vo": "Also arbeite, wie du willst. Wir behalten den Überblick.",
    "layers": [
@@ -1494,7 +1494,7 @@
     },
     {
      "type": "underline",
-     "t": 1.9068,
+     "t": 2.033,
      "draw": 0.28,
      "y": 0.565,
      "x": 0.36,

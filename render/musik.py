@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """
-Den lizenzierten Musiktrack auf den Film schneiden.
+Die Musikspur auf den Film legen. Zwei Betriebsarten, automatisch gewaehlt:
 
-    python3 musik.py                     out/_musik/rhythm-mischief.m4a
-    python3 musik.py <datei.wav|m4a>     anderer Track
-    python3 musik.py --raster            nur messen, nichts schreiben
+    kuerzer als der Film   -> LOOP: die Takte werden auf 68 Filmtakte
+                              arrangiert, nach der Dramaturgie ausgewaehlt
+    laenger als der Film   -> SCHNITT: der Track wird auf Taktkanten gekuerzt
+
+    python3 musik.py                        out/_musik/apple-style-118.mp3
+    python3 musik.py <datei.wav|mp3|m4a>    andere Quelle
+    python3 musik.py --raster               nur messen, nichts schreiben
 
 Der Track liegt NICHT im Repo. `out/_musik/` ist in .gitignore, weil die
 Lizenz beim Lizenznehmer liegt und nicht am Repository haengt. Wer den Film
@@ -65,8 +69,10 @@ cfg = json.loads((ROOT / "timing.json").read_text(encoding="utf-8"))
 TOT = max(s["start"] + s["dur"] for s in cfg["scenes"])
 HALT = {"05_aside", "11c_trick", "12_nein", "23_ui", "03_moment"}
 
+# Standard ist der eigene Loop — er braucht keine Lizenz. Der lizenzierte
+# Track laeuft weiter ueber `python3 musik.py out/_musik/rhythm-mischief.m4a`.
 quelle = next((a for a in sys.argv[1:] if not a.startswith("--")),
-              str(OUT / "_musik" / "rhythm-mischief.m4a"))
+              str(OUT / "_musik" / "apple-style-118.mp3"))
 if not Path(quelle).exists():
     print(f"{quelle} fehlt.\n"
           f"Die lizenzierte Kopie des Tracks nach out/_musik/ legen — sie liegt\n"
@@ -115,6 +121,97 @@ print(f"gemessen: {BPM:.2f} BPM · erster Takt {DB0:.3f}s · Takt {BAR:.4f}s")
 if "--raster" in sys.argv:
     sys.exit(0)
 
+# ── Loop-Modus: kurze Schleife auf Filmlaenge arrangieren ─────────────────
+# Der zweite gelieferte Track ist keine Komposition ueber 3 Minuten, sondern
+# ein sauberer 16-Takt-Loop: 33.54 s, 118.01 BPM, erster Downbeat 0.480 s,
+# danach digitale Stille. Gemessen spielt er sehr eng auf sein eigenes Raster
+# (Median 1-2 ms zum Sechzehntel) und hat mit 38 starken Anschlaegen auf
+# 33.5 s dieselbe Dichte wie die Referenz — 52% der Viertel tragen einen
+# Schlag.
+#
+# Was ihm fehlt, ist der Verlauf. Die Pegel der 16 Takte liegen zwischen
+# -22.4 und -14.4 dB und fast alle zwischen -15 und -16: kein Breakdown, kein
+# Hochpunkt, kein Absturz. Genau die drei Stellen also, an denen der
+# lizenzierte Track dem Film ohne Zutun gefolgt ist.
+#
+# Deshalb wird hier arrangiert statt geloopt. Die 68 Takte des Films bekommen
+# je einen Takt aus dem Loop zugewiesen, ausgewaehlt nach dem, was der Film an
+# dieser Stelle braucht — und `None` heisst Stille. Aufeinanderfolgende
+# Quelltakte werden als EIN Block kopiert, es gibt also nur an den Spruengen
+# eine Naht.
+#
+# Pegel der Quelltakte, gemessen (dB):
+#   0:-22.4  1:-17.9  2:-15.0  3:-14.9  4:-15.0  5:-14.7  6:-17.5  7:-15.9
+#   8:-15.3  9:-14.6 10:-15.2 11:-16.1 12:-19.7 13:-14.7 14:-14.4 15:-18.1
+# Duenn ist damit 0, 12, 15, 1, 6 — dicht ist 14, 9, 5, 13, 3.
+ARRANGEMENT = [
+    # Takt 0-3 · Intro: „Wir sind Raphael und Christian Heusser."
+    0, 1, 12, 15,
+    # Takt 4-6 · „Und wir haben ein Versprechen." — der Groove kommt
+    2, 3, 4,
+    # Takt 7-8 · „Moment. Nein." — zieht zurueck
+    6, 15,
+    # Takt 9-10 · „Arbeite so, wie DU willst."
+    5, 9,
+    # Takt 11 · „(ja, auch du in der Buchhaltung)"
+    12,
+    # Takt 12-18 · Sprints, Phasen, Tickets, Fristen · Softwareteam, Baustelle
+    2, 3, 4, 5, 6, 7, 8,
+    # Takt 19-20 · „Wir nennen es, wie ihr es nennt."
+    9, 10,
+    # Takt 21-26 · Die Leute, Etappe/Ticket/Frist — baut auf, wird dann duenn
+    11, 8, 9, 10, 13, 12,
+    # Takt 27-28 · „(das ist der Trick)" · „Ein Chaos?" · „NEIN." — Stille
+    None, None,
+    # Takt 29-34 · „Oben ist eure Sprache. Unten ist EIN Standard." — duenn zurueck
+    0, 1, 2, 3, 4, 5,
+    # Takt 35-41 · Uebergang Projekt -> Betrieb, baut auf
+    6, 7, 8, 9, 10, 11, 13,
+    # Takt 42-48 · „100% verbunden." · „Sehen es alle. SOFORT." — Hochpunkt
+    14, 9, 13, 14, 5, 9, 14,
+    # Takt 49-50 · „Aber Struktur ist noch keine Uebersicht. ALLEIN" — Absturz
+    12, 0,
+    # Takt 51-57 · Tabelle, Dateistapel, „Bei uns gibt es keine." — baut wieder auf
+    1, 2, 3, 4, 5, 6, 7,
+    # Takt 58 · „(auch nicht im UI)" — Stille
+    None,
+    # Takt 59-67 · „Du siehst, was du brauchst." bis „NEXPT ist dein Partner"
+    8, 9, 10, 13, 14, 9, 13, 14, 14,
+]
+
+def arrangieren(roh, db0, bar_quelle, n_quelltakte, takte_film, bar_ziel, sr):
+    """Baut aus den Quelltakten die Filmlaenge. Laeuft eine Folge von
+    Quelltakten aufeinander, wird sie als ein Block kopiert — dann gibt es
+    dort gar keine Naht. Nur an den Spruengen wird geblendet."""
+    if len(ARRANGEMENT) != takte_film:
+        raise SystemExit(f"ARRANGEMENT hat {len(ARRANGEMENT)} Takte, "
+                         f"der Film {takte_film}. Beides muss gleich sein.")
+    N = int((takte_film * bar_ziel + 0.5) * sr)
+    aus = np.zeros((N, 2))
+    blende = int(0.024 * sr)
+    i = 0
+    while i < takte_film:
+        if ARRANGEMENT[i] is None:
+            i += 1; continue
+        j = i
+        while (j + 1 < takte_film and ARRANGEMENT[j+1] is not None
+               and ARRANGEMENT[j+1] == ARRANGEMENT[j] + 1
+               and ARRANGEMENT[j+1] < n_quelltakte):
+            j += 1
+        s0 = db0 + ARRANGEMENT[i] * bar_quelle
+        laenge = (j - i + 1) * bar_quelle
+        i0 = int(s0 * sr); i1 = min(len(roh), int((s0 + laenge) * sr))
+        block = roh[i0:i1].copy()
+        ziel = int(i * bar_ziel * sr)
+        m = min(len(block), N - ziel)
+        if m > 2 * blende:
+            block = block[:m]
+            block[:blende]  *= np.sqrt(np.linspace(0, 1, blende))[:, None]
+            block[-blende:] *= np.sqrt(np.linspace(1, 0, blende))[:, None]
+            aus[ziel:ziel+m] += block
+        i = j + 1
+    return aus
+
 # ── Der Schnitt ───────────────────────────────────────────────────────────
 # (von Takt, bis Takt, Versatz in Sekunden).
 #
@@ -161,52 +258,49 @@ SCHNITT = [(0, 58, 0.0), (80, None, 0.0)]
 roh  = laden(quelle)
 ende = lambda b: len(roh)/SR if b is None else DB0 + b*BAR
 N = int((TOT + 0.5) * SR)
-musik = np.zeros((N, 2))
+TAKTE_FILM = int(round(TOT / (240/118.0)))
+LOOP = len(roh)/SR < TOT - 1.0
 
-# Die Teile werden nacheinander gesetzt; der Versatz jedes Teils verschiebt
-# seinen Beginn gegen die Filmzeit. Ein negativer Versatz laesst den Anfang
-# des Tracks weg, ein positiver laesst Stille davor stehen.
-pos_s, blende = 0.0, int(0.024*SR)
-for k, (a, b, versatz) in enumerate(SCHNITT):
-    t0, t1 = DB0 + a*BAR, min(ende(b), len(roh)/SR)
-    beginn = pos_s + versatz
-    i0, i1 = int(t0*SR), int(t1*SR)
-    stueck = roh[i0:i1].copy()
-    ziel_i = int(beginn*SR)
-    if ziel_i < 0:                      # Musik faengt vor dem Film an: vorne kappen
-        stueck = stueck[-ziel_i:]; ziel_i = 0
-    m = min(len(stueck), N - ziel_i)
-    if m <= 0: break
-    stueck = stueck[:m]
-    if k and ziel_i >= blende:
-        rampe = np.sqrt(np.linspace(0, 1, blende))[:, None]
-        musik[ziel_i:ziel_i+blende] *= np.sqrt(np.linspace(1, 0, blende))[:, None]
-        stueck[:blende] *= rampe
-    musik[ziel_i:ziel_i+m] += stueck
-    print(f"  Takt {a:>3} - {'Ende' if b is None else b:>4}   {t0:6.2f}-{t1:6.2f}s   "
-          f"Versatz {versatz*1000:+5.0f}ms  ->  Film {beginn:6.2f}-{beginn+(t1-t0):6.2f}s")
-    pos_s = beginn + (t1 - t0)
-print(f"  Musik endet bei {pos_s:.2f}s, Film bei {TOT:.2f}s")
-
-# ── Halte-Beats ───────────────────────────────────────────────────────────
-# Fuenf Stellen im Film leben davon, dass nichts passiert. Drei davon deckt
-# der Track selbst ab (11c_trick und 12_nein liegen im Breakdown), zwei nicht:
-# 03_moment und 05_aside liegen mitten im Hauptgroove, 23_ui im zweiten
-# Hauptteil. Dort zieht die Musik zurueck.
-duck = np.ones(N)
-for s in cfg["scenes"]:
-    if s["id"] not in HALT: continue
-    i0, i1 = int(s["start"]*SR), min(N, int((s["start"]+s["dur"])*SR))
-    duck[i0:i1] = 0.28
-kern = np.ones(int(0.22*SR)) / int(0.22*SR)
-musik *= np.convolve(duck, kern, mode="same")[:, None]
-
-# Harter Schluss wie im Referenzfilm, mit 0.3 s Blende statt Abriss.
-aus = int(TOT*SR)
-fade = int(0.30*SR)
-if aus - fade > 0:
-    musik[aus-fade:aus] *= np.linspace(1, 0, fade)[:, None]
-musik[aus:] = 0
+if LOOP:
+    # Das Zielraster ist das des FILMS (118.00 BPM exakt), nicht das der
+    # Quelle. Der Loop misst 118.01 — ueber 68 Takte waeren das 12 ms
+    # Auseinanderlaufen. Die Quelltakte werden deshalb auf die Ziel-Taktlaenge
+    # gelegt; der Unterschied betraegt 0.17 ms je Takt und ist nicht hoerbar.
+    BAR_ZIEL = 240/118.0
+    n_quell  = int((len(roh)/SR - DB0) / BAR + 1e-6)
+    print(f"  Loop mit {n_quell} Takten -> {TAKTE_FILM} Takte Film, arrangiert")
+    musik = arrangieren(roh, DB0, BAR, n_quell, TAKTE_FILM, BAR_ZIEL, SR)
+    if len(musik) < N: musik = np.vstack([musik, np.zeros((N-len(musik), 2))])
+    musik = musik[:N]
+    still = sum(1 for x in ARRANGEMENT if x is None)
+    print(f"  {still} Takte Stille, {len(set(x for x in ARRANGEMENT if x is not None))} "
+          f"von {n_quell} Quelltakten verwendet")
+else:
+    musik = np.zeros((N, 2))
+    # Die Teile werden nacheinander gesetzt; der Versatz jedes Teils verschiebt
+    # seinen Beginn gegen die Filmzeit. Ein negativer Versatz laesst den Anfang
+    # des Tracks weg, ein positiver laesst Stille davor stehen.
+    pos_s, blende = 0.0, int(0.024*SR)
+    for k, (a, b, versatz) in enumerate(SCHNITT):
+        t0, t1 = DB0 + a*BAR, min(ende(b), len(roh)/SR)
+        beginn = pos_s + versatz
+        i0, i1 = int(t0*SR), int(t1*SR)
+        stueck = roh[i0:i1].copy()
+        ziel_i = int(beginn*SR)
+        if ziel_i < 0:
+            stueck = stueck[-ziel_i:]; ziel_i = 0
+        m = min(len(stueck), N - ziel_i)
+        if m <= 0: break
+        stueck = stueck[:m]
+        if k and ziel_i >= blende:
+            rampe = np.sqrt(np.linspace(0, 1, blende))[:, None]
+            musik[ziel_i:ziel_i+blende] *= np.sqrt(np.linspace(1, 0, blende))[:, None]
+            stueck[:blende] *= rampe
+        musik[ziel_i:ziel_i+m] += stueck
+        print(f"  Takt {a:>3} - {'Ende' if b is None else b:>4}   {t0:6.2f}-{t1:6.2f}s   "
+              f"Versatz {versatz*1000:+5.0f}ms  ->  Film {beginn:6.2f}-{beginn+(t1-t0):6.2f}s")
+        pos_s = beginn + (t1 - t0)
+    print(f"  Musik endet bei {pos_s:.2f}s, Film bei {TOT:.2f}s")
 
 # ── Die Anschlaege in Filmzeit hinterlegen ────────────────────────────────
 # takt.py zieht die grossen Bildereignisse auf diese Zeiten. Gemessen wird auf
@@ -229,17 +323,25 @@ def anschlaege(x, sr=22050):
     t, v = np.array(idx)/fps, np.array(st)
     return t[v >= np.percentile(v, 75)]
 
-mono = laden(quelle, 22050, stereo=False)
-roh_t = anschlaege(mono)
-in_film, lauf = [], 0.0
-for a, b, versatz in SCHNITT:
-    t0, t1 = DB0 + a*BAR, min(ende(b), len(roh)/SR)
-    beginn = lauf + versatz
-    for x in roh_t:
-        if t0 <= x < t1:
-            ft = beginn + (x - t0)
-            if 0 <= ft < TOT: in_film.append(round(float(ft), 4))
-    lauf = beginn + (t1 - t0)
+if LOOP:
+    # Arrangiert: die Anschlagszeiten stehen nicht mehr im Verhaeltnis zur
+    # Quelle, also wird direkt auf der gebauten Spur gemessen.
+    mono = musik.mean(axis=1)
+    mono = np.interp(np.arange(0, len(mono)/SR, 1/22050) * SR,
+                     np.arange(len(mono)), mono)
+    in_film = [round(float(x), 4) for x in anschlaege(mono) if 0 <= x < TOT]
+else:
+    mono = laden(quelle, 22050, stereo=False)
+    roh_t = anschlaege(mono)
+    in_film, lauf = [], 0.0
+    for a, b, versatz in SCHNITT:
+        t0, t1 = DB0 + a*BAR, min(ende(b), len(roh)/SR)
+        beginn = lauf + versatz
+        for x in roh_t:
+            if t0 <= x < t1:
+                ft = beginn + (x - t0)
+                if 0 <= ft < TOT: in_film.append(round(float(ft), 4))
+        lauf = beginn + (t1 - t0)
 in_film.sort()
 (OUT / "_musik" / "anschlaege.json").write_text(
     json.dumps({"bpm": BPM, "beat": round(60/BPM, 6), "tot": TOT,
