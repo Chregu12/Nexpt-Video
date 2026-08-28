@@ -21,10 +21,9 @@ zur fertigen Tonmischung.
 
 | | |
 |---|---|
-| **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | **Die Fassung zum Anschauen.** Bild, Musik, Sounddesign und Roboter-Scratchstimme. |
-| **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Ohne Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf Rhythmus und Effekte. |
-| **out/NEXPT-Keynote-DRUMLINE-OHNE-STIMME.mp4** | Der **1:1-Nachbau der Vorlage**, von echten Trommeln gespielt. Ohne Stimme. |
-| **out/NEXPT-Keynote-LOOP-OHNE-STIMME.mp4** | Dasselbe Bild mit dem Original-Loop — der direkte Vergleich. |
+| **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | **Die Fassung zum Anschauen.** Bild, Musik und Sounddesign, ohne Sprache — der ehrlichere Blick auf Rhythmus und Effekte. |
+| **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | Dasselbe mit der Roboter-Scratchstimme als Platzhalter fürs Timing. |
+| **out/NEXPT-Keynote-DRUMLINE-OHNE-STIMME.mp4** | Der Nachbau der Vorlage aus eigenen Trommeln. Liegt als **Beleg einer Sackgasse** bei, nicht als Fassung zur Auswahl — warum, steht in `render/README.md` unter `abhoeren.py`. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-EFFEKTE.mp4** | Dieselbe Mischung ohne Sounddesign, zum Vergleichen. |
 | **out/NEXPT-Keynote-ANIMATIC.mp4** | Nur Bild, ganz ohne Ton. |
 | **out/stills/** | Ein Standbild je Szene. |
@@ -35,7 +34,7 @@ zur fertigen Tonmischung.
 |---|---|
 | **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro, 30 Clips mit Markern für Akt, Szene und Sprechertext. |
 | **out/analysis/samsung/** | Die gelieferte Analyse des Referenzfilms — Report, JSON und 54er-Cue-Sheet. Die Zahlen darin sind die Zielwerte, gegen die `sfx.py` kalibriert. |
-| **out/analysis/cue_sheet.json** | **139 Hit Points**: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren — das, was ein Komponist oder Sounddesigner braucht. |
+| **out/analysis/cue_sheet.json** | **114 Hit Points**: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren — das, was ein Komponist oder Sounddesigner braucht. |
 | **out/ton-final.wav** | Die fertige Mischung. Daneben `ton-final-ohne-stimme.wav` und `ton-ohne-effekte.wav`. |
 | **out/sfx.wav** · **out/scratch-vo.wav** | Die Einzelspuren. Die Musikspur liegt nicht im Repo, siehe unten. |
 | `out/drums.wav` | Die optionale eigene Percussion. Standardmässig **nicht** in der Mischung — sie auf einen Schlagzeugtrack zu legen ergibt Matsch. Mit `sh render/mischen.sh --drums`. |
