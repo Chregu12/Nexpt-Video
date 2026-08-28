@@ -23,6 +23,7 @@ zur fertigen Tonmischung.
 |---|---|
 | **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | **Die Fassung zum Anschauen.** Bild, Musik, Sounddesign und Roboter-Scratchstimme. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Ohne Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf Rhythmus und Effekte. |
+| **out/NEXPT-Keynote-ANIMATIC-DRUMLINE.mp4** | Mit der **eigenen Partitur** statt des Loops — 68 Takte, von echten Trommeln gespielt, mit menschlichem Timing aus 3408 Takten Schlagzeugaufnahmen. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-EFFEKTE.mp4** | Dieselbe Mischung ohne Sounddesign, zum Vergleichen. |
 | **out/NEXPT-Keynote-ANIMATIC.mp4** | Nur Bild, ganz ohne Ton. |
 | **out/stills/** | Ein Standbild je Szene. |
@@ -46,6 +47,7 @@ zur fertigen Tonmischung.
 | `out/_musik/` | Der Musiktrack. Die Lizenz hängt am Lizenznehmer, nicht am Repository — eigene Kopie dort ablegen, dann `python3 render/musik.py`. |
 | `out/music.wav` | Der blosse Schnitt daraus. Wird von `musik.py` erzeugt. |
 | `out/_proben/` | Die aus dem Loop geschnittene Klangpalette. Wird von `proben.py` erzeugt. |
+| `out/_groove/` | Groove MIDI Dataset (Magenta, CC BY 4.0) — 1150 Aufnahmen echter Schlagzeuger. Mit `python3 render/groove.py --laden`. |
 | `out/_vcsl/` | Echte Trommeln aus der Versilian Community Sample Library — **CC0, gemeinfrei**, kommerziell nutzbar ohne Namensnennung. 73 MB, mit `python3 render/vcsl.py` wieder da. |
 | `out/scenes/*.mov` | ProRes 422 HQ, ein Clip je Szene (267 MB). Mit `python3 render/render.py`. |
 | `render/fonts/`, `render/voices/*.onnx`, `render/asr/whisper-*/` | Schriften, Stimm- und Spracherkennungsmodelle. Je mit eigenem Ladeskript. |
@@ -91,6 +93,16 @@ python3 render/render.py                 # 4. 30 Clips neu
 python3 render/scratchvo.py              # 5. Stimme auf die neuen Zeiten
 python3 render/cuesheet.py && python3 render/sfx.py
 sh render/mischen.sh && python3 render/bauen.py --neu
+```
+
+**Die eigene Partitur statt des Loops:**
+
+```bash
+python3 render/vcsl.py           # echte Trommeln (CC0, einmalig)
+python3 render/groove.py         # menschliches Timing aus echten Aufnahmen
+python3 render/partitur.py       # 68 Takte komponieren
+python3 render/drumline.py       # von den echten Trommeln spielen lassen
+sh render/mischen.sh --drumline  # damit mischen
 ```
 
 **Varianten des Tons:**

@@ -5,6 +5,7 @@
 #     sh render/mischen.sh --ohne-stimme    nur Musik + Effekte (Standloop)
 #     sh render/mischen.sh --drums          zusaetzlich die eigene Percussion
 #     sh render/mischen.sh --ohne-effekte   nur Musik und Stimme, zum Vergleich
+#     sh render/mischen.sh --drumline       die eigene Partitur statt des Loops
 #
 # Statt vier Filtergraphen fuer vier Kombinationen gibt es einen einzigen,
 # dessen Pegel die Schalter setzen. Eine stumme Spur aendert bei amix mit
@@ -37,6 +38,9 @@ cd "$(dirname "$0")/.." || exit 1
 FF=${FFMPEG:-ffmpeg}
 
 V_STIMME=1.0; V_DRUMS=0.0; V_SFX=0.85; ZIEL=out/ton-final.wav
+# Welche Musik? Der geschnittene Loop, oder die eigene Partitur, von
+# echten Trommeln gespielt (render/partitur.py -> render/drumline.py).
+MUSIK=out/music.wav
 # Pegel und Dynamik folgen jetzt der zweiten Referenz. Gemessen:
 #   Apple    -17.7 LUFS, LRA 4.3   Musik unter dem Bild, keine Effekte
 #   Samsung  -13.6 LUFS, LRA 7.7   Akzente +11 dB ueber dem laufenden Bett
@@ -59,16 +63,17 @@ for a in "$@"; do
     --ohne-stimme) V_STIMME=0.0; G175=0
                    ZIEL=out/ton-final-ohne-stimme.wav ;;
     --ohne-effekte) V_SFX=0.0; ZIEL=out/ton-ohne-effekte.wav ;;
+    --drumline)     MUSIK=out/drumline.wav; ZIEL=out/ton-drumline.wav ;;
     --drums)       V_DRUMS=0.55 ;;
   esac
 done
 
-for f in out/scratch-vo.wav out/music.wav out/sfx.wav out/drums.wav; do
+for f in out/scratch-vo.wav "$MUSIK" out/sfx.wav out/drums.wav; do
   [ -f "$f" ] || { echo "$f fehlt — sounddesign.py und musik.py laufen lassen."; exit 1; }
 done
 
 "$FF" -hide_banner -loglevel error -y \
-  -i out/scratch-vo.wav -i out/music.wav -i out/sfx.wav -i out/drums.wav \
+  -i out/scratch-vo.wav -i "$MUSIK" -i out/sfx.wav -i out/drums.wav \
   -filter_complex "\
     [0:a]aresample=48000,volume=$V_STIMME,asplit=2[vo][vk]; \
     [1:a]aresample=48000,volume=0.38[mu]; \

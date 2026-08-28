@@ -1,0 +1,4932 @@
+{
+ "bpm": 118.0,
+ "takte": 68,
+ "sechzehntel": 0.127119,
+ "hinweis": "Noten, kein Klang. `takt` 0..67, `pos` 0..15 im Takt. Anschlagstaerke und Versatz kommen aus out/analysis/groove.json, die Klaenge aus out/_vcsl/.",
+ "ablauf": [
+  "intro_a",
+  "intro_b",
+  "intro_a",
+  "intro_c",
+  "haupt_a",
+  "haupt_b",
+  "haupt_a",
+  "duenn_a",
+  "duenn_c",
+  "haupt_c",
+  "haupt_b",
+  "duenn_b",
+  "haupt_a",
+  "haupt_b",
+  "haupt_c",
+  "haupt_d",
+  "haupt_a",
+  "haupt_b",
+  "bau_a",
+  "haupt_c",
+  "haupt_d",
+  "bau_a",
+  "bau_b",
+  "bau_a",
+  "bau_c",
+  "bau_b",
+  "duenn_c",
+  null,
+  null,
+  "duenn_a",
+  "duenn_b",
+  "haupt_a",
+  "haupt_b",
+  "haupt_c",
+  "bau_a",
+  "bau_a",
+  "bau_b",
+  "haupt_c",
+  "bau_a",
+  "bau_b",
+  "bau_c",
+  "hoch_a",
+  "hoch_a",
+  "hoch_b",
+  "hoch_c",
+  "hoch_b",
+  "hoch_a",
+  "hoch_d",
+  "hoch_b",
+  "sturz_a",
+  "sturz_b",
+  "duenn_a",
+  "duenn_b",
+  "haupt_a",
+  "haupt_b",
+  "bau_a",
+  "bau_b",
+  "bau_c",
+  null,
+  "ende_a",
+  "ende_b",
+  "ende_a",
+  "ende_c",
+  "ende_b",
+  "ende_c",
+  "ende_d",
+  "ende_c",
+  "ende_e"
+ ],
+ "motive": {
+  "intro_a": "x...x.......x...",
+  "intro_b": "x...x.....x.x..x",
+  "intro_c": "x.x.x...x.x.x.xx",
+  "haupt_a": "B.gxS..g.xr.S.gx",
+  "haupt_b": "BxgxS..gx.r.S.rr",
+  "haupt_c": "B.grSxg.Bxr.S.gx",
+  "haupt_d": "B.gxS.grBxr.S.x.",
+  "duenn_a": "B...S.......S...",
+  "duenn_b": "B..xS....xr.S..x",
+  "duenn_c": "....S.......S..r",
+  "bau_a": "B.gxS.g.Bxl.S.hx",
+  "bau_b": "B.glSxghBxl.S.hh",
+  "bau_c": "BlghS.ghBlghS.hh",
+  "hoch_a": "B.gxS.gxB.gxS.gx",
+  "hoch_b": "BxgxSxgxBxgxSxgx",
+  "hoch_c": "B.g.S..gW...S.hh",
+  "hoch_d": "BlghSlghBlghSlgh",
+  "sturz_a": "............r...",
+  "sturz_b": "r...............",
+  "ende_a": "B.gxS..gx.r.S.gx",
+  "ende_b": "Bxg.Sxg.Bxg.Sxgx",
+  "ende_c": "BxgxSxgxBxgxSxhh",
+  "ende_d": "BlghSlghBlghWWWW",
+  "ende_e": "B..............."
+ },
+ "noten": [
+  {
+   "takt": 0,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_a"
+  },
+  {
+   "takt": 0,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_a"
+  },
+  {
+   "takt": 0,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_a"
+  },
+  {
+   "takt": 1,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_b"
+  },
+  {
+   "takt": 1,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_b"
+  },
+  {
+   "takt": 1,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_b"
+  },
+  {
+   "takt": 1,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_b"
+  },
+  {
+   "takt": 1,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_b"
+  },
+  {
+   "takt": 2,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_a"
+  },
+  {
+   "takt": 2,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_a"
+  },
+  {
+   "takt": 2,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_a"
+  },
+  {
+   "takt": 3,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 2,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 3,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "intro_c"
+  },
+  {
+   "takt": 4,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 4,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 5,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 5,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 6,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 6,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 7,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 7,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 7,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 7,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 8,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 8,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 8,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 9,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 9,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 10,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 10,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 11,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 11,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 12,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 12,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 13,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 13,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 14,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 14,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 15,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 15,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 16,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 16,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 17,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 17,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 18,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 18,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 19,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 19,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 20,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 20,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_d"
+  },
+  {
+   "takt": 21,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 21,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 22,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 3,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 22,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 23,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 23,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 24,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 1,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 3,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 9,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 11,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 24,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 25,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 3,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 25,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 26,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 26,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 26,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 26,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "duenn_c"
+  },
+  {
+   "takt": 29,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 29,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 29,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 29,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 30,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 30,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 30,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 30,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 30,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 30,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 30,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 31,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 31,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 32,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 32,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 33,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 33,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 34,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 34,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 35,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 36,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 3,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 36,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 37,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 37,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_c"
+  },
+  {
+   "takt": 38,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 38,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 39,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 3,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 39,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 40,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 1,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 3,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 9,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 11,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 40,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 41,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 41,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 42,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 43,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 43,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 44,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 8,
+   "inst": "wirbel",
+   "akzent": true,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 44,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "hoch_c"
+  },
+  {
+   "takt": 45,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 45,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 46,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 46,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_a"
+  },
+  {
+   "takt": 47,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 1,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 3,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 5,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 9,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 11,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 13,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 47,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "hoch_d"
+  },
+  {
+   "takt": 48,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 48,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "hoch_b"
+  },
+  {
+   "takt": 49,
+   "pos": 12,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "sturz_a"
+  },
+  {
+   "takt": 50,
+   "pos": 0,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "sturz_b"
+  },
+  {
+   "takt": 51,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 51,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 51,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 51,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_a"
+  },
+  {
+   "takt": 52,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 52,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 52,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 52,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 52,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 52,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 52,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "duenn_b"
+  },
+  {
+   "takt": 53,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 53,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_a"
+  },
+  {
+   "takt": 54,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 54,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "haupt_b"
+  },
+  {
+   "takt": 55,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 55,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_a"
+  },
+  {
+   "takt": 56,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 3,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 10,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 56,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_b"
+  },
+  {
+   "takt": 57,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 1,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 3,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 9,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 11,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 57,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "bau_c"
+  },
+  {
+   "takt": 59,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": false,
+   "flam": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 59,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 60,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 60,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 61,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 7,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 61,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_a"
+  },
+  {
+   "takt": 62,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 62,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 63,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 14,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 63,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_b"
+  },
+  {
+   "takt": 64,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 64,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 65,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 1,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 3,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 5,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 7,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 9,
+   "inst": "toml",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 11,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 12,
+   "inst": "wirbel",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 13,
+   "inst": "wirbel",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 14,
+   "inst": "wirbel",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 65,
+   "pos": 15,
+   "inst": "wirbel",
+   "akzent": true,
+   "motiv": "ende_d"
+  },
+  {
+   "takt": 66,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 2,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 4,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 6,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 8,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 10,
+   "inst": "geist",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 13,
+   "inst": "stock",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 14,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 66,
+   "pos": 15,
+   "inst": "tomh",
+   "akzent": false,
+   "motiv": "ende_c"
+  },
+  {
+   "takt": 67,
+   "pos": 0,
+   "inst": "trommel",
+   "akzent": true,
+   "motiv": "ende_e"
+  }
+ ]
+}
