@@ -218,6 +218,7 @@ misst sich um den Faktor drei zu langsam.
 | `musik.py` | Musikspur auf den Film legen — Loop arrangieren oder Track schneiden. Schreibt zusätzlich die Anschlagszeiten für `takt.py`. |
 | `proben.py` | Schneidet echte Schläge aus dem Musikloop → `out/_proben/` (die Klangpalette). |
 | `groove.py` | Zieht menschliches Spielgefühl aus dem Groove MIDI Dataset: je Instrument und Sechzehntelposition der mediane Versatz zum Raster und die Anschlagstärke. Gemessen an 220 Aufnahmen, 3408 Takten. |
+| `abhoeren.py` | Transkribiert eine Vorlage Schlag für Schlag: Position, Stärke, Versatz und Abklingzeit je Anschlag → `partitur.json`. Der Weg für einen **1:1-Nachbau**. |
 | `partitur.py` | Komponiert 68 Takte Drumline auf die Dramaturgie — Motive, Call-and-Response, Geisternoten, Flams, Wirbel. Noten, kein Klang. |
 | `drumline.py` | Spielt die Partitur mit den echten Trommeln und dem menschlichen Timing → `out/drumline.wav`. |
 | `vcsl.py` | Holt echte Trommeln aus der Versilian Community Sample Library (CC0) → `out/_vcsl/`. Schliesst die Lücke, die der Loop lässt: er hat keinen Ton unter 988 Hz, die VCSL bringt eine grosse Trommel mit 157–523 Hz, vier Anschlagstärken und zwei Round Robins je Stufe. |

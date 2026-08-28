@@ -2,4931 +2,6674 @@
  "bpm": 118.0,
  "takte": 68,
  "sechzehntel": 0.127119,
- "hinweis": "Noten, kein Klang. `takt` 0..67, `pos` 0..15 im Takt. Anschlagstaerke und Versatz kommen aus out/analysis/groove.json, die Klaenge aus out/_vcsl/.",
- "ablauf": [
-  "intro_a",
-  "intro_b",
-  "intro_a",
-  "intro_c",
-  "haupt_a",
-  "haupt_b",
-  "haupt_a",
-  "duenn_a",
-  "duenn_c",
-  "haupt_c",
-  "haupt_b",
-  "duenn_b",
-  "haupt_a",
-  "haupt_b",
-  "haupt_c",
-  "haupt_d",
-  "haupt_a",
-  "haupt_b",
-  "bau_a",
-  "haupt_c",
-  "haupt_d",
-  "bau_a",
-  "bau_b",
-  "bau_a",
-  "bau_c",
-  "bau_b",
-  "duenn_c",
-  null,
-  null,
-  "duenn_a",
-  "duenn_b",
-  "haupt_a",
-  "haupt_b",
-  "haupt_c",
-  "bau_a",
-  "bau_a",
-  "bau_b",
-  "haupt_c",
-  "bau_a",
-  "bau_b",
-  "bau_c",
-  "hoch_a",
-  "hoch_a",
-  "hoch_b",
-  "hoch_c",
-  "hoch_b",
-  "hoch_a",
-  "hoch_d",
-  "hoch_b",
-  "sturz_a",
-  "sturz_b",
-  "duenn_a",
-  "duenn_b",
-  "haupt_a",
-  "haupt_b",
-  "bau_a",
-  "bau_b",
-  "bau_c",
-  null,
-  "ende_a",
-  "ende_b",
-  "ende_a",
-  "ende_c",
-  "ende_b",
-  "ende_c",
-  "ende_d",
-  "ende_c",
-  "ende_e"
- ],
- "motive": {
-  "intro_a": "x...x.......x...",
-  "intro_b": "x...x.....x.x..x",
-  "intro_c": "x.x.x...x.x.x.xx",
-  "haupt_a": "B.gxS..g.xr.S.gx",
-  "haupt_b": "BxgxS..gx.r.S.rr",
-  "haupt_c": "B.grSxg.Bxr.S.gx",
-  "haupt_d": "B.gxS.grBxr.S.x.",
-  "duenn_a": "B...S.......S...",
-  "duenn_b": "B..xS....xr.S..x",
-  "duenn_c": "....S.......S..r",
-  "bau_a": "B.gxS.g.Bxl.S.hx",
-  "bau_b": "B.glSxghBxl.S.hh",
-  "bau_c": "BlghS.ghBlghS.hh",
-  "hoch_a": "B.gxS.gxB.gxS.gx",
-  "hoch_b": "BxgxSxgxBxgxSxgx",
-  "hoch_c": "B.g.S..gW...S.hh",
-  "hoch_d": "BlghSlghBlghSlgh",
-  "sturz_a": "............r...",
-  "sturz_b": "r...............",
-  "ende_a": "B.gxS..gx.r.S.gx",
-  "ende_b": "Bxg.Sxg.Bxg.Sxgx",
-  "ende_c": "BxgxSxgxBxgxSxhh",
-  "ende_d": "BlghSlghBlghWWWW",
-  "ende_e": "B..............."
+ "herkunft": {
+  "quelle": "apple-style-118.mp3",
+  "bpm": 118.01,
+  "downbeat": 0.48,
+  "takte": 16,
+  "anschlaege": 164
  },
+ "hinweis": "Abgehoert, nicht komponiert. `staerke` und `versatz` stammen aus der Vorlage, nicht aus den Groove-Daten — bei einem Eins-zu-eins-Nachbau spielt ihr eigenes Timing, nicht ein fremdes.",
  "noten": [
   {
    "takt": 0,
-   "pos": 0,
+   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_a"
+   "staerke": 0.28,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 11025
+  },
+  {
+   "takt": 0,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.973,
+   "versatz": 0.0507,
+   "abkling": 0.0533,
+   "quelle_hz": 11704
   },
   {
    "takt": 0,
    "pos": 4,
    "inst": "stock",
+   "akzent": true,
+   "staerke": 0.88,
+   "versatz": -0.0231,
+   "abkling": 0.0801,
+   "quelle_hz": 11681
+  },
+  {
+   "takt": 0,
+   "pos": 7,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "intro_a"
+   "staerke": 0.112,
+   "versatz": -0.0004,
+   "abkling": 0.0,
+   "quelle_hz": 5242
   },
   {
    "takt": 0,
    "pos": 12,
-   "inst": "stock",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "intro_a"
+   "staerke": 0.16,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 4436
+  },
+  {
+   "takt": 0,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 1401
   },
   {
    "takt": 1,
-   "pos": 0,
+   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_b"
+   "staerke": 0.362,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 11033
   },
   {
    "takt": 1,
-   "pos": 4,
+   "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_b"
+   "staerke": 0.175,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 5247
   },
   {
    "takt": 1,
    "pos": 10,
-   "inst": "stock",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "intro_b"
+   "staerke": 0.184,
+   "versatz": -0.0021,
+   "abkling": 0.0102,
+   "quelle_hz": 4428
   },
   {
    "takt": 1,
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_b"
-  },
-  {
-   "takt": 1,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "intro_b"
+   "staerke": 0.157,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4745
   },
   {
    "takt": 2,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_a"
+   "staerke": 0.269,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 10980
   },
   {
    "takt": 2,
-   "pos": 4,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0472,
+   "abkling": 0.0709,
+   "quelle_hz": 11628
+  },
+  {
+   "takt": 2,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.862,
+   "versatz": 0.0014,
+   "abkling": 0.2533,
+   "quelle_hz": 7016
+  },
+  {
+   "takt": 2,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0006,
+   "abkling": 0.072,
+   "quelle_hz": 1142
+  },
+  {
+   "takt": 2,
+   "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_a"
+   "staerke": 0.195,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4818
+  },
+  {
+   "takt": 2,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.961,
+   "versatz": 0.0028,
+   "abkling": 0.0787,
+   "quelle_hz": 3079
+  },
+  {
+   "takt": 2,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.001,
+   "abkling": 0.048,
+   "quelle_hz": 10916
+  },
+  {
+   "takt": 2,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.049,
+   "abkling": 0.048,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 2,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0301,
+   "abkling": 0.0761,
+   "quelle_hz": 11634
+  },
+  {
+   "takt": 2,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5315
+  },
+  {
+   "takt": 2,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.903,
+   "versatz": 0.001,
+   "abkling": 0.128,
+   "quelle_hz": 3285
   },
   {
    "takt": 2,
    "pos": 12,
-   "inst": "stock",
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0019,
+   "abkling": 0.3104,
+   "quelle_hz": 4610
+  },
+  {
+   "takt": 2,
+   "pos": 15,
+   "inst": "rim",
    "akzent": false,
-   "motiv": "intro_a"
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 4440
   },
   {
    "takt": 3,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_c"
+   "staerke": 0.421,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 10959
   },
   {
    "takt": 3,
-   "pos": 2,
+   "pos": 0,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "intro_c"
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.0522,
+   "abkling": 0.0716,
+   "quelle_hz": 11615
   },
   {
    "takt": 3,
-   "pos": 4,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.2493,
+   "quelle_hz": 7450
+  },
+  {
+   "takt": 3,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0038,
+   "abkling": 0.0703,
+   "quelle_hz": 1141
+  },
+  {
+   "takt": 3,
+   "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_c"
+   "staerke": 0.162,
+   "versatz": -0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 5319
+  },
+  {
+   "takt": 3,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.902,
+   "versatz": 0.0042,
+   "abkling": 0.116,
+   "quelle_hz": 4577
+  },
+  {
+   "takt": 3,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": -0.0069,
+   "abkling": 0.0576,
+   "quelle_hz": 2888
   },
   {
    "takt": 3,
    "pos": 8,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "intro_c"
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.006,
+   "abkling": 0.0507,
+   "quelle_hz": 10939
   },
   {
    "takt": 3,
-   "pos": 10,
+   "pos": 9,
    "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.0185,
+   "abkling": 0.0811,
+   "quelle_hz": 11607
+  },
+  {
+   "takt": 3,
+   "pos": 11,
+   "inst": "snare",
    "akzent": false,
-   "motiv": "intro_c"
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 1384
   },
   {
    "takt": 3,
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "motiv": "intro_c"
-  },
-  {
-   "takt": 3,
-   "pos": 14,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "intro_c"
+   "staerke": 0.161,
+   "versatz": 0.0029,
+   "abkling": 0.0,
+   "quelle_hz": 4728
   },
   {
    "takt": 3,
    "pos": 15,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "intro_c"
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
   },
   {
    "takt": 4,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_a"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.321,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10970
   },
   {
    "takt": 4,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.0531,
+   "abkling": 0.0698,
+   "quelle_hz": 11648
+  },
+  {
+   "takt": 4,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.002,
+   "abkling": 0.2493,
+   "quelle_hz": 7649
   },
   {
    "takt": 4,
    "pos": 3,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0069,
+   "abkling": 0.0679,
+   "quelle_hz": 3948
+  },
+  {
+   "takt": 4,
+   "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 4,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 4,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_a"
+   "staerke": 0.087,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4780
   },
   {
    "takt": 4,
    "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": -0.0033,
+   "abkling": 0.0817,
+   "quelle_hz": 997
+  },
+  {
+   "takt": 4,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0016,
+   "abkling": 0.048,
+   "quelle_hz": 10946
+  },
+  {
+   "takt": 4,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.997,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11656
   },
   {
    "takt": 4,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": -0.0295,
+   "abkling": 0.0739,
+   "quelle_hz": 11664
   },
   {
    "takt": 4,
    "pos": 10,
-   "inst": "rim",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.04,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 5280
+  },
+  {
+   "takt": 4,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.909,
+   "versatz": -0.0064,
+   "abkling": 0.1347,
+   "quelle_hz": 3654
   },
   {
    "takt": 4,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 4,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.823,
+   "versatz": 0.0011,
+   "abkling": 0.3101,
+   "quelle_hz": 4660
   },
   {
    "takt": 4,
    "pos": 15,
-   "inst": "stock",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.089,
+   "versatz": -0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 4445
   },
   {
    "takt": 5,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": 0.002,
+   "abkling": 0.0,
+   "quelle_hz": 10943
+  },
+  {
+   "takt": 5,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_b"
+   "staerke": 0.996,
+   "versatz": 0.05,
+   "abkling": 0.0708,
+   "quelle_hz": 11638
   },
   {
    "takt": 5,
    "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 5,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 5,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 5,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_b"
+   "staerke": 0.871,
+   "versatz": 0.0003,
+   "abkling": 0.3086,
+   "quelle_hz": 7367
   },
   {
    "takt": 5,
-   "pos": 7,
-   "inst": "geist",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.058,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 5267
+  },
+  {
+   "takt": 5,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": 0.0034,
+   "abkling": 0.2533,
+   "quelle_hz": 5050
   },
   {
    "takt": 5,
    "pos": 8,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0025,
+   "abkling": 0.048,
+   "quelle_hz": 11013
   },
   {
    "takt": 5,
-   "pos": 10,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0505,
+   "abkling": 0.048,
+   "quelle_hz": 11631
+  },
+  {
+   "takt": 5,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0286,
+   "abkling": 0.0756,
+   "quelle_hz": 11565
+  },
+  {
+   "takt": 5,
+   "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.096,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4462
   },
   {
    "takt": 5,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.115,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 4733
   },
   {
    "takt": 5,
    "pos": 14,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.889,
+   "versatz": 0.0025,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 5,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0492,
+   "abkling": 0.0708,
+   "quelle_hz": 11648
   },
   {
    "takt": 5,
    "pos": 15,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 6,
-   "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_a"
+   "staerke": 0.861,
+   "versatz": -0.0006,
+   "abkling": 0.0822,
+   "quelle_hz": 8396
   },
   {
    "takt": 6,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 6,
-   "pos": 3,
+   "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 6,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 6,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.145,
+   "versatz": 0.0003,
+   "abkling": 0.0,
+   "quelle_hz": 5337
   },
   {
    "takt": 6,
    "pos": 9,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.041,
+   "versatz": -0.001,
+   "abkling": 0.0097,
+   "quelle_hz": 1392
   },
   {
    "takt": 6,
-   "pos": 10,
-   "inst": "rim",
+   "pos": 11,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.335,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 10981
   },
   {
    "takt": 6,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 6,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 6,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.309,
+   "quelle_hz": 7218
   },
   {
    "takt": 7,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "duenn_a"
-  },
-  {
-   "takt": 7,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_a"
-  },
-  {
-   "takt": 7,
-   "pos": 4,
-   "inst": "snare",
+   "inst": "stock",
    "akzent": false,
-   "flam": true,
-   "motiv": "duenn_a"
+   "staerke": 0.476,
+   "versatz": -0.0001,
+   "abkling": 0.0,
+   "quelle_hz": 10991
+  },
+  {
+   "takt": 7,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.991,
+   "versatz": 0.0466,
+   "abkling": 0.0533,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 7,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.896,
+   "versatz": -0.0272,
+   "abkling": 0.0845,
+   "quelle_hz": 11582
+  },
+  {
+   "takt": 7,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.044,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 5239
+  },
+  {
+   "takt": 7,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.841,
+   "versatz": 0.0013,
+   "abkling": 0.2547,
+   "quelle_hz": 4992
+  },
+  {
+   "takt": 7,
+   "pos": 8,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.853,
+   "versatz": 0.0017,
+   "abkling": 0.1227,
+   "quelle_hz": 5510
+  },
+  {
+   "takt": 7,
+   "pos": 9,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.94,
+   "versatz": -0.0027,
+   "abkling": 0.1333,
+   "quelle_hz": 3256
+  },
+  {
+   "takt": 7,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.855,
+   "versatz": 0.0035,
+   "abkling": 0.0467,
+   "quelle_hz": 10843
+  },
+  {
+   "takt": 7,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0502,
+   "abkling": 0.0641,
+   "quelle_hz": 11464
+  },
+  {
+   "takt": 7,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0057,
+   "abkling": 0.0507,
+   "quelle_hz": 10976
   },
   {
    "takt": 7,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "duenn_a"
+   "staerke": 0.872,
+   "versatz": -0.0,
+   "abkling": 0.252,
+   "quelle_hz": 7547
+  },
+  {
+   "takt": 7,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.0643,
+   "quelle_hz": 3918
+  },
+  {
+   "takt": 7,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0014,
+   "abkling": 0.0009,
+   "quelle_hz": 1385
   },
   {
    "takt": 8,
-   "pos": 4,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": -0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10981
+  },
+  {
+   "takt": 8,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0462,
+   "abkling": 0.0533,
+   "quelle_hz": 11695
+  },
+  {
+   "takt": 8,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.907,
+   "versatz": -0.0276,
+   "abkling": 0.083,
+   "quelle_hz": 11610
+  },
+  {
+   "takt": 8,
+   "pos": 2,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0,
+   "abkling": 0.0,
+   "quelle_hz": 4806
+  },
+  {
+   "takt": 8,
+   "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "motiv": "duenn_c"
+   "staerke": 0.968,
+   "versatz": 0.0009,
+   "abkling": 0.0786,
+   "quelle_hz": 930
+  },
+  {
+   "takt": 8,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.112,
+   "versatz": -0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 4773
+  },
+  {
+   "takt": 8,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.868,
+   "versatz": 0.0031,
+   "abkling": 0.0701,
+   "quelle_hz": 1137
+  },
+  {
+   "takt": 8,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.438,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 10954
+  },
+  {
+   "takt": 8,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.048,
+   "abkling": 0.048,
+   "quelle_hz": 11620
+  },
+  {
+   "takt": 8,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.921,
+   "versatz": -0.0311,
+   "abkling": 0.0736,
+   "quelle_hz": 11606
+  },
+  {
+   "takt": 8,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.074,
+   "versatz": 0.0044,
+   "abkling": 0.0,
+   "quelle_hz": 4454
   },
   {
    "takt": 8,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_c"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.134,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 4762
   },
   {
    "takt": 8,
-   "pos": 15,
+   "pos": 14,
    "inst": "rim",
-   "akzent": false,
-   "motiv": "duenn_c"
+   "akzent": true,
+   "staerke": 0.871,
+   "versatz": 0.0013,
+   "abkling": 0.0694,
+   "quelle_hz": 3981
   },
   {
    "takt": 9,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.344,
+   "versatz": 0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10956
+  },
+  {
+   "takt": 9,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_c"
+   "staerke": 1.0,
+   "versatz": 0.0485,
+   "abkling": 0.048,
+   "quelle_hz": 11614
+  },
+  {
+   "takt": 9,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0306,
+   "abkling": 0.0746,
+   "quelle_hz": 11553
   },
   {
    "takt": 9,
    "pos": 2,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 9,
-   "pos": 3,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 9,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 9,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_c"
+   "staerke": 0.18,
+   "versatz": -0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 4811
   },
   {
    "takt": 9,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.089,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4808
   },
   {
    "takt": 9,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0005,
+   "abkling": 0.2039,
+   "quelle_hz": 3961
   },
   {
    "takt": 9,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_c"
+   "staerke": 0.821,
+   "versatz": 0.0049,
+   "abkling": 0.048,
+   "quelle_hz": 10993
+  },
+  {
+   "takt": 9,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0529,
+   "abkling": 0.0574,
+   "quelle_hz": 11523
   },
   {
    "takt": 9,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": -0.0168,
+   "abkling": 0.078,
+   "quelle_hz": 11628
   },
   {
    "takt": 9,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.04,
+   "versatz": 0.0027,
+   "abkling": 0.0003,
+   "quelle_hz": 4424
   },
   {
    "takt": 9,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 9,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 9,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 10,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 8,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 14,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 10,
-   "pos": 15,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 11,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 11,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 12,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 12,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 13,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 8,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 14,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 13,
-   "pos": 15,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 14,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 3,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 14,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 15,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 7,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 15,
-   "pos": 14,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 16,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 16,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 17,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 8,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 14,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 17,
-   "pos": 15,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 18,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 18,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 19,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 3,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 19,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 20,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 7,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 20,
-   "pos": 14,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_d"
-  },
-  {
-   "takt": 21,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 21,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 22,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 3,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 22,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 23,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 23,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 24,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 1,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 3,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 9,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
    "pos": 11,
-   "inst": "tomh",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.162,
+   "versatz": 0.0009,
+   "abkling": 0.0022,
+   "quelle_hz": 5271
+  },
+  {
+   "takt": 9,
+   "pos": 12,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.919,
+   "versatz": -0.0008,
+   "abkling": 0.1953,
+   "quelle_hz": 4492
+  },
+  {
+   "takt": 9,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0004,
+   "abkling": 0.07,
+   "quelle_hz": 4036
+  },
+  {
+   "takt": 9,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 1389
+  },
+  {
+   "takt": 10,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.372,
+   "versatz": 0.0014,
+   "abkling": 0.0,
+   "quelle_hz": 10937
+  },
+  {
+   "takt": 10,
+   "pos": 2,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.144,
+   "versatz": -0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 4832
+  },
+  {
+   "takt": 10,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0028,
+   "abkling": 0.0746,
+   "quelle_hz": 955
+  },
+  {
+   "takt": 10,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.27,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4775
+  },
+  {
+   "takt": 10,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.0835,
+   "quelle_hz": 1259
+  },
+  {
+   "takt": 10,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.296,
+   "versatz": 0.0045,
+   "abkling": 0.0,
+   "quelle_hz": 10958
+  },
+  {
+   "takt": 10,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.904,
+   "versatz": -0.0199,
+   "abkling": 0.0815,
+   "quelle_hz": 11637
+  },
+  {
+   "takt": 10,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.049,
+   "versatz": 0.0037,
+   "abkling": 0.0,
+   "quelle_hz": 4441
+  },
+  {
+   "takt": 10,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.053,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 4829
+  },
+  {
+   "takt": 10,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0008,
+   "abkling": 0.0622,
+   "quelle_hz": 3822
+  },
+  {
+   "takt": 10,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 1388
+  },
+  {
+   "takt": 11,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.329,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 10940
+  },
+  {
+   "takt": 11,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.991,
+   "versatz": 0.053,
+   "abkling": 0.0493,
+   "quelle_hz": 11693
+  },
+  {
+   "takt": 11,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.906,
+   "versatz": -0.0248,
+   "abkling": 0.0829,
+   "quelle_hz": 11594
+  },
+  {
+   "takt": 11,
+   "pos": 2,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.094,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4782
+  },
+  {
+   "takt": 11,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.243,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 4794
+  },
+  {
+   "takt": 11,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.0019,
+   "abkling": 0.0729,
+   "quelle_hz": 1158
+  },
+  {
+   "takt": 11,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.443,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 11000
+  },
+  {
+   "takt": 11,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.103,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4510
+  },
+  {
+   "takt": 11,
+   "pos": 12,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.845,
+   "versatz": -0.0003,
+   "abkling": 0.1158,
+   "quelle_hz": 4107
+  },
+  {
+   "takt": 12,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
+  },
+  {
+   "takt": 12,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.347,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 11053
+  },
+  {
+   "takt": 12,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.275,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4435
+  },
+  {
+   "takt": 12,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.137,
+   "versatz": 0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 4774
+  },
+  {
+   "takt": 12,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0635,
+   "quelle_hz": 3861
+  },
+  {
+   "takt": 13,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.432,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 10971
+  },
+  {
+   "takt": 13,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0011,
+   "abkling": 0.2533,
+   "quelle_hz": 7255
+  },
+  {
+   "takt": 13,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0002,
+   "abkling": 0.0748,
+   "quelle_hz": 1186
+  },
+  {
+   "takt": 13,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.149,
+   "versatz": 0.0016,
+   "abkling": 0.0,
+   "quelle_hz": 4793
+  },
+  {
+   "takt": 13,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": -0.0002,
+   "abkling": 0.0804,
+   "quelle_hz": 2924
+  },
+  {
+   "takt": 13,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0034,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 13,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.05,
+   "abkling": 0.0453,
+   "quelle_hz": 11663
+  },
+  {
+   "takt": 13,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.927,
+   "versatz": -0.0317,
+   "abkling": 0.0693,
+   "quelle_hz": 11585
+  },
+  {
+   "takt": 13,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.194,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5310
+  },
+  {
+   "takt": 13,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0006,
+   "abkling": 0.1293,
+   "quelle_hz": 3342
+  },
+  {
+   "takt": 13,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.834,
+   "versatz": 0.0016,
+   "abkling": 0.2533,
+   "quelle_hz": 4846
+  },
+  {
+   "takt": 13,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0007,
+   "abkling": 0.0628,
+   "quelle_hz": 3877
+  },
+  {
+   "takt": 14,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.403,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10967
+  },
+  {
+   "takt": 14,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0021,
+   "abkling": 0.252,
+   "quelle_hz": 7152
+  },
+  {
+   "takt": 14,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0753,
+   "quelle_hz": 1183
+  },
+  {
+   "takt": 14,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.103,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4753
+  },
+  {
+   "takt": 14,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": 0.0007,
+   "abkling": 0.0797,
+   "quelle_hz": 2987
+  },
+  {
+   "takt": 14,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0043,
+   "abkling": 0.0453,
+   "quelle_hz": 10947
+  },
+  {
+   "takt": 14,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11639
+  },
+  {
+   "takt": 14,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.925,
+   "versatz": -0.0295,
+   "abkling": 0.0674,
+   "quelle_hz": 11592
+  },
+  {
+   "takt": 14,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.148,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 5299
+  },
+  {
+   "takt": 14,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": 0.0003,
+   "abkling": 0.128,
+   "quelle_hz": 3401
+  },
+  {
+   "takt": 14,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0012,
+   "abkling": 0.3101,
+   "quelle_hz": 4874
+  },
+  {
+   "takt": 15,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.538,
+   "versatz": 0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 10982
+  },
+  {
+   "takt": 15,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.017,
+   "abkling": 0.0782,
+   "quelle_hz": 11646
+  },
+  {
+   "takt": 15,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.125,
+   "versatz": 0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 5243
+  },
+  {
+   "takt": 15,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.834,
+   "versatz": 0.0035,
+   "abkling": 0.2533,
+   "quelle_hz": 5532
+  },
+  {
+   "takt": 15,
+   "pos": 8,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.848,
+   "versatz": 0.0026,
+   "abkling": 0.1253,
+   "quelle_hz": 5296
+  },
+  {
+   "takt": 15,
+   "pos": 9,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0008,
+   "abkling": 0.1307,
+   "quelle_hz": 3297
+  },
+  {
+   "takt": 15,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.851,
+   "versatz": 0.0044,
+   "abkling": 0.0453,
+   "quelle_hz": 10880
+  },
+  {
+   "takt": 15,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.971,
+   "versatz": 0.0497,
+   "abkling": 0.072,
+   "quelle_hz": 11449
+  },
+  {
+   "takt": 15,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0053,
+   "abkling": 0.0453,
+   "quelle_hz": 11064
+  },
+  {
+   "takt": 15,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0506,
+   "abkling": 0.056,
+   "quelle_hz": 11633
+  },
+  {
+   "takt": 15,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0205,
+   "abkling": 0.0818,
+   "quelle_hz": 11672
+  },
+  {
+   "takt": 16,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.28,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 11025
+  },
+  {
+   "takt": 16,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.973,
+   "versatz": 0.0507,
+   "abkling": 0.0533,
+   "quelle_hz": 11704
+  },
+  {
+   "takt": 16,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.88,
+   "versatz": -0.0231,
+   "abkling": 0.0801,
+   "quelle_hz": 11681
+  },
+  {
+   "takt": 16,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.112,
+   "versatz": -0.0004,
+   "abkling": 0.0,
+   "quelle_hz": 5242
+  },
+  {
+   "takt": 16,
+   "pos": 12,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.16,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 4436
+  },
+  {
+   "takt": 16,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 1401
+  },
+  {
+   "takt": 17,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.362,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 11033
+  },
+  {
+   "takt": 17,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.175,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 5247
+  },
+  {
+   "takt": 17,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.184,
+   "versatz": -0.0021,
+   "abkling": 0.0102,
+   "quelle_hz": 4428
+  },
+  {
+   "takt": 17,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.157,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4745
+  },
+  {
+   "takt": 18,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.269,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 10980
+  },
+  {
+   "takt": 18,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0472,
+   "abkling": 0.0709,
+   "quelle_hz": 11628
+  },
+  {
+   "takt": 18,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.862,
+   "versatz": 0.0014,
+   "abkling": 0.2533,
+   "quelle_hz": 7016
+  },
+  {
+   "takt": 18,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0006,
+   "abkling": 0.072,
+   "quelle_hz": 1142
+  },
+  {
+   "takt": 18,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.195,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4818
+  },
+  {
+   "takt": 18,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.961,
+   "versatz": 0.0028,
+   "abkling": 0.0787,
+   "quelle_hz": 3079
+  },
+  {
+   "takt": 18,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.001,
+   "abkling": 0.048,
+   "quelle_hz": 10916
+  },
+  {
+   "takt": 18,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.049,
+   "abkling": 0.048,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 18,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0301,
+   "abkling": 0.0761,
+   "quelle_hz": 11634
+  },
+  {
+   "takt": 18,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5315
+  },
+  {
+   "takt": 18,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.903,
+   "versatz": 0.001,
+   "abkling": 0.128,
+   "quelle_hz": 3285
+  },
+  {
+   "takt": 18,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0019,
+   "abkling": 0.3104,
+   "quelle_hz": 4610
+  },
+  {
+   "takt": 18,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 4440
+  },
+  {
+   "takt": 19,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.421,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 10959
+  },
+  {
+   "takt": 19,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.0522,
+   "abkling": 0.0716,
+   "quelle_hz": 11615
+  },
+  {
+   "takt": 19,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.2493,
+   "quelle_hz": 7450
+  },
+  {
+   "takt": 19,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0038,
+   "abkling": 0.0703,
+   "quelle_hz": 1141
+  },
+  {
+   "takt": 19,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.162,
+   "versatz": -0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 5319
+  },
+  {
+   "takt": 19,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.902,
+   "versatz": 0.0042,
+   "abkling": 0.116,
+   "quelle_hz": 4577
+  },
+  {
+   "takt": 19,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": -0.0069,
+   "abkling": 0.0576,
+   "quelle_hz": 2888
+  },
+  {
+   "takt": 19,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.006,
+   "abkling": 0.0507,
+   "quelle_hz": 10939
+  },
+  {
+   "takt": 19,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.0185,
+   "abkling": 0.0811,
+   "quelle_hz": 11607
+  },
+  {
+   "takt": 19,
+   "pos": 11,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 1384
+  },
+  {
+   "takt": 19,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.161,
+   "versatz": 0.0029,
+   "abkling": 0.0,
+   "quelle_hz": 4728
+  },
+  {
+   "takt": 19,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
+  },
+  {
+   "takt": 20,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.321,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10970
+  },
+  {
+   "takt": 20,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.0531,
+   "abkling": 0.0698,
+   "quelle_hz": 11648
+  },
+  {
+   "takt": 20,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.002,
+   "abkling": 0.2493,
+   "quelle_hz": 7649
+  },
+  {
+   "takt": 20,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0069,
+   "abkling": 0.0679,
+   "quelle_hz": 3948
+  },
+  {
+   "takt": 20,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.087,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4780
+  },
+  {
+   "takt": 20,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": -0.0033,
+   "abkling": 0.0817,
+   "quelle_hz": 997
+  },
+  {
+   "takt": 20,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0016,
+   "abkling": 0.048,
+   "quelle_hz": 10946
+  },
+  {
+   "takt": 20,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.997,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11656
+  },
+  {
+   "takt": 20,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": -0.0295,
+   "abkling": 0.0739,
+   "quelle_hz": 11664
+  },
+  {
+   "takt": 20,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 5280
+  },
+  {
+   "takt": 20,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.909,
+   "versatz": -0.0064,
+   "abkling": 0.1347,
+   "quelle_hz": 3654
+  },
+  {
+   "takt": 20,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.823,
+   "versatz": 0.0011,
+   "abkling": 0.3101,
+   "quelle_hz": 4660
+  },
+  {
+   "takt": 20,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.089,
+   "versatz": -0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 4445
+  },
+  {
+   "takt": 21,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": 0.002,
+   "abkling": 0.0,
+   "quelle_hz": 10943
+  },
+  {
+   "takt": 21,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.05,
+   "abkling": 0.0708,
+   "quelle_hz": 11638
+  },
+  {
+   "takt": 21,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.871,
+   "versatz": 0.0003,
+   "abkling": 0.3086,
+   "quelle_hz": 7367
+  },
+  {
+   "takt": 21,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.058,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 5267
+  },
+  {
+   "takt": 21,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": 0.0034,
+   "abkling": 0.2533,
+   "quelle_hz": 5050
+  },
+  {
+   "takt": 21,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0025,
+   "abkling": 0.048,
+   "quelle_hz": 11013
+  },
+  {
+   "takt": 21,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0505,
+   "abkling": 0.048,
+   "quelle_hz": 11631
+  },
+  {
+   "takt": 21,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0286,
+   "abkling": 0.0756,
+   "quelle_hz": 11565
+  },
+  {
+   "takt": 21,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.096,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4462
+  },
+  {
+   "takt": 21,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.115,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 4733
+  },
+  {
+   "takt": 21,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.889,
+   "versatz": 0.0025,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 21,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0492,
+   "abkling": 0.0708,
+   "quelle_hz": 11648
+  },
+  {
+   "takt": 21,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.861,
+   "versatz": -0.0006,
+   "abkling": 0.0822,
+   "quelle_hz": 8396
+  },
+  {
+   "takt": 22,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.145,
+   "versatz": 0.0003,
+   "abkling": 0.0,
+   "quelle_hz": 5337
+  },
+  {
+   "takt": 22,
+   "pos": 9,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.041,
+   "versatz": -0.001,
+   "abkling": 0.0097,
+   "quelle_hz": 1392
+  },
+  {
+   "takt": 22,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.335,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 10981
+  },
+  {
+   "takt": 22,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.309,
+   "quelle_hz": 7218
+  },
+  {
+   "takt": 23,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.476,
+   "versatz": -0.0001,
+   "abkling": 0.0,
+   "quelle_hz": 10991
+  },
+  {
+   "takt": 23,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.991,
+   "versatz": 0.0466,
+   "abkling": 0.0533,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 23,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.896,
+   "versatz": -0.0272,
+   "abkling": 0.0845,
+   "quelle_hz": 11582
+  },
+  {
+   "takt": 23,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.044,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 5239
+  },
+  {
+   "takt": 23,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.841,
+   "versatz": 0.0013,
+   "abkling": 0.2547,
+   "quelle_hz": 4992
+  },
+  {
+   "takt": 23,
+   "pos": 8,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.853,
+   "versatz": 0.0017,
+   "abkling": 0.1227,
+   "quelle_hz": 5510
+  },
+  {
+   "takt": 23,
+   "pos": 9,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.94,
+   "versatz": -0.0027,
+   "abkling": 0.1333,
+   "quelle_hz": 3256
+  },
+  {
+   "takt": 23,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.855,
+   "versatz": 0.0035,
+   "abkling": 0.0467,
+   "quelle_hz": 10843
+  },
+  {
+   "takt": 23,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0502,
+   "abkling": 0.0641,
+   "quelle_hz": 11464
+  },
+  {
+   "takt": 23,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0057,
+   "abkling": 0.0507,
+   "quelle_hz": 10976
+  },
+  {
+   "takt": 23,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0,
+   "abkling": 0.252,
+   "quelle_hz": 7547
+  },
+  {
+   "takt": 23,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.0643,
+   "quelle_hz": 3918
+  },
+  {
+   "takt": 23,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0014,
+   "abkling": 0.0009,
+   "quelle_hz": 1385
+  },
+  {
+   "takt": 24,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": -0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10981
+  },
+  {
+   "takt": 24,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0462,
+   "abkling": 0.0533,
+   "quelle_hz": 11695
+  },
+  {
+   "takt": 24,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.907,
+   "versatz": -0.0276,
+   "abkling": 0.083,
+   "quelle_hz": 11610
+  },
+  {
+   "takt": 24,
+   "pos": 2,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0,
+   "abkling": 0.0,
+   "quelle_hz": 4806
+  },
+  {
+   "takt": 24,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0009,
+   "abkling": 0.0786,
+   "quelle_hz": 930
+  },
+  {
+   "takt": 24,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.112,
+   "versatz": -0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 4773
+  },
+  {
+   "takt": 24,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.868,
+   "versatz": 0.0031,
+   "abkling": 0.0701,
+   "quelle_hz": 1137
+  },
+  {
+   "takt": 24,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.438,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 10954
+  },
+  {
+   "takt": 24,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.048,
+   "abkling": 0.048,
+   "quelle_hz": 11620
+  },
+  {
+   "takt": 24,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.921,
+   "versatz": -0.0311,
+   "abkling": 0.0736,
+   "quelle_hz": 11606
+  },
+  {
+   "takt": 24,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.074,
+   "versatz": 0.0044,
+   "abkling": 0.0,
+   "quelle_hz": 4454
   },
   {
    "takt": 24,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_c"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.134,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 4762
   },
   {
    "takt": 24,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 24,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.871,
+   "versatz": 0.0013,
+   "abkling": 0.0694,
+   "quelle_hz": 3981
   },
   {
    "takt": 25,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.344,
+   "versatz": 0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10956
+  },
+  {
+   "takt": 25,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 1.0,
+   "versatz": 0.0485,
+   "abkling": 0.048,
+   "quelle_hz": 11614
+  },
+  {
+   "takt": 25,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0306,
+   "abkling": 0.0746,
+   "quelle_hz": 11553
   },
   {
    "takt": 25,
    "pos": 2,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 25,
-   "pos": 3,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 25,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.18,
+   "versatz": -0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 4811
   },
   {
    "takt": 25,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.089,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4808
   },
   {
    "takt": 25,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 25,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0005,
+   "abkling": 0.2039,
+   "quelle_hz": 3961
   },
   {
    "takt": 25,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.821,
+   "versatz": 0.0049,
+   "abkling": 0.048,
+   "quelle_hz": 10993
+  },
+  {
+   "takt": 25,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0529,
+   "abkling": 0.0574,
+   "quelle_hz": 11523
   },
   {
    "takt": 25,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": -0.0168,
+   "abkling": 0.078,
+   "quelle_hz": 11628
   },
   {
    "takt": 25,
    "pos": 10,
-   "inst": "toml",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.04,
+   "versatz": 0.0027,
+   "abkling": 0.0003,
+   "quelle_hz": 4424
+  },
+  {
+   "takt": 25,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.162,
+   "versatz": 0.0009,
+   "abkling": 0.0022,
+   "quelle_hz": 5271
   },
   {
    "takt": 25,
    "pos": 12,
-   "inst": "snare",
+   "inst": "rim",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.919,
+   "versatz": -0.0008,
+   "abkling": 0.1953,
+   "quelle_hz": 4492
   },
   {
    "takt": 25,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0004,
+   "abkling": 0.07,
+   "quelle_hz": 4036
   },
   {
    "takt": 25,
    "pos": 15,
-   "inst": "tomh",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.04,
+   "versatz": -0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 1389
   },
   {
    "takt": 26,
-   "pos": 4,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.372,
+   "versatz": 0.0014,
+   "abkling": 0.0,
+   "quelle_hz": 10937
+  },
+  {
+   "takt": 26,
+   "pos": 2,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.144,
+   "versatz": -0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 4832
+  },
+  {
+   "takt": 26,
+   "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "motiv": "duenn_c"
+   "staerke": 0.968,
+   "versatz": 0.0028,
+   "abkling": 0.0746,
+   "quelle_hz": 955
   },
   {
    "takt": 26,
-   "pos": 4,
-   "inst": "snare",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "flam": true,
-   "motiv": "duenn_c"
+   "staerke": 0.27,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4775
+  },
+  {
+   "takt": 26,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.0835,
+   "quelle_hz": 1259
+  },
+  {
+   "takt": 26,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.296,
+   "versatz": 0.0045,
+   "abkling": 0.0,
+   "quelle_hz": 10958
+  },
+  {
+   "takt": 26,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.904,
+   "versatz": -0.0199,
+   "abkling": 0.0815,
+   "quelle_hz": 11637
+  },
+  {
+   "takt": 26,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.049,
+   "versatz": 0.0037,
+   "abkling": 0.0,
+   "quelle_hz": 4441
   },
   {
    "takt": 26,
    "pos": 12,
-   "inst": "snare",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.053,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 4829
+  },
+  {
+   "takt": 26,
+   "pos": 14,
+   "inst": "rim",
    "akzent": true,
-   "motiv": "duenn_c"
+   "staerke": 0.872,
+   "versatz": -0.0008,
+   "abkling": 0.0622,
+   "quelle_hz": 3822
   },
   {
    "takt": 26,
    "pos": 15,
-   "inst": "rim",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "duenn_c"
+   "staerke": 0.04,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 1388
   },
   {
    "takt": 29,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "duenn_a"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.432,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 10971
   },
   {
    "takt": 29,
-   "pos": 4,
+   "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "motiv": "duenn_a"
+   "staerke": 0.873,
+   "versatz": 0.0011,
+   "abkling": 0.2533,
+   "quelle_hz": 7255
   },
   {
    "takt": 29,
-   "pos": 4,
+   "pos": 3,
    "inst": "snare",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0002,
+   "abkling": 0.0748,
+   "quelle_hz": 1186
+  },
+  {
+   "takt": 29,
+   "pos": 6,
+   "inst": "stock",
    "akzent": false,
-   "flam": true,
-   "motiv": "duenn_a"
+   "staerke": 0.149,
+   "versatz": 0.0016,
+   "abkling": 0.0,
+   "quelle_hz": 4793
+  },
+  {
+   "takt": 29,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": -0.0002,
+   "abkling": 0.0804,
+   "quelle_hz": 2924
+  },
+  {
+   "takt": 29,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0034,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 29,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.05,
+   "abkling": 0.0453,
+   "quelle_hz": 11663
+  },
+  {
+   "takt": 29,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.927,
+   "versatz": -0.0317,
+   "abkling": 0.0693,
+   "quelle_hz": 11585
+  },
+  {
+   "takt": 29,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.194,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5310
+  },
+  {
+   "takt": 29,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0006,
+   "abkling": 0.1293,
+   "quelle_hz": 3342
   },
   {
    "takt": 29,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "duenn_a"
+   "staerke": 0.834,
+   "versatz": 0.0016,
+   "abkling": 0.2533,
+   "quelle_hz": 4846
   },
   {
-   "takt": 30,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 30,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 30,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 30,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 30,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 30,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 30,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 31,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 31,
+   "takt": 29,
    "pos": 14,
-   "inst": "geist",
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0007,
+   "abkling": 0.0628,
+   "quelle_hz": 3877
+  },
+  {
+   "takt": 30,
+   "pos": 0,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.403,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10967
+  },
+  {
+   "takt": 30,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0021,
+   "abkling": 0.252,
+   "quelle_hz": 7152
+  },
+  {
+   "takt": 30,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0753,
+   "quelle_hz": 1183
+  },
+  {
+   "takt": 30,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.103,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4753
+  },
+  {
+   "takt": 30,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": 0.0007,
+   "abkling": 0.0797,
+   "quelle_hz": 2987
+  },
+  {
+   "takt": 30,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0043,
+   "abkling": 0.0453,
+   "quelle_hz": 10947
+  },
+  {
+   "takt": 30,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11639
+  },
+  {
+   "takt": 30,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.925,
+   "versatz": -0.0295,
+   "abkling": 0.0674,
+   "quelle_hz": 11592
+  },
+  {
+   "takt": 30,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.148,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 5299
+  },
+  {
+   "takt": 30,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": 0.0003,
+   "abkling": 0.128,
+   "quelle_hz": 3401
+  },
+  {
+   "takt": 30,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0012,
+   "abkling": 0.3101,
+   "quelle_hz": 4874
   },
   {
    "takt": 31,
-   "pos": 15,
+   "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.538,
+   "versatz": 0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 10982
   },
   {
-   "takt": 32,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 32,
+   "takt": 31,
    "pos": 1,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.017,
+   "abkling": 0.0782,
+   "quelle_hz": 11646
   },
   {
-   "takt": 32,
-   "pos": 2,
-   "inst": "geist",
+   "takt": 31,
+   "pos": 4,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.125,
+   "versatz": 0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 5243
+  },
+  {
+   "takt": 31,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.834,
+   "versatz": 0.0035,
+   "abkling": 0.2533,
+   "quelle_hz": 5532
+  },
+  {
+   "takt": 31,
+   "pos": 8,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.848,
+   "versatz": 0.0026,
+   "abkling": 0.1253,
+   "quelle_hz": 5296
+  },
+  {
+   "takt": 31,
+   "pos": 9,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0008,
+   "abkling": 0.1307,
+   "quelle_hz": 3297
+  },
+  {
+   "takt": 31,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.851,
+   "versatz": 0.0044,
+   "abkling": 0.0453,
+   "quelle_hz": 10880
+  },
+  {
+   "takt": 31,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.971,
+   "versatz": 0.0497,
+   "abkling": 0.072,
+   "quelle_hz": 11449
+  },
+  {
+   "takt": 31,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0053,
+   "abkling": 0.0453,
+   "quelle_hz": 11064
+  },
+  {
+   "takt": 31,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0506,
+   "abkling": 0.056,
+   "quelle_hz": 11633
+  },
+  {
+   "takt": 31,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0205,
+   "abkling": 0.0818,
+   "quelle_hz": 11672
   },
   {
    "takt": 32,
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.28,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 11025
+  },
+  {
+   "takt": 32,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.973,
+   "versatz": 0.0507,
+   "abkling": 0.0533,
+   "quelle_hz": 11704
   },
   {
    "takt": 32,
    "pos": 4,
-   "inst": "snare",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_b"
+   "staerke": 0.88,
+   "versatz": -0.0231,
+   "abkling": 0.0801,
+   "quelle_hz": 11681
   },
   {
    "takt": 32,
    "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 32,
-   "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 32,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.112,
+   "versatz": -0.0004,
+   "abkling": 0.0,
+   "quelle_hz": 5242
   },
   {
    "takt": 32,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 32,
-   "pos": 14,
    "inst": "rim",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.16,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 4436
   },
   {
    "takt": 32,
    "pos": 15,
-   "inst": "rim",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 33,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 33,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.04,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 1401
   },
   {
    "takt": 33,
    "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.362,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 11033
+  },
+  {
+   "takt": 33,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.175,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 5247
+  },
+  {
+   "takt": 33,
+   "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.184,
+   "versatz": -0.0021,
+   "abkling": 0.0102,
+   "quelle_hz": 4428
   },
   {
    "takt": 33,
-   "pos": 4,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.157,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4745
+  },
+  {
+   "takt": 34,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.269,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 10980
+  },
+  {
+   "takt": 34,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0472,
+   "abkling": 0.0709,
+   "quelle_hz": 11628
+  },
+  {
+   "takt": 34,
+   "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_c"
+   "staerke": 0.862,
+   "versatz": 0.0014,
+   "abkling": 0.2533,
+   "quelle_hz": 7016
   },
   {
-   "takt": 33,
+   "takt": 34,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0006,
+   "abkling": 0.072,
+   "quelle_hz": 1142
+  },
+  {
+   "takt": 34,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.195,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4818
+  },
+  {
+   "takt": 34,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.961,
+   "versatz": 0.0028,
+   "abkling": 0.0787,
+   "quelle_hz": 3079
+  },
+  {
+   "takt": 34,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.001,
+   "abkling": 0.048,
+   "quelle_hz": 10916
+  },
+  {
+   "takt": 34,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.049,
+   "abkling": 0.048,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 34,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0301,
+   "abkling": 0.0761,
+   "quelle_hz": 11634
+  },
+  {
+   "takt": 34,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5315
+  },
+  {
+   "takt": 34,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.903,
+   "versatz": 0.001,
+   "abkling": 0.128,
+   "quelle_hz": 3285
+  },
+  {
+   "takt": 34,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0019,
+   "abkling": 0.3104,
+   "quelle_hz": 4610
+  },
+  {
+   "takt": 34,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 4440
+  },
+  {
+   "takt": 35,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.421,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 10959
+  },
+  {
+   "takt": 35,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.0522,
+   "abkling": 0.0716,
+   "quelle_hz": 11615
+  },
+  {
+   "takt": 35,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.2493,
+   "quelle_hz": 7450
+  },
+  {
+   "takt": 35,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0038,
+   "abkling": 0.0703,
+   "quelle_hz": 1141
+  },
+  {
+   "takt": 35,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.162,
+   "versatz": -0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 5319
   },
   {
-   "takt": 33,
+   "takt": 35,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 33,
-   "pos": 8,
-   "inst": "trommel",
+   "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_c"
+   "staerke": 0.902,
+   "versatz": 0.0042,
+   "abkling": 0.116,
+   "quelle_hz": 4577
   },
   {
-   "takt": 33,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 33,
-   "pos": 10,
+   "takt": 35,
+   "pos": 7,
    "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 33,
-   "pos": 12,
-   "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 33,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 33,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 34,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 34,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 35,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 35,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 35,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 35,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 35,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.966,
+   "versatz": -0.0069,
+   "abkling": 0.0576,
+   "quelle_hz": 2888
   },
   {
    "takt": 35,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_a"
+   "staerke": 0.865,
+   "versatz": 0.006,
+   "abkling": 0.0507,
+   "quelle_hz": 10939
   },
   {
    "takt": 35,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.0185,
+   "abkling": 0.0811,
+   "quelle_hz": 11607
   },
   {
    "takt": 35,
-   "pos": 10,
-   "inst": "toml",
+   "pos": 11,
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 1384
   },
   {
    "takt": 35,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 35,
-   "pos": 14,
-   "inst": "tomh",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.161,
+   "versatz": 0.0029,
+   "abkling": 0.0,
+   "quelle_hz": 4728
   },
   {
    "takt": 35,
    "pos": 15,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
   },
   {
    "takt": 36,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_b"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.321,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10970
   },
   {
    "takt": 36,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.0531,
+   "abkling": 0.0698,
+   "quelle_hz": 11648
+  },
+  {
+   "takt": 36,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.002,
+   "abkling": 0.2493,
+   "quelle_hz": 7649
   },
   {
    "takt": 36,
    "pos": 3,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 36,
-   "pos": 4,
-   "inst": "snare",
+   "inst": "rim",
    "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 36,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.865,
+   "versatz": -0.0069,
+   "abkling": 0.0679,
+   "quelle_hz": 3948
   },
   {
    "takt": 36,
    "pos": 6,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.087,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4780
   },
   {
    "takt": 36,
    "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": -0.0033,
+   "abkling": 0.0817,
+   "quelle_hz": 997
   },
   {
    "takt": 36,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.865,
+   "versatz": 0.0016,
+   "abkling": 0.048,
+   "quelle_hz": 10946
+  },
+  {
+   "takt": 36,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.997,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11656
   },
   {
    "takt": 36,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": -0.0295,
+   "abkling": 0.0739,
+   "quelle_hz": 11664
   },
   {
    "takt": 36,
    "pos": 10,
-   "inst": "toml",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.04,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 5280
+  },
+  {
+   "takt": 36,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.909,
+   "versatz": -0.0064,
+   "abkling": 0.1347,
+   "quelle_hz": 3654
   },
   {
    "takt": 36,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 36,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.823,
+   "versatz": 0.0011,
+   "abkling": 0.3101,
+   "quelle_hz": 4660
   },
   {
    "takt": 36,
    "pos": 15,
-   "inst": "tomh",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.089,
+   "versatz": -0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 4445
   },
   {
    "takt": 37,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": 0.002,
+   "abkling": 0.0,
+   "quelle_hz": 10943
+  },
+  {
+   "takt": 37,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_c"
+   "staerke": 0.996,
+   "versatz": 0.05,
+   "abkling": 0.0708,
+   "quelle_hz": 11638
   },
   {
    "takt": 37,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 37,
-   "pos": 3,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 37,
-   "pos": 4,
+   "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 37,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_c"
+   "staerke": 0.871,
+   "versatz": 0.0003,
+   "abkling": 0.3086,
+   "quelle_hz": 7367
   },
   {
    "takt": 37,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.058,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 5267
   },
   {
    "takt": 37,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": 0.0034,
+   "abkling": 0.2533,
+   "quelle_hz": 5050
   },
   {
    "takt": 37,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_c"
+   "staerke": 0.865,
+   "versatz": 0.0025,
+   "abkling": 0.048,
+   "quelle_hz": 11013
+  },
+  {
+   "takt": 37,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0505,
+   "abkling": 0.048,
+   "quelle_hz": 11631
   },
   {
    "takt": 37,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0286,
+   "abkling": 0.0756,
+   "quelle_hz": 11565
   },
   {
    "takt": 37,
-   "pos": 10,
+   "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "motiv": "haupt_c"
+   "staerke": 0.096,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4462
   },
   {
    "takt": 37,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_c"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.115,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 4733
   },
   {
    "takt": 37,
    "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_c"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.889,
+   "versatz": 0.0025,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 37,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0492,
+   "abkling": 0.0708,
+   "quelle_hz": 11648
   },
   {
    "takt": 37,
    "pos": 15,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_c"
-  },
-  {
-   "takt": 38,
-   "pos": 0,
-   "inst": "trommel",
    "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "bau_a"
+   "staerke": 0.861,
+   "versatz": -0.0006,
+   "abkling": 0.0822,
+   "quelle_hz": 8396
   },
   {
    "takt": 38,
    "pos": 6,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
+   "staerke": 0.145,
+   "versatz": 0.0003,
+   "abkling": 0.0,
+   "quelle_hz": 5337
   },
   {
    "takt": 38,
    "pos": 9,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.041,
+   "versatz": -0.001,
+   "abkling": 0.0097,
+   "quelle_hz": 1392
   },
   {
    "takt": 38,
-   "pos": 10,
-   "inst": "toml",
+   "pos": 11,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.335,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 10981
   },
   {
    "takt": 38,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 38,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.309,
+   "quelle_hz": 7218
   },
   {
    "takt": 39,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.476,
+   "versatz": -0.0001,
+   "abkling": 0.0,
+   "quelle_hz": 10991
+  },
+  {
+   "takt": 39,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.991,
+   "versatz": 0.0466,
+   "abkling": 0.0533,
+   "quelle_hz": 11692
   },
   {
    "takt": 39,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 39,
-   "pos": 3,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.896,
+   "versatz": -0.0272,
+   "abkling": 0.0845,
+   "quelle_hz": 11582
   },
   {
    "takt": 39,
    "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 39,
-   "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.044,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 5239
   },
   {
    "takt": 39,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 39,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.841,
+   "versatz": 0.0013,
+   "abkling": 0.2547,
+   "quelle_hz": 4992
   },
   {
    "takt": 39,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "snare",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.853,
+   "versatz": 0.0017,
+   "abkling": 0.1227,
+   "quelle_hz": 5510
   },
   {
    "takt": 39,
    "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.94,
+   "versatz": -0.0027,
+   "abkling": 0.1333,
+   "quelle_hz": 3256
   },
   {
    "takt": 39,
    "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.855,
+   "versatz": 0.0035,
+   "abkling": 0.0467,
+   "quelle_hz": 10843
+  },
+  {
+   "takt": 39,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0502,
+   "abkling": 0.0641,
+   "quelle_hz": 11464
+  },
+  {
+   "takt": 39,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0057,
+   "abkling": 0.0507,
+   "quelle_hz": 10976
   },
   {
    "takt": 39,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.872,
+   "versatz": -0.0,
+   "abkling": 0.252,
+   "quelle_hz": 7547
   },
   {
    "takt": 39,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.0643,
+   "quelle_hz": 3918
   },
   {
    "takt": 39,
    "pos": 15,
-   "inst": "tomh",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.04,
+   "versatz": -0.0014,
+   "abkling": 0.0009,
+   "quelle_hz": 1385
   },
   {
    "takt": 40,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": -0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10981
+  },
+  {
+   "takt": 40,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 1.0,
+   "versatz": 0.0462,
+   "abkling": 0.0533,
+   "quelle_hz": 11695
   },
   {
    "takt": 40,
    "pos": 1,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.907,
+   "versatz": -0.0276,
+   "abkling": 0.083,
+   "quelle_hz": 11610
   },
   {
    "takt": 40,
    "pos": 2,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.04,
+   "versatz": -0.0,
+   "abkling": 0.0,
+   "quelle_hz": 4806
   },
   {
    "takt": 40,
    "pos": 3,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 40,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 0.968,
+   "versatz": 0.0009,
+   "abkling": 0.0786,
+   "quelle_hz": 930
   },
   {
    "takt": 40,
-   "pos": 6,
-   "inst": "geist",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.112,
+   "versatz": -0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 4773
   },
   {
    "takt": 40,
    "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.868,
+   "versatz": 0.0031,
+   "abkling": 0.0701,
+   "quelle_hz": 1137
   },
   {
    "takt": 40,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.438,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 10954
+  },
+  {
+   "takt": 40,
+   "pos": 8,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 0.998,
+   "versatz": 0.048,
+   "abkling": 0.048,
+   "quelle_hz": 11620
   },
   {
    "takt": 40,
    "pos": 9,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.921,
+   "versatz": -0.0311,
+   "abkling": 0.0736,
+   "quelle_hz": 11606
   },
   {
    "takt": 40,
    "pos": 10,
-   "inst": "geist",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 40,
-   "pos": 11,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.074,
+   "versatz": 0.0044,
+   "abkling": 0.0,
+   "quelle_hz": 4454
   },
   {
    "takt": 40,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_c"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.134,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 4762
   },
   {
    "takt": 40,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 40,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.871,
+   "versatz": 0.0013,
+   "abkling": 0.0694,
+   "quelle_hz": 3981
   },
   {
    "takt": 41,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.344,
+   "versatz": 0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10956
+  },
+  {
+   "takt": 41,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 1.0,
+   "versatz": 0.0485,
+   "abkling": 0.048,
+   "quelle_hz": 11614
+  },
+  {
+   "takt": 41,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0306,
+   "abkling": 0.0746,
+   "quelle_hz": 11553
   },
   {
    "takt": 41,
    "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 41,
-   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.18,
+   "versatz": -0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 4811
   },
   {
    "takt": 41,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 41,
-   "pos": 4,
-   "inst": "snare",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "flam": true,
-   "motiv": "hoch_a"
+   "staerke": 0.089,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4808
   },
   {
    "takt": 41,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 41,
-   "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0005,
+   "abkling": 0.2039,
+   "quelle_hz": 3961
   },
   {
    "takt": 41,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 0.821,
+   "versatz": 0.0049,
+   "abkling": 0.048,
+   "quelle_hz": 10993
+  },
+  {
+   "takt": 41,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0529,
+   "abkling": 0.0574,
+   "quelle_hz": 11523
+  },
+  {
+   "takt": 41,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": -0.0168,
+   "abkling": 0.078,
+   "quelle_hz": 11628
   },
   {
    "takt": 41,
    "pos": 10,
-   "inst": "geist",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.04,
+   "versatz": 0.0027,
+   "abkling": 0.0003,
+   "quelle_hz": 4424
   },
   {
    "takt": 41,
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.162,
+   "versatz": 0.0009,
+   "abkling": 0.0022,
+   "quelle_hz": 5271
   },
   {
    "takt": 41,
    "pos": 12,
-   "inst": "snare",
+   "inst": "rim",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 0.919,
+   "versatz": -0.0008,
+   "abkling": 0.1953,
+   "quelle_hz": 4492
   },
   {
    "takt": 41,
    "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0004,
+   "abkling": 0.07,
+   "quelle_hz": 4036
   },
   {
    "takt": 41,
    "pos": 15,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.04,
+   "versatz": -0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 1389
   },
   {
    "takt": 42,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_a"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.372,
+   "versatz": 0.0014,
+   "abkling": 0.0,
+   "quelle_hz": 10937
   },
   {
    "takt": 42,
    "pos": 2,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.144,
+   "versatz": -0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 4832
   },
   {
    "takt": 42,
    "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 42,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 0.968,
+   "versatz": 0.0028,
+   "abkling": 0.0746,
+   "quelle_hz": 955
   },
   {
    "takt": 42,
-   "pos": 6,
-   "inst": "geist",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.27,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4775
   },
   {
    "takt": 42,
    "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.0835,
+   "quelle_hz": 1259
   },
   {
    "takt": 42,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.296,
+   "versatz": 0.0045,
+   "abkling": 0.0,
+   "quelle_hz": 10958
+  },
+  {
+   "takt": 42,
+   "pos": 9,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 0.904,
+   "versatz": -0.0199,
+   "abkling": 0.0815,
+   "quelle_hz": 11637
   },
   {
    "takt": 42,
    "pos": 10,
-   "inst": "geist",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 42,
-   "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.049,
+   "versatz": 0.0037,
+   "abkling": 0.0,
+   "quelle_hz": 4441
   },
   {
    "takt": 42,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_a"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.053,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 4829
   },
   {
    "takt": 42,
    "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0008,
+   "abkling": 0.0622,
+   "quelle_hz": 3822
   },
   {
    "takt": 42,
    "pos": 15,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.04,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 1388
   },
   {
    "takt": 43,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.329,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 10940
+  },
+  {
+   "takt": 43,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "hoch_b"
+   "staerke": 0.991,
+   "versatz": 0.053,
+   "abkling": 0.0493,
+   "quelle_hz": 11693
   },
   {
    "takt": 43,
    "pos": 1,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "akzent": true,
+   "staerke": 0.906,
+   "versatz": -0.0248,
+   "abkling": 0.0829,
+   "quelle_hz": 11594
   },
   {
    "takt": 43,
    "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_b"
+   "staerke": 0.094,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4782
   },
   {
    "takt": 43,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.243,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 4794
   },
   {
    "takt": 43,
    "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.0019,
+   "abkling": 0.0729,
+   "quelle_hz": 1158
   },
   {
    "takt": 43,
    "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 9,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.443,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 11000
   },
   {
    "takt": 43,
    "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.103,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4510
   },
   {
    "takt": 43,
    "pos": 12,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.845,
+   "versatz": -0.0003,
+   "abkling": 0.1158,
+   "quelle_hz": 4107
+  },
+  {
+   "takt": 44,
+   "pos": 1,
    "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 13,
-   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 43,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 44,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_c"
-  },
-  {
-   "takt": 44,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_c"
-  },
-  {
-   "takt": 44,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_c"
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
   },
   {
    "takt": 44,
    "pos": 7,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_c"
+   "staerke": 0.347,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 11053
   },
   {
    "takt": 44,
-   "pos": 8,
-   "inst": "wirbel",
-   "akzent": true,
-   "motiv": "hoch_c"
+   "pos": 11,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.275,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4435
   },
   {
    "takt": 44,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_c"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.137,
+   "versatz": 0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 4774
   },
   {
    "takt": 44,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "hoch_c"
-  },
-  {
-   "takt": 44,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "hoch_c"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0635,
+   "quelle_hz": 3861
   },
   {
    "takt": 45,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_b"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.432,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 10971
   },
   {
    "takt": 45,
    "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 45,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0011,
+   "abkling": 0.2533,
+   "quelle_hz": 7255
   },
   {
    "takt": 45,
    "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 45,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 45,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.874,
+   "versatz": 0.0002,
+   "abkling": 0.0748,
+   "quelle_hz": 1186
   },
   {
    "takt": 45,
    "pos": 6,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.149,
+   "versatz": 0.0016,
+   "abkling": 0.0,
+   "quelle_hz": 4793
   },
   {
    "takt": 45,
    "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": -0.0002,
+   "abkling": 0.0804,
+   "quelle_hz": 2924
   },
   {
    "takt": 45,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "hoch_b"
+   "staerke": 0.874,
+   "versatz": 0.0034,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 45,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.05,
+   "abkling": 0.0453,
+   "quelle_hz": 11663
   },
   {
    "takt": 45,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "akzent": true,
+   "staerke": 0.927,
+   "versatz": -0.0317,
+   "abkling": 0.0693,
+   "quelle_hz": 11585
   },
   {
    "takt": 45,
    "pos": 10,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.194,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5310
   },
   {
    "takt": 45,
    "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0006,
+   "abkling": 0.1293,
+   "quelle_hz": 3342
   },
   {
    "takt": 45,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 45,
-   "pos": 13,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.834,
+   "versatz": 0.0016,
+   "abkling": 0.2533,
+   "quelle_hz": 4846
   },
   {
    "takt": 45,
    "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 45,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0007,
+   "abkling": 0.0628,
+   "quelle_hz": 3877
   },
   {
    "takt": 46,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_a"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.403,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10967
   },
   {
    "takt": 46,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0021,
+   "abkling": 0.252,
+   "quelle_hz": 7152
   },
   {
    "takt": 46,
    "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 46,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0753,
+   "quelle_hz": 1183
   },
   {
    "takt": 46,
    "pos": 6,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.103,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4753
   },
   {
    "takt": 46,
    "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": 0.0007,
+   "abkling": 0.0797,
+   "quelle_hz": 2987
   },
   {
    "takt": 46,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "hoch_a"
+   "staerke": 0.874,
+   "versatz": 0.0043,
+   "abkling": 0.0453,
+   "quelle_hz": 10947
+  },
+  {
+   "takt": 46,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11639
+  },
+  {
+   "takt": 46,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.925,
+   "versatz": -0.0295,
+   "abkling": 0.0674,
+   "quelle_hz": 11592
   },
   {
    "takt": 46,
    "pos": 10,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.148,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 5299
   },
   {
    "takt": 46,
    "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": 0.0003,
+   "abkling": 0.128,
+   "quelle_hz": 3401
   },
   {
    "takt": 46,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 46,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_a"
-  },
-  {
-   "takt": 46,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_a"
+   "staerke": 0.833,
+   "versatz": 0.0012,
+   "abkling": 0.3101,
+   "quelle_hz": 4874
   },
   {
    "takt": 47,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_d"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.538,
+   "versatz": 0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 10982
   },
   {
    "takt": 47,
    "pos": 1,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 3,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "hoch_d"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.017,
+   "abkling": 0.0782,
+   "quelle_hz": 11646
   },
   {
    "takt": 47,
    "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 5,
-   "inst": "toml",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_d"
+   "staerke": 0.125,
+   "versatz": 0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 5243
   },
   {
    "takt": 47,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "hoch_d"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.834,
+   "versatz": 0.0035,
+   "abkling": 0.2533,
+   "quelle_hz": 5532
   },
   {
    "takt": 47,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "snare",
    "akzent": true,
-   "motiv": "hoch_d"
+   "staerke": 0.848,
+   "versatz": 0.0026,
+   "abkling": 0.1253,
+   "quelle_hz": 5296
   },
   {
    "takt": 47,
    "pos": 9,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "hoch_d"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0008,
+   "abkling": 0.1307,
+   "quelle_hz": 3297
   },
   {
    "takt": 47,
    "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_d"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.851,
+   "versatz": 0.0044,
+   "abkling": 0.0453,
+   "quelle_hz": 10880
+  },
+  {
+   "takt": 47,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.971,
+   "versatz": 0.0497,
+   "abkling": 0.072,
+   "quelle_hz": 11449
   },
   {
    "takt": 47,
    "pos": 11,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "hoch_d"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0053,
+   "abkling": 0.0453,
+   "quelle_hz": 11064
+  },
+  {
+   "takt": 47,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0506,
+   "abkling": 0.056,
+   "quelle_hz": 11633
   },
   {
    "takt": 47,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 13,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 47,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "hoch_d"
-  },
-  {
-   "takt": 48,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 1,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0205,
+   "abkling": 0.0818,
+   "quelle_hz": 11672
   },
   {
    "takt": 48,
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.28,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 11025
+  },
+  {
+   "takt": 48,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.973,
+   "versatz": 0.0507,
+   "abkling": 0.0533,
+   "quelle_hz": 11704
   },
   {
    "takt": 48,
    "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 5,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "akzent": true,
+   "staerke": 0.88,
+   "versatz": -0.0231,
+   "abkling": 0.0801,
+   "quelle_hz": 11681
   },
   {
    "takt": 48,
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.112,
+   "versatz": -0.0004,
+   "abkling": 0.0,
+   "quelle_hz": 5242
   },
   {
    "takt": 48,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 13,
-   "inst": "stock",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "hoch_b"
-  },
-  {
-   "takt": 48,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.16,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 4436
   },
   {
    "takt": 48,
    "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 1401
+  },
+  {
+   "takt": 49,
+   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "hoch_b"
+   "staerke": 0.362,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 11033
+  },
+  {
+   "takt": 49,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.175,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 5247
+  },
+  {
+   "takt": 49,
+   "pos": 10,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.184,
+   "versatz": -0.0021,
+   "abkling": 0.0102,
+   "quelle_hz": 4428
   },
   {
    "takt": 49,
    "pos": 12,
-   "inst": "rim",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "sturz_a"
+   "staerke": 0.157,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4745
   },
   {
    "takt": 50,
    "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.269,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 10980
+  },
+  {
+   "takt": 50,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0472,
+   "abkling": 0.0709,
+   "quelle_hz": 11628
+  },
+  {
+   "takt": 50,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.862,
+   "versatz": 0.0014,
+   "abkling": 0.2533,
+   "quelle_hz": 7016
+  },
+  {
+   "takt": 50,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0006,
+   "abkling": 0.072,
+   "quelle_hz": 1142
+  },
+  {
+   "takt": 50,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.195,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4818
+  },
+  {
+   "takt": 50,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.961,
+   "versatz": 0.0028,
+   "abkling": 0.0787,
+   "quelle_hz": 3079
+  },
+  {
+   "takt": 50,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.001,
+   "abkling": 0.048,
+   "quelle_hz": 10916
+  },
+  {
+   "takt": 50,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.049,
+   "abkling": 0.048,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 50,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0301,
+   "abkling": 0.0761,
+   "quelle_hz": 11634
+  },
+  {
+   "takt": 50,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5315
+  },
+  {
+   "takt": 50,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.903,
+   "versatz": 0.001,
+   "abkling": 0.128,
+   "quelle_hz": 3285
+  },
+  {
+   "takt": 50,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0019,
+   "abkling": 0.3104,
+   "quelle_hz": 4610
+  },
+  {
+   "takt": 50,
+   "pos": 15,
    "inst": "rim",
    "akzent": false,
-   "motiv": "sturz_b"
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 4440
   },
   {
    "takt": 51,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "duenn_a"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.421,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 10959
   },
   {
    "takt": 51,
-   "pos": 4,
-   "inst": "snare",
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "duenn_a"
+   "staerke": 0.996,
+   "versatz": 0.0522,
+   "abkling": 0.0716,
+   "quelle_hz": 11615
   },
   {
    "takt": 51,
-   "pos": 4,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.2493,
+   "quelle_hz": 7450
+  },
+  {
+   "takt": 51,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0038,
+   "abkling": 0.0703,
+   "quelle_hz": 1141
+  },
+  {
+   "takt": 51,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.162,
+   "versatz": -0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 5319
+  },
+  {
+   "takt": 51,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.902,
+   "versatz": 0.0042,
+   "abkling": 0.116,
+   "quelle_hz": 4577
+  },
+  {
+   "takt": 51,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": -0.0069,
+   "abkling": 0.0576,
+   "quelle_hz": 2888
+  },
+  {
+   "takt": 51,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.006,
+   "abkling": 0.0507,
+   "quelle_hz": 10939
+  },
+  {
+   "takt": 51,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.0185,
+   "abkling": 0.0811,
+   "quelle_hz": 11607
+  },
+  {
+   "takt": 51,
+   "pos": 11,
    "inst": "snare",
    "akzent": false,
-   "flam": true,
-   "motiv": "duenn_a"
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 1384
   },
   {
    "takt": 51,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_a"
-  },
-  {
-   "takt": 52,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 52,
-   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "duenn_b"
+   "staerke": 0.161,
+   "versatz": 0.0029,
+   "abkling": 0.0,
+   "quelle_hz": 4728
   },
   {
-   "takt": 52,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 52,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 52,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 52,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "duenn_b"
-  },
-  {
-   "takt": 52,
+   "takt": 51,
    "pos": 15,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "duenn_b"
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
   },
   {
-   "takt": 53,
+   "takt": 52,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_a"
+   "staerke": 0.321,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10970
   },
   {
-   "takt": 53,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": false,
-   "flam": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 10,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 53,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_a"
-  },
-  {
-   "takt": 54,
+   "takt": 52,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "haupt_b"
+   "staerke": 0.996,
+   "versatz": 0.0531,
+   "abkling": 0.0698,
+   "quelle_hz": 11648
   },
   {
-   "takt": 54,
+   "takt": 52,
    "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 54,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 54,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 54,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_b"
+   "staerke": 0.872,
+   "versatz": -0.002,
+   "abkling": 0.2493,
+   "quelle_hz": 7649
   },
   {
-   "takt": 54,
-   "pos": 7,
-   "inst": "geist",
+   "takt": 52,
+   "pos": 3,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0069,
+   "abkling": 0.0679,
+   "quelle_hz": 3948
+  },
+  {
+   "takt": 52,
+   "pos": 6,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.087,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4780
   },
   {
-   "takt": 54,
+   "takt": 52,
+   "pos": 7,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": -0.0033,
+   "abkling": 0.0817,
+   "quelle_hz": 997
+  },
+  {
+   "takt": 52,
    "pos": 8,
    "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0016,
+   "abkling": 0.048,
+   "quelle_hz": 10946
+  },
+  {
+   "takt": 52,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.997,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11656
+  },
+  {
+   "takt": 52,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": -0.0295,
+   "abkling": 0.0739,
+   "quelle_hz": 11664
+  },
+  {
+   "takt": 52,
+   "pos": 10,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.04,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 5280
+  },
+  {
+   "takt": 52,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.909,
+   "versatz": -0.0064,
+   "abkling": 0.1347,
+   "quelle_hz": 3654
+  },
+  {
+   "takt": 52,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.823,
+   "versatz": 0.0011,
+   "abkling": 0.3101,
+   "quelle_hz": 4660
+  },
+  {
+   "takt": 52,
+   "pos": 15,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.089,
+   "versatz": -0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 4445
+  },
+  {
+   "takt": 53,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": 0.002,
+   "abkling": 0.0,
+   "quelle_hz": 10943
+  },
+  {
+   "takt": 53,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.996,
+   "versatz": 0.05,
+   "abkling": 0.0708,
+   "quelle_hz": 11638
+  },
+  {
+   "takt": 53,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.871,
+   "versatz": 0.0003,
+   "abkling": 0.3086,
+   "quelle_hz": 7367
+  },
+  {
+   "takt": 53,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.058,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 5267
+  },
+  {
+   "takt": 53,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": 0.0034,
+   "abkling": 0.2533,
+   "quelle_hz": 5050
+  },
+  {
+   "takt": 53,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0025,
+   "abkling": 0.048,
+   "quelle_hz": 11013
+  },
+  {
+   "takt": 53,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0505,
+   "abkling": 0.048,
+   "quelle_hz": 11631
+  },
+  {
+   "takt": 53,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0286,
+   "abkling": 0.0756,
+   "quelle_hz": 11565
+  },
+  {
+   "takt": 53,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.096,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4462
+  },
+  {
+   "takt": 53,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.115,
+   "versatz": -0.0006,
+   "abkling": 0.0,
+   "quelle_hz": 4733
+  },
+  {
+   "takt": 53,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.889,
+   "versatz": 0.0025,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 53,
+   "pos": 14,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0492,
+   "abkling": 0.0708,
+   "quelle_hz": 11648
+  },
+  {
+   "takt": 53,
+   "pos": 15,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.861,
+   "versatz": -0.0006,
+   "abkling": 0.0822,
+   "quelle_hz": 8396
   },
   {
    "takt": 54,
-   "pos": 10,
-   "inst": "rim",
+   "pos": 6,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.145,
+   "versatz": 0.0003,
+   "abkling": 0.0,
+   "quelle_hz": 5337
+  },
+  {
+   "takt": 54,
+   "pos": 9,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.041,
+   "versatz": -0.001,
+   "abkling": 0.0097,
+   "quelle_hz": 1392
+  },
+  {
+   "takt": 54,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.335,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 10981
   },
   {
    "takt": 54,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 54,
-   "pos": 14,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
-  },
-  {
-   "takt": 54,
-   "pos": 15,
-   "inst": "rim",
-   "akzent": false,
-   "motiv": "haupt_b"
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.309,
+   "quelle_hz": 7218
   },
   {
    "takt": 55,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 55,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
-  },
-  {
-   "takt": 55,
-   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.476,
+   "versatz": -0.0001,
+   "abkling": 0.0,
+   "quelle_hz": 10991
   },
   {
    "takt": 55,
-   "pos": 4,
-   "inst": "snare",
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_a"
+   "staerke": 0.991,
+   "versatz": 0.0466,
+   "abkling": 0.0533,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 55,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.896,
+   "versatz": -0.0272,
+   "abkling": 0.0845,
+   "quelle_hz": 11582
   },
   {
    "takt": 55,
    "pos": 4,
-   "inst": "snare",
+   "inst": "stock",
    "akzent": false,
-   "flam": true,
-   "motiv": "bau_a"
+   "staerke": 0.044,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 5239
   },
   {
    "takt": 55,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_a"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.841,
+   "versatz": 0.0013,
+   "abkling": 0.2547,
+   "quelle_hz": 4992
   },
   {
    "takt": 55,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "snare",
    "akzent": true,
-   "motiv": "bau_a"
+   "staerke": 0.853,
+   "versatz": 0.0017,
+   "abkling": 0.1227,
+   "quelle_hz": 5510
   },
   {
    "takt": 55,
    "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.94,
+   "versatz": -0.0027,
+   "abkling": 0.1333,
+   "quelle_hz": 3256
   },
   {
    "takt": 55,
    "pos": 10,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_a"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.855,
+   "versatz": 0.0035,
+   "abkling": 0.0467,
+   "quelle_hz": 10843
+  },
+  {
+   "takt": 55,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0502,
+   "abkling": 0.0641,
+   "quelle_hz": 11464
+  },
+  {
+   "takt": 55,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.824,
+   "versatz": 0.0057,
+   "abkling": 0.0507,
+   "quelle_hz": 10976
   },
   {
    "takt": 55,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "bau_a"
+   "staerke": 0.872,
+   "versatz": -0.0,
+   "abkling": 0.252,
+   "quelle_hz": 7547
   },
   {
    "takt": 55,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_a"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0023,
+   "abkling": 0.0643,
+   "quelle_hz": 3918
   },
   {
    "takt": 55,
    "pos": 15,
-   "inst": "stock",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_a"
+   "staerke": 0.04,
+   "versatz": -0.0014,
+   "abkling": 0.0009,
+   "quelle_hz": 1385
   },
   {
    "takt": 56,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.373,
+   "versatz": -0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10981
+  },
+  {
+   "takt": 56,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 1.0,
+   "versatz": 0.0462,
+   "abkling": 0.0533,
+   "quelle_hz": 11695
+  },
+  {
+   "takt": 56,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.907,
+   "versatz": -0.0276,
+   "abkling": 0.083,
+   "quelle_hz": 11610
   },
   {
    "takt": 56,
    "pos": 2,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.04,
+   "versatz": -0.0,
+   "abkling": 0.0,
+   "quelle_hz": 4806
   },
   {
    "takt": 56,
    "pos": 3,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 56,
-   "pos": 4,
    "inst": "snare",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.968,
+   "versatz": 0.0009,
+   "abkling": 0.0786,
+   "quelle_hz": 930
   },
   {
    "takt": 56,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 56,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.112,
+   "versatz": -0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 4773
   },
   {
    "takt": 56,
    "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.868,
+   "versatz": 0.0031,
+   "abkling": 0.0701,
+   "quelle_hz": 1137
   },
   {
    "takt": 56,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.438,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 10954
+  },
+  {
+   "takt": 56,
+   "pos": 8,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_b"
+   "staerke": 0.998,
+   "versatz": 0.048,
+   "abkling": 0.048,
+   "quelle_hz": 11620
   },
   {
    "takt": 56,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "bau_b"
+   "akzent": true,
+   "staerke": 0.921,
+   "versatz": -0.0311,
+   "abkling": 0.0736,
+   "quelle_hz": 11606
   },
   {
    "takt": 56,
    "pos": 10,
-   "inst": "toml",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "bau_b"
+   "staerke": 0.074,
+   "versatz": 0.0044,
+   "abkling": 0.0,
+   "quelle_hz": 4454
   },
   {
    "takt": 56,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_b"
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.134,
+   "versatz": -0.0018,
+   "abkling": 0.0,
+   "quelle_hz": 4762
   },
   {
    "takt": 56,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
-  },
-  {
-   "takt": 56,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_b"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.871,
+   "versatz": 0.0013,
+   "abkling": 0.0694,
+   "quelle_hz": 3981
   },
   {
    "takt": 57,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.344,
+   "versatz": 0.0005,
+   "abkling": 0.0,
+   "quelle_hz": 10956
+  },
+  {
+   "takt": 57,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 1.0,
+   "versatz": 0.0485,
+   "abkling": 0.048,
+   "quelle_hz": 11614
   },
   {
    "takt": 57,
    "pos": 1,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0306,
+   "abkling": 0.0746,
+   "quelle_hz": 11553
   },
   {
    "takt": 57,
    "pos": 2,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.18,
+   "versatz": -0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 4811
   },
   {
    "takt": 57,
-   "pos": 3,
-   "inst": "tomh",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 57,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 0.089,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4808
   },
   {
    "takt": 57,
    "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "bau_c"
-  },
-  {
-   "takt": 57,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.968,
+   "versatz": 0.0005,
+   "abkling": 0.2039,
+   "quelle_hz": 3961
   },
   {
    "takt": 57,
    "pos": 8,
-   "inst": "trommel",
+   "inst": "stock",
    "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 0.821,
+   "versatz": 0.0049,
+   "abkling": 0.048,
+   "quelle_hz": 10993
+  },
+  {
+   "takt": 57,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.998,
+   "versatz": 0.0529,
+   "abkling": 0.0574,
+   "quelle_hz": 11523
   },
   {
    "takt": 57,
    "pos": 9,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.905,
+   "versatz": -0.0168,
+   "abkling": 0.078,
+   "quelle_hz": 11628
   },
   {
    "takt": 57,
    "pos": 10,
-   "inst": "geist",
+   "inst": "rim",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.04,
+   "versatz": 0.0027,
+   "abkling": 0.0003,
+   "quelle_hz": 4424
   },
   {
    "takt": 57,
    "pos": 11,
-   "inst": "tomh",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.162,
+   "versatz": 0.0009,
+   "abkling": 0.0022,
+   "quelle_hz": 5271
   },
   {
    "takt": 57,
    "pos": 12,
-   "inst": "snare",
+   "inst": "rim",
    "akzent": true,
-   "motiv": "bau_c"
+   "staerke": 0.919,
+   "versatz": -0.0008,
+   "abkling": 0.1953,
+   "quelle_hz": 4492
   },
   {
    "takt": 57,
    "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "bau_c"
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": -0.0004,
+   "abkling": 0.07,
+   "quelle_hz": 4036
   },
   {
    "takt": 57,
    "pos": 15,
-   "inst": "tomh",
+   "inst": "snare",
    "akzent": false,
-   "motiv": "bau_c"
+   "staerke": 0.04,
+   "versatz": -0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 1389
   },
   {
    "takt": 59,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.329,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 10940
+  },
+  {
+   "takt": 59,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "ende_a"
+   "staerke": 0.991,
+   "versatz": 0.053,
+   "abkling": 0.0493,
+   "quelle_hz": 11693
+  },
+  {
+   "takt": 59,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.906,
+   "versatz": -0.0248,
+   "abkling": 0.0829,
+   "quelle_hz": 11594
   },
   {
    "takt": 59,
    "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 59,
-   "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "motiv": "ende_a"
+   "staerke": 0.094,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4782
   },
   {
    "takt": 59,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 59,
-   "pos": 4,
-   "inst": "snare",
+   "pos": 5,
+   "inst": "stock",
    "akzent": false,
-   "flam": true,
-   "motiv": "ende_a"
+   "staerke": 0.243,
+   "versatz": 0.0041,
+   "abkling": 0.0,
+   "quelle_hz": 4794
   },
   {
    "takt": 59,
    "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_a"
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.0019,
+   "abkling": 0.0729,
+   "quelle_hz": 1158
   },
   {
    "takt": 59,
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "motiv": "ende_a"
+   "staerke": 0.443,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 11000
   },
   {
    "takt": 59,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.103,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4510
+  },
+  {
+   "takt": 59,
+   "pos": 12,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.845,
+   "versatz": -0.0003,
+   "abkling": 0.1158,
+   "quelle_hz": 4107
+  },
+  {
+   "takt": 60,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
+  },
+  {
+   "takt": 60,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.347,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 11053
+  },
+  {
+   "takt": 60,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.275,
+   "versatz": -0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 4435
+  },
+  {
+   "takt": 60,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.137,
+   "versatz": 0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 4774
+  },
+  {
+   "takt": 60,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0635,
+   "quelle_hz": 3861
+  },
+  {
+   "takt": 61,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.432,
+   "versatz": 0.0042,
+   "abkling": 0.0,
+   "quelle_hz": 10971
+  },
+  {
+   "takt": 61,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0011,
+   "abkling": 0.2533,
+   "quelle_hz": 7255
+  },
+  {
+   "takt": 61,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0002,
+   "abkling": 0.0748,
+   "quelle_hz": 1186
+  },
+  {
+   "takt": 61,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.149,
+   "versatz": 0.0016,
+   "abkling": 0.0,
+   "quelle_hz": 4793
+  },
+  {
+   "takt": 61,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": -0.0002,
+   "abkling": 0.0804,
+   "quelle_hz": 2924
+  },
+  {
+   "takt": 61,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0034,
+   "abkling": 0.0467,
+   "quelle_hz": 10894
+  },
+  {
+   "takt": 61,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.05,
+   "abkling": 0.0453,
+   "quelle_hz": 11663
+  },
+  {
+   "takt": 61,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.927,
+   "versatz": -0.0317,
+   "abkling": 0.0693,
+   "quelle_hz": 11585
+  },
+  {
+   "takt": 61,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.194,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5310
+  },
+  {
+   "takt": 61,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.915,
+   "versatz": -0.0006,
+   "abkling": 0.1293,
+   "quelle_hz": 3342
+  },
+  {
+   "takt": 61,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.834,
+   "versatz": 0.0016,
+   "abkling": 0.2533,
+   "quelle_hz": 4846
+  },
+  {
+   "takt": 61,
+   "pos": 14,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0007,
+   "abkling": 0.0628,
+   "quelle_hz": 3877
+  },
+  {
+   "takt": 62,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.403,
+   "versatz": 0.0038,
+   "abkling": 0.0,
+   "quelle_hz": 10967
+  },
+  {
+   "takt": 62,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.873,
+   "versatz": 0.0021,
+   "abkling": 0.252,
+   "quelle_hz": 7152
+  },
+  {
+   "takt": 62,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": -0.0002,
+   "abkling": 0.0753,
+   "quelle_hz": 1183
+  },
+  {
+   "takt": 62,
+   "pos": 6,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.103,
+   "versatz": 0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 4753
+  },
+  {
+   "takt": 62,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.97,
+   "versatz": 0.0007,
+   "abkling": 0.0797,
+   "quelle_hz": 2987
+  },
+  {
+   "takt": 62,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.874,
+   "versatz": 0.0043,
+   "abkling": 0.0453,
+   "quelle_hz": 10947
+  },
+  {
+   "takt": 62,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0496,
+   "abkling": 0.048,
+   "quelle_hz": 11639
+  },
+  {
+   "takt": 62,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.925,
+   "versatz": -0.0295,
+   "abkling": 0.0674,
+   "quelle_hz": 11592
+  },
+  {
+   "takt": 62,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.148,
+   "versatz": 0.0021,
+   "abkling": 0.0,
+   "quelle_hz": 5299
+  },
+  {
+   "takt": 62,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.913,
+   "versatz": 0.0003,
+   "abkling": 0.128,
+   "quelle_hz": 3401
+  },
+  {
+   "takt": 62,
+   "pos": 12,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0012,
+   "abkling": 0.3101,
+   "quelle_hz": 4874
+  },
+  {
+   "takt": 63,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.538,
+   "versatz": 0.0048,
+   "abkling": 0.0,
+   "quelle_hz": 10982
+  },
+  {
+   "takt": 63,
+   "pos": 1,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.017,
+   "abkling": 0.0782,
+   "quelle_hz": 11646
+  },
+  {
+   "takt": 63,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.125,
+   "versatz": 0.0017,
+   "abkling": 0.0,
+   "quelle_hz": 5243
+  },
+  {
+   "takt": 63,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.834,
+   "versatz": 0.0035,
+   "abkling": 0.2533,
+   "quelle_hz": 5532
+  },
+  {
+   "takt": 63,
+   "pos": 8,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.848,
+   "versatz": 0.0026,
+   "abkling": 0.1253,
+   "quelle_hz": 5296
+  },
+  {
+   "takt": 63,
+   "pos": 9,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0008,
+   "abkling": 0.1307,
+   "quelle_hz": 3297
+  },
+  {
+   "takt": 63,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.851,
+   "versatz": 0.0044,
+   "abkling": 0.0453,
+   "quelle_hz": 10880
+  },
+  {
+   "takt": 63,
+   "pos": 10,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.971,
+   "versatz": 0.0497,
+   "abkling": 0.072,
+   "quelle_hz": 11449
+  },
+  {
+   "takt": 63,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.833,
+   "versatz": 0.0053,
+   "abkling": 0.0453,
+   "quelle_hz": 11064
+  },
+  {
+   "takt": 63,
+   "pos": 11,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0506,
+   "abkling": 0.056,
+   "quelle_hz": 11633
+  },
+  {
+   "takt": 63,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0205,
+   "abkling": 0.0818,
+   "quelle_hz": 11672
+  },
+  {
+   "takt": 64,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.28,
+   "versatz": 0.0013,
+   "abkling": 0.0,
+   "quelle_hz": 11025
+  },
+  {
+   "takt": 64,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.973,
+   "versatz": 0.0507,
+   "abkling": 0.0533,
+   "quelle_hz": 11704
+  },
+  {
+   "takt": 64,
+   "pos": 4,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.88,
+   "versatz": -0.0231,
+   "abkling": 0.0801,
+   "quelle_hz": 11681
+  },
+  {
+   "takt": 64,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.112,
+   "versatz": -0.0004,
+   "abkling": 0.0,
+   "quelle_hz": 5242
+  },
+  {
+   "takt": 64,
+   "pos": 12,
+   "inst": "rim",
+   "akzent": false,
+   "staerke": 0.16,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 4436
+  },
+  {
+   "takt": 64,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0026,
+   "abkling": 0.0,
+   "quelle_hz": 1401
+  },
+  {
+   "takt": 65,
+   "pos": 3,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.362,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 11033
+  },
+  {
+   "takt": 65,
+   "pos": 7,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.175,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 5247
+  },
+  {
+   "takt": 65,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "motiv": "ende_a"
+   "staerke": 0.184,
+   "versatz": -0.0021,
+   "abkling": 0.0102,
+   "quelle_hz": 4428
   },
   {
-   "takt": 59,
+   "takt": 65,
    "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 59,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 59,
-   "pos": 15,
    "inst": "stock",
    "akzent": false,
-   "motiv": "ende_a"
+   "staerke": 0.157,
+   "versatz": 0.0023,
+   "abkling": 0.0,
+   "quelle_hz": 4745
   },
   {
-   "takt": 60,
+   "takt": 66,
    "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 60,
-   "pos": 1,
    "inst": "stock",
    "akzent": false,
-   "motiv": "ende_b"
+   "staerke": 0.269,
+   "versatz": -0.0008,
+   "abkling": 0.0,
+   "quelle_hz": 10980
   },
   {
-   "takt": 60,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
+   "takt": 66,
+   "pos": 0,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0472,
+   "abkling": 0.0709,
+   "quelle_hz": 11628
   },
   {
-   "takt": 60,
-   "pos": 4,
+   "takt": 66,
+   "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "motiv": "ende_b"
+   "staerke": 0.862,
+   "versatz": 0.0014,
+   "abkling": 0.2533,
+   "quelle_hz": 7016
   },
   {
-   "takt": 60,
-   "pos": 5,
+   "takt": 66,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.0006,
+   "abkling": 0.072,
+   "quelle_hz": 1142
+  },
+  {
+   "takt": 66,
+   "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "motiv": "ende_b"
+   "staerke": 0.195,
+   "versatz": 0.0019,
+   "abkling": 0.0,
+   "quelle_hz": 4818
   },
   {
-   "takt": 60,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 60,
-   "pos": 8,
-   "inst": "trommel",
+   "takt": 66,
+   "pos": 7,
+   "inst": "rim",
    "akzent": true,
-   "motiv": "ende_b"
+   "staerke": 0.961,
+   "versatz": 0.0028,
+   "abkling": 0.0787,
+   "quelle_hz": 3079
   },
   {
-   "takt": 60,
+   "takt": 66,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.001,
+   "abkling": 0.048,
+   "quelle_hz": 10916
+  },
+  {
+   "takt": 66,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.049,
+   "abkling": 0.048,
+   "quelle_hz": 11692
+  },
+  {
+   "takt": 66,
    "pos": 9,
    "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
+   "akzent": true,
+   "staerke": 0.912,
+   "versatz": -0.0301,
+   "abkling": 0.0761,
+   "quelle_hz": 11634
   },
   {
-   "takt": 60,
+   "takt": 66,
    "pos": 10,
-   "inst": "geist",
+   "inst": "stock",
    "akzent": false,
-   "motiv": "ende_b"
+   "staerke": 0.04,
+   "versatz": -0.0012,
+   "abkling": 0.0,
+   "quelle_hz": 5315
   },
   {
-   "takt": 60,
+   "takt": 66,
+   "pos": 11,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.903,
+   "versatz": 0.001,
+   "abkling": 0.128,
+   "quelle_hz": 3285
+  },
+  {
+   "takt": 66,
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "motiv": "ende_b"
+   "staerke": 0.824,
+   "versatz": 0.0019,
+   "abkling": 0.3104,
+   "quelle_hz": 4610
   },
   {
-   "takt": 60,
-   "pos": 13,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 60,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 60,
+   "takt": 66,
    "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 61,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 7,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 8,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 61,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_a"
-  },
-  {
-   "takt": 62,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 13,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 62,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 63,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 13,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 14,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 63,
-   "pos": 15,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_b"
-  },
-  {
-   "takt": 64,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 13,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 64,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 65,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 1,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 3,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 5,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 7,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 9,
-   "inst": "toml",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 11,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 12,
-   "inst": "wirbel",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 13,
-   "inst": "wirbel",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 14,
-   "inst": "wirbel",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 65,
-   "pos": 15,
-   "inst": "wirbel",
-   "akzent": true,
-   "motiv": "ende_d"
-  },
-  {
-   "takt": 66,
-   "pos": 0,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 1,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 2,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 3,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 4,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 5,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 6,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 7,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 8,
-   "inst": "trommel",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 9,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 10,
-   "inst": "geist",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 11,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 12,
-   "inst": "snare",
-   "akzent": true,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 13,
-   "inst": "stock",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 14,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_c"
-  },
-  {
-   "takt": 66,
-   "pos": 15,
-   "inst": "tomh",
-   "akzent": false,
-   "motiv": "ende_c"
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 4440
   },
   {
    "takt": 67,
    "pos": 0,
-   "inst": "trommel",
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.421,
+   "versatz": 0.0055,
+   "abkling": 0.0,
+   "quelle_hz": 10959
+  },
+  {
+   "takt": 67,
+   "pos": 0,
+   "inst": "stock",
    "akzent": true,
-   "motiv": "ende_e"
+   "staerke": 0.996,
+   "versatz": 0.0522,
+   "abkling": 0.0716,
+   "quelle_hz": 11615
+  },
+  {
+   "takt": 67,
+   "pos": 1,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.872,
+   "versatz": 0.001,
+   "abkling": 0.2493,
+   "quelle_hz": 7450
+  },
+  {
+   "takt": 67,
+   "pos": 3,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": -0.0038,
+   "abkling": 0.0703,
+   "quelle_hz": 1141
+  },
+  {
+   "takt": 67,
+   "pos": 5,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.162,
+   "versatz": -0.0007,
+   "abkling": 0.0,
+   "quelle_hz": 5319
+  },
+  {
+   "takt": 67,
+   "pos": 6,
+   "inst": "snare",
+   "akzent": true,
+   "staerke": 0.902,
+   "versatz": 0.0042,
+   "abkling": 0.116,
+   "quelle_hz": 4577
+  },
+  {
+   "takt": 67,
+   "pos": 7,
+   "inst": "rim",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": -0.0069,
+   "abkling": 0.0576,
+   "quelle_hz": 2888
+  },
+  {
+   "takt": 67,
+   "pos": 8,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.865,
+   "versatz": 0.006,
+   "abkling": 0.0507,
+   "quelle_hz": 10939
+  },
+  {
+   "takt": 67,
+   "pos": 9,
+   "inst": "stock",
+   "akzent": true,
+   "staerke": 0.9,
+   "versatz": -0.0185,
+   "abkling": 0.0811,
+   "quelle_hz": 11607
+  },
+  {
+   "takt": 67,
+   "pos": 11,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": -0.0074,
+   "abkling": 0.0,
+   "quelle_hz": 1384
+  },
+  {
+   "takt": 67,
+   "pos": 12,
+   "inst": "stock",
+   "akzent": false,
+   "staerke": 0.161,
+   "versatz": 0.0029,
+   "abkling": 0.0,
+   "quelle_hz": 4728
+  },
+  {
+   "takt": 67,
+   "pos": 15,
+   "inst": "snare",
+   "akzent": false,
+   "staerke": 0.04,
+   "versatz": 0.0002,
+   "abkling": 0.0,
+   "quelle_hz": 1391
   }
  ]
 }

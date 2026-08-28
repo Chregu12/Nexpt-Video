@@ -154,10 +154,23 @@ for n in part["noten"]:
     versatz, staerke, streu_t, streu_v = gefuehl(gruppe, n["pos"])
     if STARR: versatz, streu_t, streu_v = 0.0, 0.0, 0.0
 
-    # Die gemessene Staerke gilt fuer die Position; der Akzent hebt sie an.
-    v = staerke * (1.20 if n.get("akzent") else 0.92)
-    v = float(np.clip(v + rng.normal(0, streu_v*0.6), 0.05, 1.0))
-    t = (n["takt"]*16 + n["pos"]) * S16 + versatz + rng.normal(0, streu_t*0.7)
+    # Bringt die Note ihre eigene Staerke und ihren eigenen Versatz mit, dann
+    # stammt sie aus einer abgehoerten Vorlage (render/abhoeren.py) — und bei
+    # einem Eins-zu-eins-Nachbau gilt DEREN Timing, nicht ein fremdes aus den
+    # Groove-Daten. Sonst kommt beides aus der Messung echter Schlagzeuger.
+    if "staerke" in n:
+        v = float(np.clip(n["staerke"] * (1.10 if n.get("akzent") else 1.0), 0.04, 1.0))
+        t = (n["takt"]*16 + n["pos"]) * S16 + (0.0 if STARR else n.get("versatz", 0.0))
+        # Bei einem Nachbau traegt die Note die Dynamik der Vorlage schon in
+        # sich. Zusaetzlich die eigenen Instrumentenpegel daraufzulegen wuerde
+        # sie verbiegen: die Stoecke standen damit 5 dB unter der Snare und
+        # verschwanden hinter ihr — von 256 Rasterfeldern der Vorlage waren
+        # danach 61 nicht mehr zu hoeren. Deshalb hier ein flacher Pegel.
+        grund = 0.62
+    else:
+        v = staerke * (1.20 if n.get("akzent") else 0.92)
+        v = float(np.clip(v + rng.normal(0, streu_v*0.6), 0.05, 1.0))
+        t = (n["takt"]*16 + n["pos"]) * S16 + versatz + rng.normal(0, streu_t*0.7)
 
     if n.get("flam"):
         # Vorschlag: leiser, rund 26 ms davor, andere Hand — also anderes RR.
@@ -165,6 +178,14 @@ for n in part["noten"]:
 
     sig = anschlag(inst, v)
     if sig is None: continue
+    if "abkling" in n:
+        # Auf die gemessene Laenge kuerzen, mit einer Ausblende ueber das
+        # letzte Drittel — hart abgeschnitten knackt es.
+        laenge = max(int(n["abkling"] * SR * 1.8), int(0.02*SR))
+        if laenge < len(sig):
+            sig = sig[:laenge].copy()
+            aus = max(1, laenge//3)
+            sig[-aus:] *= np.linspace(1, 0, aus) ** 1.4
     setzen(sig, t, grund * v, PANORAMA.get(inst, 0.5))
     gesetzt += 1
 
@@ -172,7 +193,12 @@ for n in part["noten"]:
 # Die Samples sind in einem Proberaum mit SM57 nah abgenommen. Ein wenig
 # Raum bindet die Trommeln zusammen, viel davon nimmt der Referenz-
 # handschrift die Trockenheit — deshalb sehr sparsam.
-if not TROCKEN:
+# Bei einem Nachbau bleibt der Raum weg. Die Vorlage ist knochentrocken, und
+# gemessen kostet die Fahne genau das, was den Nachbau von ihr trennt: mit
+# Raum waren 202 von 256 Rasterfeldern wiederzufinden, ohne 219. Die Fahne
+# deckt die leisen Stockschlaege zu.
+NACHBAU = any("staerke" in n for n in part["noten"])
+if not TROCKEN and not NACHBAU:
     n_ = int(0.28*SR); t_ = np.arange(n_)/SR
     ir = rng.standard_normal(n_) * np.exp(-t_*13.0)
     X = np.fft.rfft(ir); f = np.fft.rfftfreq(n_, 1/SR)
@@ -192,6 +218,36 @@ if not TROCKEN:
 X = np.fft.rfft(spur, axis=0); f = np.fft.rfftfreq(len(spur), 1/SR)[:, None]
 X *= 1.0 + 2.6 / (1.0 + (6000/np.maximum(f, 1))**2)
 spur = np.fft.irfft(X, len(spur), axis=0)
+
+# ── Die Dynamik der Vorlage ───────────────────────────────────────────────
+# Gemessen: die Vorlage hat 22.7 dB zwischen dem 20. und 99. Perzentil ihrer
+# Huellkurve, der Nachbau kam auf 48.6 — mehr als das Doppelte. Echte
+# Trommeln sind eben dynamischer als ein fertig gemasterter Loop.
+#
+# Die Folge war hoerbar und messbar: von 256 Rasterfeldern der Vorlage waren
+# 59 im Nachbau nicht mehr zu finden, und es waren genau die leisen
+# (Staerke-Median 0.13 gegen 0.86 aller Noten). Sie standen in der Partitur,
+# sie wurden gespielt — sie gingen nur unter.
+#
+# Deshalb hier eine Huellkurven-Kompression auf das gemessene Mass. Kein
+# Kompressor mit Attack und Release, sondern eine Kennlinie auf der
+# Huellkurve: leise Stellen kommen hoch, laute bleiben.
+if any("staerke" in n for n in part["noten"]):
+    ZIEL_DB = 22.7
+    for k in range(2):
+        kanal = spur[:, k]
+        F = max(1, int(0.010*SR))
+        e = np.sqrt(np.convolve(kanal**2, np.ones(F)/F, mode="same")) + 1e-9
+        laut = e[e > 1e-5]
+        if len(laut) < 100: continue
+        ist_db = 20*np.log10(np.percentile(laut, 99)/np.percentile(laut, 20))
+        if ist_db <= ZIEL_DB: continue
+        # Kennlinie: alles unter dem 99. Perzentil wird um den Faktor
+        # ZIEL/IST in Dezibel zusammengezogen.
+        bezug = np.percentile(laut, 99)
+        db = 20*np.log10(e/bezug)
+        neu = db * (ZIEL_DB/ist_db)
+        spur[:, k] = kanal * 10**((neu - db)/20)
 
 hoch = np.max(np.abs(spur)) or 1.0
 spur = spur / hoch * 0.89

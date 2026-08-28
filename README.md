@@ -23,7 +23,8 @@ zur fertigen Tonmischung.
 |---|---|
 | **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | **Die Fassung zum Anschauen.** Bild, Musik, Sounddesign und Roboter-Scratchstimme. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Ohne Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf Rhythmus und Effekte. |
-| **out/NEXPT-Keynote-ANIMATIC-DRUMLINE.mp4** | Mit der **eigenen Partitur** statt des Loops — 68 Takte, von echten Trommeln gespielt, mit menschlichem Timing aus 3408 Takten Schlagzeugaufnahmen. |
+| **out/NEXPT-Keynote-DRUMLINE-OHNE-STIMME.mp4** | Der **1:1-Nachbau der Vorlage**, von echten Trommeln gespielt. Ohne Stimme. |
+| **out/NEXPT-Keynote-LOOP-OHNE-STIMME.mp4** | Dasselbe Bild mit dem Original-Loop — der direkte Vergleich. |
 | **out/NEXPT-Keynote-ANIMATIC-OHNE-EFFEKTE.mp4** | Dieselbe Mischung ohne Sounddesign, zum Vergleichen. |
 | **out/NEXPT-Keynote-ANIMATIC.mp4** | Nur Bild, ganz ohne Ton. |
 | **out/stills/** | Ein Standbild je Szene. |

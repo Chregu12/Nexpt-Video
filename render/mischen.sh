@@ -60,13 +60,20 @@ KOMP=2; LRA=7
 G175=-3.5
 for a in "$@"; do
   case "$a" in
-    --ohne-stimme) V_STIMME=0.0; G175=0
-                   ZIEL=out/ton-final-ohne-stimme.wav ;;
-    --ohne-effekte) V_SFX=0.0; ZIEL=out/ton-ohne-effekte.wav ;;
-    --drumline)     MUSIK=out/drumline.wav; ZIEL=out/ton-drumline.wav ;;
+    --ohne-stimme)  V_STIMME=0.0; G175=0; OHNE_STIMME=1 ;;
+    --ohne-effekte) V_SFX=0.0; OHNE_EFFEKTE=1 ;;
+    --drumline)     MUSIK=out/drumline.wav; DRUMLINE=1 ;;
     --drums)       V_DRUMS=0.55 ;;
   esac
 done
+
+# Der Zielname ergibt sich aus den Schaltern zusammen, nicht aus dem letzten.
+# Vorher ueberschrieb `--ohne-stimme` den Namen von `--drumline`, und die
+# Datei hiess dann so, als waere sie mit dem Loop gemischt.
+if [ -n "$DRUMLINE" ]; then ZIEL=out/ton-drumline; else ZIEL=out/ton-final; fi
+[ -n "$OHNE_STIMME" ]  && ZIEL="$ZIEL-ohne-stimme"
+[ -n "$OHNE_EFFEKTE" ] && ZIEL="$ZIEL-ohne-effekte"
+ZIEL="$ZIEL.wav"
 
 for f in out/scratch-vo.wav "$MUSIK" out/sfx.wav out/drums.wav; do
   [ -f "$f" ] || { echo "$f fehlt — sounddesign.py und musik.py laufen lassen."; exit 1; }
