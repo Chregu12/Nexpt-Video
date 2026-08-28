@@ -46,6 +46,7 @@ zur fertigen Tonmischung.
 | `out/_musik/` | Der Musiktrack. Die Lizenz hängt am Lizenznehmer, nicht am Repository — eigene Kopie dort ablegen, dann `python3 render/musik.py`. |
 | `out/music.wav` | Der blosse Schnitt daraus. Wird von `musik.py` erzeugt. |
 | `out/_proben/` | Die aus dem Loop geschnittene Klangpalette. Wird von `proben.py` erzeugt. |
+| `out/_vcsl/` | Echte Trommeln aus der Versilian Community Sample Library — **CC0, gemeinfrei**, kommerziell nutzbar ohne Namensnennung. 73 MB, mit `python3 render/vcsl.py` wieder da. |
 | `out/scenes/*.mov` | ProRes 422 HQ, ein Clip je Szene (267 MB). Mit `python3 render/render.py`. |
 | `render/fonts/`, `render/voices/*.onnx`, `render/asr/whisper-*/` | Schriften, Stimm- und Spracherkennungsmodelle. Je mit eigenem Ladeskript. |
 
@@ -70,6 +71,7 @@ python3 render/bauen.py          # prüfen und zusammenbauen
 ```bash
 python3 render/musik.py          # Musik auf den Film legen
 python3 render/proben.py         # Klangpalette aus dem Loop schneiden
+python3 render/vcsl.py           # echte Trommeln holen (CC0, einmalig)
 python3 render/cuesheet.py       # Hit Points
 python3 render/sfx.py            # Sounddesign
 sh render/mischen.sh             # Mischung

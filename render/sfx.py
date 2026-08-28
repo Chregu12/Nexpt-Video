@@ -178,6 +178,42 @@ def _lies(name):
 PALETTE = {k: [_lies(n) for n in v] for k, v in _pal.items()}
 _zaehler = {}
 
+# ── Echte Trommeln aus der CC0-Bibliothek ─────────────────────────────────
+# Der eigene Loop hat gemessen keinen Ton unter 988 Hz. Unter den Impacts lag
+# deshalb ein Sinus als Fundament — die letzte Synthese in der Spur. Die VCSL
+# (CC0, Versilian Studios) bringt eine echte grosse Trommel mit 157-523 Hz
+# Schwerpunkt, vier Anschlagstaerken und zwei Round Robins je Stufe. Damit
+# faellt der Sinus weg.
+VCSL = OUT / "_vcsl"
+KATALOG = {}
+if (VCSL / "katalog.json").exists():
+    _k = json.loads((VCSL / "katalog.json").read_text(encoding="utf-8"))["artikulationen"]
+    def _wav(rel):
+        import wave as _w
+        with _w.open(str(VCSL / rel), "rb") as f:
+            d = np.frombuffer(f.readframes(f.getnframes()), "<i2").astype(np.float64) / 32768
+            if f.getnchannels() == 2: d = d.reshape(-1, 2).mean(axis=1)
+            if f.getframerate() != SR:
+                n = int(len(d) * SR / f.getframerate())
+                d = np.interp(np.linspace(0, len(d)-1, n), np.arange(len(d)), d)
+        return d
+    for _art, _v in _k.items():
+        try: KATALOG[_art] = [(x["stufe"], _wav(x["datei"])) for x in _v]
+        except Exception: pass
+
+def trommel(art, staerke=1.0, i=None):
+    """Holt einen echten Schlag nach Anschlagstaerke und im Round-Robin.
+    Genau die geforderte Humanisierung: nicht ein Sample mit Zufallswackeln,
+    sondern verschiedene Aufnahmen je Staerke, reihum gespielt."""
+    v = KATALOG.get(art)
+    if not v: return None
+    stufen = sorted({s_ for s_, _ in v})
+    ziel = stufen[min(len(stufen)-1, int(np.clip(staerke, 0, 1) * len(stufen)))]
+    kand = [w for s_, w in v if s_ == ziel] or [w for _, w in v]
+    if i is None:
+        i = _zaehler.get(art, 0); _zaehler[art] = i + 1
+    return kand[i % len(kand)].copy()
+
 def probe(art, i=None):
     """Reihum durch die Varianten — ein Schlagzeuger trifft nie zweimal
     identisch, und viermal derselbe Klick waere sofort als Kopie hoerbar."""
@@ -263,11 +299,16 @@ def impact(staerke=1.0, dauer=0.85):
     aus (Quartile 419/870); meine erste Fassung war mit 400 ms zu kurz."""
     n = int(dauer*SR); t = np.arange(n)/SR
     v = np.zeros(n)
-    koerper = transponieren(probe("snare"), 0.22)       # echte Aufnahme, tief
-    k = min(len(koerper), n)
-    v[:k] += koerper[:k] * np.exp(-t[:k]*4.2)
-    f0 = 44 + 14*staerke
-    v += np.sin(2*np.pi*(f0*2.4*np.exp(-t*22) + f0)*t) * np.exp(-t*3.4) * 0.85
+    tief = trommel("BDrumNew_hit", staerke)              # echte grosse Trommel
+    if tief is None:
+        # Notnagel, falls out/_vcsl/ fehlt: transponierte Snare plus Sinus.
+        # So sah die ganze Ebene aus, bevor es die echte Trommel gab.
+        koerper = transponieren(probe("snare"), 0.22)
+        k = min(len(koerper), n); v[:k] += koerper[:k] * np.exp(-t[:k]*4.2)
+        f0 = 44 + 14*staerke
+        v += np.sin(2*np.pi*(f0*2.4*np.exp(-t*22) + f0)*t) * np.exp(-t*3.4) * 0.85
+    else:
+        k = min(len(tief), n); v[:k] += tief[:k]
     anschlag = probe("klick")                            # echter Transient obenauf
     k = min(len(anschlag), n)
     v[:k] += anschlag[:k] * 0.22

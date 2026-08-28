@@ -20,3 +20,6 @@ out/music.wav
 
 # Sicherungskopie von takt.py — der Stand davor steht ohnehin in der Historie
 render/timing.json.vor-takt
+
+# Echte Trommeln (VCSL, CC0) — 73 MB, mit `python3 render/vcsl.py` wieder da
+out/_vcsl/
