@@ -24,6 +24,7 @@ WIE EINGEORDNET WIRD
 Je Anschlag werden Klangschwerpunkt, Bandaufteilung und Abklingzeit
 gemessen. Daraus ergibt sich die Familie:
 
+    unter 250 Hz           Bass          -> eigene Spur, separat gesucht
     unter 2 kHz            Fell, tief    -> Snare oder Tom
     2 bis 4.5 kHz          Rand          -> Rim Click
     ueber 4.5 kHz, kurz    Stock         -> Stock auf Fell
@@ -81,6 +82,27 @@ for i in range(1, len(f)-1):
             if f[i] > roh_ons[-1][1]: roh_ons[-1] = (t, f[i])
         else: roh_ons.append((t, f[i]))
 
+# ── Das Tiefe getrennt suchen ─────────────────────────────────────────────
+# Der Spektralfluss wird von den Hoehen beherrscht: ein Bass bei 50 Hz macht
+# darin kaum einen Ausschlag, auch wenn er die halbe Energie traegt. Genau
+# das ist hier passiert — 78% der Energie der Vorlage liegen unter 250 Hz,
+# und meine erste Transkription hatte davon keine einzige Note.
+#
+# Gemessen: staerkste Frequenzen 46-63 Hz, Periodizitaet 2.027 s. Ein Takt
+# bei 118 BPM misst 2.034 s. Es ist also ein Bass auf der Eins jedes Taktes.
+Y = np.fft.rfft(y); fr_ = np.fft.rfftfreq(len(y), 1/SR)
+tief = np.fft.irfft(np.where(fr_ < 250, Y, 0), len(y))
+Ft = max(1, int(0.015*SR))
+et = np.sqrt(np.convolve(tief**2, np.ones(Ft)/Ft, mode="same"))
+schwelle_t = np.percentile(et, 88)
+tief_ons = []
+for i in range(1, len(et)-1):
+    if et[i] > schwelle_t and et[i] >= et[i-1] and et[i] > et[i+1]:
+        t = i/SR
+        if tief_ons and t - tief_ons[-1][0] < 0.20:
+            if et[i] > tief_ons[-1][1]: tief_ons[-1] = (t, et[i])
+        else: tief_ons.append((t, et[i]))
+
 # ── Je Anschlag: Klangfarbe, Staerke, Abklingzeit ─────────────────────────
 F = max(1, int(0.005*SR))
 huell = np.sqrt(np.convolve(y**2, np.ones(F)/F, mode="same"))
@@ -106,6 +128,21 @@ for k, (t, _) in enumerate(roh_ons):
                      "abkling": ab, "takt": (pos//16) % TAKTE_QUELLE, "pos": pos % 16,
                      "versatz": (k16 - pos)*S16_Q})
 
+# Die Bassschlaege dazu, mit eigener Familie.
+sp_t = max((v for _, v in tief_ons), default=1.0)
+for t, v in tief_ons:
+    if t < DB0 - 0.02: continue
+    k16 = (t - DB0)/S16_Q
+    pos = int(round(k16))
+    if abs(k16 - pos) > 0.42: continue
+    i0 = int(t*SR)
+    h = et[i0:min(len(et), i0+int(0.9*SR))]
+    unter = np.where(h < (h[:int(0.02*SR)].max() if len(h) > int(0.02*SR) else h.max())*0.25)[0]
+    schlaege.append({"t": t, "zentrum": 55.0, "bander": [1.0, 0, 0, 0],
+                     "spitze": float(v), "abkling": float(unter[0]/SR) if len(unter) else 0.5,
+                     "takt": (pos//16) % TAKTE_QUELLE, "pos": pos % 16,
+                     "versatz": (k16 - pos)*S16_Q, "istbass": True})
+
 if not schlaege: print("nichts gehoert."); sys.exit(1)
 # Staerke in Dezibel, nicht linear. Linear normiert bekamen 99 der 164
 # Anschlaege den Wert 0.01 — ein einziger lauter Schlag hatte alles andere
@@ -121,6 +158,7 @@ for s, d in zip(schlaege, db):
 # Die Grenzen liegen in den Luecken der gemessenen Verteilung.
 z = np.array([s["zentrum"] for s in schlaege])
 def familie(s):
+    if s.get("istbass"): return "bass"
     c, ab = s["zentrum"], s["abkling"]
     if c < 2000:   return "fell"
     if c < 4500:   return "rand"
@@ -129,7 +167,8 @@ for s in schlaege: s["familie"] = familie(s)
 
 # Vom Klang zum Instrument der Bibliothek. Die Vorlage hat keine tiefe
 # Trommel, also wird auch keine geschrieben.
-NACH_INST = {"fell": "snare", "rand": "rim", "stock": "stock", "teppich": "geist"}
+NACH_INST = {"fell": "snare", "rand": "rim", "stock": "stock", "teppich": "geist",
+             "bass": "bass"}
 noten = []
 for s in schlaege:
     inst = NACH_INST[s["familie"]]
@@ -152,7 +191,7 @@ for s in schlaege:
 if "--bericht" in sys.argv:
     print(f"{len(schlaege)} Anschlaege auf {TAKTE_QUELLE} Takten\n")
     print(f"{'Familie':<10}{'n':>4}{'Schwerpunkt':>14}{'Abkling':>10}{'Staerke':>9}  -> Instrument")
-    for fam in ("fell", "rand", "stock", "teppich"):
+    for fam in ("bass", "fell", "rand", "stock", "teppich"):
         v = [s for s in schlaege if s["familie"] == fam]
         if not v: continue
         print(f"{fam:<10}{len(v):4d}{np.median([x['zentrum'] for x in v]):11.0f} Hz"
@@ -165,8 +204,8 @@ if "--bericht" in sys.argv:
         zeile = ["."]*16
         for s in schlaege:
             if s["takt"] == takt:
-                zeile[s["pos"]] = {"fell": "S", "rand": "r", "stock": "x",
-                                   "teppich": "g"}[s["familie"]]
+                zeile[s["pos"]] = {"bass": "B", "fell": "S", "rand": "r",
+                                   "stock": "x", "teppich": "g"}[s["familie"]]
         print(f"  {takt+1:3d}  {''.join(zeile)}")
     sys.exit(0)
 

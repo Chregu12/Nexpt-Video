@@ -86,12 +86,32 @@ for k, t in enumerate(ons):
     fenster = int(min(0.06 * SR, len(seg)))
     Sp = np.abs(np.fft.rfft(seg[:fenster] * np.hanning(fenster)))
     fr = np.fft.rfftfreq(fenster, 1/SR)
+    F = max(1, int(0.005*SR))
+    h = np.sqrt(np.convolve(seg**2, np.ones(F)/F, mode="same"))
+    sp_ = float(h[:int(0.02*SR)].max()) if len(h) > int(0.02*SR) else float(h.max())
+    unter = np.where(h < sp_*0.25)[0]
     schlaege.append({"t": t, "zentrum": float((Sp*fr).sum() / (Sp.sum() + 1e-12)),
-                     "spitze": float(np.abs(seg[:int(0.02*SR)]).max()), "luft": float(luft)})
+                     "spitze": float(np.abs(seg[:int(0.02*SR)]).max()), "luft": float(luft),
+                     "abkling": float(unter[0]/SR) if len(unter) else float(len(h)/SR)})
 
-KLASSEN = [("tick",  0,    2600, 0.16),      # Stock, Rim — kurz und hell
-           ("klick", 2600, 5200, 0.20),      # Klack mit etwas Koerper
-           ("snare", 5200, 99999, 0.32)]     # breitbandig, mit Teppich
+# Dieselben vier Familien, nach denen render/abhoeren.py die Vorlage
+# einordnet — damit jede transkribierte Note ihren eigenen Klang wiederfindet.
+# Die Grenzen sind identisch, sonst passt die Palette nicht zur Partitur.
+#
+#   Name       Schwerpunkt        Laenge   in der Vorlage
+#   fell       unter 2 kHz        0.30 s   Snare, Fell
+#   rand       2 bis 4.5 kHz      0.22 s   Rim Click
+#   teppich    ueber 4.5, lang    0.40 s   Snare mit Teppich
+#   stock      ueber 4.5, kurz    0.10 s   Stock — der helle Anschlag
+#   bass       unter 250 Hz       0.45 s   der Bass auf der Eins — traegt
+#                                            gemessen 78% der Energie, wird
+#                                            aber getrennt gesucht, weil er im
+#                                            Spektralfluss kaum auffaellt
+KLASSEN = [("bass",    0,    250,  0.45, None),
+           ("fell",    0,    2000, 0.30, None),
+           ("rand",    2000, 4500, 0.22, None),
+           ("teppich", 4500, 99999, 0.40, "lang"),
+           ("stock",   4500, 99999, 0.10, "kurz")]
 
 def schreiben(pfad, x):
     x = np.nan_to_num(x)
@@ -104,16 +124,39 @@ def schreiben(pfad, x):
 ZIEL.mkdir(parents=True, exist_ok=True)
 for alt in ZIEL.glob("*.wav"): alt.unlink()
 palette, bericht = {}, []
-for name, lo, hi, laenge in KLASSEN:
-    kand = [s for s in schlaege if lo <= s["zentrum"] < hi]
+for name, lo, hi, laenge, dauer in KLASSEN:
+    if name == "bass":
+        # Der Bass wird im tiefpassgefilterten Signal gesucht, sonst geht er
+        # zwischen den hellen Anschlaegen unter.
+        Yb = np.fft.rfft(y); frb = np.fft.rfftfreq(len(y), 1/SR)
+        tief_y = np.fft.irfft(np.where(frb < 250, Yb, 0), len(y))
+        Fb = max(1, int(0.015*SR))
+        eb = np.sqrt(np.convolve(tief_y**2, np.ones(Fb)/Fb, mode="same"))
+        sb = np.percentile(eb, 90)
+        kand = []
+        for i in range(1, len(eb)-1):
+            if eb[i] > sb and eb[i] >= eb[i-1] and eb[i] > eb[i+1]:
+                t = i/SR
+                if kand and t - kand[-1]["t"] < 0.25:
+                    if eb[i] > kand[-1]["spitze"]: kand[-1] = {"t": t, "spitze": float(eb[i]), "luft": 0.45}
+                else: kand.append({"t": t, "spitze": float(eb[i]), "luft": 0.45})
+        for k_, c in enumerate(kand):
+            nxt = kand[k_+1]["t"] if k_+1 < len(kand) else c["t"]+0.9
+            c["luft"] = min(0.9, nxt - c["t"])
+        quelle_y = tief_y
+    else:
+        kand = [s for s in schlaege if lo <= s["zentrum"] < hi]
+        quelle_y = y
+    if dauer == "lang":  kand = [s for s in kand if s.get("abkling", 0) > 0.085]
+    elif dauer == "kurz": kand = [s for s in kand if s.get("abkling", 1) <= 0.085]
     # Sauberkeit vor Lautstaerke: erst die mit der meisten Luft dahinter.
     kand.sort(key=lambda s: (-min(s["luft"], 0.45), -s["spitze"]))
-    gewaehlt = kand[:4]
+    gewaehlt = kand[:6]
     for j, s in enumerate(gewaehlt):
         i0 = int(s["t"] * SR)
         nutz = min(laenge, max(0.07, s["luft"] * 0.92))
-        i1 = min(len(y), i0 + int(nutz * SR))
-        seg = y[i0:i1].copy()
+        i1 = min(len(quelle_y), i0 + int(nutz * SR))
+        seg = quelle_y[i0:i1].copy()
         # 4 ms Einblende gegen den Knack am Schnitt, Ausblende ueber das
         # letzte Viertel, damit der Nachbar nicht als Abriss stehenbleibt.
         ein = int(0.004 * SR)
@@ -123,7 +166,7 @@ for name, lo, hi, laenge in KLASSEN:
         datei = ZIEL / f"{name}{j+1}.wav"
         schreiben(datei, seg)
         palette.setdefault(name, []).append(datei.name)
-        bericht.append((name, j+1, s["t"], s["zentrum"], s["luft"], nutz))
+        bericht.append((name, j+1, s["t"], s.get("zentrum", 55.0), s["luft"], nutz))
 
 (ZIEL / "palette.json").write_text(json.dumps(
     {"quelle": Path(quelle).name, "sr": SR, "proben": palette,

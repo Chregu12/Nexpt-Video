@@ -214,6 +214,10 @@ def trommel(art, staerke=1.0, i=None):
         i = _zaehler.get(art, 0); _zaehler[art] = i + 1
     return kand[i % len(kand)].copy()
 
+# Die Palette heisst seit proben.py nach den Familien der Transkription
+# (fell/rand/teppich/stock) statt nach tick/klick/snare — beide Werkzeuge
+# muessen dieselbe Einteilung benutzen, sonst findet eine Note ihren Klang
+# nicht wieder.
 def probe(art, i=None):
     """Reihum durch die Varianten — ein Schlagzeuger trifft nie zweimal
     identisch, und viermal derselbe Klick waere sofort als Kopie hoerbar."""
@@ -303,13 +307,13 @@ def impact(staerke=1.0, dauer=0.85):
     if tief is None:
         # Notnagel, falls out/_vcsl/ fehlt: transponierte Snare plus Sinus.
         # So sah die ganze Ebene aus, bevor es die echte Trommel gab.
-        koerper = transponieren(probe("snare"), 0.22)
+        koerper = transponieren(probe("fell"), 0.22)
         k = min(len(koerper), n); v[:k] += koerper[:k] * np.exp(-t[:k]*4.2)
         f0 = 44 + 14*staerke
         v += np.sin(2*np.pi*(f0*2.4*np.exp(-t*22) + f0)*t) * np.exp(-t*3.4) * 0.85
     else:
         k = min(len(tief), n); v[:k] += tief[:k]
-    anschlag = probe("klick")                            # echter Transient obenauf
+    anschlag = probe("rand")                            # echter Transient obenauf
     k = min(len(anschlag), n)
     v[:k] += anschlag[:k] * 0.22
     return formen(v, "impact") * staerke
@@ -320,7 +324,7 @@ def whoosh(dauer=0.30, staerke=1.0, richtung=1):
     Whooshes wirklich. Das Band liegt tief: gemessen haelt die Referenz die
     Hoehen 27 dB und die Luft 29 dB unter dem Sub."""
     n = max(int(dauer*SR), int(0.12*SR))
-    roh_ = transponieren(probe("snare"), 0.48)
+    roh_ = transponieren(probe("fell"), 0.48)
     if richtung > 0: roh_ = rueckwaerts(roh_)            # zieht heran
     v = np.interp(np.linspace(0, len(roh_)-1, n), np.arange(len(roh_)), roh_)
     u = np.arange(n)/max(1, n-1)
@@ -336,7 +340,7 @@ def click(staerke=1.0):
     """Echter Stockschlag aus dem Loop, mit etwas Tiefe darunter — ein
     reiner Hochtonklick saesse in dem Band, das die Referenz 27 dB
     zurueckhaelt."""
-    v = probe("klick")
+    v = probe("rand")
     n = len(v); t = np.arange(n)/SR
     v = v + np.sin(2*np.pi*(150*np.exp(-t*40) + 96)*t) * np.exp(-t*19) * 0.30
     return formen(v, "click") * staerke
@@ -344,7 +348,7 @@ def click(staerke=1.0):
 
 def tick(staerke=1.0, hoehe=1.0):
     """Echter Rim, je Spalte etwas hoeher transponiert."""
-    v = transponieren(probe("tick"), np.clip(hoehe, 0.7, 1.5))
+    v = transponieren(probe("stock"), np.clip(hoehe, 0.7, 1.5))
     return formen(v, "click") * staerke * 0.9
 
 
@@ -355,12 +359,12 @@ def riser(dauer=0.55, staerke=1.0):
     v = np.zeros(n)
     t = 0.0; abstand = dauer * 0.42
     while t < dauer - 0.02:
-        h = rueckwaerts(transponieren(probe("tick"), 0.55))
+        h = rueckwaerts(transponieren(probe("stock"), 0.55))
         i = int(t*SR); k = min(len(h), n - i)
         if k > 0: v[i:i+k] += h[:k] * (0.25 + 0.75*(t/dauer))
         t += abstand; abstand = max(0.035, abstand*0.62)
     u = np.arange(n)/max(1, n-1)
-    schwung = transponieren(probe("snare"), 0.32)
+    schwung = transponieren(probe("fell"), 0.32)
     k = min(len(schwung), n)
     v[:k] += rueckwaerts(schwung[:k]) * 0.5
     v *= u ** 1.3

@@ -2,23 +2,45 @@
  "quelle": "apple-style-118.mp3",
  "sr": 48000,
  "proben": {
-  "tick": [
-   "tick1.wav",
-   "tick2.wav",
-   "tick3.wav",
-   "tick4.wav"
+  "bass": [
+   "bass1.wav",
+   "bass2.wav",
+   "bass3.wav",
+   "bass4.wav",
+   "bass5.wav",
+   "bass6.wav"
   ],
-  "klick": [
-   "klick1.wav",
-   "klick2.wav",
-   "klick3.wav",
-   "klick4.wav"
+  "fell": [
+   "fell1.wav",
+   "fell2.wav",
+   "fell3.wav",
+   "fell4.wav",
+   "fell5.wav",
+   "fell6.wav"
   ],
-  "snare": [
-   "snare1.wav",
-   "snare2.wav",
-   "snare3.wav",
-   "snare4.wav"
+  "rand": [
+   "rand1.wav",
+   "rand2.wav",
+   "rand3.wav",
+   "rand4.wav",
+   "rand5.wav",
+   "rand6.wav"
+  ],
+  "teppich": [
+   "teppich1.wav",
+   "teppich2.wav",
+   "teppich3.wav",
+   "teppich4.wav",
+   "teppich5.wav",
+   "teppich6.wav"
+  ],
+  "stock": [
+   "stock1.wav",
+   "stock2.wav",
+   "stock3.wav",
+   "stock4.wav",
+   "stock5.wav",
+   "stock6.wav"
   ]
  },
  "hinweis": "Echte Schlaege aus dem eigenen Musikloop. Keine tiefe Trommel enthalten — der tiefste Schwerpunkt der Quelle liegt bei 988 Hz."

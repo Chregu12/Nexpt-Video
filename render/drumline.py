@@ -103,12 +103,45 @@ BESETZUNG = {
  "tomh":    ("TomH_HitM",              "tom",     0.58),
  "toml":    ("TomL_HitM",              "tom",     0.52),
  "wirbel":  ("TomL_RollM",             "snare",   0.62),
+ "bass":    ("BDrumNew_hit",           "trommel", 1.00),
 }
 PROBEN, zaehler = {}, {}
 for inst, (art, _, _) in BESETZUNG.items():
     v = kat.get(art)
     if not v: print(f"  Artikulation {art} fehlt"); continue
     PROBEN[inst] = [(x["stufe"], lies(x["datei"])) for x in v]
+
+# ── Bei einem Nachbau: die Klaenge der VORLAGE ────────────────────────────
+# Das war der eigentliche Fehler. Ich habe das Raster verglichen und war bei
+# 86% zufrieden, waehrend die Klangfarbe voellig danebenlag:
+#
+#     Vorlage        Schwerpunkt 9351 Hz · Luftband 0.158
+#     mit VCSL       Schwerpunkt 4288 Hz · Luftband 0.004
+#
+# Faktor 40 im Luftband. Die Vorlage ist helle, elektronische Perkussion; die
+# VCSL sind akustische Orchestertrommeln, mit SM57 im Proberaum aufgenommen.
+# Das ist schlicht das falsche Instrument — da hilft kein exaktes Raster.
+#
+# Fuer einen Eins-zu-eins-Nachbau kommen die Klaenge deshalb aus der Vorlage
+# selbst (render/proben.py schneidet sie heraus). Gleiche Noten, gleiche
+# Klangfarbe, gleiche Dynamik — und trotzdem eine Partitur, die sich
+# verlaengern, ausduennen und aufbauen laesst.
+NACHBAU = any("staerke" in n for n in part["noten"])
+if NACHBAU and (OUT/"_proben"/"palette.json").exists():
+    import wave as _w
+    _pal = json.loads((OUT/"_proben"/"palette.json").read_text(encoding="utf-8"))["proben"]
+    def _probe(name):
+        with _w.open(str(OUT/"_proben"/name), "rb") as fo:
+            d = np.frombuffer(fo.readframes(fo.getnframes()), "<i2").astype(np.float64)/32768
+        return d
+    AUS_VORLAGE = {k: [(1, _probe(n)) for n in v] for k, v in _pal.items()}
+    # Die Partitur benennt Instrumente, die Palette Familien — hier die Bruecke.
+    NACH_FAMILIE = {"snare": "fell", "geist": "teppich", "rim": "rand",
+                    "stock": "stock", "tomh": "rand", "toml": "fell",
+                    "trommel": "bass", "bass": "bass", "wirbel": "teppich"}
+    for inst, fam in NACH_FAMILIE.items():
+        if fam in AUS_VORLAGE: PROBEN[inst] = AUS_VORLAGE[fam]
+    print(f"  Nachbau: Klaenge aus der Vorlage ({', '.join(sorted(AUS_VORLAGE))})")
 
 def anschlag(inst, staerke):
     """Waehlt Anschlagstaerke und Round Robin — echte Aufnahmen, keine
@@ -162,11 +195,17 @@ for n in part["noten"]:
         v = float(np.clip(n["staerke"] * (1.10 if n.get("akzent") else 1.0), 0.04, 1.0))
         t = (n["takt"]*16 + n["pos"]) * S16 + (0.0 if STARR else n.get("versatz", 0.0))
         # Bei einem Nachbau traegt die Note die Dynamik der Vorlage schon in
-        # sich. Zusaetzlich die eigenen Instrumentenpegel daraufzulegen wuerde
-        # sie verbiegen: die Stoecke standen damit 5 dB unter der Snare und
-        # verschwanden hinter ihr — von 256 Rasterfeldern der Vorlage waren
-        # danach 61 nicht mehr zu hoeren. Deshalb hier ein flacher Pegel.
-        grund = 0.62
+        # sich. Eigene Instrumentenpegel daraufzulegen wuerde sie verbiegen —
+        # damit standen die Stoecke 5 dB unter der Snare und verschwanden.
+        #
+        # Zwei Ausnahmen, und beide sind gemessen: die Vorlage hat 0.777 ihrer
+        # Energie unter 250 Hz und 0.158 in der Luft, ein Verhaeltnis von 4.9.
+        # Mit flachem Pegel kam der Nachbau auf 1.5 — der Bass zu leise, die
+        # Stoecke zu laut. Die Korrektur teilt sich auf beide auf.
+        # Zwei Anlaeufe: flach ergab 1.5, Bass ganz oben 12.6. Gesucht sind
+        # 4.9 — die Werte hier liegen dazwischen und sind nachgerechnet, nicht
+        # geschaetzt: 5.1 dB Korrektur, haelftig auf Bass und Stock verteilt.
+        grund = {"bass": 0.85, "trommel": 0.85, "stock": 0.47}.get(inst, 0.62)
     else:
         v = staerke * (1.20 if n.get("akzent") else 0.92)
         v = float(np.clip(v + rng.normal(0, streu_v*0.6), 0.05, 1.0))

@@ -7,7 +7,7 @@
   "bpm": 118.01,
   "downbeat": 0.48,
   "takte": 16,
-  "anschlaege": 164
+  "anschlaege": 209
  },
  "hinweis": "Abgehoert, nicht komponiert. `staerke` und `versatz` stammen aus der Vorlage, nicht aus den Groove-Daten — bei einem Eins-zu-eins-Nachbau spielt ihr eigenes Timing, nicht ein fremdes.",
  "noten": [
@@ -16,7 +16,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.28,
+   "staerke": 0.26,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 11025
@@ -26,7 +26,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.973,
+   "staerke": 0.941,
    "versatz": 0.0507,
    "abkling": 0.0533,
    "quelle_hz": 11704
@@ -36,7 +36,7 @@
    "pos": 4,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.88,
+   "staerke": 0.849,
    "versatz": -0.0231,
    "abkling": 0.0801,
    "quelle_hz": 11681
@@ -46,17 +46,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.094,
    "versatz": -0.0004,
    "abkling": 0.0,
    "quelle_hz": 5242
   },
   {
    "takt": 0,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.037,
+   "abkling": 0.1913,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 0,
    "pos": 12,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.16,
+   "staerke": 0.141,
    "versatz": -0.0026,
    "abkling": 0.0,
    "quelle_hz": 4436
@@ -76,7 +86,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.362,
+   "staerke": 0.34,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 11033
@@ -86,17 +96,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.175,
+   "staerke": 0.157,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 5247
   },
   {
    "takt": 1,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0371,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 1,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.184,
+   "staerke": 0.166,
    "versatz": -0.0021,
    "abkling": 0.0102,
    "quelle_hz": 4428
@@ -106,17 +126,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.157,
+   "staerke": 0.14,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4745
+  },
+  {
+   "takt": 1,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1515,
+   "quelle_hz": 55
   },
   {
    "takt": 2,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.269,
+   "staerke": 0.249,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 10980
@@ -126,7 +156,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.963,
    "versatz": 0.0472,
    "abkling": 0.0709,
    "quelle_hz": 11628
@@ -136,17 +166,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.862,
+   "staerke": 0.832,
    "versatz": 0.0014,
    "abkling": 0.2533,
    "quelle_hz": 7016
   },
   {
    "takt": 2,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 2,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0006,
    "abkling": 0.072,
    "quelle_hz": 1142
@@ -156,17 +196,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.195,
+   "staerke": 0.177,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4818
   },
   {
    "takt": 2,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0399,
+   "abkling": 0.142,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 2,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.961,
+   "staerke": 0.929,
    "versatz": 0.0028,
    "abkling": 0.0787,
    "quelle_hz": 3079
@@ -176,7 +226,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.001,
    "abkling": 0.048,
    "quelle_hz": 10916
@@ -186,7 +236,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.962,
    "versatz": 0.049,
    "abkling": 0.048,
    "quelle_hz": 11692
@@ -196,7 +246,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0301,
    "abkling": 0.0761,
    "quelle_hz": 11634
@@ -213,10 +263,20 @@
   },
   {
    "takt": 2,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.0366,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 2,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.903,
+   "staerke": 0.872,
    "versatz": 0.001,
    "abkling": 0.128,
    "quelle_hz": 3285
@@ -226,10 +286,20 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.794,
    "versatz": 0.0019,
    "abkling": 0.3104,
    "quelle_hz": 4610
+  },
+  {
+   "takt": 2,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0398,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 2,
@@ -246,7 +316,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.421,
+   "staerke": 0.399,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 10959
@@ -256,7 +326,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0522,
    "abkling": 0.0716,
    "quelle_hz": 11615
@@ -266,17 +336,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.2493,
    "quelle_hz": 7450
   },
   {
    "takt": 3,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 3,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0038,
    "abkling": 0.0703,
    "quelle_hz": 1141
@@ -286,7 +366,7 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": -0.0007,
    "abkling": 0.0,
    "quelle_hz": 5319
@@ -296,17 +376,27 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.902,
+   "staerke": 0.871,
    "versatz": 0.0042,
    "abkling": 0.116,
    "quelle_hz": 4577
   },
   {
    "takt": 3,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.994,
+   "versatz": 0.0451,
+   "abkling": 0.1362,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 3,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.966,
+   "staerke": 0.933,
    "versatz": -0.0069,
    "abkling": 0.0576,
    "quelle_hz": 2888
@@ -316,7 +406,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.006,
    "abkling": 0.0507,
    "quelle_hz": 10939
@@ -326,7 +416,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.0185,
    "abkling": 0.0811,
    "quelle_hz": 11607
@@ -346,10 +436,20 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.161,
+   "staerke": 0.143,
    "versatz": 0.0029,
    "abkling": 0.0,
    "quelle_hz": 4728
+  },
+  {
+   "takt": 3,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1514,
+   "quelle_hz": 55
   },
   {
    "takt": 3,
@@ -366,7 +466,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.321,
+   "staerke": 0.3,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10970
@@ -376,7 +476,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0531,
    "abkling": 0.0698,
    "quelle_hz": 11648
@@ -386,17 +486,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.002,
    "abkling": 0.2493,
    "quelle_hz": 7649
   },
   {
    "takt": 4,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0361,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 4,
    "pos": 3,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0069,
    "abkling": 0.0679,
    "quelle_hz": 3948
@@ -406,17 +516,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.087,
+   "staerke": 0.07,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4780
   },
   {
    "takt": 4,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0369,
+   "abkling": 0.1421,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 4,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.964,
+   "staerke": 0.932,
    "versatz": -0.0033,
    "abkling": 0.0817,
    "quelle_hz": 997
@@ -426,7 +546,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0016,
    "abkling": 0.048,
    "quelle_hz": 10946
@@ -436,7 +556,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.997,
+   "staerke": 0.964,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11656
@@ -446,7 +566,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.881,
    "versatz": -0.0295,
    "abkling": 0.0739,
    "quelle_hz": 11664
@@ -463,10 +583,20 @@
   },
   {
    "takt": 4,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.037,
+   "abkling": 0.195,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 4,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.909,
+   "staerke": 0.878,
    "versatz": -0.0064,
    "abkling": 0.1347,
    "quelle_hz": 3654
@@ -476,17 +606,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.823,
+   "staerke": 0.794,
    "versatz": 0.0011,
    "abkling": 0.3101,
    "quelle_hz": 4660
   },
   {
    "takt": 4,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0387,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 4,
    "pos": 15,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": -0.0042,
    "abkling": 0.0,
    "quelle_hz": 4445
@@ -496,7 +636,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": 0.002,
    "abkling": 0.0,
    "quelle_hz": 10943
@@ -506,7 +646,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.05,
    "abkling": 0.0708,
    "quelle_hz": 11638
@@ -516,17 +656,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0003,
    "abkling": 0.3086,
    "quelle_hz": 7367
   },
   {
    "takt": 5,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 5,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.058,
+   "staerke": 0.042,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 5267
@@ -536,7 +686,7 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": 0.0034,
    "abkling": 0.2533,
    "quelle_hz": 5050
@@ -546,7 +696,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0025,
    "abkling": 0.048,
    "quelle_hz": 11013
@@ -556,7 +706,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0505,
    "abkling": 0.048,
    "quelle_hz": 11631
@@ -566,7 +716,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.88,
    "versatz": -0.0286,
    "abkling": 0.0756,
    "quelle_hz": 11565
@@ -576,7 +726,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.096,
+   "staerke": 0.08,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4462
@@ -586,17 +736,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.115,
+   "staerke": 0.098,
    "versatz": -0.0006,
    "abkling": 0.0,
    "quelle_hz": 4733
   },
   {
    "takt": 5,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0373,
+   "abkling": 0.1516,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 5,
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.889,
+   "staerke": 0.858,
    "versatz": 0.0025,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -606,7 +766,7 @@
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.992,
+   "staerke": 0.959,
    "versatz": 0.0492,
    "abkling": 0.0708,
    "quelle_hz": 11648
@@ -616,7 +776,7 @@
    "pos": 15,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.861,
+   "staerke": 0.831,
    "versatz": -0.0006,
    "abkling": 0.0822,
    "quelle_hz": 8396
@@ -626,17 +786,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.145,
+   "staerke": 0.127,
    "versatz": 0.0003,
    "abkling": 0.0,
    "quelle_hz": 5337
   },
   {
    "takt": 6,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": 0.0386,
+   "abkling": 0.192,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 6,
    "pos": 9,
    "inst": "snare",
    "akzent": false,
-   "staerke": 0.041,
+   "staerke": 0.04,
    "versatz": -0.001,
    "abkling": 0.0097,
    "quelle_hz": 1392
@@ -646,7 +816,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.335,
+   "staerke": 0.314,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -656,17 +826,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.842,
    "versatz": -0.0023,
    "abkling": 0.309,
    "quelle_hz": 7218
+  },
+  {
+   "takt": 6,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0352,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 7,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.476,
+   "staerke": 0.452,
    "versatz": -0.0001,
    "abkling": 0.0,
    "quelle_hz": 10991
@@ -676,7 +856,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.958,
    "versatz": 0.0466,
    "abkling": 0.0533,
    "quelle_hz": 11692
@@ -686,7 +866,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.896,
+   "staerke": 0.865,
    "versatz": -0.0272,
    "abkling": 0.0845,
    "quelle_hz": 11582
@@ -696,37 +876,67 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.044,
+   "staerke": 0.04,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 5239
   },
   {
    "takt": 7,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.942,
+   "versatz": 0.0356,
+   "abkling": 0.1956,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 7,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.841,
+   "staerke": 0.811,
    "versatz": 0.0013,
    "abkling": 0.2547,
    "quelle_hz": 4992
   },
   {
    "takt": 7,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.962,
+   "versatz": 0.0388,
+   "abkling": 0.1755,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 7,
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.853,
+   "staerke": 0.823,
    "versatz": 0.0017,
    "abkling": 0.1227,
    "quelle_hz": 5510
   },
   {
    "takt": 7,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": 0.0477,
+   "abkling": 0.1776,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 7,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.94,
+   "staerke": 0.908,
    "versatz": -0.0027,
    "abkling": 0.1333,
    "quelle_hz": 3256
@@ -736,7 +946,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.855,
+   "staerke": 0.825,
    "versatz": 0.0035,
    "abkling": 0.0467,
    "quelle_hz": 10843
@@ -746,7 +956,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.936,
    "versatz": 0.0502,
    "abkling": 0.0641,
    "quelle_hz": 11464
@@ -756,7 +966,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.795,
    "versatz": 0.0057,
    "abkling": 0.0507,
    "quelle_hz": 10976
@@ -766,17 +976,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0,
    "abkling": 0.252,
    "quelle_hz": 7547
   },
   {
    "takt": 7,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0381,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 7,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0023,
    "abkling": 0.0643,
    "quelle_hz": 3918
@@ -796,7 +1016,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": -0.0005,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -806,7 +1026,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0462,
    "abkling": 0.0533,
    "quelle_hz": 11695
@@ -816,7 +1036,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.907,
+   "staerke": 0.876,
    "versatz": -0.0276,
    "abkling": 0.083,
    "quelle_hz": 11610
@@ -833,10 +1053,20 @@
   },
   {
    "takt": 8,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0379,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 8,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0009,
    "abkling": 0.0786,
    "quelle_hz": 930
@@ -846,17 +1076,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.095,
    "versatz": -0.0013,
    "abkling": 0.0,
    "quelle_hz": 4773
   },
   {
    "takt": 8,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0366,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 8,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.868,
+   "staerke": 0.838,
    "versatz": 0.0031,
    "abkling": 0.0701,
    "quelle_hz": 1137
@@ -866,7 +1106,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.438,
+   "staerke": 0.415,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 10954
@@ -876,7 +1116,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.048,
    "abkling": 0.048,
    "quelle_hz": 11620
@@ -886,7 +1126,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.921,
+   "staerke": 0.89,
    "versatz": -0.0311,
    "abkling": 0.0736,
    "quelle_hz": 11606
@@ -896,7 +1136,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.074,
+   "staerke": 0.057,
    "versatz": 0.0044,
    "abkling": 0.0,
    "quelle_hz": 4454
@@ -906,17 +1146,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.134,
+   "staerke": 0.116,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 4762
   },
   {
    "takt": 8,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0353,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 8,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0013,
    "abkling": 0.0694,
    "quelle_hz": 3981
@@ -926,7 +1176,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.344,
+   "staerke": 0.323,
    "versatz": 0.0005,
    "abkling": 0.0,
    "quelle_hz": 10956
@@ -936,7 +1186,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0485,
    "abkling": 0.048,
    "quelle_hz": 11614
@@ -946,7 +1196,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0306,
    "abkling": 0.0746,
    "quelle_hz": 11553
@@ -956,27 +1206,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.18,
+   "staerke": 0.161,
    "versatz": -0.0017,
    "abkling": 0.0,
    "quelle_hz": 4811
   },
   {
    "takt": 9,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0356,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 9,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4808
   },
   {
    "takt": 9,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0393,
+   "abkling": 0.2312,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 9,
    "pos": 6,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0005,
    "abkling": 0.2039,
    "quelle_hz": 3961
@@ -986,7 +1256,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.821,
+   "staerke": 0.792,
    "versatz": 0.0049,
    "abkling": 0.048,
    "quelle_hz": 10993
@@ -996,7 +1266,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0529,
    "abkling": 0.0574,
    "quelle_hz": 11523
@@ -1006,7 +1276,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": -0.0168,
    "abkling": 0.078,
    "quelle_hz": 11628
@@ -1026,7 +1296,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": 0.0009,
    "abkling": 0.0022,
    "quelle_hz": 5271
@@ -1036,17 +1306,27 @@
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.919,
+   "staerke": 0.888,
    "versatz": -0.0008,
    "abkling": 0.1953,
    "quelle_hz": 4492
   },
   {
    "takt": 9,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0363,
+   "abkling": 0.1415,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 9,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0004,
    "abkling": 0.07,
    "quelle_hz": 4036
@@ -1066,7 +1346,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.372,
+   "staerke": 0.35,
    "versatz": 0.0014,
    "abkling": 0.0,
    "quelle_hz": 10937
@@ -1076,17 +1356,27 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.144,
+   "staerke": 0.126,
    "versatz": -0.0021,
    "abkling": 0.0,
    "quelle_hz": 4832
   },
   {
    "takt": 10,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0354,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 10,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0028,
    "abkling": 0.0746,
    "quelle_hz": 955
@@ -1096,17 +1386,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.27,
+   "staerke": 0.25,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4775
   },
   {
    "takt": 10,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0395,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 10,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.0835,
    "quelle_hz": 1259
@@ -1116,7 +1416,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.296,
+   "staerke": 0.276,
    "versatz": 0.0045,
    "abkling": 0.0,
    "quelle_hz": 10958
@@ -1126,7 +1426,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.904,
+   "staerke": 0.872,
    "versatz": -0.0199,
    "abkling": 0.0815,
    "quelle_hz": 11637
@@ -1136,7 +1436,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.049,
+   "staerke": 0.04,
    "versatz": 0.0037,
    "abkling": 0.0,
    "quelle_hz": 4441
@@ -1146,17 +1446,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.053,
+   "staerke": 0.04,
    "versatz": 0.0041,
    "abkling": 0.0,
    "quelle_hz": 4829
   },
   {
    "takt": 10,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0416,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 10,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0008,
    "abkling": 0.0622,
    "quelle_hz": 3822
@@ -1176,7 +1486,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.329,
+   "staerke": 0.308,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 10940
@@ -1186,7 +1496,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.959,
    "versatz": 0.053,
    "abkling": 0.0493,
    "quelle_hz": 11693
@@ -1196,7 +1506,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.906,
+   "staerke": 0.874,
    "versatz": -0.0248,
    "abkling": 0.0829,
    "quelle_hz": 11594
@@ -1206,27 +1516,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.094,
+   "staerke": 0.077,
    "versatz": -0.0012,
    "abkling": 0.0,
    "quelle_hz": 4782
   },
   {
    "takt": 11,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0358,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 11,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.243,
+   "staerke": 0.224,
    "versatz": 0.0041,
    "abkling": 0.0,
    "quelle_hz": 4794
   },
   {
    "takt": 11,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0415,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 11,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.0019,
    "abkling": 0.0729,
    "quelle_hz": 1158
@@ -1236,7 +1566,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.443,
+   "staerke": 0.42,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 11000
@@ -1246,17 +1576,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4510
   },
   {
    "takt": 11,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0395,
+   "abkling": 0.1917,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 11,
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.845,
+   "staerke": 0.814,
    "versatz": -0.0003,
    "abkling": 0.1158,
    "quelle_hz": 4107
@@ -1276,7 +1616,7 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.347,
+   "staerke": 0.325,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 11053
@@ -1286,7 +1626,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.275,
+   "staerke": 0.255,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4435
@@ -1296,17 +1636,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.137,
+   "staerke": 0.119,
    "versatz": 0.0007,
    "abkling": 0.0,
    "quelle_hz": 4774
   },
   {
    "takt": 12,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0385,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 12,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0635,
    "quelle_hz": 3861
@@ -1316,7 +1666,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.432,
+   "staerke": 0.41,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 10971
@@ -1326,17 +1676,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.843,
    "versatz": 0.0011,
    "abkling": 0.2533,
    "quelle_hz": 7255
   },
   {
    "takt": 13,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0386,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 13,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0002,
    "abkling": 0.0748,
    "quelle_hz": 1186
@@ -1346,17 +1706,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.149,
+   "staerke": 0.131,
    "versatz": 0.0016,
    "abkling": 0.0,
    "quelle_hz": 4793
   },
   {
    "takt": 13,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0387,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 13,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": -0.0002,
    "abkling": 0.0804,
    "quelle_hz": 2924
@@ -1366,7 +1736,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": 0.0034,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -1376,7 +1746,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.968,
    "versatz": 0.05,
    "abkling": 0.0453,
    "quelle_hz": 11663
@@ -1386,7 +1756,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.927,
+   "staerke": 0.896,
    "versatz": -0.0317,
    "abkling": 0.0693,
    "quelle_hz": 11585
@@ -1396,17 +1766,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.194,
+   "staerke": 0.176,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 5310
   },
   {
    "takt": 13,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0392,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 13,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0006,
    "abkling": 0.1293,
    "quelle_hz": 3342
@@ -1416,17 +1796,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0016,
    "abkling": 0.2533,
    "quelle_hz": 4846
   },
   {
    "takt": 13,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0389,
+   "abkling": 0.1515,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 13,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0007,
    "abkling": 0.0628,
    "quelle_hz": 3877
@@ -1436,7 +1826,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.403,
+   "staerke": 0.381,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10967
@@ -1446,17 +1836,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.842,
    "versatz": 0.0021,
    "abkling": 0.252,
    "quelle_hz": 7152
   },
   {
    "takt": 14,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 14,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0753,
    "quelle_hz": 1183
@@ -1466,17 +1866,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4753
   },
   {
    "takt": 14,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 14,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": 0.0007,
    "abkling": 0.0797,
    "quelle_hz": 2987
@@ -1486,7 +1896,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0043,
    "abkling": 0.0453,
    "quelle_hz": 10947
@@ -1496,7 +1906,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11639
@@ -1506,7 +1916,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.925,
+   "staerke": 0.894,
    "versatz": -0.0295,
    "abkling": 0.0674,
    "quelle_hz": 11592
@@ -1516,17 +1926,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.148,
+   "staerke": 0.131,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 5299
   },
   {
    "takt": 14,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.932,
+   "versatz": 0.0387,
+   "abkling": 0.1952,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 14,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.882,
    "versatz": 0.0003,
    "abkling": 0.128,
    "quelle_hz": 3401
@@ -1536,17 +1956,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0012,
    "abkling": 0.3101,
    "quelle_hz": 4874
+  },
+  {
+   "takt": 14,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.043,
+   "abkling": 0.1474,
+   "quelle_hz": 55
   },
   {
    "takt": 15,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.538,
+   "staerke": 0.514,
    "versatz": 0.0048,
    "abkling": 0.0,
    "quelle_hz": 10982
@@ -1556,7 +1986,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.017,
    "abkling": 0.0782,
    "quelle_hz": 11646
@@ -1566,17 +1996,27 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.125,
+   "staerke": 0.107,
    "versatz": 0.0017,
    "abkling": 0.0,
    "quelle_hz": 5243
   },
   {
    "takt": 15,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.935,
+   "versatz": 0.0388,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 15,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0035,
    "abkling": 0.2533,
    "quelle_hz": 5532
@@ -1586,17 +2026,27 @@
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.848,
+   "staerke": 0.818,
    "versatz": 0.0026,
    "abkling": 0.1253,
    "quelle_hz": 5296
   },
   {
    "takt": 15,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.965,
+   "versatz": 0.0405,
+   "abkling": 0.181,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 15,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.933,
+   "staerke": 0.901,
    "versatz": 0.0008,
    "abkling": 0.1307,
    "quelle_hz": 3297
@@ -1606,7 +2056,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.851,
+   "staerke": 0.821,
    "versatz": 0.0044,
    "abkling": 0.0453,
    "quelle_hz": 10880
@@ -1616,7 +2066,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.971,
+   "staerke": 0.939,
    "versatz": 0.0497,
    "abkling": 0.072,
    "quelle_hz": 11449
@@ -1626,7 +2076,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0053,
    "abkling": 0.0453,
    "quelle_hz": 11064
@@ -1636,7 +2086,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.971,
    "versatz": 0.0506,
    "abkling": 0.056,
    "quelle_hz": 11633
@@ -1646,7 +2096,7 @@
    "pos": 12,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0205,
    "abkling": 0.0818,
    "quelle_hz": 11672
@@ -1656,7 +2106,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.28,
+   "staerke": 0.26,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 11025
@@ -1666,7 +2116,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.973,
+   "staerke": 0.941,
    "versatz": 0.0507,
    "abkling": 0.0533,
    "quelle_hz": 11704
@@ -1676,7 +2126,7 @@
    "pos": 4,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.88,
+   "staerke": 0.849,
    "versatz": -0.0231,
    "abkling": 0.0801,
    "quelle_hz": 11681
@@ -1686,17 +2136,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.094,
    "versatz": -0.0004,
    "abkling": 0.0,
    "quelle_hz": 5242
   },
   {
    "takt": 16,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.037,
+   "abkling": 0.1913,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 16,
    "pos": 12,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.16,
+   "staerke": 0.141,
    "versatz": -0.0026,
    "abkling": 0.0,
    "quelle_hz": 4436
@@ -1716,7 +2176,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.362,
+   "staerke": 0.34,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 11033
@@ -1726,17 +2186,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.175,
+   "staerke": 0.157,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 5247
   },
   {
    "takt": 17,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0371,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 17,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.184,
+   "staerke": 0.166,
    "versatz": -0.0021,
    "abkling": 0.0102,
    "quelle_hz": 4428
@@ -1746,17 +2216,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.157,
+   "staerke": 0.14,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4745
+  },
+  {
+   "takt": 17,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1515,
+   "quelle_hz": 55
   },
   {
    "takt": 18,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.269,
+   "staerke": 0.249,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 10980
@@ -1766,7 +2246,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.963,
    "versatz": 0.0472,
    "abkling": 0.0709,
    "quelle_hz": 11628
@@ -1776,17 +2256,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.862,
+   "staerke": 0.832,
    "versatz": 0.0014,
    "abkling": 0.2533,
    "quelle_hz": 7016
   },
   {
    "takt": 18,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 18,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0006,
    "abkling": 0.072,
    "quelle_hz": 1142
@@ -1796,17 +2286,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.195,
+   "staerke": 0.177,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4818
   },
   {
    "takt": 18,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0399,
+   "abkling": 0.142,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 18,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.961,
+   "staerke": 0.929,
    "versatz": 0.0028,
    "abkling": 0.0787,
    "quelle_hz": 3079
@@ -1816,7 +2316,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.001,
    "abkling": 0.048,
    "quelle_hz": 10916
@@ -1826,7 +2326,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.962,
    "versatz": 0.049,
    "abkling": 0.048,
    "quelle_hz": 11692
@@ -1836,7 +2336,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0301,
    "abkling": 0.0761,
    "quelle_hz": 11634
@@ -1853,10 +2353,20 @@
   },
   {
    "takt": 18,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.0366,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 18,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.903,
+   "staerke": 0.872,
    "versatz": 0.001,
    "abkling": 0.128,
    "quelle_hz": 3285
@@ -1866,10 +2376,20 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.794,
    "versatz": 0.0019,
    "abkling": 0.3104,
    "quelle_hz": 4610
+  },
+  {
+   "takt": 18,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0398,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 18,
@@ -1886,7 +2406,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.421,
+   "staerke": 0.399,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 10959
@@ -1896,7 +2416,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0522,
    "abkling": 0.0716,
    "quelle_hz": 11615
@@ -1906,17 +2426,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.2493,
    "quelle_hz": 7450
   },
   {
    "takt": 19,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 19,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0038,
    "abkling": 0.0703,
    "quelle_hz": 1141
@@ -1926,7 +2456,7 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": -0.0007,
    "abkling": 0.0,
    "quelle_hz": 5319
@@ -1936,17 +2466,27 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.902,
+   "staerke": 0.871,
    "versatz": 0.0042,
    "abkling": 0.116,
    "quelle_hz": 4577
   },
   {
    "takt": 19,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.994,
+   "versatz": 0.0451,
+   "abkling": 0.1362,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 19,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.966,
+   "staerke": 0.933,
    "versatz": -0.0069,
    "abkling": 0.0576,
    "quelle_hz": 2888
@@ -1956,7 +2496,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.006,
    "abkling": 0.0507,
    "quelle_hz": 10939
@@ -1966,7 +2506,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.0185,
    "abkling": 0.0811,
    "quelle_hz": 11607
@@ -1986,10 +2526,20 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.161,
+   "staerke": 0.143,
    "versatz": 0.0029,
    "abkling": 0.0,
    "quelle_hz": 4728
+  },
+  {
+   "takt": 19,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1514,
+   "quelle_hz": 55
   },
   {
    "takt": 19,
@@ -2006,7 +2556,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.321,
+   "staerke": 0.3,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10970
@@ -2016,7 +2566,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0531,
    "abkling": 0.0698,
    "quelle_hz": 11648
@@ -2026,17 +2576,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.002,
    "abkling": 0.2493,
    "quelle_hz": 7649
   },
   {
    "takt": 20,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0361,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 20,
    "pos": 3,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0069,
    "abkling": 0.0679,
    "quelle_hz": 3948
@@ -2046,17 +2606,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.087,
+   "staerke": 0.07,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4780
   },
   {
    "takt": 20,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0369,
+   "abkling": 0.1421,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 20,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.964,
+   "staerke": 0.932,
    "versatz": -0.0033,
    "abkling": 0.0817,
    "quelle_hz": 997
@@ -2066,7 +2636,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0016,
    "abkling": 0.048,
    "quelle_hz": 10946
@@ -2076,7 +2646,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.997,
+   "staerke": 0.964,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11656
@@ -2086,7 +2656,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.881,
    "versatz": -0.0295,
    "abkling": 0.0739,
    "quelle_hz": 11664
@@ -2103,10 +2673,20 @@
   },
   {
    "takt": 20,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.037,
+   "abkling": 0.195,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 20,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.909,
+   "staerke": 0.878,
    "versatz": -0.0064,
    "abkling": 0.1347,
    "quelle_hz": 3654
@@ -2116,17 +2696,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.823,
+   "staerke": 0.794,
    "versatz": 0.0011,
    "abkling": 0.3101,
    "quelle_hz": 4660
   },
   {
    "takt": 20,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0387,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 20,
    "pos": 15,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": -0.0042,
    "abkling": 0.0,
    "quelle_hz": 4445
@@ -2136,7 +2726,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": 0.002,
    "abkling": 0.0,
    "quelle_hz": 10943
@@ -2146,7 +2736,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.05,
    "abkling": 0.0708,
    "quelle_hz": 11638
@@ -2156,17 +2746,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0003,
    "abkling": 0.3086,
    "quelle_hz": 7367
   },
   {
    "takt": 21,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 21,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.058,
+   "staerke": 0.042,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 5267
@@ -2176,7 +2776,7 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": 0.0034,
    "abkling": 0.2533,
    "quelle_hz": 5050
@@ -2186,7 +2786,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0025,
    "abkling": 0.048,
    "quelle_hz": 11013
@@ -2196,7 +2796,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0505,
    "abkling": 0.048,
    "quelle_hz": 11631
@@ -2206,7 +2806,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.88,
    "versatz": -0.0286,
    "abkling": 0.0756,
    "quelle_hz": 11565
@@ -2216,7 +2816,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.096,
+   "staerke": 0.08,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4462
@@ -2226,17 +2826,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.115,
+   "staerke": 0.098,
    "versatz": -0.0006,
    "abkling": 0.0,
    "quelle_hz": 4733
   },
   {
    "takt": 21,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0373,
+   "abkling": 0.1516,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 21,
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.889,
+   "staerke": 0.858,
    "versatz": 0.0025,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -2246,7 +2856,7 @@
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.992,
+   "staerke": 0.959,
    "versatz": 0.0492,
    "abkling": 0.0708,
    "quelle_hz": 11648
@@ -2256,7 +2866,7 @@
    "pos": 15,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.861,
+   "staerke": 0.831,
    "versatz": -0.0006,
    "abkling": 0.0822,
    "quelle_hz": 8396
@@ -2266,17 +2876,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.145,
+   "staerke": 0.127,
    "versatz": 0.0003,
    "abkling": 0.0,
    "quelle_hz": 5337
   },
   {
    "takt": 22,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": 0.0386,
+   "abkling": 0.192,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 22,
    "pos": 9,
    "inst": "snare",
    "akzent": false,
-   "staerke": 0.041,
+   "staerke": 0.04,
    "versatz": -0.001,
    "abkling": 0.0097,
    "quelle_hz": 1392
@@ -2286,7 +2906,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.335,
+   "staerke": 0.314,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -2296,17 +2916,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.842,
    "versatz": -0.0023,
    "abkling": 0.309,
    "quelle_hz": 7218
+  },
+  {
+   "takt": 22,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0352,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 23,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.476,
+   "staerke": 0.452,
    "versatz": -0.0001,
    "abkling": 0.0,
    "quelle_hz": 10991
@@ -2316,7 +2946,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.958,
    "versatz": 0.0466,
    "abkling": 0.0533,
    "quelle_hz": 11692
@@ -2326,7 +2956,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.896,
+   "staerke": 0.865,
    "versatz": -0.0272,
    "abkling": 0.0845,
    "quelle_hz": 11582
@@ -2336,37 +2966,67 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.044,
+   "staerke": 0.04,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 5239
   },
   {
    "takt": 23,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.942,
+   "versatz": 0.0356,
+   "abkling": 0.1956,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 23,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.841,
+   "staerke": 0.811,
    "versatz": 0.0013,
    "abkling": 0.2547,
    "quelle_hz": 4992
   },
   {
    "takt": 23,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.962,
+   "versatz": 0.0388,
+   "abkling": 0.1755,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 23,
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.853,
+   "staerke": 0.823,
    "versatz": 0.0017,
    "abkling": 0.1227,
    "quelle_hz": 5510
   },
   {
    "takt": 23,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": 0.0477,
+   "abkling": 0.1776,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 23,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.94,
+   "staerke": 0.908,
    "versatz": -0.0027,
    "abkling": 0.1333,
    "quelle_hz": 3256
@@ -2376,7 +3036,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.855,
+   "staerke": 0.825,
    "versatz": 0.0035,
    "abkling": 0.0467,
    "quelle_hz": 10843
@@ -2386,7 +3046,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.936,
    "versatz": 0.0502,
    "abkling": 0.0641,
    "quelle_hz": 11464
@@ -2396,7 +3056,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.795,
    "versatz": 0.0057,
    "abkling": 0.0507,
    "quelle_hz": 10976
@@ -2406,17 +3066,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0,
    "abkling": 0.252,
    "quelle_hz": 7547
   },
   {
    "takt": 23,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0381,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 23,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0023,
    "abkling": 0.0643,
    "quelle_hz": 3918
@@ -2436,7 +3106,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": -0.0005,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -2446,7 +3116,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0462,
    "abkling": 0.0533,
    "quelle_hz": 11695
@@ -2456,7 +3126,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.907,
+   "staerke": 0.876,
    "versatz": -0.0276,
    "abkling": 0.083,
    "quelle_hz": 11610
@@ -2473,10 +3143,20 @@
   },
   {
    "takt": 24,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0379,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 24,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0009,
    "abkling": 0.0786,
    "quelle_hz": 930
@@ -2486,17 +3166,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.095,
    "versatz": -0.0013,
    "abkling": 0.0,
    "quelle_hz": 4773
   },
   {
    "takt": 24,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0366,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 24,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.868,
+   "staerke": 0.838,
    "versatz": 0.0031,
    "abkling": 0.0701,
    "quelle_hz": 1137
@@ -2506,7 +3196,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.438,
+   "staerke": 0.415,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 10954
@@ -2516,7 +3206,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.048,
    "abkling": 0.048,
    "quelle_hz": 11620
@@ -2526,7 +3216,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.921,
+   "staerke": 0.89,
    "versatz": -0.0311,
    "abkling": 0.0736,
    "quelle_hz": 11606
@@ -2536,7 +3226,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.074,
+   "staerke": 0.057,
    "versatz": 0.0044,
    "abkling": 0.0,
    "quelle_hz": 4454
@@ -2546,17 +3236,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.134,
+   "staerke": 0.116,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 4762
   },
   {
    "takt": 24,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0353,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 24,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0013,
    "abkling": 0.0694,
    "quelle_hz": 3981
@@ -2566,7 +3266,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.344,
+   "staerke": 0.323,
    "versatz": 0.0005,
    "abkling": 0.0,
    "quelle_hz": 10956
@@ -2576,7 +3276,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0485,
    "abkling": 0.048,
    "quelle_hz": 11614
@@ -2586,7 +3286,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0306,
    "abkling": 0.0746,
    "quelle_hz": 11553
@@ -2596,27 +3296,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.18,
+   "staerke": 0.161,
    "versatz": -0.0017,
    "abkling": 0.0,
    "quelle_hz": 4811
   },
   {
    "takt": 25,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0356,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 25,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4808
   },
   {
    "takt": 25,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0393,
+   "abkling": 0.2312,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 25,
    "pos": 6,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0005,
    "abkling": 0.2039,
    "quelle_hz": 3961
@@ -2626,7 +3346,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.821,
+   "staerke": 0.792,
    "versatz": 0.0049,
    "abkling": 0.048,
    "quelle_hz": 10993
@@ -2636,7 +3356,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0529,
    "abkling": 0.0574,
    "quelle_hz": 11523
@@ -2646,7 +3366,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": -0.0168,
    "abkling": 0.078,
    "quelle_hz": 11628
@@ -2666,7 +3386,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": 0.0009,
    "abkling": 0.0022,
    "quelle_hz": 5271
@@ -2676,17 +3396,27 @@
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.919,
+   "staerke": 0.888,
    "versatz": -0.0008,
    "abkling": 0.1953,
    "quelle_hz": 4492
   },
   {
    "takt": 25,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0363,
+   "abkling": 0.1415,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 25,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0004,
    "abkling": 0.07,
    "quelle_hz": 4036
@@ -2706,7 +3436,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.372,
+   "staerke": 0.35,
    "versatz": 0.0014,
    "abkling": 0.0,
    "quelle_hz": 10937
@@ -2716,17 +3446,27 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.144,
+   "staerke": 0.126,
    "versatz": -0.0021,
    "abkling": 0.0,
    "quelle_hz": 4832
   },
   {
    "takt": 26,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0354,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 26,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0028,
    "abkling": 0.0746,
    "quelle_hz": 955
@@ -2736,17 +3476,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.27,
+   "staerke": 0.25,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4775
   },
   {
    "takt": 26,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0395,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 26,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.0835,
    "quelle_hz": 1259
@@ -2756,7 +3506,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.296,
+   "staerke": 0.276,
    "versatz": 0.0045,
    "abkling": 0.0,
    "quelle_hz": 10958
@@ -2766,7 +3516,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.904,
+   "staerke": 0.872,
    "versatz": -0.0199,
    "abkling": 0.0815,
    "quelle_hz": 11637
@@ -2776,7 +3526,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.049,
+   "staerke": 0.04,
    "versatz": 0.0037,
    "abkling": 0.0,
    "quelle_hz": 4441
@@ -2786,17 +3536,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.053,
+   "staerke": 0.04,
    "versatz": 0.0041,
    "abkling": 0.0,
    "quelle_hz": 4829
   },
   {
    "takt": 26,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0416,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 26,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0008,
    "abkling": 0.0622,
    "quelle_hz": 3822
@@ -2816,7 +3576,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.432,
+   "staerke": 0.41,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 10971
@@ -2826,17 +3586,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.843,
    "versatz": 0.0011,
    "abkling": 0.2533,
    "quelle_hz": 7255
   },
   {
    "takt": 29,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0386,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 29,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0002,
    "abkling": 0.0748,
    "quelle_hz": 1186
@@ -2846,17 +3616,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.149,
+   "staerke": 0.131,
    "versatz": 0.0016,
    "abkling": 0.0,
    "quelle_hz": 4793
   },
   {
    "takt": 29,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0387,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 29,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": -0.0002,
    "abkling": 0.0804,
    "quelle_hz": 2924
@@ -2866,7 +3646,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": 0.0034,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -2876,7 +3656,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.968,
    "versatz": 0.05,
    "abkling": 0.0453,
    "quelle_hz": 11663
@@ -2886,7 +3666,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.927,
+   "staerke": 0.896,
    "versatz": -0.0317,
    "abkling": 0.0693,
    "quelle_hz": 11585
@@ -2896,17 +3676,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.194,
+   "staerke": 0.176,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 5310
   },
   {
    "takt": 29,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0392,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 29,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0006,
    "abkling": 0.1293,
    "quelle_hz": 3342
@@ -2916,17 +3706,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0016,
    "abkling": 0.2533,
    "quelle_hz": 4846
   },
   {
    "takt": 29,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0389,
+   "abkling": 0.1515,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 29,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0007,
    "abkling": 0.0628,
    "quelle_hz": 3877
@@ -2936,7 +3736,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.403,
+   "staerke": 0.381,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10967
@@ -2946,17 +3746,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.842,
    "versatz": 0.0021,
    "abkling": 0.252,
    "quelle_hz": 7152
   },
   {
    "takt": 30,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 30,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0753,
    "quelle_hz": 1183
@@ -2966,17 +3776,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4753
   },
   {
    "takt": 30,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 30,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": 0.0007,
    "abkling": 0.0797,
    "quelle_hz": 2987
@@ -2986,7 +3806,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0043,
    "abkling": 0.0453,
    "quelle_hz": 10947
@@ -2996,7 +3816,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11639
@@ -3006,7 +3826,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.925,
+   "staerke": 0.894,
    "versatz": -0.0295,
    "abkling": 0.0674,
    "quelle_hz": 11592
@@ -3016,17 +3836,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.148,
+   "staerke": 0.131,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 5299
   },
   {
    "takt": 30,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.932,
+   "versatz": 0.0387,
+   "abkling": 0.1952,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 30,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.882,
    "versatz": 0.0003,
    "abkling": 0.128,
    "quelle_hz": 3401
@@ -3036,17 +3866,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0012,
    "abkling": 0.3101,
    "quelle_hz": 4874
+  },
+  {
+   "takt": 30,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.043,
+   "abkling": 0.1474,
+   "quelle_hz": 55
   },
   {
    "takt": 31,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.538,
+   "staerke": 0.514,
    "versatz": 0.0048,
    "abkling": 0.0,
    "quelle_hz": 10982
@@ -3056,7 +3896,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.017,
    "abkling": 0.0782,
    "quelle_hz": 11646
@@ -3066,17 +3906,27 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.125,
+   "staerke": 0.107,
    "versatz": 0.0017,
    "abkling": 0.0,
    "quelle_hz": 5243
   },
   {
    "takt": 31,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.935,
+   "versatz": 0.0388,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 31,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0035,
    "abkling": 0.2533,
    "quelle_hz": 5532
@@ -3086,17 +3936,27 @@
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.848,
+   "staerke": 0.818,
    "versatz": 0.0026,
    "abkling": 0.1253,
    "quelle_hz": 5296
   },
   {
    "takt": 31,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.965,
+   "versatz": 0.0405,
+   "abkling": 0.181,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 31,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.933,
+   "staerke": 0.901,
    "versatz": 0.0008,
    "abkling": 0.1307,
    "quelle_hz": 3297
@@ -3106,7 +3966,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.851,
+   "staerke": 0.821,
    "versatz": 0.0044,
    "abkling": 0.0453,
    "quelle_hz": 10880
@@ -3116,7 +3976,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.971,
+   "staerke": 0.939,
    "versatz": 0.0497,
    "abkling": 0.072,
    "quelle_hz": 11449
@@ -3126,7 +3986,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0053,
    "abkling": 0.0453,
    "quelle_hz": 11064
@@ -3136,7 +3996,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.971,
    "versatz": 0.0506,
    "abkling": 0.056,
    "quelle_hz": 11633
@@ -3146,7 +4006,7 @@
    "pos": 12,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0205,
    "abkling": 0.0818,
    "quelle_hz": 11672
@@ -3156,7 +4016,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.28,
+   "staerke": 0.26,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 11025
@@ -3166,7 +4026,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.973,
+   "staerke": 0.941,
    "versatz": 0.0507,
    "abkling": 0.0533,
    "quelle_hz": 11704
@@ -3176,7 +4036,7 @@
    "pos": 4,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.88,
+   "staerke": 0.849,
    "versatz": -0.0231,
    "abkling": 0.0801,
    "quelle_hz": 11681
@@ -3186,17 +4046,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.094,
    "versatz": -0.0004,
    "abkling": 0.0,
    "quelle_hz": 5242
   },
   {
    "takt": 32,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.037,
+   "abkling": 0.1913,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 32,
    "pos": 12,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.16,
+   "staerke": 0.141,
    "versatz": -0.0026,
    "abkling": 0.0,
    "quelle_hz": 4436
@@ -3216,7 +4086,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.362,
+   "staerke": 0.34,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 11033
@@ -3226,17 +4096,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.175,
+   "staerke": 0.157,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 5247
   },
   {
    "takt": 33,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0371,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 33,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.184,
+   "staerke": 0.166,
    "versatz": -0.0021,
    "abkling": 0.0102,
    "quelle_hz": 4428
@@ -3246,17 +4126,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.157,
+   "staerke": 0.14,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4745
+  },
+  {
+   "takt": 33,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1515,
+   "quelle_hz": 55
   },
   {
    "takt": 34,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.269,
+   "staerke": 0.249,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 10980
@@ -3266,7 +4156,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.963,
    "versatz": 0.0472,
    "abkling": 0.0709,
    "quelle_hz": 11628
@@ -3276,17 +4166,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.862,
+   "staerke": 0.832,
    "versatz": 0.0014,
    "abkling": 0.2533,
    "quelle_hz": 7016
   },
   {
    "takt": 34,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 34,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0006,
    "abkling": 0.072,
    "quelle_hz": 1142
@@ -3296,17 +4196,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.195,
+   "staerke": 0.177,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4818
   },
   {
    "takt": 34,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0399,
+   "abkling": 0.142,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 34,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.961,
+   "staerke": 0.929,
    "versatz": 0.0028,
    "abkling": 0.0787,
    "quelle_hz": 3079
@@ -3316,7 +4226,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.001,
    "abkling": 0.048,
    "quelle_hz": 10916
@@ -3326,7 +4236,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.962,
    "versatz": 0.049,
    "abkling": 0.048,
    "quelle_hz": 11692
@@ -3336,7 +4246,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0301,
    "abkling": 0.0761,
    "quelle_hz": 11634
@@ -3353,10 +4263,20 @@
   },
   {
    "takt": 34,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.0366,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 34,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.903,
+   "staerke": 0.872,
    "versatz": 0.001,
    "abkling": 0.128,
    "quelle_hz": 3285
@@ -3366,10 +4286,20 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.794,
    "versatz": 0.0019,
    "abkling": 0.3104,
    "quelle_hz": 4610
+  },
+  {
+   "takt": 34,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0398,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 34,
@@ -3386,7 +4316,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.421,
+   "staerke": 0.399,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 10959
@@ -3396,7 +4326,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0522,
    "abkling": 0.0716,
    "quelle_hz": 11615
@@ -3406,17 +4336,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.2493,
    "quelle_hz": 7450
   },
   {
    "takt": 35,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 35,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0038,
    "abkling": 0.0703,
    "quelle_hz": 1141
@@ -3426,7 +4366,7 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": -0.0007,
    "abkling": 0.0,
    "quelle_hz": 5319
@@ -3436,17 +4376,27 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.902,
+   "staerke": 0.871,
    "versatz": 0.0042,
    "abkling": 0.116,
    "quelle_hz": 4577
   },
   {
    "takt": 35,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.994,
+   "versatz": 0.0451,
+   "abkling": 0.1362,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 35,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.966,
+   "staerke": 0.933,
    "versatz": -0.0069,
    "abkling": 0.0576,
    "quelle_hz": 2888
@@ -3456,7 +4406,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.006,
    "abkling": 0.0507,
    "quelle_hz": 10939
@@ -3466,7 +4416,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.0185,
    "abkling": 0.0811,
    "quelle_hz": 11607
@@ -3486,10 +4436,20 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.161,
+   "staerke": 0.143,
    "versatz": 0.0029,
    "abkling": 0.0,
    "quelle_hz": 4728
+  },
+  {
+   "takt": 35,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1514,
+   "quelle_hz": 55
   },
   {
    "takt": 35,
@@ -3506,7 +4466,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.321,
+   "staerke": 0.3,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10970
@@ -3516,7 +4476,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0531,
    "abkling": 0.0698,
    "quelle_hz": 11648
@@ -3526,17 +4486,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.002,
    "abkling": 0.2493,
    "quelle_hz": 7649
   },
   {
    "takt": 36,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0361,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 36,
    "pos": 3,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0069,
    "abkling": 0.0679,
    "quelle_hz": 3948
@@ -3546,17 +4516,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.087,
+   "staerke": 0.07,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4780
   },
   {
    "takt": 36,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0369,
+   "abkling": 0.1421,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 36,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.964,
+   "staerke": 0.932,
    "versatz": -0.0033,
    "abkling": 0.0817,
    "quelle_hz": 997
@@ -3566,7 +4546,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0016,
    "abkling": 0.048,
    "quelle_hz": 10946
@@ -3576,7 +4556,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.997,
+   "staerke": 0.964,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11656
@@ -3586,7 +4566,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.881,
    "versatz": -0.0295,
    "abkling": 0.0739,
    "quelle_hz": 11664
@@ -3603,10 +4583,20 @@
   },
   {
    "takt": 36,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.037,
+   "abkling": 0.195,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 36,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.909,
+   "staerke": 0.878,
    "versatz": -0.0064,
    "abkling": 0.1347,
    "quelle_hz": 3654
@@ -3616,17 +4606,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.823,
+   "staerke": 0.794,
    "versatz": 0.0011,
    "abkling": 0.3101,
    "quelle_hz": 4660
   },
   {
    "takt": 36,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0387,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 36,
    "pos": 15,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": -0.0042,
    "abkling": 0.0,
    "quelle_hz": 4445
@@ -3636,7 +4636,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": 0.002,
    "abkling": 0.0,
    "quelle_hz": 10943
@@ -3646,7 +4646,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.05,
    "abkling": 0.0708,
    "quelle_hz": 11638
@@ -3656,17 +4656,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0003,
    "abkling": 0.3086,
    "quelle_hz": 7367
   },
   {
    "takt": 37,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 37,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.058,
+   "staerke": 0.042,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 5267
@@ -3676,7 +4686,7 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": 0.0034,
    "abkling": 0.2533,
    "quelle_hz": 5050
@@ -3686,7 +4696,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0025,
    "abkling": 0.048,
    "quelle_hz": 11013
@@ -3696,7 +4706,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0505,
    "abkling": 0.048,
    "quelle_hz": 11631
@@ -3706,7 +4716,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.88,
    "versatz": -0.0286,
    "abkling": 0.0756,
    "quelle_hz": 11565
@@ -3716,7 +4726,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.096,
+   "staerke": 0.08,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4462
@@ -3726,17 +4736,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.115,
+   "staerke": 0.098,
    "versatz": -0.0006,
    "abkling": 0.0,
    "quelle_hz": 4733
   },
   {
    "takt": 37,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0373,
+   "abkling": 0.1516,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 37,
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.889,
+   "staerke": 0.858,
    "versatz": 0.0025,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -3746,7 +4766,7 @@
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.992,
+   "staerke": 0.959,
    "versatz": 0.0492,
    "abkling": 0.0708,
    "quelle_hz": 11648
@@ -3756,7 +4776,7 @@
    "pos": 15,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.861,
+   "staerke": 0.831,
    "versatz": -0.0006,
    "abkling": 0.0822,
    "quelle_hz": 8396
@@ -3766,17 +4786,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.145,
+   "staerke": 0.127,
    "versatz": 0.0003,
    "abkling": 0.0,
    "quelle_hz": 5337
   },
   {
    "takt": 38,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": 0.0386,
+   "abkling": 0.192,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 38,
    "pos": 9,
    "inst": "snare",
    "akzent": false,
-   "staerke": 0.041,
+   "staerke": 0.04,
    "versatz": -0.001,
    "abkling": 0.0097,
    "quelle_hz": 1392
@@ -3786,7 +4816,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.335,
+   "staerke": 0.314,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -3796,17 +4826,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.842,
    "versatz": -0.0023,
    "abkling": 0.309,
    "quelle_hz": 7218
+  },
+  {
+   "takt": 38,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0352,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 39,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.476,
+   "staerke": 0.452,
    "versatz": -0.0001,
    "abkling": 0.0,
    "quelle_hz": 10991
@@ -3816,7 +4856,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.958,
    "versatz": 0.0466,
    "abkling": 0.0533,
    "quelle_hz": 11692
@@ -3826,7 +4866,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.896,
+   "staerke": 0.865,
    "versatz": -0.0272,
    "abkling": 0.0845,
    "quelle_hz": 11582
@@ -3836,37 +4876,67 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.044,
+   "staerke": 0.04,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 5239
   },
   {
    "takt": 39,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.942,
+   "versatz": 0.0356,
+   "abkling": 0.1956,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 39,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.841,
+   "staerke": 0.811,
    "versatz": 0.0013,
    "abkling": 0.2547,
    "quelle_hz": 4992
   },
   {
    "takt": 39,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.962,
+   "versatz": 0.0388,
+   "abkling": 0.1755,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 39,
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.853,
+   "staerke": 0.823,
    "versatz": 0.0017,
    "abkling": 0.1227,
    "quelle_hz": 5510
   },
   {
    "takt": 39,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": 0.0477,
+   "abkling": 0.1776,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 39,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.94,
+   "staerke": 0.908,
    "versatz": -0.0027,
    "abkling": 0.1333,
    "quelle_hz": 3256
@@ -3876,7 +4946,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.855,
+   "staerke": 0.825,
    "versatz": 0.0035,
    "abkling": 0.0467,
    "quelle_hz": 10843
@@ -3886,7 +4956,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.936,
    "versatz": 0.0502,
    "abkling": 0.0641,
    "quelle_hz": 11464
@@ -3896,7 +4966,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.795,
    "versatz": 0.0057,
    "abkling": 0.0507,
    "quelle_hz": 10976
@@ -3906,17 +4976,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0,
    "abkling": 0.252,
    "quelle_hz": 7547
   },
   {
    "takt": 39,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0381,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 39,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0023,
    "abkling": 0.0643,
    "quelle_hz": 3918
@@ -3936,7 +5016,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": -0.0005,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -3946,7 +5026,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0462,
    "abkling": 0.0533,
    "quelle_hz": 11695
@@ -3956,7 +5036,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.907,
+   "staerke": 0.876,
    "versatz": -0.0276,
    "abkling": 0.083,
    "quelle_hz": 11610
@@ -3973,10 +5053,20 @@
   },
   {
    "takt": 40,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0379,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 40,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0009,
    "abkling": 0.0786,
    "quelle_hz": 930
@@ -3986,17 +5076,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.095,
    "versatz": -0.0013,
    "abkling": 0.0,
    "quelle_hz": 4773
   },
   {
    "takt": 40,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0366,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 40,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.868,
+   "staerke": 0.838,
    "versatz": 0.0031,
    "abkling": 0.0701,
    "quelle_hz": 1137
@@ -4006,7 +5106,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.438,
+   "staerke": 0.415,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 10954
@@ -4016,7 +5116,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.048,
    "abkling": 0.048,
    "quelle_hz": 11620
@@ -4026,7 +5126,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.921,
+   "staerke": 0.89,
    "versatz": -0.0311,
    "abkling": 0.0736,
    "quelle_hz": 11606
@@ -4036,7 +5136,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.074,
+   "staerke": 0.057,
    "versatz": 0.0044,
    "abkling": 0.0,
    "quelle_hz": 4454
@@ -4046,17 +5146,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.134,
+   "staerke": 0.116,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 4762
   },
   {
    "takt": 40,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0353,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 40,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0013,
    "abkling": 0.0694,
    "quelle_hz": 3981
@@ -4066,7 +5176,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.344,
+   "staerke": 0.323,
    "versatz": 0.0005,
    "abkling": 0.0,
    "quelle_hz": 10956
@@ -4076,7 +5186,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0485,
    "abkling": 0.048,
    "quelle_hz": 11614
@@ -4086,7 +5196,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0306,
    "abkling": 0.0746,
    "quelle_hz": 11553
@@ -4096,27 +5206,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.18,
+   "staerke": 0.161,
    "versatz": -0.0017,
    "abkling": 0.0,
    "quelle_hz": 4811
   },
   {
    "takt": 41,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0356,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 41,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4808
   },
   {
    "takt": 41,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0393,
+   "abkling": 0.2312,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 41,
    "pos": 6,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0005,
    "abkling": 0.2039,
    "quelle_hz": 3961
@@ -4126,7 +5256,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.821,
+   "staerke": 0.792,
    "versatz": 0.0049,
    "abkling": 0.048,
    "quelle_hz": 10993
@@ -4136,7 +5266,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0529,
    "abkling": 0.0574,
    "quelle_hz": 11523
@@ -4146,7 +5276,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": -0.0168,
    "abkling": 0.078,
    "quelle_hz": 11628
@@ -4166,7 +5296,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": 0.0009,
    "abkling": 0.0022,
    "quelle_hz": 5271
@@ -4176,17 +5306,27 @@
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.919,
+   "staerke": 0.888,
    "versatz": -0.0008,
    "abkling": 0.1953,
    "quelle_hz": 4492
   },
   {
    "takt": 41,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0363,
+   "abkling": 0.1415,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 41,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0004,
    "abkling": 0.07,
    "quelle_hz": 4036
@@ -4206,7 +5346,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.372,
+   "staerke": 0.35,
    "versatz": 0.0014,
    "abkling": 0.0,
    "quelle_hz": 10937
@@ -4216,17 +5356,27 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.144,
+   "staerke": 0.126,
    "versatz": -0.0021,
    "abkling": 0.0,
    "quelle_hz": 4832
   },
   {
    "takt": 42,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0354,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 42,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0028,
    "abkling": 0.0746,
    "quelle_hz": 955
@@ -4236,17 +5386,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.27,
+   "staerke": 0.25,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4775
   },
   {
    "takt": 42,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0395,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 42,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.0835,
    "quelle_hz": 1259
@@ -4256,7 +5416,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.296,
+   "staerke": 0.276,
    "versatz": 0.0045,
    "abkling": 0.0,
    "quelle_hz": 10958
@@ -4266,7 +5426,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.904,
+   "staerke": 0.872,
    "versatz": -0.0199,
    "abkling": 0.0815,
    "quelle_hz": 11637
@@ -4276,7 +5436,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.049,
+   "staerke": 0.04,
    "versatz": 0.0037,
    "abkling": 0.0,
    "quelle_hz": 4441
@@ -4286,17 +5446,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.053,
+   "staerke": 0.04,
    "versatz": 0.0041,
    "abkling": 0.0,
    "quelle_hz": 4829
   },
   {
    "takt": 42,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0416,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 42,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0008,
    "abkling": 0.0622,
    "quelle_hz": 3822
@@ -4316,7 +5486,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.329,
+   "staerke": 0.308,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 10940
@@ -4326,7 +5496,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.959,
    "versatz": 0.053,
    "abkling": 0.0493,
    "quelle_hz": 11693
@@ -4336,7 +5506,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.906,
+   "staerke": 0.874,
    "versatz": -0.0248,
    "abkling": 0.0829,
    "quelle_hz": 11594
@@ -4346,27 +5516,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.094,
+   "staerke": 0.077,
    "versatz": -0.0012,
    "abkling": 0.0,
    "quelle_hz": 4782
   },
   {
    "takt": 43,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0358,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 43,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.243,
+   "staerke": 0.224,
    "versatz": 0.0041,
    "abkling": 0.0,
    "quelle_hz": 4794
   },
   {
    "takt": 43,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0415,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 43,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.0019,
    "abkling": 0.0729,
    "quelle_hz": 1158
@@ -4376,7 +5566,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.443,
+   "staerke": 0.42,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 11000
@@ -4386,17 +5576,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4510
   },
   {
    "takt": 43,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0395,
+   "abkling": 0.1917,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 43,
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.845,
+   "staerke": 0.814,
    "versatz": -0.0003,
    "abkling": 0.1158,
    "quelle_hz": 4107
@@ -4416,7 +5616,7 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.347,
+   "staerke": 0.325,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 11053
@@ -4426,7 +5626,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.275,
+   "staerke": 0.255,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4435
@@ -4436,17 +5636,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.137,
+   "staerke": 0.119,
    "versatz": 0.0007,
    "abkling": 0.0,
    "quelle_hz": 4774
   },
   {
    "takt": 44,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0385,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 44,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0635,
    "quelle_hz": 3861
@@ -4456,7 +5666,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.432,
+   "staerke": 0.41,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 10971
@@ -4466,17 +5676,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.843,
    "versatz": 0.0011,
    "abkling": 0.2533,
    "quelle_hz": 7255
   },
   {
    "takt": 45,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0386,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 45,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0002,
    "abkling": 0.0748,
    "quelle_hz": 1186
@@ -4486,17 +5706,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.149,
+   "staerke": 0.131,
    "versatz": 0.0016,
    "abkling": 0.0,
    "quelle_hz": 4793
   },
   {
    "takt": 45,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0387,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 45,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": -0.0002,
    "abkling": 0.0804,
    "quelle_hz": 2924
@@ -4506,7 +5736,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": 0.0034,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -4516,7 +5746,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.968,
    "versatz": 0.05,
    "abkling": 0.0453,
    "quelle_hz": 11663
@@ -4526,7 +5756,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.927,
+   "staerke": 0.896,
    "versatz": -0.0317,
    "abkling": 0.0693,
    "quelle_hz": 11585
@@ -4536,17 +5766,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.194,
+   "staerke": 0.176,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 5310
   },
   {
    "takt": 45,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0392,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 45,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0006,
    "abkling": 0.1293,
    "quelle_hz": 3342
@@ -4556,17 +5796,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0016,
    "abkling": 0.2533,
    "quelle_hz": 4846
   },
   {
    "takt": 45,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0389,
+   "abkling": 0.1515,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 45,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0007,
    "abkling": 0.0628,
    "quelle_hz": 3877
@@ -4576,7 +5826,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.403,
+   "staerke": 0.381,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10967
@@ -4586,17 +5836,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.842,
    "versatz": 0.0021,
    "abkling": 0.252,
    "quelle_hz": 7152
   },
   {
    "takt": 46,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 46,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0753,
    "quelle_hz": 1183
@@ -4606,17 +5866,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4753
   },
   {
    "takt": 46,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 46,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": 0.0007,
    "abkling": 0.0797,
    "quelle_hz": 2987
@@ -4626,7 +5896,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0043,
    "abkling": 0.0453,
    "quelle_hz": 10947
@@ -4636,7 +5906,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11639
@@ -4646,7 +5916,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.925,
+   "staerke": 0.894,
    "versatz": -0.0295,
    "abkling": 0.0674,
    "quelle_hz": 11592
@@ -4656,17 +5926,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.148,
+   "staerke": 0.131,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 5299
   },
   {
    "takt": 46,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.932,
+   "versatz": 0.0387,
+   "abkling": 0.1952,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 46,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.882,
    "versatz": 0.0003,
    "abkling": 0.128,
    "quelle_hz": 3401
@@ -4676,17 +5956,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0012,
    "abkling": 0.3101,
    "quelle_hz": 4874
+  },
+  {
+   "takt": 46,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.043,
+   "abkling": 0.1474,
+   "quelle_hz": 55
   },
   {
    "takt": 47,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.538,
+   "staerke": 0.514,
    "versatz": 0.0048,
    "abkling": 0.0,
    "quelle_hz": 10982
@@ -4696,7 +5986,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.017,
    "abkling": 0.0782,
    "quelle_hz": 11646
@@ -4706,17 +5996,27 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.125,
+   "staerke": 0.107,
    "versatz": 0.0017,
    "abkling": 0.0,
    "quelle_hz": 5243
   },
   {
    "takt": 47,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.935,
+   "versatz": 0.0388,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 47,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0035,
    "abkling": 0.2533,
    "quelle_hz": 5532
@@ -4726,17 +6026,27 @@
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.848,
+   "staerke": 0.818,
    "versatz": 0.0026,
    "abkling": 0.1253,
    "quelle_hz": 5296
   },
   {
    "takt": 47,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.965,
+   "versatz": 0.0405,
+   "abkling": 0.181,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 47,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.933,
+   "staerke": 0.901,
    "versatz": 0.0008,
    "abkling": 0.1307,
    "quelle_hz": 3297
@@ -4746,7 +6056,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.851,
+   "staerke": 0.821,
    "versatz": 0.0044,
    "abkling": 0.0453,
    "quelle_hz": 10880
@@ -4756,7 +6066,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.971,
+   "staerke": 0.939,
    "versatz": 0.0497,
    "abkling": 0.072,
    "quelle_hz": 11449
@@ -4766,7 +6076,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0053,
    "abkling": 0.0453,
    "quelle_hz": 11064
@@ -4776,7 +6086,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.971,
    "versatz": 0.0506,
    "abkling": 0.056,
    "quelle_hz": 11633
@@ -4786,7 +6096,7 @@
    "pos": 12,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0205,
    "abkling": 0.0818,
    "quelle_hz": 11672
@@ -4796,7 +6106,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.28,
+   "staerke": 0.26,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 11025
@@ -4806,7 +6116,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.973,
+   "staerke": 0.941,
    "versatz": 0.0507,
    "abkling": 0.0533,
    "quelle_hz": 11704
@@ -4816,7 +6126,7 @@
    "pos": 4,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.88,
+   "staerke": 0.849,
    "versatz": -0.0231,
    "abkling": 0.0801,
    "quelle_hz": 11681
@@ -4826,17 +6136,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.094,
    "versatz": -0.0004,
    "abkling": 0.0,
    "quelle_hz": 5242
   },
   {
    "takt": 48,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.037,
+   "abkling": 0.1913,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 48,
    "pos": 12,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.16,
+   "staerke": 0.141,
    "versatz": -0.0026,
    "abkling": 0.0,
    "quelle_hz": 4436
@@ -4856,7 +6176,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.362,
+   "staerke": 0.34,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 11033
@@ -4866,17 +6186,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.175,
+   "staerke": 0.157,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 5247
   },
   {
    "takt": 49,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0371,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 49,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.184,
+   "staerke": 0.166,
    "versatz": -0.0021,
    "abkling": 0.0102,
    "quelle_hz": 4428
@@ -4886,17 +6216,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.157,
+   "staerke": 0.14,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4745
+  },
+  {
+   "takt": 49,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1515,
+   "quelle_hz": 55
   },
   {
    "takt": 50,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.269,
+   "staerke": 0.249,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 10980
@@ -4906,7 +6246,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.963,
    "versatz": 0.0472,
    "abkling": 0.0709,
    "quelle_hz": 11628
@@ -4916,17 +6256,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.862,
+   "staerke": 0.832,
    "versatz": 0.0014,
    "abkling": 0.2533,
    "quelle_hz": 7016
   },
   {
    "takt": 50,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 50,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0006,
    "abkling": 0.072,
    "quelle_hz": 1142
@@ -4936,17 +6286,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.195,
+   "staerke": 0.177,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4818
   },
   {
    "takt": 50,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0399,
+   "abkling": 0.142,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 50,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.961,
+   "staerke": 0.929,
    "versatz": 0.0028,
    "abkling": 0.0787,
    "quelle_hz": 3079
@@ -4956,7 +6316,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.001,
    "abkling": 0.048,
    "quelle_hz": 10916
@@ -4966,7 +6326,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.962,
    "versatz": 0.049,
    "abkling": 0.048,
    "quelle_hz": 11692
@@ -4976,7 +6336,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0301,
    "abkling": 0.0761,
    "quelle_hz": 11634
@@ -4993,10 +6353,20 @@
   },
   {
    "takt": 50,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.0366,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 50,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.903,
+   "staerke": 0.872,
    "versatz": 0.001,
    "abkling": 0.128,
    "quelle_hz": 3285
@@ -5006,10 +6376,20 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.794,
    "versatz": 0.0019,
    "abkling": 0.3104,
    "quelle_hz": 4610
+  },
+  {
+   "takt": 50,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0398,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 50,
@@ -5026,7 +6406,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.421,
+   "staerke": 0.399,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 10959
@@ -5036,7 +6416,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0522,
    "abkling": 0.0716,
    "quelle_hz": 11615
@@ -5046,17 +6426,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.2493,
    "quelle_hz": 7450
   },
   {
    "takt": 51,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 51,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0038,
    "abkling": 0.0703,
    "quelle_hz": 1141
@@ -5066,7 +6456,7 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": -0.0007,
    "abkling": 0.0,
    "quelle_hz": 5319
@@ -5076,17 +6466,27 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.902,
+   "staerke": 0.871,
    "versatz": 0.0042,
    "abkling": 0.116,
    "quelle_hz": 4577
   },
   {
    "takt": 51,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.994,
+   "versatz": 0.0451,
+   "abkling": 0.1362,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 51,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.966,
+   "staerke": 0.933,
    "versatz": -0.0069,
    "abkling": 0.0576,
    "quelle_hz": 2888
@@ -5096,7 +6496,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.006,
    "abkling": 0.0507,
    "quelle_hz": 10939
@@ -5106,7 +6506,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.0185,
    "abkling": 0.0811,
    "quelle_hz": 11607
@@ -5126,10 +6526,20 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.161,
+   "staerke": 0.143,
    "versatz": 0.0029,
    "abkling": 0.0,
    "quelle_hz": 4728
+  },
+  {
+   "takt": 51,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1514,
+   "quelle_hz": 55
   },
   {
    "takt": 51,
@@ -5146,7 +6556,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.321,
+   "staerke": 0.3,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10970
@@ -5156,7 +6566,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0531,
    "abkling": 0.0698,
    "quelle_hz": 11648
@@ -5166,17 +6576,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.002,
    "abkling": 0.2493,
    "quelle_hz": 7649
   },
   {
    "takt": 52,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0361,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 52,
    "pos": 3,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0069,
    "abkling": 0.0679,
    "quelle_hz": 3948
@@ -5186,17 +6606,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.087,
+   "staerke": 0.07,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4780
   },
   {
    "takt": 52,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0369,
+   "abkling": 0.1421,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 52,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.964,
+   "staerke": 0.932,
    "versatz": -0.0033,
    "abkling": 0.0817,
    "quelle_hz": 997
@@ -5206,7 +6636,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0016,
    "abkling": 0.048,
    "quelle_hz": 10946
@@ -5216,7 +6646,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.997,
+   "staerke": 0.964,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11656
@@ -5226,7 +6656,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.881,
    "versatz": -0.0295,
    "abkling": 0.0739,
    "quelle_hz": 11664
@@ -5243,10 +6673,20 @@
   },
   {
    "takt": 52,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.037,
+   "abkling": 0.195,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 52,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.909,
+   "staerke": 0.878,
    "versatz": -0.0064,
    "abkling": 0.1347,
    "quelle_hz": 3654
@@ -5256,17 +6696,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.823,
+   "staerke": 0.794,
    "versatz": 0.0011,
    "abkling": 0.3101,
    "quelle_hz": 4660
   },
   {
    "takt": 52,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0387,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 52,
    "pos": 15,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": -0.0042,
    "abkling": 0.0,
    "quelle_hz": 4445
@@ -5276,7 +6726,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": 0.002,
    "abkling": 0.0,
    "quelle_hz": 10943
@@ -5286,7 +6736,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.05,
    "abkling": 0.0708,
    "quelle_hz": 11638
@@ -5296,17 +6746,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0003,
    "abkling": 0.3086,
    "quelle_hz": 7367
   },
   {
    "takt": 53,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 53,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.058,
+   "staerke": 0.042,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 5267
@@ -5316,7 +6776,7 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": 0.0034,
    "abkling": 0.2533,
    "quelle_hz": 5050
@@ -5326,7 +6786,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0025,
    "abkling": 0.048,
    "quelle_hz": 11013
@@ -5336,7 +6796,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0505,
    "abkling": 0.048,
    "quelle_hz": 11631
@@ -5346,7 +6806,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.88,
    "versatz": -0.0286,
    "abkling": 0.0756,
    "quelle_hz": 11565
@@ -5356,7 +6816,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.096,
+   "staerke": 0.08,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4462
@@ -5366,17 +6826,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.115,
+   "staerke": 0.098,
    "versatz": -0.0006,
    "abkling": 0.0,
    "quelle_hz": 4733
   },
   {
    "takt": 53,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0373,
+   "abkling": 0.1516,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 53,
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.889,
+   "staerke": 0.858,
    "versatz": 0.0025,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -5386,7 +6856,7 @@
    "pos": 14,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.992,
+   "staerke": 0.959,
    "versatz": 0.0492,
    "abkling": 0.0708,
    "quelle_hz": 11648
@@ -5396,7 +6866,7 @@
    "pos": 15,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.861,
+   "staerke": 0.831,
    "versatz": -0.0006,
    "abkling": 0.0822,
    "quelle_hz": 8396
@@ -5406,17 +6876,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.145,
+   "staerke": 0.127,
    "versatz": 0.0003,
    "abkling": 0.0,
    "quelle_hz": 5337
   },
   {
    "takt": 54,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.966,
+   "versatz": 0.0386,
+   "abkling": 0.192,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 54,
    "pos": 9,
    "inst": "snare",
    "akzent": false,
-   "staerke": 0.041,
+   "staerke": 0.04,
    "versatz": -0.001,
    "abkling": 0.0097,
    "quelle_hz": 1392
@@ -5426,7 +6906,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.335,
+   "staerke": 0.314,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -5436,17 +6916,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.842,
    "versatz": -0.0023,
    "abkling": 0.309,
    "quelle_hz": 7218
+  },
+  {
+   "takt": 54,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.995,
+   "versatz": 0.0352,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 55,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.476,
+   "staerke": 0.452,
    "versatz": -0.0001,
    "abkling": 0.0,
    "quelle_hz": 10991
@@ -5456,7 +6946,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.958,
    "versatz": 0.0466,
    "abkling": 0.0533,
    "quelle_hz": 11692
@@ -5466,7 +6956,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.896,
+   "staerke": 0.865,
    "versatz": -0.0272,
    "abkling": 0.0845,
    "quelle_hz": 11582
@@ -5476,37 +6966,67 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.044,
+   "staerke": 0.04,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 5239
   },
   {
    "takt": 55,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.942,
+   "versatz": 0.0356,
+   "abkling": 0.1956,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 55,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.841,
+   "staerke": 0.811,
    "versatz": 0.0013,
    "abkling": 0.2547,
    "quelle_hz": 4992
   },
   {
    "takt": 55,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.962,
+   "versatz": 0.0388,
+   "abkling": 0.1755,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 55,
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.853,
+   "staerke": 0.823,
    "versatz": 0.0017,
    "abkling": 0.1227,
    "quelle_hz": 5510
   },
   {
    "takt": 55,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.964,
+   "versatz": 0.0477,
+   "abkling": 0.1776,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 55,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.94,
+   "staerke": 0.908,
    "versatz": -0.0027,
    "abkling": 0.1333,
    "quelle_hz": 3256
@@ -5516,7 +7036,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.855,
+   "staerke": 0.825,
    "versatz": 0.0035,
    "abkling": 0.0467,
    "quelle_hz": 10843
@@ -5526,7 +7046,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.936,
    "versatz": 0.0502,
    "abkling": 0.0641,
    "quelle_hz": 11464
@@ -5536,7 +7056,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.795,
    "versatz": 0.0057,
    "abkling": 0.0507,
    "quelle_hz": 10976
@@ -5546,17 +7066,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0,
    "abkling": 0.252,
    "quelle_hz": 7547
   },
   {
    "takt": 55,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0381,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 55,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0023,
    "abkling": 0.0643,
    "quelle_hz": 3918
@@ -5576,7 +7106,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.373,
+   "staerke": 0.351,
    "versatz": -0.0005,
    "abkling": 0.0,
    "quelle_hz": 10981
@@ -5586,7 +7116,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0462,
    "abkling": 0.0533,
    "quelle_hz": 11695
@@ -5596,7 +7126,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.907,
+   "staerke": 0.876,
    "versatz": -0.0276,
    "abkling": 0.083,
    "quelle_hz": 11610
@@ -5613,10 +7143,20 @@
   },
   {
    "takt": 56,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0379,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 56,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0009,
    "abkling": 0.0786,
    "quelle_hz": 930
@@ -5626,17 +7166,27 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.095,
    "versatz": -0.0013,
    "abkling": 0.0,
    "quelle_hz": 4773
   },
   {
    "takt": 56,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0366,
+   "abkling": 0.1425,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 56,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.868,
+   "staerke": 0.838,
    "versatz": 0.0031,
    "abkling": 0.0701,
    "quelle_hz": 1137
@@ -5646,7 +7196,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.438,
+   "staerke": 0.415,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 10954
@@ -5656,7 +7206,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.048,
    "abkling": 0.048,
    "quelle_hz": 11620
@@ -5666,7 +7216,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.921,
+   "staerke": 0.89,
    "versatz": -0.0311,
    "abkling": 0.0736,
    "quelle_hz": 11606
@@ -5676,7 +7226,7 @@
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.074,
+   "staerke": 0.057,
    "versatz": 0.0044,
    "abkling": 0.0,
    "quelle_hz": 4454
@@ -5686,17 +7236,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.134,
+   "staerke": 0.116,
    "versatz": -0.0018,
    "abkling": 0.0,
    "quelle_hz": 4762
   },
   {
    "takt": 56,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0353,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 56,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.871,
+   "staerke": 0.84,
    "versatz": 0.0013,
    "abkling": 0.0694,
    "quelle_hz": 3981
@@ -5706,7 +7266,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.344,
+   "staerke": 0.323,
    "versatz": 0.0005,
    "abkling": 0.0,
    "quelle_hz": 10956
@@ -5716,7 +7276,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0485,
    "abkling": 0.048,
    "quelle_hz": 11614
@@ -5726,7 +7286,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0306,
    "abkling": 0.0746,
    "quelle_hz": 11553
@@ -5736,27 +7296,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.18,
+   "staerke": 0.161,
    "versatz": -0.0017,
    "abkling": 0.0,
    "quelle_hz": 4811
   },
   {
    "takt": 57,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0356,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 57,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.089,
+   "staerke": 0.072,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4808
   },
   {
    "takt": 57,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0393,
+   "abkling": 0.2312,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 57,
    "pos": 6,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.968,
+   "staerke": 0.935,
    "versatz": 0.0005,
    "abkling": 0.2039,
    "quelle_hz": 3961
@@ -5766,7 +7346,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.821,
+   "staerke": 0.792,
    "versatz": 0.0049,
    "abkling": 0.048,
    "quelle_hz": 10993
@@ -5776,7 +7356,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.998,
+   "staerke": 0.965,
    "versatz": 0.0529,
    "abkling": 0.0574,
    "quelle_hz": 11523
@@ -5786,7 +7366,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.905,
+   "staerke": 0.874,
    "versatz": -0.0168,
    "abkling": 0.078,
    "quelle_hz": 11628
@@ -5806,7 +7386,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": 0.0009,
    "abkling": 0.0022,
    "quelle_hz": 5271
@@ -5816,17 +7396,27 @@
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.919,
+   "staerke": 0.888,
    "versatz": -0.0008,
    "abkling": 0.1953,
    "quelle_hz": 4492
   },
   {
    "takt": 57,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0363,
+   "abkling": 0.1415,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 57,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": -0.0004,
    "abkling": 0.07,
    "quelle_hz": 4036
@@ -5846,7 +7436,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.329,
+   "staerke": 0.308,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 10940
@@ -5856,7 +7446,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.991,
+   "staerke": 0.959,
    "versatz": 0.053,
    "abkling": 0.0493,
    "quelle_hz": 11693
@@ -5866,7 +7456,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.906,
+   "staerke": 0.874,
    "versatz": -0.0248,
    "abkling": 0.0829,
    "quelle_hz": 11594
@@ -5876,27 +7466,47 @@
    "pos": 2,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.094,
+   "staerke": 0.077,
    "versatz": -0.0012,
    "abkling": 0.0,
    "quelle_hz": 4782
   },
   {
    "takt": 59,
+   "pos": 2,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0358,
+   "abkling": 0.1426,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 59,
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.243,
+   "staerke": 0.224,
    "versatz": 0.0041,
    "abkling": 0.0,
    "quelle_hz": 4794
   },
   {
    "takt": 59,
+   "pos": 5,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.989,
+   "versatz": 0.0415,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 59,
    "pos": 7,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.0019,
    "abkling": 0.0729,
    "quelle_hz": 1158
@@ -5906,7 +7516,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.443,
+   "staerke": 0.42,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 11000
@@ -5916,17 +7526,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4510
   },
   {
    "takt": 59,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0395,
+   "abkling": 0.1917,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 59,
    "pos": 12,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.845,
+   "staerke": 0.814,
    "versatz": -0.0003,
    "abkling": 0.1158,
    "quelle_hz": 4107
@@ -5946,7 +7566,7 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.347,
+   "staerke": 0.325,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 11053
@@ -5956,7 +7576,7 @@
    "pos": 11,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.275,
+   "staerke": 0.255,
    "versatz": -0.0002,
    "abkling": 0.0,
    "quelle_hz": 4435
@@ -5966,17 +7586,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.137,
+   "staerke": 0.119,
    "versatz": 0.0007,
    "abkling": 0.0,
    "quelle_hz": 4774
   },
   {
    "takt": 60,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0385,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 60,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0635,
    "quelle_hz": 3861
@@ -5986,7 +7616,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.432,
+   "staerke": 0.41,
    "versatz": 0.0042,
    "abkling": 0.0,
    "quelle_hz": 10971
@@ -5996,17 +7626,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.843,
    "versatz": 0.0011,
    "abkling": 0.2533,
    "quelle_hz": 7255
   },
   {
    "takt": 61,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0386,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 61,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0002,
    "abkling": 0.0748,
    "quelle_hz": 1186
@@ -6016,17 +7656,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.149,
+   "staerke": 0.131,
    "versatz": 0.0016,
    "abkling": 0.0,
    "quelle_hz": 4793
   },
   {
    "takt": 61,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0387,
+   "abkling": 0.1513,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 61,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": -0.0002,
    "abkling": 0.0804,
    "quelle_hz": 2924
@@ -6036,7 +7686,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": 0.0034,
    "abkling": 0.0467,
    "quelle_hz": 10894
@@ -6046,7 +7696,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.968,
    "versatz": 0.05,
    "abkling": 0.0453,
    "quelle_hz": 11663
@@ -6056,7 +7706,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.927,
+   "staerke": 0.896,
    "versatz": -0.0317,
    "abkling": 0.0693,
    "quelle_hz": 11585
@@ -6066,17 +7716,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.194,
+   "staerke": 0.176,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 5310
   },
   {
    "takt": 61,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.933,
+   "versatz": 0.0392,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 61,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.915,
+   "staerke": 0.884,
    "versatz": -0.0006,
    "abkling": 0.1293,
    "quelle_hz": 3342
@@ -6086,17 +7746,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0016,
    "abkling": 0.2533,
    "quelle_hz": 4846
   },
   {
    "takt": 61,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.99,
+   "versatz": 0.0389,
+   "abkling": 0.1515,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 61,
    "pos": 14,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0007,
    "abkling": 0.0628,
    "quelle_hz": 3877
@@ -6106,7 +7776,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.403,
+   "staerke": 0.381,
    "versatz": 0.0038,
    "abkling": 0.0,
    "quelle_hz": 10967
@@ -6116,17 +7786,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.873,
+   "staerke": 0.842,
    "versatz": 0.0021,
    "abkling": 0.252,
    "quelle_hz": 7152
   },
   {
    "takt": 62,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 62,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.844,
    "versatz": -0.0002,
    "abkling": 0.0753,
    "quelle_hz": 1183
@@ -6136,17 +7816,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.103,
+   "staerke": 0.086,
    "versatz": 0.0012,
    "abkling": 0.0,
    "quelle_hz": 4753
   },
   {
    "takt": 62,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.992,
+   "versatz": 0.0388,
+   "abkling": 0.1512,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 62,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.97,
+   "staerke": 0.938,
    "versatz": 0.0007,
    "abkling": 0.0797,
    "quelle_hz": 2987
@@ -6156,7 +7846,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.874,
+   "staerke": 0.843,
    "versatz": 0.0043,
    "abkling": 0.0453,
    "quelle_hz": 10947
@@ -6166,7 +7856,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.967,
    "versatz": 0.0496,
    "abkling": 0.048,
    "quelle_hz": 11639
@@ -6176,7 +7866,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.925,
+   "staerke": 0.894,
    "versatz": -0.0295,
    "abkling": 0.0674,
    "quelle_hz": 11592
@@ -6186,17 +7876,27 @@
    "pos": 10,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.148,
+   "staerke": 0.131,
    "versatz": 0.0021,
    "abkling": 0.0,
    "quelle_hz": 5299
   },
   {
    "takt": 62,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.932,
+   "versatz": 0.0387,
+   "abkling": 0.1952,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 62,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.913,
+   "staerke": 0.882,
    "versatz": 0.0003,
    "abkling": 0.128,
    "quelle_hz": 3401
@@ -6206,17 +7906,27 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0012,
    "abkling": 0.3101,
    "quelle_hz": 4874
+  },
+  {
+   "takt": 62,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.043,
+   "abkling": 0.1474,
+   "quelle_hz": 55
   },
   {
    "takt": 63,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.538,
+   "staerke": 0.514,
    "versatz": 0.0048,
    "abkling": 0.0,
    "quelle_hz": 10982
@@ -6226,7 +7936,7 @@
    "pos": 1,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.017,
    "abkling": 0.0782,
    "quelle_hz": 11646
@@ -6236,17 +7946,27 @@
    "pos": 4,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.125,
+   "staerke": 0.107,
    "versatz": 0.0017,
    "abkling": 0.0,
    "quelle_hz": 5243
   },
   {
    "takt": 63,
+   "pos": 4,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.935,
+   "versatz": 0.0388,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 63,
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.834,
+   "staerke": 0.804,
    "versatz": 0.0035,
    "abkling": 0.2533,
    "quelle_hz": 5532
@@ -6256,17 +7976,27 @@
    "pos": 8,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.848,
+   "staerke": 0.818,
    "versatz": 0.0026,
    "abkling": 0.1253,
    "quelle_hz": 5296
   },
   {
    "takt": 63,
+   "pos": 8,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.965,
+   "versatz": 0.0405,
+   "abkling": 0.181,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 63,
    "pos": 9,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.933,
+   "staerke": 0.901,
    "versatz": 0.0008,
    "abkling": 0.1307,
    "quelle_hz": 3297
@@ -6276,7 +8006,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.851,
+   "staerke": 0.821,
    "versatz": 0.0044,
    "abkling": 0.0453,
    "quelle_hz": 10880
@@ -6286,7 +8016,7 @@
    "pos": 10,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.971,
+   "staerke": 0.939,
    "versatz": 0.0497,
    "abkling": 0.072,
    "quelle_hz": 11449
@@ -6296,7 +8026,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.833,
+   "staerke": 0.803,
    "versatz": 0.0053,
    "abkling": 0.0453,
    "quelle_hz": 11064
@@ -6306,7 +8036,7 @@
    "pos": 11,
    "inst": "stock",
    "akzent": true,
-   "staerke": 1.0,
+   "staerke": 0.971,
    "versatz": 0.0506,
    "abkling": 0.056,
    "quelle_hz": 11633
@@ -6316,7 +8046,7 @@
    "pos": 12,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0205,
    "abkling": 0.0818,
    "quelle_hz": 11672
@@ -6326,7 +8056,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.28,
+   "staerke": 0.26,
    "versatz": 0.0013,
    "abkling": 0.0,
    "quelle_hz": 11025
@@ -6336,7 +8066,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.973,
+   "staerke": 0.941,
    "versatz": 0.0507,
    "abkling": 0.0533,
    "quelle_hz": 11704
@@ -6346,7 +8076,7 @@
    "pos": 4,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.88,
+   "staerke": 0.849,
    "versatz": -0.0231,
    "abkling": 0.0801,
    "quelle_hz": 11681
@@ -6356,17 +8086,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.112,
+   "staerke": 0.094,
    "versatz": -0.0004,
    "abkling": 0.0,
    "quelle_hz": 5242
   },
   {
    "takt": 64,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.037,
+   "abkling": 0.1913,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 64,
    "pos": 12,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.16,
+   "staerke": 0.141,
    "versatz": -0.0026,
    "abkling": 0.0,
    "quelle_hz": 4436
@@ -6386,7 +8126,7 @@
    "pos": 3,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.362,
+   "staerke": 0.34,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 11033
@@ -6396,17 +8136,27 @@
    "pos": 7,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.175,
+   "staerke": 0.157,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 5247
   },
   {
    "takt": 65,
+   "pos": 7,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.949,
+   "versatz": 0.0371,
+   "abkling": 0.1914,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 65,
    "pos": 10,
    "inst": "rim",
    "akzent": false,
-   "staerke": 0.184,
+   "staerke": 0.166,
    "versatz": -0.0021,
    "abkling": 0.0102,
    "quelle_hz": 4428
@@ -6416,17 +8166,27 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.157,
+   "staerke": 0.14,
    "versatz": 0.0023,
    "abkling": 0.0,
    "quelle_hz": 4745
+  },
+  {
+   "takt": 65,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1515,
+   "quelle_hz": 55
   },
   {
    "takt": 66,
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.269,
+   "staerke": 0.249,
    "versatz": -0.0008,
    "abkling": 0.0,
    "quelle_hz": 10980
@@ -6436,7 +8196,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.963,
    "versatz": 0.0472,
    "abkling": 0.0709,
    "quelle_hz": 11628
@@ -6446,17 +8206,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.862,
+   "staerke": 0.832,
    "versatz": 0.0014,
    "abkling": 0.2533,
    "quelle_hz": 7016
   },
   {
    "takt": 66,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1424,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 66,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.0006,
    "abkling": 0.072,
    "quelle_hz": 1142
@@ -6466,17 +8236,27 @@
    "pos": 6,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.195,
+   "staerke": 0.177,
    "versatz": 0.0019,
    "abkling": 0.0,
    "quelle_hz": 4818
   },
   {
    "takt": 66,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0399,
+   "abkling": 0.142,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 66,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.961,
+   "staerke": 0.929,
    "versatz": 0.0028,
    "abkling": 0.0787,
    "quelle_hz": 3079
@@ -6486,7 +8266,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.001,
    "abkling": 0.048,
    "quelle_hz": 10916
@@ -6496,7 +8276,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.995,
+   "staerke": 0.962,
    "versatz": 0.049,
    "abkling": 0.048,
    "quelle_hz": 11692
@@ -6506,7 +8286,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.912,
+   "staerke": 0.881,
    "versatz": -0.0301,
    "abkling": 0.0761,
    "quelle_hz": 11634
@@ -6523,10 +8303,20 @@
   },
   {
    "takt": 66,
+   "pos": 10,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.924,
+   "versatz": 0.0366,
+   "abkling": 0.1954,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 66,
    "pos": 11,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.903,
+   "staerke": 0.872,
    "versatz": 0.001,
    "abkling": 0.128,
    "quelle_hz": 3285
@@ -6536,10 +8326,20 @@
    "pos": 12,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.824,
+   "staerke": 0.794,
    "versatz": 0.0019,
    "abkling": 0.3104,
    "quelle_hz": 4610
+  },
+  {
+   "takt": 66,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0398,
+   "abkling": 0.1513,
+   "quelle_hz": 55
   },
   {
    "takt": 66,
@@ -6556,7 +8356,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.421,
+   "staerke": 0.399,
    "versatz": 0.0055,
    "abkling": 0.0,
    "quelle_hz": 10959
@@ -6566,7 +8366,7 @@
    "pos": 0,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.996,
+   "staerke": 0.963,
    "versatz": 0.0522,
    "abkling": 0.0716,
    "quelle_hz": 11615
@@ -6576,17 +8376,27 @@
    "pos": 1,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.872,
+   "staerke": 0.841,
    "versatz": 0.001,
    "abkling": 0.2493,
    "quelle_hz": 7450
   },
   {
    "takt": 67,
+   "pos": 1,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.984,
+   "versatz": 0.0377,
+   "abkling": 0.1422,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 67,
    "pos": 3,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": -0.0038,
    "abkling": 0.0703,
    "quelle_hz": 1141
@@ -6596,7 +8406,7 @@
    "pos": 5,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.162,
+   "staerke": 0.144,
    "versatz": -0.0007,
    "abkling": 0.0,
    "quelle_hz": 5319
@@ -6606,17 +8416,27 @@
    "pos": 6,
    "inst": "snare",
    "akzent": true,
-   "staerke": 0.902,
+   "staerke": 0.871,
    "versatz": 0.0042,
    "abkling": 0.116,
    "quelle_hz": 4577
   },
   {
    "takt": 67,
+   "pos": 6,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 0.994,
+   "versatz": 0.0451,
+   "abkling": 0.1362,
+   "quelle_hz": 55
+  },
+  {
+   "takt": 67,
    "pos": 7,
    "inst": "rim",
    "akzent": true,
-   "staerke": 0.966,
+   "staerke": 0.933,
    "versatz": -0.0069,
    "abkling": 0.0576,
    "quelle_hz": 2888
@@ -6626,7 +8446,7 @@
    "pos": 8,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.865,
+   "staerke": 0.835,
    "versatz": 0.006,
    "abkling": 0.0507,
    "quelle_hz": 10939
@@ -6636,7 +8456,7 @@
    "pos": 9,
    "inst": "stock",
    "akzent": true,
-   "staerke": 0.9,
+   "staerke": 0.869,
    "versatz": -0.0185,
    "abkling": 0.0811,
    "quelle_hz": 11607
@@ -6656,10 +8476,20 @@
    "pos": 12,
    "inst": "stock",
    "akzent": false,
-   "staerke": 0.161,
+   "staerke": 0.143,
    "versatz": 0.0029,
    "abkling": 0.0,
    "quelle_hz": 4728
+  },
+  {
+   "takt": 67,
+   "pos": 12,
+   "inst": "bass",
+   "akzent": true,
+   "staerke": 1.0,
+   "versatz": 0.0399,
+   "abkling": 0.1514,
+   "quelle_hz": 55
   },
   {
    "takt": 67,
