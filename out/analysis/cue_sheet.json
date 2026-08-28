@@ -21,17 +21,6 @@
    "text": "Wir sind"
   },
   {
-   "t": 1.75,
-   "takt": "1.4.44",
-   "szene": "00a_wirsind",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Raphael und Christian Heusser."
-  },
-  {
    "t": 3.5593,
    "takt": "2.4.00",
    "szene": "00b_warum",
@@ -41,17 +30,6 @@
    "dauer": 0.0,
    "x": 0.5,
    "text": "Wir haben NEXPT gestartet, damit du arbeiten kannst."
-  },
-  {
-   "t": 5.8593,
-   "takt": "3.4.52",
-   "szene": "00b_warum",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "damit du arbeiten kannst."
   },
   {
    "t": 6.8644,
@@ -153,17 +131,6 @@
    "text": "Arbeite so, wie du willst."
   },
   {
-   "t": 19.206,
-   "takt": "10.2.77",
-   "szene": "04_ihr",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "wie DU willst."
-  },
-  {
    "t": 20.3349,
    "takt": "10.4.99",
    "szene": "04_ihr",
@@ -230,17 +197,6 @@
    "text": "timebox"
   },
   {
-   "t": 25.6982,
-   "takt": "13.3.54",
-   "szene": "06_wege",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Du in"
-  },
-  {
    "t": 25.9309,
    "takt": "13.4.00",
    "szene": "06_wege",
@@ -263,17 +219,6 @@
    "text": "TICKETS"
   },
   {
-   "t": 27.7118,
-   "takt": "14.3.50",
-   "szene": "06_wege",
-   "art": "kritzel",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.3,
-   "x": 0.62,
-   "text": "ticket"
-  },
-  {
    "t": 27.9655,
    "takt": "14.4.00",
    "szene": "06_wege",
@@ -283,17 +228,6 @@
    "dauer": 0.0,
    "x": 0.5,
    "text": "-> accent"
-  },
-  {
-   "t": 29.2982,
-   "takt": "15.2.62",
-   "szene": "06_wege",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Du in"
   },
   {
    "t": 29.4914,
@@ -322,7 +256,7 @@
    "takt": "16.4.97",
    "szene": "08_broll",
    "art": "zeile",
-   "staerke": 0.4,
+   "staerke": 0.45,
    "klang": "click",
    "dauer": 0.0,
    "x": 0.5,
@@ -340,17 +274,6 @@
    "text": "-> accent"
   },
   {
-   "t": 34.479,
-   "takt": "17.4.81",
-   "szene": "08_broll",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Baustelle."
-  },
-  {
    "t": 35.9764,
    "takt": "18.3.75",
    "szene": "08_broll",
@@ -362,17 +285,6 @@
    "text": "-> dark"
   },
   {
-   "t": 36.429,
-   "takt": "18.4.64",
-   "szene": "08_broll",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Betrieb."
-  },
-  {
    "t": 38.1355,
    "takt": "19.4.00",
    "szene": "09_flut",
@@ -382,17 +294,6 @@
    "dauer": 0.0,
    "x": 0.5,
    "text": "Wir nennen es, wie ihr es nennt."
-  },
-  {
-   "t": 38.7355,
-   "takt": "20.1.18",
-   "szene": "09_flut",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "wie ihr es nennt."
   },
   {
    "t": 39.3855,
@@ -450,17 +351,6 @@
    "text": "^ETAPPE"
   },
   {
-   "t": 46.3985,
-   "takt": "23.4.25",
-   "szene": "11b_rollen",
-   "art": "kritzel",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.34,
-   "x": 0.5,
-   "text": "schluessel"
-  },
-  {
    "t": 47.7983,
    "takt": "24.3.00",
    "szene": "11b_rollen",
@@ -470,17 +360,6 @@
    "dauer": 0.3,
    "x": 0.24,
    "text": "^TICKET"
-  },
-  {
-   "t": 48.5595,
-   "takt": "24.4.50",
-   "szene": "11b_rollen",
-   "art": "kritzel",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.34,
-   "x": 0.5,
-   "text": "stempel"
   },
   {
    "t": 49.068,
@@ -503,17 +382,6 @@
    "dauer": 0.3,
    "x": 0.76,
    "text": "^FRIST"
-  },
-  {
-   "t": 50.8488,
-   "takt": "26.1.00",
-   "szene": "11b_rollen",
-   "art": "kritzel",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.34,
-   "x": 0.5,
-   "text": "auge"
   },
   {
    "t": 51.229,
@@ -560,17 +428,6 @@
    "text": "Vier Sichtweisen. Ein Chaos?"
   },
   {
-   "t": 56.5194,
-   "takt": "28.4.15",
-   "szene": "12a_chaos",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Ein Chaos?"
-  },
-  {
    "t": 57.0762,
    "takt": "29.1.25",
    "szene": "12a_chaos",
@@ -613,17 +470,6 @@
    "dauer": 0.3,
    "x": 0.3,
    "text": "^OBEN"
-  },
-  {
-   "t": 62.6456,
-   "takt": "31.4.20",
-   "szene": "13_modell",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Unten ist EIN Standard."
   },
   {
    "t": 64.3219,
@@ -681,17 +527,6 @@
    "text": "Aktion"
   },
   {
-   "t": 67.0456,
-   "takt": "33.4.86",
-   "szene": "13_modell",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Bau. Betrieb. Buchhaltung."
-  },
-  {
    "t": 70.6728,
    "takt": "35.3.99",
    "szene": "14_ende",
@@ -725,17 +560,6 @@
    "text": "^FERTIG?"
   },
   {
-   "t": 72.5728,
-   "takt": "36.3.73",
-   "szene": "14_ende",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Die Arbeit"
-  },
-  {
    "t": 72.9609,
    "takt": "36.4.49",
    "szene": "14_ende",
@@ -762,7 +586,7 @@
    "takt": "37.3.79",
    "szene": "15_element",
    "art": "zeile",
-   "staerke": 0.4,
+   "staerke": 0.45,
    "klang": "click",
    "dauer": 0.0,
    "x": 0.5,
@@ -901,28 +725,6 @@
    "text": "Hundert Prozent verbunden. Kein Export. Null Doppelerfassung"
   },
   {
-   "t": 85.9736,
-   "takt": "43.2.08",
-   "szene": "17_hundert",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "verbunden."
-  },
-  {
-   "t": 86.4736,
-   "takt": "43.3.06",
-   "szene": "17_hundert",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Kein Export."
-  },
-  {
    "t": 87.4575,
    "takt": "43.5.00",
    "szene": "17_hundert",
@@ -1022,17 +824,6 @@
    "text": "Transparenz ist kein Bericht. Sie ist ein Nebeneffekt."
   },
   {
-   "t": 97.6624,
-   "takt": "49.1.07",
-   "szene": "20_transparenz",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Sie ist ein Nebeneffekt."
-  },
-  {
    "t": 98.9005,
    "takt": "49.3.50",
    "szene": "20_transparenz",
@@ -1086,17 +877,6 @@
    "dauer": 0.0,
    "x": 0.5,
    "text": "Die meisten nennen Übersicht: eine Tabelle."
-  },
-  {
-   "t": 104.2702,
-   "takt": "52.2.06",
-   "szene": "22_raster",
-   "art": "zeile",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "eine Tabelle."
   },
   {
    "t": 104.4992,
@@ -1319,17 +1099,6 @@
    "text": "-> light"
   },
   {
-   "t": 113.5145,
-   "takt": "56.4.25",
-   "szene": "22b_stapel",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Und niemand weiss, welche."
-  },
-  {
    "t": 114.9151,
    "takt": "57.3.00",
    "szene": "22c_keine",
@@ -1407,17 +1176,6 @@
    "text": "Du siehst, was du brauchst. Dort, wo du bist."
   },
   {
-   "t": 121.0137,
-   "takt": "60.2.99",
-   "szene": "25_seht",
-   "art": "kritzel",
-   "staerke": 0.4,
-   "klang": "click",
-   "dauer": 0.36,
-   "x": 0.5,
-   "text": "auge"
-  },
-  {
    "t": 121.7746,
    "takt": "60.4.49",
    "szene": "25_seht",
@@ -1427,17 +1185,6 @@
    "dauer": 0.3,
    "x": 0.3,
    "text": "^IHR"
-  },
-  {
-   "t": 122.1949,
-   "takt": "61.1.32",
-   "szene": "25_seht",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Dort, wo du bist."
   },
   {
    "t": 122.5373,
@@ -1484,17 +1231,6 @@
    "text": ""
   },
   {
-   "t": 127.5346,
-   "takt": "63.3.82",
-   "szene": "26_also",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "Wir behalten Überblick."
-  },
-  {
    "t": 129.1524,
    "takt": "64.3.00",
    "szene": "26_also",
@@ -1515,17 +1251,6 @@
    "dauer": 0.0,
    "x": 0.5,
    "text": "NEXPT ist dein Partner für deine Prozesse."
-  },
-  {
-   "t": 132.7363,
-   "takt": "66.2.05",
-   "szene": "27_ende",
-   "art": "zeile",
-   "staerke": 0.45,
-   "klang": "click",
-   "dauer": 0.0,
-   "x": 0.5,
-   "text": "für deine Prozesse."
   },
   {
    "t": 134.7456,

@@ -564,31 +564,53 @@ eingeebnet werden.
   |---|---|
   | Freesound | braucht ein API-Token (401 ohne). Mit Token und CC0-Filter der sauberste Weg — die Lizenz steht je Datei fest. |
   | archive.org | erreichbar, aber der CC0-Bestand ist Grillenzirpen, Küchenwecker und etliche als „public domain" fehldeklarierte Kauf-Libraries. Für einen kommerziellen Messefilm nicht brauchbar, und zwar nicht wegen der Qualität. |
-  | **Der eigene Loop** | echte Perkussion, gehört dem Lizenznehmer, und die Schläge passen per Konstruktion — es sind dieselben Instrumente, derselbe Raum, dieselbe Aufnahme. |
+  | **Der eigene Loop** | echte Perkussion, gehört dem Lizenznehmer, und die Schläge passen per Konstruktion — dieselben Instrumente, derselbe Raum, dieselbe Aufnahme. |
 
-  `proben.py` schneidet daraus **12 Proben** in drei Klassen (Stock/Rim, Klack, Snare),
-  ausgewählt nach Sauberkeit — je mehr Luft hinter einem Schlag, desto weniger blutet der
-  Nachbar hinein. Was der Loop **nicht** hergibt, ist eine tiefe Trommel: sein tiefster
-  Schwerpunkt liegt bei 988 Hz. Die Impacts entstehen deshalb wie im Studio — eine echte
-  Aufnahme zwei Oktaven tief transponiert für die Textur, ein Sinus darunter für das Fundament,
-  das das Mikrofon nicht hatte. Whooshes und Riser sind rückwärts gespielte, gedehnte Schläge.
+  `proben.py` schneidet daraus **12 Proben** in drei Klassen, ausgewählt nach Sauberkeit. Was
+  der Loop **nicht** hergibt, ist eine tiefe Trommel: sein tiefster Schwerpunkt liegt bei
+  988 Hz. Die Impacts entstehen deshalb wie im Studio — eine echte Aufnahme zwei Oktaven tief
+  transponiert für die Textur, ein Sinus darunter fürs Fundament. Whooshes und Riser sind
+  rückwärts gespielte, gedehnte Schläge.
+
+- **Kalibriert je Kategorie, nicht über eine Kurve.** Die gelieferte Analyse des Samsung-Films
+  misst nicht einen Klang, sondern **jede der 54 Cues einzeln** — Schwerpunkt, Bandanteile,
+  Stereobreite, Spitze. Damit lässt sich jeder Effekttyp für sich anlegen:
+
+  | | Schwerpunkt | tief | mitte | hoch | Spitze | NEXPT (tief/mitte/hoch) |
+  |---|---|---|---|---|---|---|
+  | Impact | 398 Hz | 0.73 | 0.23 | 0.01 | −2.6 dB | 0.75 / 0.24 / 0.01 |
+  | Click | 527 Hz | 0.53 | 0.41 | 0.02 | −4.2 dB | 0.55 / 0.43 / 0.02 |
+  | Whoosh | 807 Hz | 0.50 | 0.28 | 0.05 | −5.6 dB | 0.60 / 0.34 / 0.06 |
+
+  Der Whoosh bleibt 10 Punkte zu bassig — aus einer rückwärts gedehnten Snare ist oberhalb
+  1 kHz kaum etwas da, das sich anheben liesse. Die Entzerrung misst sich selbst gegen ihr
+  Ziel und korrigiert in acht Runden zu je ±3 dB, **stückweise je Band**: die erste Fassung
+  interpolierte zwischen den Bandmitten, und damit blieb ein Klang knapp über 250 Hz in der
+  Tiefenkorrektur hängen (Click 0.78 statt 0.53).
+
+- **Verbund-Cues.** Die Referenz setzt bei wichtigen Bewegungen keinen einzelnen Effekt,
+  sondern eine Folge — im Cue Sheet nachweisbar: `5.78 s Whoosh → 6.30 s Body-Hit`,
+  `19.97 s Impact → 20.23 s Nachakzent`. Whoosh kündigt an, Body-Hit gibt Masse am Zielpunkt,
+  ein kleiner Nachakzent bestätigt das Einrasten. Die Abstände liegen bei rund einem Achtel —
+  hier ebenso, damit die Folge im Raster bleibt.
+
+- **Breite Übergänge.** Das Seite/Mitte-Verhältnis der Referenz liegt bei 0.14–0.16, ihr
+  breitester Kapitelwechsel aber bei 0.92. Bei uns bekommen die **fünf** Aktwechsel, an denen
+  auch der Hintergrund kippt, einen breiten Sweep (0.39–0.45), der Rest bleibt schmal —
+  gesamt **0.154**. Der erste Anlauf gab ihn allen zehn Aktwechseln und invertierte den rechten
+  Kanal ganz; das ergab durchgehend 0.33 und damit eine Effektspur, die neben dem Bild stand
+  statt darin.
 
   | | Referenz | NEXPT |
   |---|---|---|
-  | Bandbalance Sub/Bass/TM/M/H/Luft | 0 / −3.3 / −10.4 / −16.6 / −26.8 / −29.3 dB | auf **±0.2 dB** angeglichen |
-  | Akzentspitze über dem Bett | +11.0 dB | **+10.9 dB** |
-  | Akzent zum Bildereignis | +15 ms, 63 % innerhalb 100 ms | **±0 ms**, 62 % innerhalb 50 ms |
+  | Effektdichte | 0.74/s | **0.85/s** |
+  | Akzent zum Bild, innerhalb 40 / 60 / 100 ms | 63 / 83 / 97 % | **77 / 86 / 94 %** |
+  | Akzentspitze über dem Bett | +11.0 dB | **+11.0 dB** |
+  | Seite/Mitte | 0.14–0.16 | **0.154** |
+  | Lautheit | −13.6 LUFS, LRA 7.7, True Peak **+0.4** | −14.4, LRA 3.8, Peak **−0.7** |
 
-  Die Entzerrung rät nicht: sie misst die gebaute Spur, hält sie gegen die Referenzkurve und
-  wendet die Differenz an, begrenzt auf ±10 dB. Und jeder Klang wird auf seine eigene **Spitze**
-  ausgerichtet, nicht auf seinen Anfang — ein fester Vorlauf passte zum Sinusfenster der
-  synthetischen Fassung, die echten Aufnahmen haben ihre Spitze woanders.
-
-  **Die Grenze, offen gesagt:** ohne Sample-Library bleibt das Sounddesign auf das beschränkt,
-  was aus einem Stock-und-Snare-Loop zu holen ist. Für die Endfassung ist entweder ein
-  Freesound-Token (CC0, gratis) oder eine kommerzielle Library (Splice, Soundly, Boom — CHF
-  100–300 im Jahr) der Weg, und für einen Film, der die Firma an der Messe vertritt, wäre ein
-  Sounddesigner das Geld wert.
+  Beim True Peak folgen wir der Referenz bewusst **nicht** — ihr +0.4 dBFS ist ein Fehler des
+  AAC-Masters, den die Analyse selbst anmerkt.
 
 - **Die Halte-Beats bleiben stumm.** Im Cue Sheet stehen sie als eigene Einträge mit `stille`.
   „(das ist der Trick)", „NEIN.", „(auch nicht im UI)" leben davon, dass nichts passiert. Und von

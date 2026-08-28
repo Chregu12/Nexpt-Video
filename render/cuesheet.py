@@ -103,8 +103,11 @@ for i, s in enumerate(cfg["scenes"]):
         elif ty == "sunburst":
             cue(lt, sid, "strahlen", 0.7, "whoosh", "", dauer=l.get("draw", 0.3))
         elif ty == "doodle":
-            cue(lt, sid, "kritzel", 0.4, "click", l.get("shape", ""),
-                dauer=l.get("draw", 0.3), x=l.get("x", 0.5))
+            # Kritzel begleiten fast immer einen Marker, der schon klingt —
+            # nur der erste je Szene bekommt einen eigenen Klick.
+            if not any(c["szene"] == sid and c["art"] == "kritzel" for c in cues):
+                cue(lt, sid, "kritzel", 0.4, "click", l.get("shape", ""),
+                    dauer=l.get("draw", 0.3), x=l.get("x", 0.5))
         elif ty == "card" and l.get("swapAt") is not None:
             cue(t0 + l["swapAt"], sid, "karte", 0.9, "click",
                 f"{l.get('label','')} -> {l.get('swapTo','')}")
@@ -127,13 +130,17 @@ for i, s in enumerate(cfg["scenes"]):
                 dauer=l.get("draw", 0.4))
         elif ty == "wordFlood":
             cue(lt, sid, "wortflut", 0.6, "whoosh", "", dauer=l.get("dur", 2.6))
-        elif ty == "text" and l.get("mode") == "words":
-            # NUR die erste Silbe einer Zeile. Alle 157 Chunks zu vertonen
-            # waere Geprassel: Samsung setzt Effekte auf Schnitte und die
-            # 30 staerksten Bewegungen, nicht auf jede Regung.
-            cue(lt, sid, "zeile", 0.45, "click", l.get("text", "")[:48], x=l.get("x", 0.5))
         elif ty == "text":
-            cue(lt, sid, "zeile", 0.4, "click", l.get("text", "")[:48])
+            # Nur die ERSTE Textzeile einer Szene, und auch die nur, wenn die
+            # Szene nicht ohnehin schon einen Marker traegt. Alle 157 Chunks zu
+            # vertonen waere Geprassel; selbst je Zeile war noch zu dicht.
+            # Gemessen kommt die Referenz auf 0.74 Effekte je Sekunde und lebt
+            # von den Luecken dazwischen.
+            schon = any(c["szene"] == sid and c["art"] in ("zeile", "marker")
+                        for c in cues)
+            if not schon:
+                cue(lt, sid, "zeile", 0.45, "click", l.get("text", "")[:48],
+                    x=l.get("x", 0.5))
 
 cues.sort(key=lambda c: c["t"])
 

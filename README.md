@@ -14,6 +14,7 @@ zur fertigen Tonmischung.
 | | |
 |---|---|
 | [**KEYNOTE-FILM-KONZEPT.md**](./KEYNOTE-FILM-KONZEPT.md) | Das Hauptdokument. Frame-für-Frame-Analyse der Referenzfilme, 13 Stil-Regeln, Story, vollständiges Drehbuch, Design-Spezifikation, Tonkonzept, Produktionsplan, offene Fragen. |
+| [**MUSIK-BRIEFING.md**](./MUSIK-BRIEFING.md) | Was für die Musik noch fehlt, warum ich es nicht selbst machen kann, und die genaue Bestellung für die vier fehlenden Blöcke. |
 | [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
 
 ### Ansehen und anhören
@@ -31,6 +32,7 @@ zur fertigen Tonmischung.
 | | |
 |---|---|
 | **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro, 30 Clips mit Markern für Akt, Szene und Sprechertext. |
+| **out/analysis/samsung/** | Die gelieferte Analyse des Referenzfilms — Report, JSON und 54er-Cue-Sheet. Die Zahlen darin sind die Zielwerte, gegen die `sfx.py` kalibriert. |
 | **out/analysis/cue_sheet.json** | **139 Hit Points**: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren — das, was ein Komponist oder Sounddesigner braucht. |
 | **out/ton-final.wav** | Die fertige Mischung. Daneben `ton-final-ohne-stimme.wav` und `ton-ohne-effekte.wav`. |
 | **out/sfx.wav** · **out/scratch-vo.wav** | Die Einzelspuren. Die Musikspur liegt nicht im Repo, siehe unten. |

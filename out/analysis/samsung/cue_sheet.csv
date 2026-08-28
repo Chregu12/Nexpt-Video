@@ -1,0 +1,55 @@
+cue,time_s,visual_event,sfx_type,category,function,confidence,nearest_audio_onset_s,audio_offset_ms,motion_strength,nearest_scene_cut_s,scene_cut_offset_ms,sixteenth_grid_offset_ms,centroid_hz,low_fraction,mid_fraction,high_fraction,side_mid_ratio,peak_dbfs
+1,3.95,Hand und Box treten erstmals klar ins Bild,tiefer Impact,Impact/Akzent,Music entry / Objektgewicht,hoch,3.95,0.0,17.247,9.843,5893.0,-18.0,65.3,0.9831,0.0168,0.0002,0.0072,-4.91
+2,4.99,Box kippt in der Hand,trockener Tap,Click/Taktile Ebene,Taktile Bewegung,mittel,4.99,0.0,3.442,9.843,4853.0,-2.0,289.5,0.7913,0.1943,0.0144,0.1523,-3.78
+3,5.78,Box dreht und richtet sich auf,kurzer Whoosh,Whoosh/Bewegung,Rotation,hoch,5.8,20.0,21.233,9.843,4063.0,20.0,413.1,0.6026,0.3485,0.0489,0.1642,-3.28
+4,6.3,Box landet zentral,Bass-/Body-Hit,Impact/Akzent,Landung,hoch,6.31,10.0,6.329,9.843,3543.0,28.0,65.0,0.9868,0.0112,0.002,0.0107,-3.56
+5,7.08,Box und Produktname bilden den Lock-up,Whoosh plus Impact,Whoosh/Bewegung,Reveal,hoch,7.08,0.0,0.86,9.843,2763.0,40.0,807.4,0.4996,0.4429,0.0575,0.3388,-4.05
+6,9.84,Schnitt in die horizontale Unboxing-Ansicht,subtiler Cut-Akzent,Impact/Akzent,Schnitt,mittel,9.87,30.0,52.782,9.843,3.0,-16.0,218.1,0.9277,0.0502,0.0222,0.0698,-2.59
+7,11.15,Telefon erscheint aus der Verpackung,Reveal-Hit,Impact/Akzent,Produktenthüllung,hoch,11.15,0.0,46.939,11.211,61.0,14.0,270.8,0.9432,0.0397,0.0172,0.0715,-7.25
+8,13.69,Telefonbild wechselt zur Design-Aussage,Transition-Hit,Impact/Akzent,Kapitelwechsel,hoch,13.69,0.0,1.569,11.211,-2479.0,-6.0,3967.3,0.179,0.2655,0.5556,0.1676,-8.86
+9,16.84,Kamera-Makro schiebt in die Textfläche,heller Swish,Whoosh/Bewegung,Objektfahrt,mittel,16.84,0.0,11.442,19.987,3147.0,-56.0,237.5,0.7847,0.2077,0.0075,0.193,-7.25
+10,17.88,Seitenansicht gleitet weiter,kurzer Swish,Whoosh/Bewegung,Glide,mittel,17.88,0.0,7.08,19.987,2107.0,-40.0,672.3,0.2994,0.6986,0.0021,0.2032,-3.6
+11,18.92,Hand greift das Telefon; Drehung beginnt,heller Whoosh,Whoosh/Bewegung,Rotation starten,hoch,18.92,0.0,20.635,19.987,1067.0,-24.0,4979.0,0.1339,0.2021,0.664,0.1681,-9.92
+12,19.19,Gerät passiert die Seitenlage,mittlerer Tap,Click/Taktile Ebene,Rotationsakzent,hoch,19.18,-10.0,4.018,19.987,797.0,-10.0,489.0,0.4554,0.5374,0.0072,0.4023,-4.34
+13,19.97,Schnitt/Flip auf die Vorderseite,Body-Impact,Impact/Akzent,Haupt-Payoff der Drehung,hoch,19.97,0.0,126.788,19.987,17.0,2.0,449.6,0.5118,0.4847,0.0034,0.2662,-1.47
+14,20.23,Vorderseite stabilisiert sich,Nachakzent,Impact/Akzent,Bewegung abschliessen,hoch,20.23,0.0,4.005,19.987,-243.0,6.0,381.0,0.5038,0.4943,0.0019,0.2038,-0.99
+15,21.16,Wechsel zurück zur Rückseite,heller Swish,Whoosh/Bewegung,Zweiter Reveal,hoch,21.16,0.0,26.098,21.221,61.0,40.0,1233.0,0.6155,0.2833,0.1012,0.1299,-9.32
+16,22.79,Rückseite kommt zur Ruhe,weicher Tap,Click/Taktile Ebene,Settle,mittel,22.81,20.0,9.334,23.824,1034.0,6.0,607.1,0.7923,0.1491,0.0586,0.0992,-0.0
+17,23.85,Kamera-Makro beginnt,kurzer Impact,Impact/Akzent,Makro-Schnitt,hoch,23.86,10.0,2.563,23.824,-26.0,42.0,580.4,0.2554,0.7356,0.0091,0.3536,-6.47
+18,25.67,Hand-/Fingerbewegung auf der Rückseite,taktile Click-Figur,Click/Taktile Ebene,Berührung,hoch,25.67,0.0,3.201,26.493,823.0,-58.0,552.7,0.167,0.8146,0.0184,0.1172,-2.92
+19,26.45,Finger erreicht Kante/Seitentaste,präziser Click,Click/Taktile Ebene,Materialdetail,hoch,26.45,0.0,2.716,26.493,43.0,-46.0,726.8,0.3135,0.6697,0.0169,0.4082,-2.53
+20,28.54,‘Pick your signature shade’ erscheint,Transition-Hit,Impact/Akzent,Kapitelwechsel,hoch,28.54,0.0,0.179,28.428,-112.0,-4.0,583.3,0.2523,0.7389,0.0087,0.1357,-2.67
+21,31.21,Pistachio-Farbvariante erscheint,Farb-Reveal-Impact,Impact/Akzent,Variante 1,hoch,31.21,0.0,1.196,28.428,-2782.0,-22.0,415.7,0.8299,0.1362,0.034,0.1045,0.0
+22,32.78,Wechsel zu Graphite,kurzer Swish,Whoosh/Bewegung,Variante 2,mittel,32.79,10.0,12.628,28.428,-4352.0,12.0,448.8,0.6362,0.3462,0.0176,0.126,-0.01
+23,34.09,Wechsel zu Blueberry,kurzer Swish/Hit,Whoosh/Bewegung,Variante 3,hoch,34.09,0.0,5.646,38.939,4849.0,42.0,875.8,0.3913,0.5952,0.0135,0.173,-0.62
+24,35.4,Seitenprofile beginnen sich zu gruppieren,kurzer Tick,Click/Taktile Ebene,Line-up-Aufbau,mittel,35.4,0.0,1.465,38.939,3539.0,-56.0,260.1,0.7595,0.2372,0.0033,0.0485,0.0
+25,36.18,Drei Geräte stehen nebeneinander,Gruppierungsakzent,Impact/Akzent,Line-up,mittel,36.18,0.0,0.226,38.939,2759.0,-44.0,558.8,0.2673,0.7175,0.0152,0.1261,-1.25
+26,37.48,Farbnamen und Geräte bilden den finalen Lock-up,Lock-up-Hit,Impact/Akzent,Variantenabschluss,hoch,37.48,0.0,0.121,38.939,1459.0,-24.0,285.2,0.7115,0.2836,0.0049,0.042,0.0
+27,38.94,"Schnitt zu ‘Looks sleek, built tough’",Transition-Impact,Impact/Akzent,Reset,hoch,39.06,120.0,45.473,38.939,-1.0,28.0,699.7,0.3332,0.6614,0.0054,0.2822,-6.76
+28,41.34,Telefonprofil fährt in die Bildmitte,schmaler Whoosh,Whoosh/Bewegung,Slide-in,hoch,41.35,10.0,9.303,38.939,-2401.0,-4.0,288.2,0.7487,0.235,0.0164,0.1696,-5.64
+29,43.92,7.4-mm-Angabe wird betont,Doppelakzent,Impact/Akzent,Spezifikation markieren,hoch,43.92,0.0,0.0,38.939,-4981.0,16.0,56.5,0.9973,0.0026,0.0001,0.001,-4.05
+30,44.7,Wipe vom Profil auf das Display,starker Whoosh,Whoosh/Bewegung,Hauptübergang,hoch,44.7,0.0,5.401,38.939,-5761.0,28.0,187.6,0.9128,0.0767,0.0106,0.0509,-3.05
+31,47.99,Screen-size-Angabe wechselt zu 120 Hz,UI-Click-Figur,Click/Taktile Ebene,Textwechsel,mittel,47.99,0.0,1.065,38.939,-9051.0,-10.0,461.5,0.8427,0.1061,0.0512,0.028,-7.21
+32,49.91,Grosser Schnitt ins Kamera-Makro,massiver Impact,Impact/Akzent,Kamera-Kapitel,hoch,49.91,0.0,1.022,58.025,8115.0,-10.0,663.6,0.7502,0.1903,0.0595,0.1565,-0.0
+33,51.76,Front- und Rückseite werden kombiniert,kurzer Swish,Whoosh/Bewegung,Komposition aufbauen,mittel,51.76,0.0,19.894,58.025,6265.0,48.0,366.2,0.7683,0.2082,0.0235,0.1362,-0.64
+34,53.58,Erster Kamera-Callout erscheint,UI-Tick,Click/Taktile Ebene,Information 1,mittel,53.59,10.0,0.412,58.025,4445.0,-52.0,549.3,0.5992,0.3862,0.0145,0.138,0.0
+35,54.62,Weitere Kamera-Callouts erscheinen,UI-Tick-Folge,Click/Taktile Ebene,Informationen staffeln,hoch,54.63,10.0,0.163,58.025,3405.0,-36.0,504.2,0.6949,0.2826,0.0226,0.1742,-1.76
+36,56.94,Callouts verlassen das Bild,breiter Stereo-Whoosh,Whoosh/Bewegung,Informations-Exit,hoch,56.94,0.0,0.476,58.025,1085.0,-20.0,2578.1,0.4364,0.2452,0.3185,0.9187,-6.34
+37,58.02,Schnitt zum ausgelegten Lieferumfang,Cut-Impact,Impact/Akzent,Unboxing-Rückkehr,hoch,58.02,0.0,30.91,58.025,5.0,36.0,360.4,0.5507,0.4376,0.0118,0.2316,-3.94
+38,60.35,Draufsicht beginnt; erstes Zubehör ordnet sich,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,60.35,0.0,2.297,60.561,211.0,62.0,787.4,0.0651,0.8941,0.0408,0.3451,-4.99
+39,60.6,Nächstes Zubehörteil erscheint,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,60.61,10.0,40.69,60.561,-39.0,56.0,367.6,0.3904,0.6031,0.0066,0.2794,-4.64
+40,60.87,Nächstes Zubehörteil erscheint,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,60.87,0.0,1.532,60.561,-309.0,-58.0,601.5,0.3566,0.6032,0.0401,0.371,-6.28
+41,61.13,Nächstes Zubehörteil erscheint,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,61.13,0.0,1.444,60.561,-569.0,-54.0,79.3,0.9621,0.0374,0.0005,0.131,-4.12
+42,61.39,Nächstes Zubehörteil erscheint,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,61.39,0.0,0.031,60.561,-829.0,-50.0,2201.2,0.185,0.5667,0.2483,0.1986,-4.75
+43,62.44,Zubehör-Line-up wird ergänzt,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,62.44,0.0,0.0,60.561,-1879.0,-24.0,1180.3,0.4619,0.4253,0.1128,0.3265,-4.39
+44,62.7,Vorletzte Anordnung,Placement-Click,Click/Taktile Ebene,Objektplatzierung,hoch,62.7,0.0,0.0,60.561,-2139.0,-20.0,157.9,0.889,0.11,0.0011,0.0979,-4.76
+45,62.95,Kompletter Lieferumfang steht,Placement-Impact,Impact/Akzent,Line-up abschliessen,hoch,62.95,0.0,0.0,60.561,-2389.0,-26.0,972.1,0.2306,0.714,0.0554,0.2238,-1.8
+46,63.21,Wechsel zur Schlussbotschaft,Transition-Hit,Impact/Akzent,Finale vorbereiten,hoch,63.22,10.0,0.005,60.561,-2649.0,-22.0,151.4,0.8888,0.1109,0.0003,0.0238,-0.0
+47,66.56,Hero-Makro der Kameras beginnt,heller Whoosh,Whoosh/Bewegung,Hero-Reveal,hoch,66.56,0.0,76.78,66.6,40.0,0.0,1852.5,0.0305,0.7865,0.183,0.1638,-13.13
+48,67.45,Makrofahrt passiert die Kameramodule,Glide-Akzent,Whoosh/Bewegung,Kamerafahrt,mittel,67.45,0.0,8.576,68.068,618.0,-6.0,1754.8,0.1158,0.7257,0.1585,0.0602,-10.81
+49,67.97,Schnitt zur vollständigen Rückseite,kurzer Impact,Impact/Akzent,Hero-Schnitt,hoch,67.97,0.0,29.891,68.068,98.0,2.0,574.0,0.7846,0.1631,0.0522,0.207,-5.85
+50,69.02,Gerät rotiert in die finale Perspektive,Swish,Whoosh/Bewegung,Finalrotation,hoch,69.02,0.0,7.135,68.068,-952.0,28.0,3429.8,0.4645,0.1225,0.413,0.1485,-6.6
+51,70.84,Displaybild und Produkt-Lock-up stehen,Finish-Akzent,Impact/Akzent,Finaler Reveal,mittel,70.85,10.0,8.829,71.939,1099.0,56.0,216.5,0.897,0.0913,0.0117,0.1531,-3.89
+52,71.88,Produktbild endet; Endcard beginnt,Final-Impact,Impact/Akzent,Brand-Übergang,hoch,71.88,0.0,182.962,71.939,59.0,-56.0,152.4,0.8663,0.1326,0.0011,0.0526,-0.8
+53,72.26,samsung.com,Endcard-Hit,Impact/Akzent,Call-to-action,hoch,72.26,0.0,0.0,71.939,-321.0,-60.0,462.7,0.6643,0.3119,0.0238,0.1468,-2.62
+54,72.65,Samsung-Logo,kurzer Logo-Stinger,Logo-Stinger,Markenabschluss,hoch,72.64,-10.0,0.002,71.939,-711.0,-54.0,246.2,0.8997,0.085,0.0153,0.1296,-2.48
