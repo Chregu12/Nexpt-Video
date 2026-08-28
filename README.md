@@ -1,42 +1,117 @@
 # Nexpt-Video
 
-Keynote-Film für **NEXPT Work** — Konzept, Drehbuch und lauffähige Render-Pipeline.
+Keynote-Film für **NEXPT Work** — Konzept, Drehbuch und lauffähige Pipeline vom Text bis
+zur fertigen Tonmischung.
+
+**2:18.3 · exakt 68 Takte à 118 BPM · 30 Szenen · 1920×1080/30p**
+
+---
+
+## Wo was liegt
+
+### Lesen
 
 | | |
 |---|---|
-| [**KEYNOTE-FILM-KONZEPT.md**](./KEYNOTE-FILM-KONZEPT.md) | Frame-für-Frame-Analyse des Referenzfilms (Apple, *„Every product carbon neutral by 2030"*), 13 Stil-Regeln, Story, vollständiges Drehbuch, Design-Spezifikation, Produktionsplan. |
-| [**render/**](./render/) | Pipeline: `timing.json` → ProRes-Clips → FCPXML. Siehe [render/README.md](./render/README.md). |
-| **out/NEXPT-Keynote-ANIMATIC.mp4** | Der komplette Film als Animatic, 2:18, 1920×1080/30p. |
-| **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro, 27 Clips mit Markern. |
-| **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | Dasselbe mit Roboter-Scratchstimme — macht die Textlänge sofort hörbar. |
-| **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Bild plus Percussion, keine Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf den Rhythmus. |
-| **out/scratch-vo.wav** | Die Scratch-Tonspur einzeln. |
-| **out/analysis/cue_sheet.json** | Jeder Hit Point des Films: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren. |
-| `out/_musik/` | Der lizenzierte Musiktrack. **Nicht im Repo** — die Lizenz hängt am Lizenznehmer, nicht am Repository. Eigene Kopie dort ablegen, dann `python3 render/musik.py`. |
+| [**KEYNOTE-FILM-KONZEPT.md**](./KEYNOTE-FILM-KONZEPT.md) | Das Hauptdokument. Frame-für-Frame-Analyse der Referenzfilme, 13 Stil-Regeln, Story, vollständiges Drehbuch, Design-Spezifikation, Tonkonzept, Produktionsplan, offene Fragen. |
+| [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
+
+### Ansehen und anhören
+
+| | |
+|---|---|
+| **out/NEXPT-Keynote-ANIMATIC-SCRATCH.mp4** | **Die Fassung zum Anschauen.** Bild, Musik, Sounddesign und Roboter-Scratchstimme. |
+| **out/NEXPT-Keynote-ANIMATIC-OHNE-STIMME.mp4** | Ohne Sprache. Die Standloop-Fassung — und der ehrlichere Blick auf Rhythmus und Effekte. |
+| **out/NEXPT-Keynote-ANIMATIC-OHNE-EFFEKTE.mp4** | Dieselbe Mischung ohne Sounddesign, zum Vergleichen. |
+| **out/NEXPT-Keynote-ANIMATIC.mp4** | Nur Bild, ganz ohne Ton. |
 | **out/stills/** | Ein Standbild je Szene. |
-| `out/scenes/*.mov` | ProRes 422 HQ, ein Clip je Szene. Nicht im Repo (267 MB) — lokal mit `python3 render/render.py` erzeugen. |
+
+### Weiterverarbeiten
+
+| | |
+|---|---|
+| **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro, 30 Clips mit Markern für Akt, Szene und Sprechertext. |
+| **out/analysis/cue_sheet.json** | **139 Hit Points**: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren — das, was ein Komponist oder Sounddesigner braucht. |
+| **out/ton-final.wav** | Die fertige Mischung. Daneben `ton-final-ohne-stimme.wav` und `ton-ohne-effekte.wav`. |
+| **out/sfx.wav** · **out/scratch-vo.wav** | Die Einzelspuren. Die Musikspur liegt nicht im Repo, siehe unten. |
+| `out/drums.wav` | Die optionale eigene Percussion. Standardmässig **nicht** in der Mischung — sie auf einen Schlagzeugtrack zu legen ergibt Matsch. Mit `sh render/mischen.sh --drums`. |
+| `out/scratch-vo-xtts.wav` · `out/probe-qwen3-tts.wav` | Stimm-Muster aus zwei anderen Verfahren, zum Vergleichen. XTTS ist **nicht kommerziell nutzbar**, Qwen3-TTS schon — Details in [render/README.md](./render/README.md). |
+
+### Nicht im Repo
+
+| | |
+|---|---|
+| `out/_musik/` | Der Musiktrack. Die Lizenz hängt am Lizenznehmer, nicht am Repository — eigene Kopie dort ablegen, dann `python3 render/musik.py`. |
+| `out/music.wav` | Der blosse Schnitt daraus. Wird von `musik.py` erzeugt. |
+| `out/_proben/` | Die aus dem Loop geschnittene Klangpalette. Wird von `proben.py` erzeugt. |
+| `out/scenes/*.mov` | ProRes 422 HQ, ein Clip je Szene (267 MB). Mit `python3 render/render.py`. |
+| `render/fonts/`, `render/voices/*.onnx`, `render/asr/whisper-*/` | Schriften, Stimm- und Spracherkennungsmodelle. Je mit eigenem Ladeskript. |
+
+---
 
 ## Schnellstart
 
 ```bash
 pip install playwright && python3 -m playwright install chromium
-python3 render/render.py        # ProRes-Clips
-python3 render/fcpxml.py        # FCP-Timeline
-python3 render/sync.py <vo.wav|Projekt.fcpxml>   # Timing auf die echte Stimme ziehen
 ```
 
-Ton und Zusammenbau, mit der Stimme als Schalter:
+**Nur das Bild neu bauen** (nach einer Änderung an `timing.json` oder `film.html`):
 
 ```bash
-python3 render/cuesheet.py                        # Hit Points -> out/analysis/cue_sheet.json
-python3 render/sfx.py                             # Whooshes, Clicks, Impacts, Riser
-python3 render/musik.py                           # Musik auf den Film legen
-sh render/mischen.sh                              # Mischung mit Stimme
-sh render/mischen.sh --ohne-stimme                # Mischung ohne Stimme
-sh render/mischen.sh --drums                      # zusätzlich eigene Percussion (aus)
-sh render/mischen.sh --ohne-effekte               # zum Vergleich, ohne Sounddesign
-python3 render/bauen.py                           # Film mit Stimme
-python3 render/bauen.py --ohne-stimme             # Film ohne Stimme
+python3 render/pruefen.py        # Zeitachse, leere Frames, Tempo
+python3 render/render.py         # 30 ProRes-Clips
+python3 render/bauen.py          # prüfen und zusammenbauen
 ```
+
+**Nur den Ton neu bauen** (Bild bleibt, wie es ist):
+
+```bash
+python3 render/musik.py          # Musik auf den Film legen
+python3 render/proben.py         # Klangpalette aus dem Loop schneiden
+python3 render/cuesheet.py       # Hit Points
+python3 render/sfx.py            # Sounddesign
+sh render/mischen.sh             # Mischung
+python3 render/bauen.py          # neu muxen (Bild wird nicht neu kodiert)
+```
+
+**Alles neu, nach einem Musikwechsel.** Die Reihenfolge ist hier nicht beliebig: der Film
+ist auf die Anschläge *eines bestimmten* Tracks gerastert. Wer die Musik tauscht, ohne
+`takt.py` und den Render nachzuziehen, fällt auf Zufallsniveau zurück — gemessen 21 % statt
+45 %.
+
+```bash
+python3 render/musik.py <neue-quelle>    # 1. Anschläge in Filmzeit schreiben
+python3 render/proben.py <neue-quelle>   # 2. Klangpalette neu schneiden
+python3 render/takt.py                   # 3. Film auf die neuen Anschläge rastern
+python3 render/render.py                 # 4. 30 Clips neu
+python3 render/scratchvo.py              # 5. Stimme auf die neuen Zeiten
+python3 render/cuesheet.py && python3 render/sfx.py
+sh render/mischen.sh && python3 render/bauen.py --neu
+```
+
+**Varianten des Tons:**
+
+```bash
+sh render/mischen.sh --ohne-stimme     # Standloop-Fassung
+sh render/mischen.sh --ohne-effekte    # ohne Sounddesign, zum Vergleich
+sh render/mischen.sh --drums           # zusätzlich die eigene Percussion
+python3 render/sfx.py --pegel 0.6      # Sounddesign leiser
+```
+
+**Wenn die echte Stimme da ist:**
+
+```bash
+python3 render/sync.py <vo.wav|Projekt.fcpxml>   # Timing darauf ziehen
+```
+
+---
+
+## Die Idee in drei Sätzen
+
+`timing.json` ist die einzige Quelle der Wahrheit. Bild, Stimme, Musikraster, Cue Sheet und
+Sounddesign entstehen alle daraus — kein Werkzeug misst am fertigen Video herum, was es aus
+den Autorendaten exakt wissen kann. Und jede Gestaltungsentscheidung ist an den
+Referenzfilmen **gemessen**, nicht geraten; wo eine Messung meiner Vermutung widersprochen
+hat, steht das im Konzept und im Code.
 
 Produktgrundlage: [Chregu12/Nexpt-2.0](https://github.com/Chregu12/Nexpt-2.0) — `apps/nexpt-work`.

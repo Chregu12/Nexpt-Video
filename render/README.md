@@ -14,67 +14,147 @@ sh render/voices/get-voices.sh             # deutsche Stimmmodelle (~200 MB)
 ## Benutzung
 
 ```bash
-python3 render/render.py                 # alle 27 Szenen → out/scenes/*.mov  (ProRes 422 HQ)
+# BILD
+python3 render/render.py                 # alle 30 Szenen → out/scenes/*.mov  (ProRes 422 HQ)
 python3 render/render.py 15 22           # nur diese Szenen (Nummer oder id-Fragment)
 python3 render/render.py --stills        # nur je ein Standbild pro Szene (Sekunden statt Minuten)
 python3 render/render.py --alpha         # ProRes 4444 mit Alpha statt 422 HQ
-python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
+
+# TIMING
+python3 render/takt.py --probe           # zeigen, wie das Rastern auf 118 BPM ausfiele
+python3 render/takt.py                   # timing.json auf das Musikraster legen
 python3 render/scratchvo.py              # → out/scratch-vo.wav (Wegwerf-Stimme zum Timing-Check)
 python3 render/sync.py <datei>           # Timing auf die echte Stimme ziehen — siehe unten
-python3 render/pruefen.py                # Tempo und leere Frames prüfen  (--fix repariert)
-python3 render/bauen.py                  # prüfen und zusammenbauen (--check nur prüfen)
-python3 render/drehbuch.py               # Abschnitt 4 des Konzepts aus timing.json erzeugen
-python3 render/sounddesign.py            # Musikbett + Effekte aus timing.json
+python3 render/pruefen.py                # Zeitachse, leere Frames, Tempo  (--fix repariert)
+
+# TON
+python3 render/musik.py                  # Musik auf den Film legen → out/music.wav
+python3 render/proben.py                 # echte Schläge aus dem Loop → out/_proben/
+python3 render/cuesheet.py               # Hit Points → out/analysis/cue_sheet.json
+python3 render/sfx.py                    # Sounddesign → out/sfx.wav
+python3 render/sounddesign.py --drums    # optionale eigene Percussion (standardmässig aus)
 sh render/mischen.sh                     # Stimme, Musik, Effekte → out/ton-final.wav
+
+# AUSGEBEN
+python3 render/bauen.py                  # prüfen und zusammenbauen (--check nur prüfen)
+python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
+python3 render/drehbuch.py               # Abschnitt 4 des Konzepts aus timing.json erzeugen
+sh render/paket.sh                       # Download-Paket → out/NEXPT-Keynote-Paket.zip
 ```
 
-## Ton aus denselben Daten wie das Bild
-
-`sounddesign.py` erzeugt Bett und Akzente aus `timing.json`. Die Gestaltung folgt der
-**Messung des Referenzfilms**, nicht der Vermutung:
-
-| gemessen an `apple.wav` (75.8 s) | Ergebnis |
-|---|---|
-| Energie an 15 Bildschnitten | Median **0.80× / 0.50× / 0.52×** — sie *fällt*. Kein Sounddesign auf Bildereignissen. |
-| Periodizität, perkussiv (HPSS) | **119.7 BPM, Stärke 0.104** — vorhanden, aber sehr frei gespielt |
-| leiseste Fenster (−41 dB) | Dauerton **156–160 Hz (Es3)** → getragene Fläche |
-| Spektrale Neigung | Sub 57, Bass 59, Tiefmitten 55, Mitten 47, Höhen 39, Luft 30 dB |
-| Schluss | bei 68.0 s **absolute digitale Stille** |
-
-**Der Track ist identifiziert:** „Rhythm Mischief" von Cold Storage Percussion Unit,
-~118 BPM — Drumline-Snare, Toms, Rim Clicks, kurze gedämpfte Schläge, mit Free-Jazz-Freiheit.
-
-**Zwei Fehlschlüsse meinerseits, beide dokumentiert:** Mein erster Test suchte nach
-Perkussion mit einem Regelmässigkeits-Kriterium (>0.6) — daran wäre auch ein echter
-Schlagzeuger gescheitert; frei gespielte Drumline-Percussion ist absichtlich unregelmässig.
-Mein zweiter Test suchte nach einem Melodieinstrument und fand einen Bass, wo Percussion war.
-
-Daraus gebaut: eine sehr leise Fläche mit sparsamer Melodiefigur, darüber eine
-**Drumline-Percussion** auf 118 BPM. Der Groove läuft, die **Akzente sitzen auf den
-Bildereignissen** aus `timing.json` — Snare auf jeden Hintergrundwechsel, Rim Click auf
-jeden Marker, gedämpfter Schlag auf jede der fünf Stufen, Tom auf den Etikettwechsel,
-Wirbel in den Strich durchs Raster hinein.
-
-**Viel Leerraum:** 18 Muster, davon die Hälfte leer oder fast leer, dazu eingestreute
-Aussetzer von ein bis zwei Takten. Anschlagstärke und Versatz schwanken je Schlag, sonst
-klingt es wie ein Drumcomputer. Gemessene Regelmässigkeit: **0.283** — von 0.665 in der
-ersten Fassung heruntergearbeitet; das Original liegt bei 0.104.
-
-Effekte nur als seltene Akzente:
+Die **Reihenfolge** ist nicht beliebig. Der Film ist auf die Anschläge *eines bestimmten*
+Tracks gerastert; wer die Musik tauscht, muss `takt.py` und den Render nachziehen, sonst
+fällt das Alignment auf Zufallsniveau zurück (gemessen 21 % statt 45 %):
 
 ```bash
-python3 render/sounddesign.py              # drei Akzente (NEIN., Raster, Etikettwechsel)
-python3 render/sounddesign.py --sfx none   # ganz ohne — Apples Fassung
-python3 render/sounddesign.py --sfx full   # die alte, dichte Fassung zum Vergleich
+python3 render/musik.py <neue-quelle>   # 1. Anschläge in Filmzeit schreiben
+python3 render/proben.py <neue-quelle>  # 2. Klangpalette neu schneiden
+python3 render/takt.py                  # 3. Film darauf rastern
+python3 render/render.py                # 4. 30 Clips neu
+python3 render/scratchvo.py             # 5. Stimme auf die neuen Zeiten
+python3 render/cuesheet.py && python3 render/sfx.py
+sh render/mischen.sh && python3 render/bauen.py --neu
 ```
 
-`mischen.sh` mischt auf **−17 LUFS**. Drei Filter nähern die Frequenzneigung an; bewusst
-moderat, weil der Bassüberschuss von der Sprecherstimme kommt (Grundtöne 100–250 Hz) und
-sich nicht wegfiltern lässt, ohne sie dünn zu machen. Ab den Mitten aufwärts liegt die
-Abweichung bei 1.5–3.8 dB.
+## Ton: vier Stufen, alle aus `timing.json`
+
+### 1. Der Takt — `takt.py`
+
+Legt die Szenendauern auf **Achtel** und die grossen Ereignisse auf **Sechzehntel**, bei
+**118.00 BPM ab Filmzeit 0.000**. Der Film ist damit genau **68 Takte** lang. In einem
+zweiten Durchgang wandert jedes grosse Ereignis auf den nächsten *tatsächlichen* Anschlag
+des Tracks — das abstrakte Raster allein hilft nicht, wenn der Schlagzeuger dort Pause macht
+(von 272 Vierteln tragen nur 36 % einen Schlag).
+
+| | vorher | Raster allein | Raster + echte Anschläge |
+|---|---|---|---|
+| grosse Bildereignisse auf einem Anschlag | 15 % | 16 % | **45 %** |
+| Szenenanfänge | 23 % | 23 % | **53 %** |
+| (Zufallsniveau) | 14 % | 14 % | 14 % |
+
+`takt.py` rastert die **Dauern**, nicht die Startzeiten — die ergeben sich als laufende
+Summe. Genau dort lag ein Fehler: `start` und die kumulierte Dauer liefen ab `09_flut`
+2.00 s auseinander, Bild 137.5 s gegen Ton 135.4 s. Ab 0:36 lief die Stimme dem Bild voraus.
+`pruefen.py` prüft das jetzt als allererstes.
+
+### 2. Die Musik — `musik.py`
+
+Zwei Betriebsarten, automatisch gewählt: Quelle **kürzer** als der Film → Loop, längentreu
+auf das Filmraster gerechnet. Quelle **länger** → auf Taktkanten geschnitten.
+
+Ein Loop wird **nicht arrangiert**. Der Versuch, die 16 Takte nach der Dramaturgie neu zu
+sortieren, ergab 26 Nahtstellen auf 2:18 — und weil die Taktkanten leise sind (−46 dB kurz
+davor), sass der erste Schlag jedes Takts genau auf der Naht und wurde von der Blende
+angefressen. Ein Loop ist an seiner eigenen Rundung nahtlos, sonst nirgends.
+
+An den fünf Halte-Beats zieht die Musik auf 28 % zurück. Am Filmende 0.3 s Blende, danach
+absolute Stille.
+
+### 3. Das Cue Sheet — `cuesheet.py`
+
+**139 Hit Points** nach `out/analysis/cue_sheet.json`, je mit Zeit, Takt.Zählzeit, Szene,
+Art, Stärke 0..1 und Stereoposition. Das ist die Vorlage zum Komponieren — und sie wird
+**nicht aus dem Video gemessen**: `timing.json` weiss auf die Millisekunde, *was* passiert,
+während eine Schnitterkennung nur „Bewegung bei 84.2 s" melden könnte.
+
+### 4. Die Klänge — `proben.py` und `sfx.py`
+
+`proben.py` schneidet **echte Schläge** aus dem Musikloop (12 Proben in drei Klassen,
+ausgewählt nach Sauberkeit). `sfx.py` baut daraus fünf Ebenen: `impact`, `whoosh`, `click`,
+`tick`, `riser`.
+
+Die Gestaltung folgt der **Messung**, nicht der Vermutung — und zwar zweier Referenzen, die
+gegensätzlich arbeiten:
+
+| gemessen | Apple (75.8 s) | Samsung (78.3 s) |
+|---|---|---|
+| Energie an Bildschnitten | Median 0.80× / 0.50× / 0.52× — sie *fällt* | Akzent an 4 von 10 Schnitten, Median +84 ms |
+| Bewegung → Akzent | — | 19 von 30, Median **+15 ms** |
+| Lautheit | −17.7 LUFS, LRA 4.3 | −13.6 LUFS, LRA 7.7 |
+| Sounddesign auf Bildereignissen | **keins** | 285 Onsets = 3.64/s |
+
+Apple legt Musik unter das Bild, Samsung vertont es. Der Film folgt der zweiten Schule.
+Wichtig dabei: Samsung vertont vor allem **Bewegung**, nicht den Schnitt.
+
+Kalibriert statt geschätzt — die Entzerrung misst die gebaute Spur, hält sie gegen die
+Referenzkurve und wendet die Differenz an (vier Runden, begrenzt auf ±10 dB):
+
+| | Referenz | NEXPT |
+|---|---|---|
+| Bandbalance Sub/Bass/TM/M/H/Luft | 0 / −3.3 / −10.4 / −16.6 / −26.8 / −29.3 dB | **±0.2 dB** |
+| Akzentspitze über dem Bett | +11.0 dB | **+10.9 dB** |
+| Akzent zum Bildereignis | +15 ms, 63 % innerhalb 100 ms | **±0 ms**, 62 % innerhalb 50 ms |
+
+Jeder Klang wird auf seine eigene **Spitze** ausgerichtet, nicht auf seinen Anfang.
+
+```bash
+python3 render/sfx.py --pegel 0.6         # Sounddesign leiser
+python3 render/sfx.py --nur schnitt,marker # nur diese Arten
+```
+
+**Die Grenze:** der Loop enthält keine tiefe Trommel (tiefster Schwerpunkt 988 Hz). Impacts
+entstehen deshalb wie im Studio — echte Aufnahme zwei Oktaven tief transponiert für die
+Textur, Sinus darunter fürs Fundament. Für die Endfassung wäre ein Freesound-Token (CC0,
+gratis) oder eine kommerzielle Library der Weg.
+
+### Der Mix — `mischen.sh`
+
+```bash
+sh render/mischen.sh                  # Stimme + Musik + Effekte
+sh render/mischen.sh --ohne-stimme    # Standloop-Fassung
+sh render/mischen.sh --ohne-effekte   # zum Vergleich, ohne Sounddesign
+sh render/mischen.sh --drums          # zusätzlich die eigene Percussion
+```
+
+Ein Filtergraph, dessen Pegel die Schalter setzen — eine stumme Spur ändert bei `amix`
+mit `normalize=0` nichts, ein stummer Sidechain-Key komprimiert nicht. Die Musik hat
+**zwei** Sidechains: sie tritt unter der Stimme zurück *und* unter jedem Akzent. Das ist
+die musikalische Pause, damit die Effekte hörbar bleiben.
+
+Gemischt auf **−14.3 LUFS / LRA 4.0** — bei der Lautheit nahe an Samsung, bei der Dynamik
+näher an Apple, weil unser Film durchgehend gesprochen ist.
 
 **Die Musik des Referenzfilms wird nicht kopiert** — sie ist eine geschützte Komposition.
-Nachgebaut ist ihr Charakter, gemessen statt geraten.
 
 ## Zusammenbauen nur mit `bauen.py`
 
@@ -107,13 +187,55 @@ misst sich um den Faktor drei zu langsam.
 
 ## Dateien
 
+**Quelle der Wahrheit**
+
 | Datei | Zweck |
 |---|---|
-| `timing.json` | **Die einzige Datei, die nach der VO-Aufnahme angefasst wird.** Alle Zeiten, Texte, Layer. |
+| `timing.json` | **Die einzige Datei, die nach der VO-Aufnahme angefasst wird.** Alle Zeiten, Texte, Layer. Bild UND Ton entstehen daraus. |
 | `film.html` | Render-Engine. `window.renderAt(t)` ist deterministisch — gleiche `t` ergibt bitgleichen Frame. |
-| `render.py` | Playwright → PNG-Frames → ffmpeg → ProRes, ein Clip je Szene. |
-| `fcpxml.py` | Timeline mit Markern für Akt, Szene und Sprechertext. |
 | `fonts/` | **Prototyp-Schriften** (Inter SemiBold, Permanent Marker). Für die Endfassung ersetzen — siehe unten. |
+
+**Bild**
+
+| Datei | Zweck |
+|---|---|
+| `render.py` | Playwright → PNG-Frames → ffmpeg → ProRes, ein Clip je Szene. |
+| `bauen.py` | Prüft (läuft ein Render? Clips vollständig? Fingerabdrücke aktuell?) und baut erst dann zusammen. |
+| `fcpxml.py` | Timeline mit Markern für Akt, Szene und Sprechertext. |
+
+**Timing**
+
+| Datei | Zweck |
+|---|---|
+| `takt.py` | Legt `timing.json` auf das 118-BPM-Raster und zieht die Ereignisse auf echte Anschläge. Sicherung als `timing.json.vor-takt` (nicht im Repo). |
+| `pruefen.py` | Vier Prüfungen: Zeitachse, leere Frames, Stillstand, Tempo. `--fix` repariert Löcher. |
+| `sync.py` | Zieht das Timing auf die echte Sprecheraufnahme — aus dem FCP-Schnitt oder per Whisper. |
+
+**Ton**
+
+| Datei | Zweck |
+|---|---|
+| `musik.py` | Musikspur auf den Film legen — Loop arrangieren oder Track schneiden. Schreibt zusätzlich die Anschlagszeiten für `takt.py`. |
+| `proben.py` | Schneidet echte Schläge aus dem Musikloop → `out/_proben/` (die Klangpalette). |
+| `cuesheet.py` | 139 Hit Points → `out/analysis/cue_sheet.json`. Die Vorlage zum Komponieren. |
+| `sfx.py` | Sounddesign aus Cue Sheet und Palette: impact, whoosh, click, tick, riser. |
+| `sounddesign.py` | Nur noch die **optionale** eigene Drumline (`--drums`). Musik und Effekte kommen aus `musik.py` bzw. `sfx.py`. |
+| `mischen.sh` | Endmischung. Ein Filtergraph, vier Schalter. |
+
+**Stimme**
+
+| Datei | Zweck |
+|---|---|
+| `scratchvo.py` | Wegwerf-Stimme aus `timing.json` (Piper, offline). **Standard.** |
+| `xttsvo.py` | XTTS-v2. **Nicht kommerziell nutzbar** — nur als internes Timing-Muster. |
+| `qwenvo.py` | Qwen3-TTS über den HF-Space. Apache 2.0, also kommerziell nutzbar. Braucht `HF_TOKEN`. |
+
+**Ausgabe und Doku**
+
+| Datei | Zweck |
+|---|---|
+| `drehbuch.py` | Erzeugt Abschnitt 4 des Konzepts aus `timing.json` — Dokument und Film können nicht auseinanderlaufen. |
+| `paket.sh` | Bündelt Filme, Timeline, Tonspur, Standbilder und Quellen → `out/NEXPT-Keynote-Paket.zip`. |
 
 ## In Final Cut Pro
 
