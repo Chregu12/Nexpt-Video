@@ -15,6 +15,49 @@ sh render/audio_preview.sh
 Erforderlich sind Python 3, NumPy, SciPy und ffmpeg. Es werden keine externen
 Samples oder Modellgewichte geladen.
 
+## Eine Referenz analysieren und in eigene Musik uebersetzen
+
+Der allgemeine Referenzpfad funktioniert mit WAV, AIFF, MP3, M4A und auch mit
+Videodateien, sofern ffmpeg sie lesen kann:
+
+```bash
+python3 render/reference_pipeline.py "/pfad/zur/referenz.m4a" \
+  --bpm 118 --downbeat 0 --preview
+```
+
+Ist das Tempo nicht bekannt, koennen `--bpm` und `--downbeat` entfallen. Eine
+bekannte Eins sollte trotzdem angegeben werden: Aus einem Stereo-Mix laesst
+sich das Sechzehntelraster verlaesslicher bestimmen als die musikalische Eins.
+
+Der Lauf besteht aus fuenf voneinander pruefbaren Schritten:
+
+1. `reference_analyzer.py` misst Tempo, Raster, Microtiming, Anschlaege,
+   Klangfamilien, Frequenzbalance, Dynamik, Aufbau und Stereobreite.
+2. `reference_synth.py` erzeugt daraus ein neues Kit mit vier Rollen,
+   Round-Robin-Varianten und drei Velocity-Layern.
+3. `music_reference.py` schreibt eine neue 68-Takt-Komposition. Sie verwendet
+   nur die Verteilungen des Profils, nie die Ereignisfolge der Referenz.
+4. `reference_compare.py` misst das Ergebnis wieder und bewertet, wie gut
+   Klangbalance, Breite, Dynamik, Dichte und Tempo das Profil treffen.
+5. `sfx_original.py` bleibt ein unabhaengiger Pfad aus dem Video-Cue-Sheet.
+
+Lokale Ausgaben:
+
+- `out/analysis/reference-profile.json`: maschinenlesbares Referenzprofil
+- `out/reference-kit/`: vollstaendig neu synthetisierte Einzelsounds
+- `out/music-reference-low.wav`: Sub- und tiefe Percussion
+- `out/music-reference-body.wav`: Body und gestimmte Percussion
+- `out/music-reference-detail.wav`: Clicks, Ticks und Luft
+- `out/music-reference.wav`: vorgemasterte Summe
+- `out/analysis/reference-match.json`: Messvergleich Referenz gegen Ergebnis
+- `out/NEXPT-REFERENCE-AUDIO-PREVIEW.mp4`: Bild mit neuer Musik und separaten SFX
+
+Die Referenzdatei wird nicht kopiert. Die Generatoren koennen sie auch nicht
+oeffnen: Sie erhalten ausschliesslich das JSON-Profil. Original-Samples, MIDI,
+Plugin-Einstellungen und ueberlagerte Einzelspuren koennen aus einem fertigen
+Stereo-Mix nicht exakt rekonstruiert werden. Das Ziel ist deshalb eine eigene
+Klangsprache mit vergleichbaren Eigenschaften, keine Audio- oder Pattern-Kopie.
+
 ## Musik
 
 `out/music-original.wav` ist eine durchgehende, originale 68-Takt-Partitur bei
@@ -23,6 +66,12 @@ Microtiming. Sie wiederholt keinen importierten 16-Takt-Loop.
 
 Die Datei `out/analysis/music-original.json` dokumentiert Aufbau, Eventzahl,
 Seed und technische Messwerte.
+
+`music-reference.wav` ist die alternative profilgesteuerte Fassung. Ihre drei
+Rollen-Stems sind Pre-Master-Spuren; die nichtlineare Bus-Saettigung liegt nur
+auf dem Master. Dadurch bleiben die Einzelspuren in Final Cut oder Logic frei
+mischbar, summieren sich ohne denselben Master-Bus aber nicht bitgleich zum
+Master.
 
 ## Soundeffekte
 

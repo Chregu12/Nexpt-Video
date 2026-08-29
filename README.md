@@ -106,6 +106,18 @@ python3 render/drumline.py       # von den echten Trommeln spielen lassen
 sh render/mischen.sh --drumline  # damit mischen
 ```
 
+**Eine Musikreferenz analysieren und daraus eine eigene Klangsprache bauen:**
+
+```bash
+python3 render/reference_pipeline.py "/pfad/referenz.m4a" \
+  --bpm 118 --downbeat 0 --preview
+```
+
+Dabei werden keine Ausschnitte der Referenz weiterverwendet. Ein JSON-Profil
+steuert neue Synthese, Groove-Verteilungen und eine auf das NEXPT-Cue-Sheet
+zugeschnittene 68-Takt-Komposition. Musik (`low`, `body`, `detail`) und SFX
+bleiben getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
+
 **Varianten des Tons:**
 
 ```bash

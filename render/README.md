@@ -30,6 +30,8 @@ python3 render/pruefen.py                # Zeitachse, leere Frames, Tempo  (--fi
 # TON
 python3 render/musik.py                  # Musik auf den Film legen → out/music.wav
 python3 render/proben.py                 # echte Schläge aus dem Loop → out/_proben/
+python3 render/reference_pipeline.py REFERENZ --bpm 118 --downbeat 0
+                                          # Referenzprofil → eigenes Kit/Musik/Stems
 python3 render/cuesheet.py               # Hit Points → out/analysis/cue_sheet.json
 python3 render/sfx.py                    # Sounddesign → out/sfx.wav
 python3 render/sounddesign.py --drums    # optionale eigene Percussion (standardmässig aus)
@@ -55,6 +57,24 @@ python3 render/scratchvo.py             # 5. Stimme auf die neuen Zeiten
 python3 render/cuesheet.py && python3 render/sfx.py
 sh render/mischen.sh && python3 render/bauen.py --neu
 ```
+
+### Referenzprofil statt Quell-Samples
+
+`reference_pipeline.py` ist der allgemeine, samplefreie Weg fuer eine neue
+Referenz. Anders als `abhoeren.py` und `proben.py` schneidet er keine Schlaege
+aus dem Quelltrack. Der Analyzer schreibt nur Deskriptoren nach
+`out/analysis/reference-profile.json`; alle folgenden Skripte koennen die
+Referenzdatei technisch nicht mehr lesen.
+
+```bash
+python3 render/reference_pipeline.py referenz.m4a --bpm 118 --downbeat 0
+python3 render/reference_pipeline.py referenz.m4a --preview
+```
+
+Der erste Befehl verwendet bekannte Tempodaten. Der zweite schaetzt Tempo und
+Raster automatisch. Das Ergebnis besteht aus einem neu synthetisierten Kit,
+drei Musikstems, dem Musikmaster, separaten SFX und einem Messreport. Details
+und alle Ausgaben stehen in `render/AUDIO-REWORK.md`.
 
 ## Ton: vier Stufen, alle aus `timing.json`
 
