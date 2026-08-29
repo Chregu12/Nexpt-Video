@@ -8,6 +8,7 @@ bleiben die beiden Stems inhaltlich und lizenzrechtlich unabhaengig.
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -24,6 +25,13 @@ SIXTEENTH = BEAT / 4.0
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT.parent / "out"
+
+# Dieselbe Suchreihenfolge wie im uebrigen Repo (siehe render/musik.py): erst
+# die Umgebungsvariable, dann der PATH, zuletzt das mit imageio-ffmpeg
+# ausgelieferte Binary. In dieser Umgebung liegt ffmpeg NICHT im PATH — mit
+# shutil.which() allein bricht jeder Lauf mit „ffmpeg wurde nicht gefunden" ab.
+FFMPEG = os.environ.get("FFMPEG") or shutil.which("ffmpeg") or \
+    "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2"
 
 
 def timing() -> tuple[dict, float]:
@@ -154,13 +162,13 @@ def audio_stats(stereo: np.ndarray) -> dict:
 
 def write_pcm24(path: Path, stereo: np.ndarray) -> None:
     """24-Bit-PCM-WAV via ffmpeg schreiben; float stays internal until encode."""
-    ffmpeg = shutil.which("ffmpeg")
-    if not ffmpeg:
-        raise RuntimeError("ffmpeg wurde nicht gefunden")
+    if not (FFMPEG and (Path(FFMPEG).exists() or shutil.which(FFMPEG))):
+        raise RuntimeError(
+            "ffmpeg wurde nicht gefunden — ins PATH legen oder FFMPEG=<pfad> setzen")
     path.parent.mkdir(parents=True, exist_ok=True)
     data = np.ascontiguousarray(np.clip(stereo, -1.0, 1.0), dtype="<f4")
     subprocess.run([
-        ffmpeg, "-hide_banner", "-loglevel", "error", "-y",
+        FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
         "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "pipe:0",
         "-c:a", "pcm_s24le", str(path),
     ], input=data.tobytes(), check=True)
