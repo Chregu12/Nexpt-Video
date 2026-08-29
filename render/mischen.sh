@@ -6,6 +6,7 @@
 #     sh render/mischen.sh --drums          zusaetzlich die eigene Percussion
 #     sh render/mischen.sh --ohne-effekte   nur Musik und Stimme, zum Vergleich
 #     sh render/mischen.sh --drumline       die eigene Partitur statt des Loops
+#     sh render/mischen.sh --bogen          der Loop, aber mit Auf und Ab
 #
 # Statt vier Filtergraphen fuer vier Kombinationen gibt es einen einzigen,
 # dessen Pegel die Schalter setzen. Eine stumme Spur aendert bei amix mit
@@ -63,6 +64,7 @@ for a in "$@"; do
     --ohne-stimme)  V_STIMME=0.0; G175=0; OHNE_STIMME=1 ;;
     --ohne-effekte) V_SFX=0.0; OHNE_EFFEKTE=1 ;;
     --drumline)     MUSIK=out/drumline.wav; DRUMLINE=1 ;;
+    --bogen)        MUSIK=out/music-bogen.wav; BOGEN=1 ;;
     --drums)       V_DRUMS=0.55 ;;
   esac
 done
@@ -70,7 +72,9 @@ done
 # Der Zielname ergibt sich aus den Schaltern zusammen, nicht aus dem letzten.
 # Vorher ueberschrieb `--ohne-stimme` den Namen von `--drumline`, und die
 # Datei hiess dann so, als waere sie mit dem Loop gemischt.
-if [ -n "$DRUMLINE" ]; then ZIEL=out/ton-drumline; else ZIEL=out/ton-final; fi
+if [ -n "$DRUMLINE" ]; then ZIEL=out/ton-drumline
+elif [ -n "$BOGEN" ]; then ZIEL=out/ton-bogen
+else ZIEL=out/ton-final; fi
 [ -n "$OHNE_STIMME" ]  && ZIEL="$ZIEL-ohne-stimme"
 [ -n "$OHNE_EFFEKTE" ] && ZIEL="$ZIEL-ohne-effekte"
 ZIEL="$ZIEL.wav"
