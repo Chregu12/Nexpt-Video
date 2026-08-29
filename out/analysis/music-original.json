@@ -1,0 +1,151 @@
+{
+  "file": "music-original.wav",
+  "sample_rate": 48000,
+  "bit_depth": 24,
+  "duration_seconds": 139.305,
+  "bpm": 118.0,
+  "bars": 68,
+  "seed": 260828,
+  "source": "Original procedural score; no external samples or reference audio",
+  "sections": [
+    {
+      "start_bar": 1,
+      "end_bar": 4,
+      "name": "intro",
+      "energy_from": 0.18,
+      "energy_to": 0.3
+    },
+    {
+      "start_bar": 5,
+      "end_bar": 7,
+      "name": "promise",
+      "energy_from": 0.42,
+      "energy_to": 0.55
+    },
+    {
+      "start_bar": 8,
+      "end_bar": 9,
+      "name": "pullback",
+      "energy_from": 0.1,
+      "energy_to": 0.16
+    },
+    {
+      "start_bar": 10,
+      "end_bar": 19,
+      "name": "groove-a",
+      "energy_from": 0.48,
+      "energy_to": 0.72
+    },
+    {
+      "start_bar": 20,
+      "end_bar": 21,
+      "name": "breath",
+      "energy_from": 0.28,
+      "energy_to": 0.4
+    },
+    {
+      "start_bar": 22,
+      "end_bar": 27,
+      "name": "build-a",
+      "energy_from": 0.55,
+      "energy_to": 0.84
+    },
+    {
+      "start_bar": 28,
+      "end_bar": 29,
+      "name": "silence",
+      "energy_from": 0.0,
+      "energy_to": 0.02
+    },
+    {
+      "start_bar": 30,
+      "end_bar": 35,
+      "name": "reset",
+      "energy_from": 0.34,
+      "energy_to": 0.62
+    },
+    {
+      "start_bar": 36,
+      "end_bar": 42,
+      "name": "build-b",
+      "energy_from": 0.58,
+      "energy_to": 0.88
+    },
+    {
+      "start_bar": 43,
+      "end_bar": 49,
+      "name": "climax",
+      "energy_from": 0.88,
+      "energy_to": 1.0
+    },
+    {
+      "start_bar": 50,
+      "end_bar": 51,
+      "name": "drop",
+      "energy_from": 0.06,
+      "energy_to": 0.11
+    },
+    {
+      "start_bar": 52,
+      "end_bar": 58,
+      "name": "groove-b",
+      "energy_from": 0.44,
+      "energy_to": 0.76
+    },
+    {
+      "start_bar": 59,
+      "end_bar": 59,
+      "name": "silence",
+      "energy_from": 0.0,
+      "energy_to": 0.01
+    },
+    {
+      "start_bar": 60,
+      "end_bar": 67,
+      "name": "finale",
+      "energy_from": 0.62,
+      "energy_to": 1.0
+    },
+    {
+      "start_bar": 68,
+      "end_bar": 68,
+      "name": "final-hit",
+      "energy_from": 1.0,
+      "energy_to": 1.0
+    }
+  ],
+  "event_count": 988,
+  "halt_ducks": [
+    {
+      "time": 14.9999,
+      "duration": 3.306,
+      "scene": "03_moment"
+    },
+    {
+      "time": 22.3728,
+      "duration": 1.525,
+      "scene": "05_aside"
+    },
+    {
+      "time": 53.7716,
+      "duration": 1.398,
+      "scene": "11c_trick"
+    },
+    {
+      "time": 58.2202,
+      "duration": 1.525,
+      "scene": "12_nein"
+    },
+    {
+      "time": 118.2202,
+      "duration": 1.775,
+      "scene": "23_ui"
+    }
+  ],
+  "normalization_scale": 0.69964,
+  "stats": {
+    "peak_dbfs": -3.0,
+    "rms_dbfs": -21.15,
+    "side_mid_rms": 0.059
+  }
+}

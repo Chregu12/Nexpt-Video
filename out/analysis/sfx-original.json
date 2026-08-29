@@ -1,0 +1,688 @@
+{
+  "files": {
+    "impacts": "sfx-impacts.wav",
+    "motion": "sfx-motion.wav",
+    "ui": "sfx-ui.wav",
+    "master": "sfx-original.wav"
+  },
+  "sample_rate": 48000,
+  "bit_depth": 24,
+  "duration_seconds": 139.305,
+  "seed": 260829,
+  "source": "Original procedural sound design; no music samples or reference audio",
+  "input_cues": 114,
+  "selected_cues": 75,
+  "selected_by_art": {
+    "zeile": 4,
+    "schnitt": 11,
+    "marker": 18,
+    "bgwechsel": 10,
+    "unterstrich": 8,
+    "kritzel": 7,
+    "wortflut": 1,
+    "ebene": 2,
+    "karte": 1,
+    "pfeile": 1,
+    "livekorrektur": 1,
+    "raster": 6,
+    "stapel": 4,
+    "strich": 1
+  },
+  "selected_by_stem": {
+    "ui": 19,
+    "impacts": 21,
+    "motion": 35
+  },
+  "halt_regions": [
+    {
+      "time": 14.9999,
+      "duration": 3.306,
+      "scene": "03_moment"
+    },
+    {
+      "time": 22.3728,
+      "duration": 1.525,
+      "scene": "05_aside"
+    },
+    {
+      "time": 53.7716,
+      "duration": 1.398,
+      "scene": "11c_trick"
+    },
+    {
+      "time": 58.2202,
+      "duration": 1.525,
+      "scene": "12_nein"
+    },
+    {
+      "time": 118.2202,
+      "duration": 1.775,
+      "scene": "23_ui"
+    }
+  ],
+  "normalization_scale": 1.54817,
+  "stats": {
+    "master": {
+      "peak_dbfs": -4.0,
+      "rms_dbfs": -28.57,
+      "side_mid_rms": 0.047
+    },
+    "impacts": {
+      "peak_dbfs": -4.0,
+      "rms_dbfs": -29.03,
+      "side_mid_rms": 0.0
+    },
+    "motion": {
+      "peak_dbfs": -9.72,
+      "rms_dbfs": -39.0,
+      "side_mid_rms": 0.152
+    },
+    "ui": {
+      "peak_dbfs": -10.16,
+      "rms_dbfs": -49.09,
+      "side_mid_rms": 0.135
+    }
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "szene": "00a_wirsind",
+      "art": "zeile",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.42100000000000004
+    },
+    {
+      "t": 3.5593,
+      "szene": "00b_warum",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.59
+    },
+    {
+      "t": 6.8644,
+      "szene": "00b_warum",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 10.5508,
+      "szene": "01_versprechen",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 12.2033,
+      "szene": "02_flip",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.59
+    },
+    {
+      "t": 13.218,
+      "szene": "02_flip",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 13.7287,
+      "szene": "02_flip",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 20.3349,
+      "szene": "04_ihr",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 20.8484,
+      "szene": "04_ihr",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 24.0253,
+      "szene": "06_wege",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 24.1524,
+      "szene": "06_wege",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 27.4605,
+      "szene": "06_wege",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 27.9655,
+      "szene": "06_wege",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 32.529,
+      "szene": "08_broll",
+      "art": "zeile",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.42100000000000004
+    },
+    {
+      "t": 33.9358,
+      "szene": "08_broll",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 35.9764,
+      "szene": "08_broll",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 39.3855,
+      "szene": "09_flut",
+      "art": "wortflut",
+      "stem": "motion",
+      "design": "flutter",
+      "gain": 0.552
+    },
+    {
+      "t": 40.6779,
+      "szene": "09_flut",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 43.729,
+      "szene": "11b_rollen",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.59
+    },
+    {
+      "t": 44.2375,
+      "szene": "11b_rollen",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 45.7629,
+      "szene": "11b_rollen",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 49.068,
+      "szene": "11b_rollen",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 50.0849,
+      "szene": "11b_rollen",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 51.229,
+      "szene": "11b_rollen",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 57.0762,
+      "szene": "12a_chaos",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 61.3965,
+      "szene": "13_modell",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 64.3219,
+      "szene": "13_modell",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 64.7656,
+      "szene": "13_modell",
+      "art": "ebene",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.44
+    },
+    {
+      "t": 65.6056,
+      "szene": "13_modell",
+      "art": "ebene",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.44
+    },
+    {
+      "t": 71.4355,
+      "szene": "14_ende",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 72.0711,
+      "szene": "14_ende",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 74.4914,
+      "szene": "15_element",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 74.6414,
+      "szene": "15_element",
+      "art": "zeile",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.42100000000000004
+    },
+    {
+      "t": 75.2501,
+      "szene": "15_element",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 76.0168,
+      "szene": "15_element",
+      "art": "karte",
+      "stem": "motion",
+      "design": "whoosh",
+      "gain": 0.6779999999999999
+    },
+    {
+      "t": 77.9236,
+      "szene": "15_element",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 78.6863,
+      "szene": "15_element",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 80.3389,
+      "szene": "16_pfeile",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 80.6889,
+      "szene": "16_pfeile",
+      "art": "pfeile",
+      "stem": "motion",
+      "design": "whoosh",
+      "gain": 0.636
+    },
+    {
+      "t": 83.644,
+      "szene": "16_pfeile",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 84.6609,
+      "szene": "16_pfeile",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 84.9152,
+      "szene": "16_pfeile",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 85.4236,
+      "szene": "17_hundert",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 87.4575,
+      "szene": "17_hundert",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 89.9999,
+      "szene": "18_aendert",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 90.8897,
+      "szene": "18_aendert",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 91.144,
+      "szene": "18_aendert",
+      "art": "livekorrektur",
+      "stem": "motion",
+      "design": "whoosh",
+      "gain": 0.615
+    },
+    {
+      "t": 94.3217,
+      "szene": "19_alle",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 95.5907,
+      "szene": "19_alle",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 96.6124,
+      "szene": "20_transparenz",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 98.9005,
+      "szene": "20_transparenz",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 100.1694,
+      "szene": "21_allein",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 102.0762,
+      "szene": "21_allein",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 104.4992,
+      "szene": "22_raster",
+      "art": "raster",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.38680000000000003
+    },
+    {
+      "t": 104.8024,
+      "szene": "22_raster",
+      "art": "raster",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.4248
+    },
+    {
+      "t": 105.0788,
+      "szene": "22_raster",
+      "art": "raster",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.45520000000000005
+    },
+    {
+      "t": 105.4084,
+      "szene": "22_raster",
+      "art": "raster",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.4818
+    },
+    {
+      "t": 105.7878,
+      "szene": "22_raster",
+      "art": "raster",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.5084
+    },
+    {
+      "t": 106.5253,
+      "szene": "22_raster",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 108.8145,
+      "szene": "22b_stapel",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.59
+    },
+    {
+      "t": 109.4345,
+      "szene": "22b_stapel",
+      "art": "stapel",
+      "stem": "motion",
+      "design": "flutter",
+      "gain": 0.5394
+    },
+    {
+      "t": 110.0545,
+      "szene": "22b_stapel",
+      "art": "stapel",
+      "stem": "motion",
+      "design": "flutter",
+      "gain": 0.5897999999999999
+    },
+    {
+      "t": 110.6745,
+      "szene": "22b_stapel",
+      "art": "stapel",
+      "stem": "motion",
+      "design": "flutter",
+      "gain": 0.6402
+    },
+    {
+      "t": 111.2945,
+      "szene": "22b_stapel",
+      "art": "stapel",
+      "stem": "motion",
+      "design": "flutter",
+      "gain": 0.6906
+    },
+    {
+      "t": 112.3738,
+      "szene": "22b_stapel",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 115.3559,
+      "szene": "22c_keine",
+      "art": "raster",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.5198
+    },
+    {
+      "t": 115.5507,
+      "szene": "22c_keine",
+      "art": "strich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.72
+    },
+    {
+      "t": 115.9651,
+      "szene": "22c_keine",
+      "art": "zeile",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.42100000000000004
+    },
+    {
+      "t": 117.2027,
+      "szene": "22c_keine",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 121.7746,
+      "szene": "25_seht",
+      "art": "marker",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.636
+    },
+    {
+      "t": 122.5373,
+      "szene": "25_seht",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    },
+    {
+      "t": 123.8085,
+      "szene": "25_seht",
+      "art": "kritzel",
+      "stem": "ui",
+      "design": "click",
+      "gain": 0.402
+    },
+    {
+      "t": 125.0846,
+      "szene": "26_also",
+      "art": "schnitt",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.65
+    },
+    {
+      "t": 127.1176,
+      "szene": "26_also",
+      "art": "unterstrich",
+      "stem": "motion",
+      "design": "marker",
+      "gain": 0.51
+    },
+    {
+      "t": 134.7456,
+      "szene": "27_ende",
+      "art": "bgwechsel",
+      "stem": "impacts",
+      "design": "impact",
+      "gain": 0.875
+    }
+  ]
+}

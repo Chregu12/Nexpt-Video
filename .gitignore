@@ -1,4 +1,5 @@
 # ProRes-Master: 267 MB, wird lokal mit `python3 render/render.py` neu erzeugt
+__pycache__/
 out/scenes/
 out/_frames/
 out/_vo/
@@ -17,6 +18,17 @@ out/*.zip
 # Arbeitsergebnis und nicht der Track.
 out/_musik/
 out/music.wav
+
+# Reproduzierbare Original-Audio-Renderings. Die Generatoren und kleinen
+# JSON-Manifeste gehoeren ins Repo, die grossen WAV/MP4-Ausgaben nicht.
+out/music-original.wav
+out/sfx-original.wav
+out/sfx-impacts.wav
+out/sfx-motion.wav
+out/sfx-ui.wav
+out/audio-rework-preview.wav
+out/audio-rework-preview.m4a
+out/NEXPT-AUDIO-REWORK-PREVIEW.mp4
 
 # Sicherungskopie von takt.py — der Stand davor steht ohnehin in der Historie
 render/timing.json.vor-takt
