@@ -1,0 +1,37 @@
+{
+  "name": "select-track-smoke",
+  "steps": [
+    {
+      "action": "select_track",
+      "args": {
+        "index": 2,
+        "fast": true
+      }
+    },
+    {
+      "action": "smart_controls",
+      "args": {
+        "max_depth": 4
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/select-track-bass.png"
+      }
+    },
+    {
+      "action": "select_track",
+      "args": {
+        "index": 1,
+        "fast": true
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/select-track-restored.png"
+      }
+    }
+  ]
+}

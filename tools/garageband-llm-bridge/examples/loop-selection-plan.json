@@ -1,0 +1,24 @@
+{
+  "name": "loop-selection-smoke",
+  "steps": [
+    {
+      "action": "loop_search",
+      "args": {
+        "query": "Drums"
+      }
+    },
+    {
+      "action": "loop_select",
+      "args": {
+        "query": "Drums",
+        "index": 1
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/loop-selection-smoke.png"
+      }
+    }
+  ]
+}

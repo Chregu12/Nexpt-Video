@@ -1,0 +1,34 @@
+{
+  "name": "online-tab-url-to-audio",
+  "note": "Start a local server first from examples/online-tab-proof, for example: python3 -m http.server 8765 --bind 127.0.0.1",
+  "steps": [
+    {
+      "action": "make_from_tab",
+      "args": {
+        "url": "http://127.0.0.1:8765/clear-online-tab.png",
+        "output_dir": "./examples/online-tab-proof/live-url-export",
+        "name": "online-tab-url-live",
+        "bpm": 118,
+        "arrange": true,
+        "style": "rock",
+        "repeat_count": 2,
+        "discard_unsaved": true,
+        "export_output": "./examples/online-tab-proof/live-url-export/online-tab-url-live.wav",
+        "export_format": "WAVE",
+        "export_overwrite": true
+      }
+    },
+    {
+      "action": "audio_info",
+      "args": {
+        "path": "./examples/online-tab-proof/live-url-export/online-tab-url-live.wav"
+      }
+    },
+    {
+      "action": "audio_info",
+      "args": {
+        "path": "./examples/online-tab-proof/live-url-export/online-tab-url-live-verified-return.wav"
+      }
+    }
+  ]
+}

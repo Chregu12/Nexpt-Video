@@ -1,0 +1,26 @@
+{
+  "name": "menu-discovery-plan",
+  "stop_on_error": true,
+  "steps": [
+    {
+      "action": "menu_search",
+      "args": {
+        "query": "export",
+        "enabled_only": true,
+        "top_menu": "Share",
+        "max_depth": 5,
+        "limit": 20
+      }
+    },
+    {
+      "action": "menu_search",
+      "args": {
+        "query": "loop",
+        "enabled_only": true,
+        "top_menu": "View",
+        "max_depth": 5,
+        "limit": 20
+      }
+    }
+  ]
+}

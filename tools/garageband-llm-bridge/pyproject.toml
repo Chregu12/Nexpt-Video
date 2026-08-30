@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "garageband-llm-bridge"
+version = "0.1.0"
+description = "Local CLI and zero-dependency MCP server that lets an LLM drive the installed GarageBand app on macOS."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["garageband", "macos", "mcp", "llm", "midi", "automation", "accessibility"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Sound/Audio :: MIDI",
+]
+# Runtime intentionally has no third-party dependencies. The bridge shells out
+# to macOS tools (osascript, sips, screencapture, swift) that ship with macOS.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+garageband-bridge = "garageband_bridge.core:run_cli"
+garageband-bridge-mcp = "garageband_mcp:main"
+
+[tool.setuptools]
+packages = ["garageband_bridge"]
+py-modules = ["garageband_mcp", "garageband_cli"]
+
+[tool.setuptools.package-data]
+# The Swift helpers are loaded at runtime via Path(__file__).with_name(...),
+# so they must travel with the package.
+garageband_bridge = ["*.swift"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

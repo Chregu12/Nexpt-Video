@@ -1,0 +1,36 @@
+{
+  "name": "ui-details-discovery-smoke",
+  "cache_ui": true,
+  "steps": [
+    {
+      "action": "ui_search_details",
+      "args": {
+        "query": "Tempo",
+        "role": "AXSlider",
+        "enabled_only": true,
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "ui_search_details",
+      "args": {
+        "query": "Master Volume",
+        "role": "AXSlider",
+        "enabled_only": true,
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "ui_search_details",
+      "args": {
+        "query": "Key Signature",
+        "role": "AXPopUpButton",
+        "enabled_only": true,
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "project_setting_options"
+    }
+  ]
+}

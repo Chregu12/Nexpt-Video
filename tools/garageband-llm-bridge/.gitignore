@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# macOS
+.DS_Store
+
+# Generated bridge artifacts (regenerable proof / output, not source)
+self-test-latest/
+self-test-mcp-latest/
+recipe-demo/
+recipe-demo-*/
+recipe-mcp-demo/
+exports/
+song-from-image/
+*.wav
+*.mp3
+*.aif
+*.aiff
+
+# Loose screenshots and generated MIDI at the repo root.
+# Curated fixtures live under examples/ and are committed deliberately.
+/*.png
+/*.mid

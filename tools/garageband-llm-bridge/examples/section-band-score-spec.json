@@ -1,0 +1,88 @@
+{
+  "title": "Section Band Score",
+  "bpm": 124,
+  "key_signature": "E minor",
+  "tempo_changes": [
+    {"beat": 0, "bpm": 96},
+    {"beat": 4, "bpm": 124},
+    {"beat": 12, "bpm": 132}
+  ],
+  "time_signature": "4/4",
+  "time_signature_changes": [
+    {"beat": 0, "time_signature": "4/4"},
+    {"beat": 12, "time_signature": "6/8"}
+  ],
+  "parts": [
+    {
+      "name": "Electric Guitar",
+      "instrument": "electric guitar",
+      "mix": {"volume": "78%", "pan": -0.25, "reverb": "18%"},
+      "sections": [
+        {
+          "name": "Intro",
+          "dynamic": "mp",
+          "articulation": "staccato",
+          "notes": ["E4:1", "G4:1", "[E4,G4,B4]:2"]
+        },
+        {
+          "name": "Verse",
+          "repeat": 2,
+          "dynamic": "mf",
+          "notes": ["E4:1", "G4:1", "B4:1", "G4:1"]
+        },
+        {
+          "name": "Chorus",
+          "dynamic": "f",
+          "articulation": "accent",
+          "notes": ["[E4,G4,B4]:2", "[A4,C5,E5]:2"]
+        }
+      ]
+    },
+    {
+      "name": "Electric Bass",
+      "instrument": "electric bass",
+      "mix": {"volume": "72%", "pan": "center"},
+      "sections": [
+        {
+          "name": "Intro",
+          "dynamic": "mp",
+          "notes": ["E2:2", "B1:2"]
+        },
+        {
+          "name": "Verse",
+          "repeat": 2,
+          "dynamic": "mf",
+          "notes": ["E2:1", "E2:1", "B1:1", "B1:1"]
+        },
+        {
+          "name": "Chorus",
+          "dynamic": "f",
+          "notes": ["E2:2", "A2:2"]
+        }
+      ]
+    },
+    {
+      "name": "Drum Kit",
+      "is_percussion": true,
+      "mix": {"volume": "86%", "pan": "center", "reverb": "12%"},
+      "sections": [
+        {
+          "name": "Intro",
+          "dynamic": "mp",
+          "notes": ["kick:1", "closed_hat:1", "snare:1", "closed_hat:1"]
+        },
+        {
+          "name": "Verse",
+          "repeat": 2,
+          "dynamic": "mf",
+          "notes": ["kick:1", "snare:1", "kick:1", "snare:1"]
+        },
+        {
+          "name": "Chorus",
+          "dynamic": "f",
+          "notes": ["kick:0.5", "closed_hat:0.5", "snare:1", "kick:1", "crash:1"]
+        }
+      ]
+    }
+  ]
+}

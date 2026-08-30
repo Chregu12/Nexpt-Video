@@ -41,10 +41,12 @@ Mac mit GarageBand. Alles davor ist reines Python und läuft überall; geprüft.
 ## Benutzen
 
 ```bash
-git submodule update --init                    # Bridge holen
 python3 garageband/compose.py --bericht         # Takttabelle ansehen
 python3 garageband/compose.py --midi            # Partitur + MIDI schreiben
 ```
+
+Die Bridge liegt kopiert unter `tools/garageband-llm-bridge/` — nichts zu holen, nichts
+zu initialisieren.
 
 Auf dem Mac dann:
 
@@ -91,25 +93,25 @@ Gruppe kommt aus der Messung. Andersherum — die gemessene Stärke absolut übe
 setzt jede Gruppe ihren eigenen Pegel, und die Bassdrum landet 43 Punkte unter der
 Snare, obwohl sie in der Vorlage 78 % der Energie trägt. Das war der erste Versuch.
 
-## Das Submodul zeigt noch auf Upstream
+## Die Bridge liegt kopiert im Repo
 
-`tools/garageband-llm-bridge` hängt an `extao15/garageband-llm-bridge`, gepinnt auf
-`f3d12e8` (MIT-Lizenz, geprüft). Ein eigener Fork wäre besser — dann hängt das
-Projekt nicht an einem fremden Repository, das sich unter uns ändern kann.
+`tools/garageband-llm-bridge/` ist eine wortgetreue Kopie von
+[`extao15/garageband-llm-bridge`][bridge], Stand `f3d12e8`, MIT-Lizenz. Beim Kopieren
+wurde jede Datei per SHA-256 gegen den Upstream-Klon geprüft: 103 Dateien, keine fehlt,
+keine weicht ab. Die 129 mitgelieferten Tests laufen hier durch.
 
-Der Fork liess sich von hier aus nicht anlegen: diese Sitzung ist auf `chregu12/*`
-beschränkt, Cross-Owner-Forks sind nicht möglich. Auf dem Mac sind es zwei Befehle:
+Zuerst hing der Ordner als Git-Submodul am Upstream. Das wäre der sauberere Weg,
+setzt aber einen eigenen Fork voraus — und der liess sich aus der Arbeitsumgebung
+nicht anlegen. Ein Submodul auf ein fremdes Repository zeigen zu lassen ist die
+schlechtere von beiden Varianten; jetzt liegen die Dateien direkt hier, und niemand
+kann vergessen, sie zu initialisieren.
 
-```bash
-gh repo fork extao15/garageband-llm-bridge --clone=false --remote=false
+Herkunft, Lizenzpflichten und der Weg zu einem neueren Stand stehen in
+[`tools/garageband-llm-bridge/HERKUNFT.md`](../tools/garageband-llm-bridge/HERKUNFT.md).
 
-git -C Nexpt-Video submodule set-url tools/garageband-llm-bridge \
-    https://github.com/Chregu12/garageband-llm-bridge.git
-git -C Nexpt-Video add .gitmodules && git -C Nexpt-Video commit -m "Bridge auf eigenen Fork"
-```
-
-Der gepinnte Commit bleibt dabei derselbe — ein Fork von `f3d12e8` enthält genau
-diesen Stand.
+**In diesem Ordner wird nichts geändert.** Wer an der Bridge etwas anpasst, kann sie
+nicht mehr aktualisieren, ohne die Änderung von Hand nachzuziehen. NEXPT-spezifischer
+Code gehört hierher, nach `garageband/`.
 
 ## Was hier hineingehört
 
@@ -121,4 +123,4 @@ diesen Stand.
 | `presets/` | Kit- und Kanaleinstellungen, sobald welche stehen |
 
 Die Bridge selbst bleibt unverändert. Alles, was NEXPT-spezifisch ist, gehört
-hierher — nicht in das Submodul.
+hierher — nicht in die kopierte Bridge.

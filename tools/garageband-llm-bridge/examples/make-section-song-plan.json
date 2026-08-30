@@ -1,0 +1,20 @@
+{
+  "name": "make-section-song-from-json-score",
+  "steps": [
+    {
+      "action": "make_music",
+      "args": {
+        "score_json_file": "examples/section-band-score-spec.json",
+        "output_dir": "examples/make-section-song-output",
+        "name": "section-band-song",
+        "open_in_garageband": false
+      }
+    },
+    {
+      "action": "midi_info",
+      "args": {
+        "path": "examples/make-section-song-output/section-band-song.mid"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "annotated-click-map",
+  "steps": [
+    {
+      "action": "status"
+    },
+    {
+      "action": "ui_controls",
+      "args": {
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "annotated_screenshot",
+      "args": {
+        "output_path": "examples/annotated-click-map.png",
+        "map_output_path": "examples/annotated-click-map.json",
+        "max_depth": 3,
+        "grid_step": 100
+      }
+    }
+  ]
+}

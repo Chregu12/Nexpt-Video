@@ -1,0 +1,23 @@
+{
+  "name": "score-spec-to-garageband-audio",
+  "steps": [
+    {
+      "action": "make_from_score_spec",
+      "args": {
+        "score_json_file": "./examples/tiny-band-score-spec.json",
+        "output_dir": "./examples/make-score-spec-live",
+        "name": "tiny-band-json-live",
+        "discard_unsaved": true,
+        "export_output": "./examples/make-score-spec-live/tiny-band-json-live.wav",
+        "export_format": "WAVE",
+        "export_overwrite": true
+      }
+    },
+    {
+      "action": "midi_info",
+      "args": {
+        "path": "./examples/make-score-spec-live/tiny-band-json-live.mid"
+      }
+    }
+  ]
+}

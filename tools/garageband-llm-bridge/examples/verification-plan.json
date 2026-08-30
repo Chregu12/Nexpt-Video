@@ -1,0 +1,24 @@
+{
+  "name": "verification-plan",
+  "stop_on_error": true,
+  "cache_ui": true,
+  "steps": [
+    {
+      "action": "midi_info",
+      "args": {
+        "path": "outputs/garageband-llm-bridge/examples/arranged-smoke-plan.mid"
+      }
+    },
+    {
+      "action": "wait_ui",
+      "args": {
+        "query": "Loop Browser",
+        "enabled_only": true,
+        "max_depth": 3,
+        "timeout_seconds": 8,
+        "interval_seconds": 0.5,
+        "limit": 5
+      }
+    }
+  ]
+}

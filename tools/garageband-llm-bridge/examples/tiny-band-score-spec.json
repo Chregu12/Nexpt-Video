@@ -1,0 +1,37 @@
+{
+  "title": "Tiny Band JSON Score",
+  "bpm": 132,
+  "time_signature": "4/4",
+  "parts": [
+    {
+      "name": "Electric Guitar",
+      "instrument": "electric guitar",
+      "dynamic": "mf",
+      "notes": [
+        {"pitch": "E4", "duration": 1},
+        {"pitch": "G4", "duration": 1},
+        {"pitches": ["E4", "G4", "B4"], "duration": 2, "dynamic": "f"}
+      ]
+    },
+    {
+      "name": "Electric Bass",
+      "instrument": "electric bass",
+      "dynamic": "mp",
+      "notes": [
+        {"pitch": "E2", "duration": 2},
+        {"pitch": "B1", "duration": 2}
+      ]
+    },
+    {
+      "name": "Drum Kit",
+      "is_percussion": true,
+      "dynamic": "f",
+      "notes": [
+        {"drum": "kick", "duration": 1},
+        {"drum": "snare", "duration": 1},
+        {"drum": "closed_hat", "duration": 0.5},
+        {"drum": "closed_hat", "duration": 0.5}
+      ]
+    }
+  ]
+}

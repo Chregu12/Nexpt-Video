@@ -1,0 +1,31 @@
+{
+  "name": "smart-controls-smoke",
+  "steps": [
+    {
+      "action": "smart_controls",
+      "args": {
+        "max_depth": 4
+      }
+    },
+    {
+      "action": "set_smart_control",
+      "args": {
+        "query": "EQ",
+        "action": "press",
+        "allow_first": true
+      }
+    },
+    {
+      "action": "smart_controls",
+      "args": {
+        "max_depth": 4
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/smart-controls-smoke.png"
+      }
+    }
+  ]
+}

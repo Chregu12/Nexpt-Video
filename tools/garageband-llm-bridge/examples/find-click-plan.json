@@ -1,0 +1,27 @@
+{
+  "name": "find-click-plan",
+  "stop_on_error": true,
+  "cache_ui": true,
+  "steps": [
+    {
+      "action": "ui_search_click",
+      "args": {
+        "query": "Stop",
+        "role": "AXButton",
+        "enabled_only": true,
+        "max_depth": 2
+      }
+    },
+    {
+      "action": "wait_ui",
+      "args": {
+        "query": "Stop",
+        "role": "AXButton",
+        "enabled_only": true,
+        "max_depth": 2,
+        "timeout_seconds": 8,
+        "limit": 5
+      }
+    }
+  ]
+}

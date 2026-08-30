@@ -1,0 +1,14 @@
+{
+  "name": "export-song-smoke",
+  "steps": [
+    {
+      "action": "export_song",
+      "args": {
+        "output": "examples/export-smoke.wav",
+        "format": "WAVE",
+        "overwrite": true,
+        "timeout": 180
+      }
+    }
+  ]
+}

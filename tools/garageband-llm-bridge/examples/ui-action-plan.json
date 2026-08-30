@@ -1,0 +1,32 @@
+{
+  "name": "ui-action-reversible-smoke",
+  "cache_ui": true,
+  "steps": [
+    {
+      "action": "project_settings"
+    },
+    {
+      "action": "ui_search_action",
+      "args": {
+        "query": "Tempo",
+        "action": "increment",
+        "role": "AXSlider",
+        "enabled_only": true,
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "ui_search_action",
+      "args": {
+        "query": "Tempo",
+        "action": "decrement",
+        "role": "AXSlider",
+        "enabled_only": true,
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "project_settings"
+    }
+  ]
+}

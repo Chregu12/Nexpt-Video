@@ -1,0 +1,36 @@
+{
+  "name": "online-tab-image-to-garageband",
+  "stop_on_error": true,
+  "steps": [
+    {
+      "action": "image_to_tab",
+      "args": {
+        "image_url": "https://example.com/tab-image.png",
+        "download_dir": "outputs/garageband-llm-bridge/examples/source-images"
+      }
+    },
+    {
+      "action": "make_from_tab",
+      "args": {
+        "image_url": "https://example.com/tab-image.png",
+        "output_dir": "outputs/garageband-llm-bridge/examples/song-from-online-tab",
+        "name": "song-from-online-tab",
+        "bpm": 118,
+        "arrange": true,
+        "include_bass": true,
+        "include_drums": true,
+        "open_in_garageband": true,
+        "show_library": true,
+        "show_smart_controls": true,
+        "screenshot_output": "outputs/garageband-llm-bridge/examples/song-from-online-tab/proof.png",
+        "discard_unsaved": false
+      }
+    },
+    {
+      "action": "ui_snapshot",
+      "args": {
+        "max_depth": 2
+      }
+    }
+  ]
+}

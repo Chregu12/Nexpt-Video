@@ -1,0 +1,33 @@
+{
+  "name": "loop-drag-template",
+  "steps": [
+    {
+      "action": "loop_search",
+      "args": {
+        "query": "Drums"
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/loop-drag-inspect-first.png"
+      }
+    },
+    {
+      "action": "loop_drag",
+      "args": {
+        "query": "Drums",
+        "index": 4,
+        "destination_x": 390,
+        "destination_y": 195,
+        "acknowledge_content_install_risk": true
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/loop-drag-after.png"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "garageband": {
+      "command": "python3",
+      "args": [
+        "/Users/xuanrutao/Documents/Codex/2026-06-13/find-or-perfect-or-build-an/outputs/garageband-llm-bridge/garageband_mcp.py"
+      ]
+    }
+  }
+}

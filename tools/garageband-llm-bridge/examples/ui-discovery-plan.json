@@ -1,0 +1,31 @@
+{
+  "name": "ui-discovery-plan",
+  "stop_on_error": true,
+  "cache_ui": true,
+  "steps": [
+    {
+      "action": "ui_controls",
+      "args": {
+        "max_depth": 3
+      }
+    },
+    {
+      "action": "ui_search",
+      "args": {
+        "query": "Smart Controls",
+        "enabled_only": true,
+        "max_depth": 3,
+        "limit": 10
+      }
+    },
+    {
+      "action": "ui_search",
+      "args": {
+        "query": "Loop Browser",
+        "enabled_only": true,
+        "max_depth": 3,
+        "limit": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "library-selection-smoke",
+  "steps": [
+    {
+      "action": "library_search",
+      "args": {
+        "query": "Guitar",
+        "limit": 20
+      }
+    },
+    {
+      "action": "library_select",
+      "args": {
+        "query": "Guitar",
+        "name": "Guitar",
+        "allow_first": false
+      }
+    },
+    {
+      "action": "screenshot",
+      "args": {
+        "output_path": "examples/library-selection-smoke.png"
+      }
+    }
+  ]
+}

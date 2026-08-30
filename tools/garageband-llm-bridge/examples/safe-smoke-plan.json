@@ -1,0 +1,24 @@
+{
+  "name": "safe-smoke-plan",
+  "stop_on_error": true,
+  "steps": [
+    {
+      "action": "status"
+    },
+    {
+      "action": "capabilities",
+      "args": {
+        "include_live": false
+      }
+    },
+    {
+      "action": "tab_to_midi",
+      "args": {
+        "tab_text": "e|--0--2--3--|\nB|--1--3--0--|\nG|--0--2--0--|\nD|--2--0--0--|\nA|--3-----2--|\nE|--------3--|",
+        "output_path": "outputs/garageband-llm-bridge/examples/safe-smoke-plan.mid",
+        "bpm": 112,
+        "open_in_garageband": false
+      }
+    }
+  ]
+}

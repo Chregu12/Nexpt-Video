@@ -1,0 +1,442 @@
+{
+  "screenshot_path": "/Users/xuanrutao/Documents/Codex/2026-06-13/find-or-perfect-or-build-an/outputs/garageband-llm-bridge/examples/mcp-annotated-click-map.png",
+  "window_rect": {
+    "x": 0,
+    "y": 33,
+    "width": 1512,
+    "height": 949
+  },
+  "image_size": {
+    "width": 3024,
+    "height": 1898
+  },
+  "scale": {
+    "x": 2.0,
+    "y": 2.0
+  },
+  "max_depth": 2,
+  "include_disabled": false,
+  "grid_step": 100,
+  "target_count": 19,
+  "targets": [
+    {
+      "id": 1,
+      "path": "window[1]/1",
+      "role": "AXButton",
+      "name": "",
+      "description": "close button",
+      "enabled": true,
+      "window_box": {
+        "x": 8,
+        "y": 7,
+        "width": 12,
+        "height": 14
+      },
+      "window_center": {
+        "x": 14.0,
+        "y": 14.0
+      },
+      "screen_center": {
+        "x": 14.0,
+        "y": 47.0
+      }
+    },
+    {
+      "id": 2,
+      "path": "window[1]/2",
+      "role": "AXButton",
+      "name": "",
+      "description": "full screen button",
+      "enabled": true,
+      "window_box": {
+        "x": 48,
+        "y": 7,
+        "width": 12,
+        "height": 14
+      },
+      "window_center": {
+        "x": 54.0,
+        "y": 14.0
+      },
+      "screen_center": {
+        "x": 54.0,
+        "y": 47.0
+      }
+    },
+    {
+      "id": 3,
+      "path": "window[1]/3",
+      "role": "AXButton",
+      "name": "",
+      "description": "minimize button",
+      "enabled": true,
+      "window_box": {
+        "x": 28,
+        "y": 7,
+        "width": 12,
+        "height": 14
+      },
+      "window_center": {
+        "x": 34.0,
+        "y": 14.0
+      },
+      "screen_center": {
+        "x": 34.0,
+        "y": 47.0
+      }
+    },
+    {
+      "id": 4,
+      "path": "window[1]/6/2",
+      "role": "AXCheckBox",
+      "name": "Cycle",
+      "description": "checkbox",
+      "enabled": true,
+      "window_box": {
+        "x": 574,
+        "y": 37,
+        "width": 38,
+        "height": 30
+      },
+      "window_center": {
+        "x": 593.0,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 593.0,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 5,
+      "path": "window[1]/6/3",
+      "role": "AXCheckBox",
+      "name": "Record",
+      "description": "checkbox",
+      "enabled": true,
+      "window_box": {
+        "x": 537,
+        "y": 37,
+        "width": 37,
+        "height": 30
+      },
+      "window_center": {
+        "x": 555.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 555.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 6,
+      "path": "window[1]/6/4",
+      "role": "AXCheckBox",
+      "name": "Play",
+      "description": "checkbox",
+      "enabled": true,
+      "window_box": {
+        "x": 500,
+        "y": 37,
+        "width": 37,
+        "height": 30
+      },
+      "window_center": {
+        "x": 518.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 518.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 7,
+      "path": "window[1]/6/5",
+      "role": "AXButton",
+      "name": "Stop",
+      "description": "button",
+      "enabled": true,
+      "window_box": {
+        "x": 463,
+        "y": 37,
+        "width": 37,
+        "height": 30
+      },
+      "window_center": {
+        "x": 481.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 481.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 8,
+      "path": "window[1]/6/6",
+      "role": "AXButton",
+      "name": "Forward",
+      "description": "button",
+      "enabled": true,
+      "window_box": {
+        "x": 426,
+        "y": 37,
+        "width": 37,
+        "height": 30
+      },
+      "window_center": {
+        "x": 444.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 444.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 9,
+      "path": "window[1]/6/7",
+      "role": "AXButton",
+      "name": "Rewind",
+      "description": "button",
+      "enabled": true,
+      "window_box": {
+        "x": 389,
+        "y": 37,
+        "width": 37,
+        "height": 30
+      },
+      "window_center": {
+        "x": 407.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 407.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 10,
+      "path": "window[1]/6/9",
+      "role": "AXCheckBox",
+      "name": "Count In",
+      "description": "checkbox",
+      "enabled": true,
+      "window_box": {
+        "x": 958,
+        "y": 37,
+        "width": 33,
+        "height": 30
+      },
+      "window_center": {
+        "x": 974.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 974.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 11,
+      "path": "window[1]/6/10",
+      "role": "AXCheckBox",
+      "name": "Metronome Click",
+      "description": "checkbox",
+      "enabled": true,
+      "window_box": {
+        "x": 991,
+        "y": 37,
+        "width": 34,
+        "height": 30
+      },
+      "window_center": {
+        "x": 1008.0,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 1008.0,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 12,
+      "path": "window[1]/6/11",
+      "role": "AXCheckBox",
+      "name": "Library",
+      "description": "Library",
+      "enabled": true,
+      "window_box": {
+        "x": 12,
+        "y": 37,
+        "width": 34,
+        "height": 30
+      },
+      "window_center": {
+        "x": 29.0,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 29.0,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 13,
+      "path": "window[1]/6/12",
+      "role": "AXCheckBox",
+      "name": "Quick Help",
+      "description": "Quick Help",
+      "enabled": true,
+      "window_box": {
+        "x": 70,
+        "y": 37,
+        "width": 34,
+        "height": 30
+      },
+      "window_center": {
+        "x": 87.0,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 87.0,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 14,
+      "path": "window[1]/6/13",
+      "role": "AXCheckBox",
+      "name": "Smart Controls",
+      "description": "Smart Controls",
+      "enabled": true,
+      "window_box": {
+        "x": 128,
+        "y": 37,
+        "width": 33,
+        "height": 30
+      },
+      "window_center": {
+        "x": 144.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 144.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 15,
+      "path": "window[1]/6/14",
+      "role": "AXCheckBox",
+      "name": "Editors",
+      "description": "Editors",
+      "enabled": true,
+      "window_box": {
+        "x": 161,
+        "y": 37,
+        "width": 34,
+        "height": 30
+      },
+      "window_center": {
+        "x": 178.0,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 178.0,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 16,
+      "path": "window[1]/6/15",
+      "role": "AXCheckBox",
+      "name": "Note Pad",
+      "description": "Note Pad",
+      "enabled": true,
+      "window_box": {
+        "x": 1433,
+        "y": 37,
+        "width": 33,
+        "height": 30
+      },
+      "window_center": {
+        "x": 1449.5,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 1449.5,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 17,
+      "path": "window[1]/6/16",
+      "role": "AXCheckBox",
+      "name": "Loop Browser",
+      "description": "Loop Browser",
+      "enabled": true,
+      "window_box": {
+        "x": 1466,
+        "y": 37,
+        "width": 34,
+        "height": 30
+      },
+      "window_center": {
+        "x": 1483.0,
+        "y": 52.0
+      },
+      "screen_center": {
+        "x": 1483.0,
+        "y": 85.0
+      }
+    },
+    {
+      "id": 18,
+      "path": "window[1]/6/17",
+      "role": "AXSlider",
+      "name": "",
+      "description": "Master Volume",
+      "enabled": true,
+      "window_box": {
+        "x": 1158,
+        "y": 44,
+        "width": 142,
+        "height": 21
+      },
+      "window_center": {
+        "x": 1229.0,
+        "y": 54.5
+      },
+      "screen_center": {
+        "x": 1229.0,
+        "y": 87.5
+      }
+    },
+    {
+      "id": 19,
+      "path": "window[1]/7/2",
+      "role": "AXSlider",
+      "name": "",
+      "description": "zoom slider",
+      "enabled": true,
+      "window_box": {
+        "x": 983,
+        "y": 92,
+        "width": 63,
+        "height": 25
+      },
+      "window_center": {
+        "x": 1014.5,
+        "y": 104.5
+      },
+      "screen_center": {
+        "x": 1014.5,
+        "y": 137.5
+      }
+    }
+  ],
+  "usage": "Use window_center with garageband_window_click, or path with garageband_click_ui_path."
+}

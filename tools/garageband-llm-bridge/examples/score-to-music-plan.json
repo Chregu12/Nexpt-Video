@@ -1,0 +1,18 @@
+{
+  "name": "score-to-music-smoke",
+  "steps": [
+    {
+      "action": "score_to_midi",
+      "args": {
+        "score_path": "./examples/tiny-band-score.musicxml",
+        "output_path": "./examples/tiny-band-score.mid"
+      }
+    },
+    {
+      "action": "midi_info",
+      "args": {
+        "path": "./examples/tiny-band-score.mid"
+      }
+    }
+  ]
+}

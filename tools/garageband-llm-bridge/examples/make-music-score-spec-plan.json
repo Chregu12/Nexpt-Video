@@ -1,0 +1,20 @@
+{
+  "name": "make-music-from-json-score",
+  "steps": [
+    {
+      "action": "make_music",
+      "args": {
+        "score_json_file": "examples/tiny-band-score-spec.json",
+        "output_dir": "examples/make-music-plan-output",
+        "name": "tiny-band-make-music",
+        "open_in_garageband": false
+      }
+    },
+    {
+      "action": "midi_info",
+      "args": {
+        "path": "examples/make-music-plan-output/tiny-band-make-music.mid"
+      }
+    }
+  ]
+}

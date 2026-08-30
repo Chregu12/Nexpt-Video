@@ -1,0 +1,20 @@
+{
+  "name": "project-settings-safe-smoke",
+  "cache_ui": true,
+  "steps": [
+    {
+      "action": "project_settings"
+    },
+    {
+      "action": "set_project_settings",
+      "args": {
+        "tempo": "128",
+        "key_signature": "C major",
+        "time_signature": "4/4"
+      }
+    },
+    {
+      "action": "project_settings"
+    }
+  ]
+}
