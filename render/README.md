@@ -70,6 +70,8 @@ Referenzdatei technisch nicht mehr lesen.
 python3 render/reference_pipeline.py referenz.m4a --bpm 118 --downbeat 0 \
   --sound-source samples --download-drums
 python3 render/reference_pipeline.py referenz.m4a --preview  # auto: VCSL oder Rueckfall
+python3 render/reference_pipeline.py referenz.m4a --bpm 118 --downbeat 0 \
+  --garageband --skip-local-music --skip-kit --skip-compare
 ```
 
 Der erste Befehl verwendet bekannte Tempodaten. Der zweite schaetzt Tempo und
@@ -78,6 +80,10 @@ profilbearbeiteten Kit echter CC0-Aufnahmen, vier Musikstems, dem Musikmaster,
 separaten SFX und einem Messreport. `--sound-source procedural` erzwingt die
 samplefreie Rueckfall-Engine. Details und alle Ausgaben stehen in
 `render/AUDIO-REWORK.md`.
+
+Der dritte Befehl schreibt aus demselben reinen Ereignisplan vier MIDI-Tracks
+fuer echte GarageBand-Kits. Der WAV-Export folgt auf dem Mac mit
+`python3 garageband/session.py render`; SFX bleiben davon getrennt.
 
 ## Ton: vier Stufen, alle aus `timing.json`
 
@@ -246,6 +252,7 @@ misst sich um den Faktor drei zu langsam.
 | `drumline.py` | Spielt die Partitur mit den echten Trommeln und dem menschlichen Timing → `out/drumline.wav`. |
 | `vcsl.py` | Holt eine Sparse-Auswahl echter Bassdrums, Snares, Toms, Handdrums, Holz-Percussion und Hi-Hats aus der Versilian Community Sample Library (CC0 1.0) → `out/_vcsl/`; mit Velocity-Layern und Round Robins. |
 | `reference_drums.py` | Baut daraus vier profilgesteuerte Musikrollen. Waehlt echte Aufnahmen je Anschlag, stimmt und kuerzt sie, formt Transienten und Frequenzbalance, ohne Referenz-Audio zu uebernehmen. |
+| `reference_arrangement.py` | Gemeinsamer, klangloser Ereignisplan fuer lokalen Hoertest und GarageBand: neue Motive, Microtiming, Dramaturgie und Platz fuer SFX. |
 | `music_reference.py` | Komponiert gelernte Vier-Takt-Motive fuer den Film und liefert getrennte `low`-, `body`-, `tonal`- und `detail`-Stems plus Master. |
 | `cuesheet.py` | 139 Hit Points → `out/analysis/cue_sheet.json`. Die Vorlage zum Komponieren. |
 | `sfx.py` | Sounddesign aus Cue Sheet und Palette: impact, whoosh, click, tick, riser. |

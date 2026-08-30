@@ -42,9 +42,11 @@ Der Lauf besteht aus fuenf voneinander pruefbaren Schritten:
    Schallquellen sind echte CC0-Aufnahmen; passende Velocity-Layer und Round
    Robins werden je Anschlag gewaehlt. Stimmung, Abklingzeit, Attack und breite
    Frequenzbalance folgen dem Profil, ohne Audio aus der Referenz zu kopieren.
-3. `music_reference.py` schreibt eine neue 68-Takt-Komposition. Neu erzeugte
-   Vier-Takt-Motive werden kontrolliert wiederholt und variiert. Die komplette
-   Ereignisfolge der Referenz wird nicht kopiert.
+3. `reference_arrangement.py` schreibt den reinen Ereignisplan fuer eine neue
+   68-Takt-Komposition. Neu erzeugte Vier-Takt-Motive werden kontrolliert
+   wiederholt und variiert. `music_reference.py` und der GarageBand-Exporter
+   verwenden exakt denselben Plan; die Ereignisfolge der Referenz wird nicht
+   kopiert.
 4. `reference_compare.py` misst das Ergebnis wieder und bewertet, wie gut
    Klangbalance, Breite, Dynamik, Rollendichte, Schrittmuster,
    Vier-Takt-Wiederholung und Tempo das Profil treffen. Der Score ist eine
@@ -73,6 +75,23 @@ Klangsprache mit vergleichbaren Eigenschaften, keine Audio- oder Pattern-Kopie.
 vorhanden, werden echte Drums verwendet, andernfalls die prozedurale
 Rueckfall-Engine. `--sound-source samples` verlangt die Drum-Bibliothek und
 bricht mit einer klaren Ladeanweisung ab, falls sie fehlt.
+
+### Alternative: GarageBand als Klangerzeuger
+
+Wer statt der lokalen CC0-Bibliothek die aufgenommenen Drum Kits von
+GarageBand verwenden will, erzeugt aus demselben Profil Score Spec und MIDI:
+
+```bash
+python3 render/reference_pipeline.py "/pfad/zur/referenz.m4a" \
+  --bpm 118 --downbeat 0 \
+  --garageband --skip-local-music --skip-kit --skip-compare
+```
+
+`garageband/compose.py` verteilt `low`, `body`, `tonal` und `detail` auf vier
+separat mischbare Tracks. `garageband/session.py` waehlt auf dem Mac echte
+Library-Patches und exportiert `out/music-garageband.wav`. SFX gehen nicht in
+diese Partitur ein und bleiben `out/sfx-original.wav`. Details und Mac-
+Berechtigungen stehen in `garageband/README.md`.
 
 ## Musik
 

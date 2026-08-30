@@ -47,8 +47,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--download-drums", action="store_true",
                         help="CC0-VCSL-Auswahl vor dem Rendern laden/aktualisieren")
     parser.add_argument("--skip-kit", action="store_true")
+    parser.add_argument("--skip-local-music", action="store_true",
+                        help="kein lokales WAV rendern; fuer den reinen GarageBand-Weg")
     parser.add_argument("--skip-compare", action="store_true")
     parser.add_argument("--skip-sfx", action="store_true")
+    parser.add_argument("--garageband", "--garageband-score", action="store_true",
+                        dest="garageband_score",
+                        help="zusaetzlich Score Spec und MIDI fuer echte GarageBand-Kits")
+    parser.add_argument("--garageband-output", type=Path,
+                        default=REPO/"garageband"/"scores"/"nexpt-work-68.json")
     parser.add_argument("--preview", action="store_true")
     return parser.parse_args()
 
@@ -69,9 +76,21 @@ def main() -> None:
     run(analyzer)
 
     run([python, str(ROOT/"cuesheet.py")])
+    if args.garageband_score:
+        garageband = [
+            python, str(REPO/"garageband"/"compose.py"),
+            "--profile", str(args.profile),
+            "--output", str(args.garageband_output),
+            "--midi", str(args.garageband_output.with_suffix(".mid")),
+        ]
+        if args.target_bpm is not None:
+            garageband += ["--target-bpm", str(args.target_bpm)]
+        if args.seed is not None:
+            garageband += ["--seed", str(args.seed)]
+        run(garageband)
     if args.download_drums:
         run([python, str(ROOT/"vcsl.py")])
-    if not args.skip_kit:
+    if not args.skip_local_music and not args.skip_kit:
         synth = [python, str(ROOT/"reference_synth.py"),
                  "--profile", str(args.profile), "--output", str(args.kit_output),
                  "--sound-source", args.sound_source,
@@ -80,17 +99,18 @@ def main() -> None:
             synth += ["--seed", str(args.seed)]
         run(synth)
 
-    music = [python, str(ROOT/"music_reference.py"),
-             "--profile", str(args.profile), "--output", str(args.music_output),
-             "--sound-source", args.sound_source,
-             "--drum-library", str(args.drum_library)]
-    if args.target_bpm is not None:
-        music += ["--target-bpm", str(args.target_bpm)]
-    if args.seed is not None:
-        music += ["--seed", str(args.seed)]
-    run(music)
+    if not args.skip_local_music:
+        music = [python, str(ROOT/"music_reference.py"),
+                 "--profile", str(args.profile), "--output", str(args.music_output),
+                 "--sound-source", args.sound_source,
+                 "--drum-library", str(args.drum_library)]
+        if args.target_bpm is not None:
+            music += ["--target-bpm", str(args.target_bpm)]
+        if args.seed is not None:
+            music += ["--seed", str(args.seed)]
+        run(music)
 
-    if not args.skip_compare:
+    if not args.skip_compare and not args.skip_local_music:
         compare = [python, str(ROOT/"reference_compare.py"), str(args.music_output),
                    "--profile", str(args.profile)]
         if args.target_bpm is not None:
@@ -100,6 +120,8 @@ def main() -> None:
     if not args.skip_sfx:
         run([python, str(ROOT/"sfx_original.py")])
 
+    if args.preview and args.skip_local_music:
+        raise SystemExit("--preview braucht ein lokales Rendering; --skip-local-music entfernen")
     if args.preview:
         env = os.environ.copy()
         env.update({
@@ -112,8 +134,12 @@ def main() -> None:
 
     print("\nFertig:")
     print(f"  Profil: {args.profile}")
-    print(f"  Musik:  {args.music_output}")
-    if not args.skip_compare:
+    if not args.skip_local_music:
+        print(f"  Musik:  {args.music_output}")
+    if args.garageband_score:
+        print(f"  GarageBand Score: {args.garageband_output}")
+        print(f"  GarageBand MIDI:  {args.garageband_output.with_suffix('.mid')}")
+    if not args.skip_compare and not args.skip_local_music:
         print(f"  Messung: {OUT/'analysis'/'reference-match.json'}")
     if not args.skip_sfx:
         print(f"  SFX:    {OUT/'sfx-original.wav'}")

@@ -39,6 +39,7 @@ zur fertigen Tonmischung.
 | **out/ton-final.wav** | Die fertige Mischung. Daneben `ton-final-ohne-stimme.wav` und `ton-ohne-effekte.wav`. |
 | **out/sfx.wav** · **out/scratch-vo.wav** | Die Einzelspuren. Die Musikspur liegt nicht im Repo, siehe unten. |
 | `out/drums.wav` | Die optionale eigene Percussion. Standardmässig **nicht** in der Mischung — sie auf einen Schlagzeugtrack zu legen ergibt Matsch. Mit `sh render/mischen.sh --drums`. |
+| `out/music-garageband.wav` · `out/sfx-original.wav` | Neue Musik aus echten GarageBand-Kits und die weiterhin getrennte Effektspur. Der GarageBand-Export entsteht auf dem Mac. |
 | `out/scratch-vo-xtts.wav` · `out/probe-qwen3-tts.wav` | Stimm-Muster aus zwei anderen Verfahren, zum Vergleichen. XTTS ist **nicht kommerziell nutzbar**, Qwen3-TTS schon — Details in [render/README.md](./render/README.md). |
 
 ### Nicht im Repo
@@ -120,6 +121,23 @@ Vier-Takt-Rhythmusgrammatik und eine auf das NEXPT-Cue-Sheet zugeschnittene
 68-Takt-Komposition. Velocity-Layer und Round Robins wechseln die reale
 Aufnahme je Anschlag. Musik (`low`, `body`, `tonal`, `detail`) und SFX bleiben
 getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
+
+**Dieselbe gelernte Komposition mit echten GarageBand-Kits vorbereiten:**
+
+```bash
+python3 render/reference_pipeline.py "/pfad/referenz.m4a" \
+  --bpm 118 --downbeat 0 \
+  --garageband --skip-local-music --skip-kit --skip-compare
+
+python3 garageband/session.py doctor
+python3 garageband/session.py render --dry-run
+```
+
+Die Analyse und MIDI-Erzeugung laufen überall; Kit-Auswahl und WAV-Export nur
+auf einem Mac mit GarageBand. `garageband/session.py render` schreibt die Musik
+nach `out/music-garageband.wav`. Die SFX bleiben separat in
+`out/sfx-original.wav`. Der komplette Ablauf, inklusive Auswahl installierter
+Kits, steht in [garageband/README.md](./garageband/README.md).
 
 **Varianten des Tons:**
 

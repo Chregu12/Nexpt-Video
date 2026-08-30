@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "name": "NEXPT Recorded Kit",
+  "description": "A cohesive recorded GarageBand kit on four independently mixable role tracks.",
+  "tracks": [
+    {
+      "part": "NEXPT Low",
+      "fallback_index": 1,
+      "patch": {
+        "query": "SoCal",
+        "preferred": ["SoCal"],
+        "allow_first": false
+      },
+      "volume": "0.82",
+      "pan": "0"
+    },
+    {
+      "part": "NEXPT Body",
+      "fallback_index": 2,
+      "patch": {
+        "query": "SoCal",
+        "preferred": ["SoCal"],
+        "allow_first": false
+      },
+      "volume": "0.76",
+      "pan": "-0.06"
+    },
+    {
+      "part": "NEXPT Tonal",
+      "fallback_index": 3,
+      "patch": {
+        "query": "SoCal",
+        "preferred": ["SoCal"],
+        "allow_first": false
+      },
+      "volume": "0.72",
+      "pan": "0.06"
+    },
+    {
+      "part": "NEXPT Detail",
+      "fallback_index": 4,
+      "patch": {
+        "query": "SoCal",
+        "preferred": ["SoCal"],
+        "allow_first": false
+      },
+      "volume": "0.64",
+      "pan": "0.12"
+    }
+  ],
+  "export": {
+    "format": "WAVE",
+    "timeout_seconds": 240
+  }
+}

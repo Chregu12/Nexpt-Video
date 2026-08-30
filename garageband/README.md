@@ -1,126 +1,195 @@
-# GarageBand-Weg
+# Reference audio to real GarageBand drums
 
-Partitur bei uns, Klang aus echten Drum Kits.
+The code can now analyze an MP3/M4A, learn its rhythmic language and create a
+new four-track performance for recorded GarageBand kits. Music and sound
+effects remain separate from analysis through final export.
 
-## Warum
+It does **not** recover the original samples, MIDI or stems from a finished
+stereo file. That is mathematically underdetermined. It measures tempo,
+sixteenth-note probabilities, four-bar behavior, dynamics, microtiming,
+frequency families and arrangement energy, then writes a new performance
+that follows those principles without embedding source audio.
 
-Dreimal wurde in diesem Projekt Perkussion selbst erzeugt, dreimal klang sie nach
-Roboter — Sinus plus gefiltertes Rauschen *ist* ein Roboter, egal wie gut die Noten
-sitzen. Die Grenze lag nie bei der Komposition, sondern beim Klangerzeuger.
+## The actual pipeline
 
-GarageBand hat echte, aufgenommene Drum Kits. [`garageband-llm-bridge`][bridge] kann
-GarageBand fernsteuern. Damit verschiebt sich die Aufgabe dorthin, wo wir tatsächlich
-etwas können: **was** gespielt wird, mit welcher Anschlagstärke, und wie weit neben
-dem Raster.
+```text
+Reference MP3/M4A
+        |
+        v
+render/reference_analyzer.py
+        |
+        +-- out/analysis/reference-profile.json
+        |      descriptors only; no copied samples
+        v
+render/reference_arrangement.py
+        |      one shared, deterministic event plan
+        +-----------------------------+
+        |                             |
+        v                             v
+local listening preview          garageband/compose.py
+(CC0 samples/procedural)              |
+                                      +-- Score Spec JSON
+                                      +-- four-track MIDI
+                                             |
+                                             v
+                                  garageband/session.py (macOS)
+                                             |
+                              recorded kit patches + mix + WAV
 
-[bridge]: https://github.com/extao15/garageband-llm-bridge
-
-## Die Kette — und wo sie läuft
-
+Sound effects: render/sfx_original.py -> out/sfx-original.wav
+Music:        GarageBand             -> out/music-garageband.wav
 ```
-render/timing.json  ·  render/bogen.py  ·  out/analysis/groove.json
-        │
-        │  garageband/compose.py                          überall
-        ▼
-garageband/scores/nexpt-work-68.json      Score Spec v1
-        │
-        │  tools/garageband-llm-bridge     score-spec-to-midi    überall
-        ▼
-garageband/scores/nexpt-work-68.mid
-        │
-        │  tools/garageband-llm-bridge     make-from-score-spec   NUR macOS
-        ▼
-GarageBand  →  echtes Drum Kit  →  WAV
-```
 
-**Die Trennlinie ist echt, nicht theoretisch.** Die Bridge steuert die installierte
-GarageBand-App über AppleScript und die macOS-Bedienungshilfen. Unter Linux gibt es
-nichts, was sie fernsteuern könnte — die letzten drei Schritte laufen nur auf einem
-Mac mit GarageBand. Alles davor ist reines Python und läuft überall; geprüft.
+`reference_arrangement.py` is the important seam: the local preview and the
+GarageBand export consume the exact same newly generated events. A preview can
+no longer sound rhythmically different merely because it used another output
+engine.
 
-## Benutzen
+## 1. Analyze and prepare the GarageBand score
+
+From the repository root, on Linux or macOS:
 
 ```bash
-python3 garageband/compose.py --bericht         # Takttabelle ansehen
-python3 garageband/compose.py --midi            # Partitur + MIDI schreiben
+python3 render/reference_pipeline.py "/path/to/reference.m4a" \
+  --bpm 118 --downbeat 0 \
+  --garageband --skip-local-music --skip-kit --skip-compare
 ```
 
-Die Bridge liegt kopiert unter `tools/garageband-llm-bridge/` — nichts zu holen, nichts
-zu initialisieren.
+This writes:
 
-Auf dem Mac dann:
-
-```bash
-python3 tools/garageband-llm-bridge/garageband_cli.py --pretty \
-  make-from-score-spec \
-  --file garageband/scores/nexpt-work-68.json \
-  --output-dir garageband/arrangements/keynote-68 \
-  --export-output garageband/arrangements/keynote-68/drums.wav \
-  --export-format WAVE --export-overwrite
-```
-
-Das Ergebnis kommt als `out/drumline.wav` zurück ins Projekt und wird mit
-`sh render/mischen.sh --drumline` gemischt.
-
-## Woraus die Partitur entsteht
-
-Alles gemessen, nichts geraten:
-
-| Quelle | was daraus kommt |
+| File | Purpose |
 |---|---|
-| `render/timing.json` | 68 Takte bei 118.00 BPM, die Szenengrenzen |
-| `render/bogen.py` → `BOGEN` | 25 Abschnitte mit Energie 0…1, jede Grenze an einer Szene abgelesen |
-| `out/analysis/groove.json` | Groove MIDI Dataset (Magenta, CC BY 4.0): 220 Aufnahmen, 3408 Takte echter Schlagzeuger — je Instrument und Sechzehntel der mediane Versatz zum Raster, seine Streuung, die mediane Anschlagstärke und wie oft die Position überhaupt gespielt wird |
+| `out/analysis/reference-profile.json` | private, local descriptor profile |
+| `garageband/scores/nexpt-work-68.json` | auditable Bridge Score Spec v1 |
+| `garageband/scores/nexpt-work-68.mid` | four independent MIDI tracks |
+| `out/sfx-original.wav` | separate sound-effect stem |
 
-Der **Versatz** ist die Stelle, an der sich eine Maschine verrät. Gemessen spielt ein
-Mensch die Hi-Hat auf der Eins 15.9 ms *vor* dem Raster und auf der Drei 22.2 ms davor
-— systematisch vorne, nicht zufällig verwackelt. Genau diese Tabelle wird angewandt,
-statt Rauschen auf die Zeiten zu addieren.
+To rebuild the score from an existing profile:
 
-Aktueller Stand: 1216 Anschläge, Versatz zum Sechzehntel im Median 12.5 ms.
+```bash
+python3 garageband/compose.py --midi
+python3 garageband/compose.py --bericht
+```
 
-| Instrument | Anzahl | min | Median | max |
-|---|---:|---:|---:|---:|
-| closed_hat | 808 | 26 | 45 | 58 |
-| kick | 207 | 36 | 93 | 117 |
-| snare | 118 | 75 | 99 | 113 |
-| rim | 52 | 45 | 49 | 56 |
-| Toms | 24 | 74 | 86 | 101 |
-| crash | 7 | 70 | 74 | 78 |
+The current mapping is deliberately split into four tracks:
 
-Der Pegel je Gruppe steht in `compose.py` (`grund`), die Abstufung *innerhalb* einer
-Gruppe kommt aus der Messung. Andersherum — die gemessene Stärke absolut übernehmen —
-setzt jede Gruppe ihren eigenen Pegel, und die Bassdrum landet 43 Punkte unter der
-Snare, obwohl sie in der Vorlage 78 % der Energie trägt. Das war der erste Versuch.
+| Learned role | GarageBand track | Drum articulations |
+|---|---|---|
+| `low` | `NEXPT Low` | kick |
+| `body` | `NEXPT Body` | snare, rim |
+| `tonal` | `NEXPT Tonal` | low/mid/high tom |
+| `detail` | `NEXPT Detail` | closed/open hat, ride, crash |
 
-## Die Bridge liegt kopiert im Repo
+Each role uses a separate MIDI channel. GarageBand therefore retains separate
+tracks and the Mac runner can choose a recorded patch, volume and pan for each
+one. A silent MIDI-0 timeline anchor ends precisely on beat 272, so the
+imported arrangement remains exactly 68 bars long.
 
-`tools/garageband-llm-bridge/` ist eine wortgetreue Kopie von
-[`extao15/garageband-llm-bridge`][bridge], Stand `f3d12e8`, MIT-Lizenz. Beim Kopieren
-wurde jede Datei per SHA-256 gegen den Upstream-Klon geprüft: 103 Dateien, keine fehlt,
-keine weicht ab. Die 129 mitgelieferten Tests laufen hier durch.
+## 2. Check the Mac before touching GarageBand
 
-Zuerst hing der Ordner als Git-Submodul am Upstream. Das wäre der sauberere Weg,
-setzt aber einen eigenen Fork voraus — und der liess sich aus der Arbeitsumgebung
-nicht anlegen. Ein Submodul auf ein fremdes Repository zeigen zu lassen ist die
-schlechtere von beiden Varianten; jetzt liegen die Dateien direkt hier, und niemand
-kann vergessen, sie zu initialisieren.
+```bash
+python3 garageband/session.py doctor
+python3 garageband/session.py render --dry-run
+```
 
-Herkunft, Lizenzpflichten und der Weg zu einem neueren Stand stehen in
+`doctor` validates the score with the bundled Bridge on every platform. On a
+Mac it also reports whether GarageBand is installed and shows the required
+permissions. Grant the terminal or Codex app:
+
+- System Settings > Privacy & Security > Accessibility
+- System Settings > Privacy & Security > Automation > GarageBand
+
+The dry run prints every planned command but does not open, click or export
+anything.
+
+## 3. Render through recorded GarageBand kits
+
+On the Mac:
+
+```bash
+python3 garageband/session.py render \
+  --output out/music-garageband.wav
+```
+
+The runner performs and verifies these stages:
+
+1. validate the Score Spec;
+2. generate/import its MIDI into GarageBand;
+3. inspect the visible imported track names;
+4. select each track;
+5. search the installed Library for the configured patch;
+6. apply the patch and per-track volume/pan;
+7. capture a verification screenshot;
+8. export WAVE through GarageBand;
+9. verify the audio header and reject an export shorter than the 68-bar score;
+10. write `garageband/arrangements/nexpt-work-68/session-result.json`.
+
+Existing audio is never overwritten unless `--overwrite` is explicit. An
+unsaved GarageBand project is never discarded unless `--discard-unsaved` is
+explicit.
+
+## Installed kits vary
+
+The default preset is
+[`presets/recorded-kit.json`](./presets/recorded-kit.json). It requests the
+recorded `SoCal` patch for all four role tracks so the performance sounds like
+one coherent kit. GarageBand version, language and downloaded sound packs can
+change Library names. The runner therefore does not silently choose a random
+replacement: if the preferred patch is absent, it stops and reports the
+visible results.
+
+Discover patches on the selected Mac:
+
+```bash
+python3 garageband/session.py discover Drums --track-index 1
+python3 garageband/session.py discover Percussion --track-index 3
+```
+
+Copy an exact returned name into `patch.preferred` in the preset. Set
+`allow_first` to `true` only if choosing the first visible match is acceptable.
+
+## Music and sound effects stay separate
+
+GarageBand receives only the musical score. SFX are produced from the film cue
+sheet by `render/sfx_original.py`; they are not learned from the music reference
+and are never baked into the MIDI. The final mix receives two explicit files:
+
+```text
+out/music-garageband.wav
+out/sfx-original.wav
+```
+
+This keeps later changes safe: a kit, groove or music level can change without
+regenerating motion/UI effects, and an SFX edit cannot alter the music.
+
+## Ownership boundary
+
+| Path | Ownership |
+|---|---|
+| `render/reference_analyzer.py` | reference measurements |
+| `render/reference_arrangement.py` | new groove, timing and dramatic arc |
+| `garageband/compose.py` | role-to-drum mapping and Score Spec |
+| `garageband/session.py` | NEXPT-specific Mac recipe |
+| `garageband/presets/` | selected installed kits and mix values |
+| `tools/garageband-llm-bridge/` | unchanged upstream Bridge copy |
+
+NEXPT-specific logic does not modify the Bridge. The copied Bridge is the
+unmodified MIT-licensed upstream at commit `f3d12e8`; provenance and update
+instructions are in
 [`tools/garageband-llm-bridge/HERKUNFT.md`](../tools/garageband-llm-bridge/HERKUNFT.md).
+Its deterministic test suite runs without GarageBand; only UI automation and
+audio export require a real Mac.
 
-**In diesem Ordner wird nichts geändert.** Wer an der Bridge etwas anpasst, kann sie
-nicht mehr aktualisieren, ohne die Änderung von Hand nachzuziehen. NEXPT-spezifischer
-Code gehört hierher, nach `garageband/`.
+## Verification
 
-## Was hier hineingehört
+```bash
+python3 -m unittest \
+  tests/test_reference_audio.py \
+  tests/test_garageband_pipeline.py
 
-| | |
-|---|---|
-| `compose.py` | unsere Partitur — Groove, Humanisierung, Arrangement |
-| `scores/` | erzeugte Partituren und MIDI |
-| `arrangements/` | GarageBand-Projekte und Exporte (nicht im Repo) |
-| `presets/` | Kit- und Kanaleinstellungen, sobald welche stehen |
+python3 -m pytest -q tools/garageband-llm-bridge/tests
+```
 
-Die Bridge selbst bleibt unverändert. Alles, was NEXPT-spezifisch ist, gehört
-hierher — nicht in die kopierte Bridge.
+The project tests cover deterministic event planning, local/Score parity,
+four independent tracks, Bridge validation, non-quantized microtiming, exact
+timeline length, preset validation and the non-mutating dry-run plan.
