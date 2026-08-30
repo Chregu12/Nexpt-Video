@@ -2,3 +2,5 @@
 # Basic Pitch supports Python <= 3.11; its Apple-Silicon path uses Python 3.10.
 basic-pitch
 demucs
+torch
+transformers

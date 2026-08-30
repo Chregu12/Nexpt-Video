@@ -152,8 +152,10 @@ python3 garageband/session.py prepare \
 ```
 
 Die Originaldatei bleibt als stummgeschaltete `REFERENCE — Original 1:1`-Spur
-im Projekt; Drums, Bass, Harmonie und Melodie liegen darunter als editierbare
-MIDI-Spuren. Grenzen und der genaue Mac-Ablauf stehen in
+im Projekt. Demucs, Basic Pitch und CLAP erzeugen darunter instrumentbezogene
+MIDI-Spuren samt GarageBand-Patchwahl – etwa Bass, Piano, Violine, Cello,
+Gitarre, Floete oder Saxofon. Confidence und manuelle Instrument-Overrides
+decken unsichere Stereo-Mischungen ab. Grenzen und der genaue Mac-Ablauf stehen in
 [garageband/TRANSCRIPTION.md](./garageband/TRANSCRIPTION.md).
 
 **Varianten des Tons:**

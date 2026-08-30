@@ -97,9 +97,13 @@ Berechtigungen stehen in `garageband/README.md`.
 
 `garageband/transcribe.py` ist vom oben beschriebenen, neu komponierenden
 Referenzmodus getrennt. Es uebernimmt die gemessene Ereignisfolge und Dauer,
-erzeugt editierbare Drum-, Bass-, Harmonie- und Melodiespuren und legt die
-unveraenderte Quelldatei im GarageBand-Projekt als stummgeschaltete
-`REFERENCE — Original 1:1`-Spur daneben. Der genaue Ablauf steht in
+trennt Drums/Bass/Piano/Gitarre, transkribiert Tonhoehen und klassifiziert den
+restlichen Mix in instrumentbezogene Spuren wie Violine, Cello, Floete oder
+Saxofon. General-MIDI-Programme und GarageBand-Library-Patches werden passend
+erzeugt; unsichere Zuordnungen stehen mit Confidence im Report und koennen per
+Instrument-Map korrigiert werden. Die unveraenderte Quelldatei liegt im
+GarageBand-Projekt als stummgeschaltete `REFERENCE — Original 1:1`-Spur
+daneben. Der genaue Ablauf steht in
 `garageband/TRANSCRIPTION.md`.
 
 ## Musik

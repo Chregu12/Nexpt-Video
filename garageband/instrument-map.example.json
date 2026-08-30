@@ -1,0 +1,9 @@
+{
+  "stems": {
+    "guitar": "electric_guitar"
+  },
+  "roles": {
+    "harmony": "piano",
+    "melody": "violin"
+  }
+}

@@ -15,9 +15,11 @@ selben GarageBand-Projekt:
 
 1. `REFERENCE — Original 1:1` ist die unveraenderte Quelldatei. Sie ist der
    exakte Klang- und Timingvergleich und wird nach dem Import stummgeschaltet.
-2. Darunter liegen rekonstruierte Drums, Bass, Harmonie und Melodie als
-   separate MIDI-Spuren. Diese lassen sich im Piano Roll, mit anderen Patches,
-   neuen Noten, anderem Arrangement und neuer Mischung bearbeiten.
+2. Darunter liegen rekonstruierte Drums und erkannte Instrumente als separate
+   MIDI-Spuren, beispielsweise Piano, Violine, Cello, Gitarre oder Floete.
+   Jede Spur erhaelt ihre erkannten Noten, ein passendes General-MIDI-Programm
+   und einen konkreten GarageBand-Library-Patch. Alles bleibt im Piano Roll
+   editierbar.
 
 Damit ist immer sichtbar, was wirklich 1:1 ist und was die editierbare
 Transkription ist.
@@ -31,10 +33,13 @@ python3 garageband/transcribe.py --doctor
 Der lokale DSP-Fallback benoetigt nur die normalen Projektabhaengigkeiten. Fuer
 komplexe Musik ist der Hochpraezisionsmodus vorgesehen:
 
-- [Demucs](https://github.com/adefossez/demucs) trennt Drums, Bass und den
-  uebrigen Mix vor der Transkription.
+- [Demucs](https://github.com/adefossez/demucs) trennt mit `htdemucs_6s`
+  Drums, Bass, Piano, Gitarre und den uebrigen Mix vor der Transkription.
 - [Basic Pitch](https://github.com/spotify/basic-pitch) erkennt polyphone Noten
-  im Bass- und Other-Stem.
+  in jedem tonalen Stem.
+- [CLAP](https://huggingface.co/docs/transformers/model_doc/clap) vergleicht
+  verbleibende Audiofenster mit Instrumentbeschreibungen und liefert
+  Wahrscheinlichkeiten fuer die Spurauswahl.
 
 Basic Pitch unterstuetzt aktuell Python bis 3.11; fuer Apple Silicon nennt das
 Projekt Python 3.10. Diese Version ist zugleich mit Demucs kompatibel. Auf dem
@@ -46,6 +51,10 @@ source .venv-transcribe/bin/activate
 python -m pip install -r garageband/requirements-transcription.txt
 python garageband/transcribe.py --doctor
 ```
+
+Beim ersten Hochpraezisionslauf wird standardmaessig das CLAP-Modell
+`laion/clap-htsat-unfused` geladen und danach aus dem lokalen Modellcache
+verwendet.
 
 Demucs wird mit einem CPU-Job gestartet. Das vermeidet unkontrollierte
 Speicherspitzen auf einem Rechner ohne CUDA. Mit Apple-Silicon-Unterstuetzung
@@ -61,6 +70,21 @@ python garageband/transcribe.py "/Pfad/zu/Instrumental.m4a" \
   --quality high
 ```
 
+`--quality high` bedeutet konkret:
+
+| Stufe | Engine | Aufgabe |
+|---|---|---|
+| Stem | Demucs `htdemucs_6s` | Drums/Bass/Piano/Gitarre/Other trennen |
+| Noten | Basic Pitch | Start, Ende, Tonhoehe und Anschlag erkennen |
+| Instrument | CLAP | Other-/Mix-Fenster klassifizieren |
+| Routing | NEXPT | Rolle, Tonumfang und Confidence pruefen |
+| GarageBand | Session Bridge | richtigen Library-Patch pro MIDI-Spur waehlen |
+
+Unterstuetzte Zielspuren sind derzeit Bass, Piano, E-Piano, Violine, Cello,
+Streicher, Akustik- und E-Gitarre, Orgel, Floete, Klarinette, Saxofon,
+Trompete, Brass, Harfe, Marimba, Synth Lead und Synth Pad. Drums werden weiter
+in Low Drums, Body Drums, Toms und Cymbals getrennt.
+
 Bei bekanntem Tempo oder Downbeat koennen die Werte fest vorgegeben werden:
 
 ```bash
@@ -74,6 +98,42 @@ Fuer reine Percussion oder einen schnellen Lauf ohne ML-Modelle:
 python3 garageband/transcribe.py "/Pfad/zu/Percussion.mp3" \
   --quality fast --content percussion
 ```
+
+### Unsichere Instrumente manuell korrigieren
+
+Bei zwei gleichzeitig spielenden Instrumenten im selben `other`-Stem kann
+keine Stereoanalyse garantieren, welches Instrument welche Note gespielt hat.
+Der Report markiert deshalb Instrumente und Noten mit Confidence und nennt die
+Entscheidungsquelle (`demucs-stem`, `clap`, `role-fallback` oder Override).
+
+Eine kleine JSON-Datei kann Fehlzuordnungen vor dem GarageBand-Import gezielt
+korrigieren:
+
+```json
+{
+  "stems": {
+    "guitar": "electric_guitar"
+  },
+  "roles": {
+    "harmony": "piano",
+    "melody": "violin"
+  }
+}
+```
+
+```bash
+cp garageband/instrument-map.example.json garageband/instrument-map.json
+# instrument-map.json an den tatsaechlichen Mix anpassen, dann:
+python garageband/transcribe.py "/Pfad/zu/Instrumental.m4a" \
+  --quality high \
+  --instrument-map garageband/instrument-map.json
+```
+
+Deutsche Werte wie `Klavier`, `Violine`, `Floete`, `Klarinette`, `Trompete`
+und `Akustikgitarre` werden ebenfalls akzeptiert. Ein Stem-Override ist
+spezifischer als ein Rollen-Override. Mit `--instrument-engine stem` kann die
+CLAP-Klassifikation uebersprungen werden; Piano/Gitarre/Bass aus Demucs und die
+Rollen-Fallbacks bleiben dann erhalten.
 
 Aus `Instrumental.m4a` entstehen standardmaessig:
 
@@ -101,8 +161,10 @@ python3 garageband/session.py prepare \
   --reference-audio "/Pfad/zu/Instrumental.m4a"
 ```
 
-Der Befehl validiert den Score, oeffnet die MIDI-Spuren in GarageBand, waehlt
-passende Library-Patches und zeigt die Originaldatei im Finder. Apple sieht den
+Der Befehl validiert den Score, oeffnet die instrumentbezogenen MIDI-Spuren in
+GarageBand, sucht pro Spur den erzeugten Patchplan ab und waehlt beispielsweise
+einen Piano-, Violin- oder Gitarren-Patch. Danach zeigt er die Originaldatei im
+Finder. Apple sieht den
 Audioimport in GarageBand fuer Mac per Drag-and-drop aus dem Finder vor. Ziehe
 die Datei einmal unter die vorhandenen Tracks an den Projektanfang `1 1 1 1`
 und druecke im Terminal Enter. Danach erkennt der Code die neue Spur, nennt sie
@@ -144,7 +206,9 @@ Die Musik bleibt weiterhin getrennt von `out/sfx-original.wav`.
 - Arrangement/Timing: Quellreihenfolge und gemessene Startzeiten werden
   uebernommen.
 - Tonhoehen: Basic Pitch oder der lokale DSP-Fallback rekonstruiert MIDI-Noten.
-- Instrumente: GarageBand-Patches approximieren die Klangrolle; sie sind nicht
+- Instrumente: Demucs-Stems und CLAP erkennen die wahrscheinlichste
+  Instrumentklasse. Der Report zeigt Confidence; ein Override kann sie
+  korrigieren. GarageBand-Patches approximieren die Klangrolle und sind nicht
   die unbekannten Originalplugins.
 - Exakter Klang: nur die Original-Referenzspur ist 1:1.
 - Editierbarkeit: die rekonstruierten MIDI-Spuren sind frei aenderbar.

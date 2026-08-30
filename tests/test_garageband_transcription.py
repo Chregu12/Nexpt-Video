@@ -17,13 +17,17 @@ sys.path.insert(0, str(REPO/"tools"/"garageband-llm-bridge"))
 
 from garageband.session import load_preset, prepare_plan  # noqa: E402
 from garageband.transcribe import (  # noqa: E402
+    INSTRUMENT_CATALOG,
+    assign_notes_to_instruments,
     build_garageband_preset,
     build_transcription_score,
+    canonical_instrument,
     detect_content,
     normalize_basic_pitch_events,
     split_tonal_notes,
     transcribe_audio,
     transcribe_drum_events,
+    validate_instrument_map,
 )
 from garageband_bridge.score_midi import validate_score_spec  # noqa: E402
 
@@ -88,6 +92,77 @@ def write_percussion_fixture(path: Path, bars: int = 2) -> None:
 
 
 class GarageBandTranscriptionTest(unittest.TestCase):
+    def test_instrument_catalog_has_garageband_patch_and_gm_program(self) -> None:
+        for instrument in ("piano", "violin", "cello", "acoustic_guitar", "flute"):
+            config = INSTRUMENT_CATALOG[instrument]
+            self.assertIn(config["program"], range(128))
+            self.assertTrue(config["patch"]["query"])
+            self.assertTrue(config["patch"]["preferred"])
+        self.assertEqual(canonical_instrument("Klavier"), "piano")
+        self.assertEqual(canonical_instrument("Violine"), "violin")
+
+    def test_demucs_stem_hint_wins_over_classifier(self) -> None:
+        tonal = {
+            "bass": [],
+            "harmony": [{
+                "start_s": 0.0, "end_s": 1.0, "midi": 60, "amplitude": .8,
+                "source_stem": "piano", "instrument_hint": "piano",
+            }],
+            "melody": [],
+        }
+        segments = [{
+            "source_stem": "piano", "start_s": 0.0, "end_s": 8.0,
+            "scores": {"violin": .90, "piano": .06, "electric_piano": .04},
+        }]
+        tracks, report = assign_notes_to_instruments(tonal, segments)
+        self.assertEqual(set(tracks), {"piano"})
+        self.assertEqual(
+            tracks["piano"][0]["nexpt_instrument_source"], "demucs-stem+clap")
+        self.assertEqual(report["uncertain_notes"], 0)
+
+    def test_classifier_routes_harmony_and_melody_to_different_instruments(self) -> None:
+        tonal = {
+            "bass": [],
+            "harmony": [
+                {"start_s": .1, "end_s": 1.1, "midi": 60, "amplitude": .7,
+                 "source_stem": "other"},
+                {"start_s": .1, "end_s": 1.1, "midi": 64, "amplitude": .7,
+                 "source_stem": "other"},
+            ],
+            "melody": [
+                {"start_s": .1, "end_s": .8, "midi": 76, "amplitude": .8,
+                 "source_stem": "other"},
+            ],
+        }
+        segments = [{
+            "source_stem": "other", "start_s": 0.0, "end_s": 8.0,
+            "scores": {
+                "piano": .42, "violin": .40, "strings": .05,
+                "synth_lead": .03, "bass": .01,
+            },
+        }]
+        tracks, report = assign_notes_to_instruments(tonal, segments)
+        self.assertEqual([note["midi"] for note in tracks["piano"]], [60, 64])
+        self.assertEqual([note["midi"] for note in tracks["violin"]], [76])
+        self.assertEqual(report["notes_by_instrument"], {"piano": 2, "violin": 1})
+
+    def test_manual_instrument_map_overrides_uncertain_mix(self) -> None:
+        override = validate_instrument_map({
+            "stems": {"other": "Violine"}, "roles": {"harmony": "Klavier"},
+        })
+        tonal = {
+            "bass": [],
+            "harmony": [{"start_s": 0, "end_s": 1, "midi": 60, "amplitude": .7,
+                         "source_stem": "other"}],
+            "melody": [{"start_s": 0, "end_s": 1, "midi": 72, "amplitude": .7,
+                        "source_stem": "other"}],
+        }
+        tracks, _ = assign_notes_to_instruments(tonal, [], override)
+        # Stem overrides are deliberately more specific than role overrides.
+        self.assertEqual(set(tracks), {"violin"})
+        with self.assertRaises(ValueError):
+            validate_instrument_map({"roles": {"solo": "piano"}})
+
     def test_drum_transcription_preserves_absolute_source_times(self) -> None:
         profile = fixture_profile()
         tracks, report = transcribe_drum_events(
@@ -135,6 +210,44 @@ class GarageBandTranscriptionTest(unittest.TestCase):
         ]
         self.assertEqual(len(anchors), 1)
         self.assertEqual(anchors[0]["midi"], 0)
+
+    def test_dynamic_score_and_preset_select_detected_instruments(self) -> None:
+        profile = fixture_profile()
+        instrument_tracks = {
+            "piano": [{
+                "start_s": .2, "end_s": 1.2, "midi": 60, "amplitude": .7,
+                "nexpt_role": "harmony", "nexpt_instrument": "piano",
+                "nexpt_instrument_confidence": .82,
+                "nexpt_instrument_source": "clap", "source_stem": "other",
+            }],
+            "violin": [{
+                "start_s": .3, "end_s": 1.0, "midi": 76, "amplitude": .8,
+                "nexpt_role": "melody", "nexpt_instrument": "violin",
+                "nexpt_instrument_confidence": .79,
+                "nexpt_instrument_source": "clap", "source_stem": "other",
+            }],
+        }
+        score, report = build_transcription_score(
+            profile, {key: [] for key in (
+                "drums-low", "drums-body", "drums-toms", "drums-detail")},
+            instrument_tracks, bpm=BPM, duration_seconds=2.137,
+            engines={}, content={"used": "full"},
+        )
+        self.assertTrue(validate_score_spec(score)["ok"])
+        tonal_parts = [part for part in score["parts"] if part.get("nexpt_instrument")]
+        self.assertEqual(
+            [(part["nexpt_instrument"], part["program"]) for part in tonal_parts],
+            [("piano", 0), ("violin", 40)],
+        )
+        self.assertNotIn(10, [part["channel"] for part in tonal_parts])
+        preset = build_garageband_preset(score)
+        patch_by_instrument = {
+            row["detected_instrument"]: row["patch"]["query"]
+            for row in preset["tracks"]
+        }
+        self.assertEqual(patch_by_instrument["piano"], "Piano")
+        self.assertEqual(patch_by_instrument["violin"], "Violin")
+        self.assertEqual(len(report["instruments"]), 2)
 
     def test_basic_pitch_variants_split_into_roles(self) -> None:
         raw = [
