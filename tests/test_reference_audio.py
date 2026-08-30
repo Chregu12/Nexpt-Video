@@ -12,6 +12,7 @@ import numpy as np
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO/"render"))
 
+from audio_common import write_pcm24  # noqa: E402
 from music_reference import compose  # noqa: E402
 from reference_analyzer import analyze_reference  # noqa: E402
 from reference_compare import similarity_report  # noqa: E402
@@ -108,6 +109,9 @@ class ReferenceAudioTest(unittest.TestCase):
         self.assertGreater(profile["method"]["event_count"], 30)
         self.assertGreaterEqual(len(profile["sound_families"]), 3)
         self.assertEqual(len(profile["groove"]["positions"]), 16)
+        self.assertEqual(set(profile["rhythm_model"]["roles"]),
+                         {"low", "body", "tonal", "detail"})
+        self.assertGreater(profile["rhythm_model"]["events_per_bar"], 3)
         self.assertIn("sha256", profile["source"])
 
     def test_factory_creates_new_separated_sound_roles(self) -> None:
@@ -128,12 +132,37 @@ class ReferenceAudioTest(unittest.TestCase):
             self.profile, 4*BAR, 4, BPM, cues=[], seed=42, tail=.2)
         stems_b, master_b, events_b, context_b = compose(
             self.profile, 4*BAR, 4, BPM, cues=[], seed=42, tail=.2)
-        self.assertEqual(set(stems_a), {"low", "body", "detail"})
+        self.assertEqual(set(stems_a), {"low", "body", "tonal", "detail"})
         self.assertGreater(len(events_a), 12)
         self.assertEqual(events_a, events_b)
         self.assertEqual(context_a["seed"], context_b["seed"])
         np.testing.assert_allclose(master_a, master_b, atol=1e-7)
         self.assertLessEqual(float(np.max(np.abs(master_a))), 10**(-3/20)+1e-5)
+
+    def test_four_bar_motif_has_controlled_repetition(self) -> None:
+        _, _, events, _ = compose(
+            self.profile, 8*BAR, 8, BPM, cues=[], seed=71, tail=.2)
+        slots = [(event["bar"], event["position"]) for event in events]
+        self.assertEqual(len(slots), len(set(slots)))
+        patterns: dict[tuple[int, str], set[int]] = {}
+        for event in events:
+            patterns.setdefault((event["bar"]-1, event["role"]), set()).add(
+                event["position"])
+        scores = []
+        for bar in range(4):
+            for role in ("low", "body", "tonal"):
+                first = patterns.get((bar, role), set())
+                repeated = patterns.get((bar+4, role), set())
+                union = first | repeated
+                if union:
+                    scores.append(len(first & repeated)/len(union))
+        self.assertGreater(float(np.mean(scores)), .34)
+
+    def test_pcm_writer_produces_complete_output(self) -> None:
+        path = Path(self.temp.name)/"complete-output.wav"
+        audio = np.zeros((SR//2, 2), dtype=np.float32)
+        write_pcm24(path, audio)
+        self.assertGreaterEqual(path.stat().st_size, len(audio)*2*3)
 
     def test_comparator_scores_identical_profiles_as_target(self) -> None:
         report = similarity_report(self.profile, self.profile)

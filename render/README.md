@@ -73,7 +73,7 @@ python3 render/reference_pipeline.py referenz.m4a --preview
 
 Der erste Befehl verwendet bekannte Tempodaten. Der zweite schaetzt Tempo und
 Raster automatisch. Das Ergebnis besteht aus einem neu synthetisierten Kit,
-drei Musikstems, dem Musikmaster, separaten SFX und einem Messreport. Details
+vier Musikstems, dem Musikmaster, separaten SFX und einem Messreport. Details
 und alle Ausgaben stehen in `render/AUDIO-REWORK.md`.
 
 ## Ton: vier Stufen, alle aus `timing.json`

@@ -114,8 +114,9 @@ python3 render/reference_pipeline.py "/pfad/referenz.m4a" \
 ```
 
 Dabei werden keine Ausschnitte der Referenz weiterverwendet. Ein JSON-Profil
-steuert neue Synthese, Groove-Verteilungen und eine auf das NEXPT-Cue-Sheet
-zugeschnittene 68-Takt-Komposition. Musik (`low`, `body`, `detail`) und SFX
+steuert neue Synthese, eine gelernte Vier-Takt-Rhythmusgrammatik und eine auf
+das NEXPT-Cue-Sheet zugeschnittene 68-Takt-Komposition. Musik (`low`, `body`,
+`tonal`, `detail`) und SFX
 bleiben getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
 
 **Varianten des Tons:**

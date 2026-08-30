@@ -35,11 +35,14 @@ out/NEXPT-AUDIO-REWORK-PREVIEW.mp4
 # Ausgaben und gehoeren nicht in das oeffentliche Repository.
 out/analysis/reference-*.json
 out/analysis/music-reference*.json
+out/analysis/candidate-*.json
 out/reference-kit*/
 out/music-reference*.wav
+out/music-reference*.m4a
+out/music-reference*.mp3
 out/reference-audio-preview.wav
 out/reference-audio-preview.m4a
-out/NEXPT-REFERENCE-AUDIO-PREVIEW.mp4
+out/NEXPT-REFERENCE-AUDIO-PREVIEW*.mp4
 
 # Sicherungskopie von takt.py — der Stand davor steht ohnehin in der Historie
 render/timing.json.vor-takt

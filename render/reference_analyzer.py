@@ -28,6 +28,7 @@ import numpy as np
 from scipy import signal
 
 from audio_common import FFMPEG, OUT, SR, write_manifest
+from reference_rhythm import build_rhythm_model
 
 
 SCHEMA_VERSION = 1
@@ -537,6 +538,7 @@ def analyze_reference(path: Path, bpm_hint: float | None = None,
         mix.update(measure_ebu(path))
 
     families = aggregate_families(events)
+    rhythm_model = build_rhythm_model(events, bars)
     profile = {
         "schema_version": SCHEMA_VERSION,
         "source": {
@@ -557,10 +559,15 @@ def analyze_reference(path: Path, bpm_hint: float | None = None,
         },
         "mix": mix,
         "groove": build_groove(events, bars),
+        "rhythm_model": rhythm_model,
         "sound_families": families,
         "arrangement": arrangement,
         "generation_targets": {
             "events_per_bar": _round(len(events)/max(1, bars), 4),
+            "role_events_per_bar": {
+                role: row["events_per_bar"]
+                for role, row in rhythm_model["roles"].items()
+            },
             "family_shares": {name: row["share"] for name, row in families.items()},
             "bands": mix["bands"],
             "side_mid_db": mix["side_mid_db"],
@@ -571,8 +578,9 @@ def analyze_reference(path: Path, bpm_hint: float | None = None,
             "fft_size": N_FFT,
             "hop_size": HOP,
             "event_count": len(events),
-            "principle": ("Nur statistische und akustische Deskriptoren. Keine Quell-Samples, "
-                          "keine Wellenform und keine Ereignisfolge werden fuer die Erzeugung kopiert."),
+            "principle": ("Nur statistische und akustische Deskriptoren. Keine Quell-Samples "
+                          "und keine Wellenform werden fuer die Erzeugung kopiert. Die "
+                          "Ereignisse werden zu einer Rollen- und Vier-Takt-Grammatik verdichtet."),
             "limits": ("Aus einem fertigen Stereo-Mix lassen sich Original-Samples, MIDI, "
                        "Plugin-Einstellungen und ueberlagerte Einzelspuren nicht exakt rekonstruieren."),
         },

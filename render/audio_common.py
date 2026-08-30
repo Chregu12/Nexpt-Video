@@ -11,6 +11,7 @@ import json
 import os
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -167,11 +168,30 @@ def write_pcm24(path: Path, stereo: np.ndarray) -> None:
             "ffmpeg wurde nicht gefunden — ins PATH legen oder FFMPEG=<pfad> setzen")
     path.parent.mkdir(parents=True, exist_ok=True)
     data = np.ascontiguousarray(np.clip(stereo, -1.0, 1.0), dtype="<f4")
-    subprocess.run([
-        FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
-        "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "pipe:0",
-        "-c:a", "pcm_s24le", str(path),
-    ], input=data.tobytes(), check=True)
+    if data.ndim != 2 or data.shape[1] != 2:
+        raise ValueError(f"Stereo-Puffer erwartet, erhalten: {data.shape}")
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(
+                dir=path.parent, prefix=f".{path.name}.",
+                suffix=".tmp.wav", delete=False) as handle:
+            temporary = Path(handle.name)
+        subprocess.run([
+            FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
+            "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "pipe:0",
+            "-c:a", "pcm_s24le", str(temporary),
+        ], input=data.tobytes(), check=True)
+        expected_payload = int(data.shape[0])*2*3
+        actual_size = temporary.stat().st_size
+        if not expected_payload <= actual_size <= expected_payload+65_536:
+            raise RuntimeError(
+                f"Unvollstaendige WAV-Ausgabe: {actual_size} Bytes, "
+                f"erwartet mindestens {expected_payload}")
+        os.replace(temporary, path)
+        temporary = None
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
 def write_manifest(path: Path, payload: dict) -> None:

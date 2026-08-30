@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Ein neues Rendering gegen die Eigenschaften eines Referenzprofils messen.
 
-Der Score bewertet Tempo, Frequenzbalance, Groove-Dichte, Stereobreite und
-Dynamik. Er bewertet ausdruecklich keine Melodie- oder Pattern-Gleichheit:
-Eine hohe Punktzahl soll eine verwandte Klangsprache bestaetigen, keine Kopie.
+Der Score bewertet Tempo, Frequenzbalance, Rollen-Dichte, Schrittmuster,
+Vier-Takt-Wiederholung, Stereobreite und Dynamik. Er bleibt eine technische
+Diagnose und ersetzt keinen Hoertest.
 """
 from __future__ import annotations
 
@@ -15,7 +15,56 @@ import numpy as np
 
 from audio_common import OUT, write_manifest
 from reference_analyzer import analyze_reference
+from reference_rhythm import ROLES, legacy_rhythm_model
 from reference_sound import load_profile
+
+
+def _rhythm_similarity(reference: dict, candidate: dict) -> tuple[dict, dict]:
+    ref = reference.get("rhythm_model") or legacy_rhythm_model(reference)
+    new = candidate.get("rhythm_model") or legacy_rhythm_model(candidate)
+    density_scores = []
+    pattern_scores = []
+    density_differences = {}
+    pattern_differences = {}
+    weights = []
+    for role in ROLES:
+        ref_row = ref["roles"][role]
+        new_row = new["roles"][role]
+        ref_density = max(.03, float(ref_row.get("events_per_bar", 0.0)))
+        new_density = max(.03, float(new_row.get("events_per_bar", 0.0)))
+        density_ratio = new_density/ref_density
+        density_scores.append(100*math.exp(-abs(math.log(density_ratio))/.68))
+        density_differences[role] = round(density_ratio, 4)
+
+        ref_steps = np.asarray(ref_row.get("step_probability", [0]*16), dtype=float)
+        new_steps = np.asarray(new_row.get("step_probability", [0]*16), dtype=float)
+        ref_steps /= max(1e-12, float(ref_steps.sum()))
+        new_steps /= max(1e-12, float(new_steps.sum()))
+        variation_distance = float(np.sum(np.abs(ref_steps-new_steps))*.5)
+        pattern_scores.append(100*math.exp(-variation_distance/.42))
+        pattern_differences[role] = round(variation_distance, 4)
+        weights.append(ref_density)
+
+    weights_array = np.asarray(weights, dtype=float)
+    weights_array /= weights_array.sum()
+    role_density = float(np.sum(np.asarray(density_scores)*weights_array))
+    step_pattern = float(np.sum(np.asarray(pattern_scores)*weights_array))
+    repeat_delta = abs(float(ref.get("four_bar_repeat_jaccard", 0.0))-
+                       float(new.get("four_bar_repeat_jaccard", 0.0)))
+    repeat_score = 100*math.exp(-repeat_delta/.24)
+    return ({
+        "role_density": role_density,
+        "step_pattern": step_pattern,
+        "four_bar_repeat": repeat_score,
+    }, {
+        "role_density_ratio": density_differences,
+        "step_pattern_total_variation": pattern_differences,
+        "four_bar_repeat_jaccard": {
+            "reference": round(float(ref.get("four_bar_repeat_jaccard", 0.0)), 4),
+            "candidate": round(float(new.get("four_bar_repeat_jaccard", 0.0)), 4),
+            "absolute_difference": round(repeat_delta, 4),
+        },
+    })
 
 
 def similarity_report(reference: dict, candidate: dict) -> dict:
@@ -37,6 +86,7 @@ def similarity_report(reference: dict, candidate: dict) -> dict:
     ref_density = max(.01, float(reference["generation_targets"].get("events_per_bar", 1)))
     new_density = max(.01, float(candidate["generation_targets"].get("events_per_bar", 1)))
     density_ratio = new_density/ref_density
+    rhythm_scores, rhythm_differences = _rhythm_similarity(reference, candidate)
 
     scores = {
         "tempo": 100*math.exp(-tempo_delta/1.5),
@@ -44,16 +94,18 @@ def similarity_report(reference: dict, candidate: dict) -> dict:
         "stereo_width": 100*math.exp(-width_delta/5.0),
         "crest_factor": 100*math.exp(-crest_delta/6.0),
         "event_density": 100*math.exp(-abs(math.log(density_ratio))/.75),
+        **rhythm_scores,
     }
     if lra_delta is not None:
         scores["section_dynamics"] = 100*math.exp(-lra_delta/5.0)
-    weights = {"tempo": .12, "frequency_balance": .28, "stereo_width": .15,
-               "crest_factor": .14, "event_density": .13, "section_dynamics": .18}
+    weights = {"tempo": .07, "frequency_balance": .18, "stereo_width": .07,
+               "crest_factor": .08, "event_density": .07, "section_dynamics": .08,
+               "role_density": .15, "step_pattern": .23, "four_bar_repeat": .07}
     used = {name: weight for name, weight in weights.items() if name in scores}
     overall = sum(scores[name]*weight for name, weight in used.items())/sum(used.values())
     return {
-        "purpose": ("Aehnlichkeit statistischer Eigenschaften, nicht Audio-, Melodie- "
-                    "oder Pattern-Gleichheit."),
+        "purpose": ("Technische Struktur- und Klangprofil-Aehnlichkeit. Kein Ersatz fuer "
+                    "subjektive Klangqualitaet und keine Aussage ueber Melodiegleichheit."),
         "overall_score_0_100": round(overall, 1),
         "scores_0_100": {name: round(value, 1) for name, value in scores.items()},
         "differences": {
@@ -63,6 +115,7 @@ def similarity_report(reference: dict, candidate: dict) -> dict:
             "crest_db": round(crest_delta, 3),
             "loudness_range_lu": round(lra_delta, 3) if lra_delta is not None else None,
             "event_density_ratio": round(density_ratio, 4),
+            **rhythm_differences,
         },
         "bands": {
             name: {"reference": round(float(ref_bands[index]), 5),

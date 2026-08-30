@@ -18,7 +18,9 @@ from audio_common import SR, bandpass, highpass
 
 ROLE_FALLBACKS = {
     "low": ("sub", "body", "tonal"),
-    "body": ("body", "tonal", "click", "sub"),
+    # Kurze Click-/Stick-Ereignisse sind die Transientenrolle. Im alten
+    # Mapping wurde stattdessen oft dieselbe tonale Familie zweimal benutzt.
+    "body": ("body", "click", "tonal", "sub"),
     "tonal": ("tonal", "body", "click"),
     "detail": ("tick", "air", "click", "noise", "tonal"),
 }
@@ -148,56 +150,84 @@ class ReferenceSoundFactory:
         t = np.arange(int(duration*SR), dtype=np.float64)/SR
         start_ratio = 1.38+0.10*(variant % 3)+0.10*velocity
         frequency = dominant*(1.0+(start_ratio-1.0)*np.exp(-t*(22+variant*2)))
-        phase = 2*np.pi*np.cumsum(frequency)/SR
-        body = np.sin(phase)*np.exp(-t/max(decay, .02))
-        body += (0.08+0.10*velocity)*np.sin(2.01*phase+.19*variant)*np.exp(-t/(decay*.58))
-        click = highpass(rng.standard_normal(len(t)).astype(np.float32), 2200+variant*350, 2)
-        click *= np.exp(-t*(105+20*velocity))*(.018+.035*velocity)
-        return np.asarray(body+click, dtype=np.float32)
+        phase = 2*np.pi*np.cumsum(frequency)/SR+rng.uniform(0.0, 2*np.pi)
+        # Das Original hat zwar einen Grundton um 70 Hz, aber mehr als die
+        # Haelfte seiner Energie liegt in Bass, Low-Mids und Attack. Eine
+        # reine Sinuskick war deshalb viel zu dumpf.
+        body = .78*np.sin(phase)*np.exp(-t/max(decay, .02))
+        harmonics = ((2.01, .36, .62), (3.03, .28, .46),
+                     (5.07, .42, .32), (7.11, .28, .24),
+                     (11.17, .14, .18))
+        for ratio, amplitude, relative_decay in harmonics:
+            body += amplitude*np.sin(ratio*phase+.17*variant*ratio) \
+                * np.exp(-t/max(decay*relative_decay, .008))
+        raw = rng.standard_normal(len(t)).astype(np.float32)
+        knock = bandpass(raw, 150.0, 2600.0, 2)
+        knock *= np.exp(-t/max(.008, decay*.18))*(.18+.14*velocity)
+        click = highpass(raw, 2600+variant*300, 2)
+        click *= np.exp(-t*(105+20*velocity))*(.025+.040*velocity)
+        return np.asarray(body+knock+click, dtype=np.float32)
 
     def _body(self, row: dict, rng: np.random.Generator, variant: int,
               velocity: float, pitch_ratio: float) -> np.ndarray:
-        centroid = np.clip(_median(row, "centroid_hz", 1800.0), 350.0, 6500.0)
-        # Die Body-Rolle traegt bewusst den Bereich unterhalb der tonalen
-        # Rolle. Beide koennen aus derselben gemessenen Familie stammen, sind
-        # im neuen Kit aber zwei verschiedene Instrumente.
-        base = np.clip(max(_median(row, "dominant_hz", 680.0), centroid*.28),
-                       160.0, 1500.0)*pitch_ratio
-        decay = np.clip(_median(row, "decay_seconds", .12), .045, .42)
-        duration = max(.16, min(.72, decay*4.4))
+        centroid = np.clip(_median(row, "centroid_hz", 3200.0), 900.0, 8000.0)
+        dominant = _median(row, "dominant_hz", centroid*.72)
+        if not 350.0 <= dominant <= 7000.0:
+            dominant = centroid*.72
+        base = np.clip(dominant, 650.0, 4300.0)*pitch_ratio
+        decay = np.clip(_median(row, "decay_seconds", .075), .028, .22)
+        duration = max(.11, min(.46, decay*4.1))
         t = np.arange(int(duration*SR), dtype=np.float64)/SR
-        ratios = (1.0, 1.57+variant*.025, 2.31, 3.86+variant*.04)
-        amplitudes = (1.0, .43, .24, .11)
+        # Kurze inharmonische Holz-/Stick-Resonanzen statt eines zweiten
+        # marimbaartigen Sinusinstruments.
+        ratios = (.42, .62, 1.0, 1.37+variant*.013)
+        amplitudes = (.32, .72, 1.0, .35)
         sound = np.zeros_like(t)
         for index, (ratio, amplitude) in enumerate(zip(ratios, amplitudes)):
-            sound += amplitude*np.sin(2*np.pi*base*ratio*t+variant*.29*index) \
-                *_envelope(t, decay/(1+index*.38), .0007+.0002*index)
-        low = max(90.0, min(centroid*.28, 2800.0))
-        high = max(low+180.0, min(18_000.0, centroid*(2.3+.25*velocity)))
-        texture = bandpass(rng.standard_normal(len(t)).astype(np.float32), low, high, 2)
-        sound += texture*np.exp(-t/(decay*.55))*(.06+.12*velocity)
-        return np.asarray(sound, dtype=np.float32)
+            phase = variant*.31*index+rng.uniform(-.12, .12)
+            sound += amplitude*np.sin(2*np.pi*base*ratio*t+phase) \
+                *_envelope(t, decay/(1+index*.55), .00018+.00008*index)
+        raw = rng.standard_normal(len(t)).astype(np.float32)
+        low = float(np.clip(centroid*.24, 550.0, 2600.0))
+        high = float(np.clip(centroid*2.0, low+700.0, 14_000.0))
+        strike = bandpass(raw, low, high, 2)
+        strike *= np.exp(-t/max(.006, decay*.20))*(.14+.18*velocity)
+        air = highpass(raw, 5600.0, 2)
+        air *= np.exp(-t/max(.004, decay*.13))*(.90+.70*velocity)
+        return highpass(np.asarray(sound*.72+strike+air, dtype=np.float32), 90.0, 2)
 
     def _tonal(self, row: dict, rng: np.random.Generator, variant: int,
                velocity: float, pitch_ratio: float) -> np.ndarray:
         centroid = np.clip(_median(row, "centroid_hz", 1800.0), 350.0, 6500.0)
-        base = np.clip(max(_median(row, "dominant_hz", 620.0), centroid*.50),
-                       140.0, 2200.0)*pitch_ratio
-        decay = np.clip(_median(row, "decay_seconds", .16), .07, .62)
-        duration = max(.30, min(1.10, decay*5.0))
+        dominant = _median(row, "dominant_hz", 620.0)
+        if not 180.0 <= dominant <= 2400.0:
+            dominant = centroid*.31
+        base = np.clip(dominant, 220.0, 1450.0)*pitch_ratio
+        decay = np.clip(_median(row, "decay_seconds", .11), .045, .30)
+        duration = max(.18, min(.68, decay*4.4))
         t = np.arange(int(duration*SR), dtype=np.float64)/SR
-        inharmonic = 1.0+variant*.004
-        ratios = (1.0, 2.01*inharmonic, 3.92*inharmonic, 5.38*inharmonic, 6.81*inharmonic)
-        amplitudes = (1.0, .32, .18, .085, .045)
+        inharmonic = 1.0+variant*.003
+        ratios = (1.0, 2.01*inharmonic, 3.86*inharmonic,
+                  5.43*inharmonic, 6.79*inharmonic)
+        # Der dominante Modus bleibt hoerbar, die hoeheren Modi tragen aber
+        # den gemessenen Schwerpunkt um 2 kHz. So klingt die Rolle nach
+        # angeschlagenem Tom/Holz und nicht nach einem tiefen Sinus-Pluck.
+        amplitudes = (.62, 1.0, .90, .55, .32)
         sound = np.zeros_like(t)
         for index, (ratio, amplitude) in enumerate(zip(ratios, amplitudes)):
-            sound += amplitude*np.sin(2*np.pi*base*ratio*t+index*.31*variant) \
-                *_envelope(t, decay/(1+index*.31), .0005)
-        knock_low = max(180.0, min(base*.65, 2500.0))
-        knock_high = min(11_000.0, max(knock_low+300.0, base*5.0))
+            # Ein sehr kurzer Pitch-Drift bildet angeschlagene Koerper besser
+            # ab als statische Oszillatoren.
+            frequency = base*ratio*(1.0+(.018+.004*velocity)*np.exp(-t*34.0))
+            phase = 2*np.pi*np.cumsum(frequency)/SR+index*.27*variant
+            sound += amplitude*np.sin(phase) \
+                *_envelope(t, decay/(1+index*.36), .00035)
+        knock_low = max(350.0, min(base*.82, 2600.0))
+        knock_high = min(10_500.0, max(knock_low+500.0, base*5.5))
         knock = bandpass(rng.standard_normal(len(t)).astype(np.float32),
                          knock_low, knock_high, 2)
-        sound += knock*np.exp(-t*95.0)*(.025+.055*velocity)
+        sound += knock*np.exp(-t/max(.005, decay*.17))*(.090+.115*velocity)
+        air = highpass(rng.standard_normal(len(t)).astype(np.float32), 6200.0, 2)
+        sound += air*np.exp(-t/max(.004, decay*.10))*(1.00+.80*velocity)
         return np.asarray(sound, dtype=np.float32)
 
     def _detail(self, row: dict, rng: np.random.Generator, variant: int,

@@ -11,6 +11,7 @@ Ausgaben:
     out/music-reference.wav
     out/music-reference-low.wav
     out/music-reference-body.wav
+    out/music-reference-tonal.wav
     out/music-reference-detail.wav
     out/analysis/music-reference.json
 """
@@ -27,6 +28,7 @@ from audio_common import (
     OUT, SR, add_short_room, apply_dip, audio_stats, cue_sheet, highpass,
     peak_normalize, place, soft_limit, timing, write_manifest, write_pcm24,
 )
+from reference_rhythm import LearnedRhythmGenerator
 from reference_sound import ReferenceSoundFactory, load_profile, profile_seed
 
 
@@ -51,31 +53,16 @@ SECTIONS = (
 )
 
 
-def section_at(bar: int, bars: int) -> tuple[str, float]:
+def section_context_at(bar: int, bars: int) -> tuple[str, float, int]:
     if bars == 68:
         for start, end, name, low, high in SECTIONS:
             if start <= bar < end:
                 position = 0.0 if end-start <= 1 else (bar-start)/(end-start-1)
-                return name, low+(high-low)*position
+                return name, low+(high-low)*position, start
     # Kurze Test- und Exportvarianten erhalten einen einfachen eigenen Bogen.
     position = bar/max(1, bars-1)
     energy = .22+.58*np.sin(np.pi*position)**1.2
-    return "short-form", float(energy)
-
-
-def choose_positions(rng: np.random.Generator, count: int, weights: np.ndarray,
-                     mandatory: tuple[int, ...] = ()) -> list[int]:
-    count = int(np.clip(count, 0, 16))
-    chosen = list(dict.fromkeys(position % 16 for position in mandatory))[:count]
-    remaining = count-len(chosen)
-    if remaining <= 0:
-        return sorted(chosen)
-    available = np.array([position for position in range(16) if position not in chosen])
-    probabilities = weights[available].astype(float)
-    probabilities /= probabilities.sum()
-    selected = rng.choice(available, size=min(remaining, len(available)),
-                          replace=False, p=probabilities)
-    return sorted(chosen+[int(value) for value in selected])
+    return "short-form", float(energy), 0
 
 
 def inside_regions(moment: float, regions: list[tuple[float, float]], margin: float = 0.0) -> bool:
@@ -97,38 +84,36 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
     actual_seed = profile_seed(profile, 118) if seed is None else int(seed)
     rng = np.random.default_rng(actual_seed)
     factory = ReferenceSoundFactory(profile, seed=actual_seed)
+    rhythm = LearnedRhythmGenerator(profile, seed=actual_seed)
 
     beat = 60.0/target_bpm
     sixteenth = beat/4.0
     bar_duration = beat*4.0
     length = int(round((total_seconds+tail)*SR))
     stems = {name: np.zeros((length, 2), dtype=np.float32)
-             for name in ("low", "body", "detail")}
+             for name in ("low", "body", "tonal", "detail")}
     events: list[dict] = []
 
-    measured_density = float(profile.get("generation_targets", {}).get("events_per_bar", 7.0))
-    density = float(np.clip(measured_density, 4.0, 12.0))
     width_ratio = 10**(float(profile["mix"].get("side_mid_db", -15.0))/20.0)
-    body_width = float(np.clip(.14+width_ratio*.60, .18, .32))
-    detail_width = float(np.clip(.17+width_ratio*.60, .22, .34))
-    role_weights = {role: factory.position_weights(role)
-                    for role in ("low", "body", "tonal", "detail")}
+    body_width = float(np.clip(.20+width_ratio*.85, .28, .42))
+    detail_width = float(np.clip(.24+width_ratio*.85, .32, .46))
+    pitch_ratios = rhythm.pitch_ratios()
 
-    @lru_cache(maxsize=192)
+    @lru_cache(maxsize=768)
     def cached_sound(role: str, variant: int, level: int, pitch_index: int) -> np.ndarray:
         velocities = (.34, .52, .72, .94)
-        ratios = (1.0, 2**(3/12), 2**(5/12), 2**(7/12))
-        return factory.render(role, variant, velocities[level], ratios[pitch_index])
+        ratio = pitch_ratios[pitch_index % len(pitch_ratios)] if role == "tonal" else 1.0
+        return factory.render(role, variant, velocities[level], ratio)
 
     def add_event(role: str, stem_name: str, bar: int, position: int,
                   energy: float, phrase: int, pitch_index: int = 0,
                   forced_gain: float = 1.0) -> None:
         grid_time = bar*bar_duration+position*sixteenth
-        offset, spread, measured_strength = factory.groove(position)
-        # Die systematische Referenzbewegung bleibt, wird aber abgeschwaecht;
-        # die neue Aufnahme erhaelt eine eigene korrelierte Phrase-Drift.
+        offset, spread, measured_strength = rhythm.performance(role, bar, position)
+        # Die gelernte systematische Bewegung bleibt erhalten; eine kleine
+        # korrelierte Phrase-Drift verhindert starres Quantisieren.
         phrase_drift = (phrase-1.5)*.0011
-        human = np.clip(offset*.68+rng.normal(0.0, spread*.22)+phrase_drift, -.028, .028)
+        human = np.clip(offset*.82+rng.normal(0.0, spread*.18)+phrase_drift, -.028, .028)
         moment = grid_time+human
         if moment < 0 or moment > total_seconds or inside_regions(moment, halts, .045):
             return
@@ -138,7 +123,7 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
         velocity = np.clip((.28+.62*measured_strength)*(.58+.52*energy), .12, 1.0)
         gain = float(velocity*forced_gain*(.72 if cue_collision else 1.0))
         level = min(3, max(0, int(velocity*4)))
-        variant = int((bar*5+position*3+phrase+pitch_index) % 4)
+        variant = int((bar*5+position*3+phrase+pitch_index) % 12)
         sound = cached_sound(role, variant, level, pitch_index)
 
         if role == "low":
@@ -156,32 +141,33 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
         })
 
     for bar in range(bars):
-        section, energy = section_at(bar, bars)
+        section, energy, section_start = section_context_at(bar, bars)
+        section_bar = bar-section_start
         phrase = bar % 4
         if energy < .025:
             continue
         if section == "final-hit":
             add_event("low", "low", bar, 0, 1.0, phrase, forced_gain=1.15)
             add_event("body", "body", bar, 0, 1.0, phrase, forced_gain=1.05)
-            add_event("tonal", "body", bar, 0, 1.0, phrase, 0, .92)
+            add_event("tonal", "tonal", bar, 0, 1.0, phrase, 0, .92)
             add_event("detail", "detail", bar, 0, 1.0, phrase, forced_gain=.72)
             continue
 
-        target = max(1, int(round(density*(.42+.70*energy))))
-        low_count = 0 if energy < .12 else max(1, int(round(target*(.16+.06*energy))))
-        body_count = max(1, int(round(target*(.30+.05*energy))))
-        tonal_count = 0 if energy < .20 else max(1, int(round(target*(.18+.04*energy))))
-        detail_count = max(0, target-low_count-body_count-tonal_count)
-
-        low_mandatory = (0,) if energy >= .34 or phrase == 0 else ()
-        body_mandatory = (12,) if energy >= .64 and phrase in {1, 3} else ()
-        low_positions = choose_positions(rng, low_count, role_weights["low"], low_mandatory)
-        body_positions = choose_positions(rng, body_count, np.roll(role_weights["body"], phrase),
-                                          body_mandatory)
-        tonal_positions = choose_positions(rng, tonal_count,
-                                           np.roll(role_weights["tonal"], (phrase*3) % 16))
-        detail_positions = choose_positions(rng, detail_count,
-                                            np.roll(role_weights["detail"], bar % 3))
+        # Ein Motivkern wird pro Abschnitt gelernt und nach vier Takten mit
+        # kleinen Variationen wiederholt. Dadurch entsteht dieselbe Art von
+        # Groove-Kohärenz wie in der Referenz, aber keine kopierte Sequenz.
+        occupied: set[int] = set()
+        low_positions = rhythm.positions(
+            "low", bar, section, section_bar, energy, occupied)
+        occupied.update(low_positions)
+        tonal_positions = rhythm.positions(
+            "tonal", bar, section, section_bar, energy, occupied)
+        occupied.update(tonal_positions)
+        body_positions = rhythm.positions(
+            "body", bar, section, section_bar, energy, occupied)
+        occupied.update(body_positions)
+        detail_positions = rhythm.positions(
+            "detail", bar, section, section_bar, energy, occupied)
 
         for position in low_positions:
             add_event("low", "low", bar, position, energy, phrase,
@@ -189,10 +175,10 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
         for position in body_positions:
             add_event("body", "body", bar, position, energy, phrase)
         for index, position in enumerate(tonal_positions):
-            # Vier eigene Tonhoehen, als kurze perkussive Antwort. Es wird
-            # keine Tonfolge der Referenz gelesen oder wiederholt.
-            pitch_index = (bar+phrase+index*2) % 4
-            add_event("tonal", "body", bar, position, energy, phrase, pitch_index, .72)
+            # Die Tonklassenabstaende stammen aus einer gewichteten Sprache,
+            # nicht aus der Tonfolge der Referenz.
+            pitch_index = (bar+phrase+index*2) % len(pitch_ratios)
+            add_event("tonal", "tonal", bar, position, energy, phrase, pitch_index, .72)
         for position in detail_positions:
             add_event("detail", "detail", bar, position, energy, phrase,
                       forced_gain=.68+.18*energy)
@@ -219,36 +205,41 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
     for stem in stems.values():
         stem *= envelope[:, None]
     stems["body"] = add_short_room(stems["body"], .050)
+    stems["tonal"] = add_short_room(stems["tonal"], .042)
     stems["detail"] = add_short_room(stems["detail"], .032)
     for channel in range(2):
         stems["low"][:, channel] = highpass(stems["low"][:, channel], 24.0, 2)
         stems["body"][:, channel] = highpass(stems["body"][:, channel], 38.0, 2)
+        stems["tonal"][:, channel] = highpass(stems["tonal"][:, channel], 55.0, 2)
         stems["detail"][:, channel] = highpass(stems["detail"][:, channel], 95.0, 2)
 
     # Die Referenz liefert die Familienanteile. Sie werden in einem sicheren
-    # Bereich auf die drei musikalischen Rollen uebertragen, damit ein
+    # Bereich auf die vier musikalischen Rollen uebertragen, damit ein
     # basslastiger Full-Mix nicht erneut alle Mitten verschluckt.
     family_shares = profile.get("generation_targets", {}).get("family_shares", {})
     low_share = float(family_shares.get(factory.role_family["low"], .25))
     detail_share = float(family_shares.get(factory.role_family["detail"], .18))
     role_gain = {
-        "low": float(np.clip(1.05+low_share*.25, 1.08, 1.18)),
-        "body": 1.00,
-        "detail": float(np.clip(1.78+detail_share*1.60, 1.80, 1.98)),
+        "low": float(np.clip(1.08+low_share*.16, 1.10, 1.16)),
+        "body": 1.15,
+        "tonal": 1.35,
+        "detail": float(np.clip(2.30+detail_share*2.0, 2.30, 2.52)),
     }
     for name in stems:
         stems[name] *= role_gain[name]
 
-    master = stems["low"]+stems["body"]+stems["detail"]
+    master = stems["low"]+stems["body"]+stems["tonal"]+stems["detail"]
     # Die Referenz ist ein fertig gemasterter Percussion-Track. Ohne
-    # Bus-Saettigung haetten die neuen Einzelschlaege rund 24 dB Crest-Faktor
-    # und waeren trotz korrektem Peak zu leise. Drive 3.2 bringt die
-    # Transienten in den gemessenen Bereich, ohne die Abschnittsdynamik zu
-    # nivellieren.
-    master = soft_limit(master, 3.20)
+    # Sanfte Bus-Saettigung verbindet die Einzelschlaege. Der alte Drive 3.2
+    # zerdrueckte die Transienten und liess die Summe synthetisch wirken.
+    master = soft_limit(master, 3.00)
     master, scale = peak_normalize(master, -3.0)
     for name in stems:
         stems[name] *= scale
+    stem_safety_scale = {}
+    for name, audio in stems.items():
+        stems[name], safety = peak_normalize(audio, -1.0, only_down=True)
+        stem_safety_scale[name] = round(safety, 6)
     context = {
         "seed": actual_seed,
         "target_bpm": target_bpm,
@@ -259,7 +250,15 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
                          for start, duration in halts],
         "role_gain": role_gain,
         "normalization_scale": round(scale, 6),
+        "stem_safety_scale": stem_safety_scale,
         "factory": factory.describe(),
+        "rhythm": {
+            "source_events_per_bar": rhythm.model.get("events_per_bar"),
+            "source_four_bar_repeat_jaccard": rhythm.model.get("four_bar_repeat_jaccard"),
+            "tonal_pitch_ratios": [round(value, 6) for value in pitch_ratios],
+            "principle": ("Neu generierte Vier-Takt-Motive mit kontrollierten Variationen; "
+                          "keine Referenzsequenz kopiert."),
+        },
     }
     return stems, master, events, context
 

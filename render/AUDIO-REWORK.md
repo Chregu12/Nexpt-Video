@@ -32,13 +32,18 @@ sich das Sechzehntelraster verlaesslicher bestimmen als die musikalische Eins.
 Der Lauf besteht aus fuenf voneinander pruefbaren Schritten:
 
 1. `reference_analyzer.py` misst Tempo, Raster, Microtiming, Anschlaege,
-   Klangfamilien, Frequenzbalance, Dynamik, Aufbau und Stereobreite.
+   Klangfamilien, Frequenzbalance, Dynamik, Aufbau und Stereobreite. Aus den
+   Ereignissen lernt er zusaetzlich Rollenwahrscheinlichkeiten und
+   Vier-Takt-Phasen.
 2. `reference_synth.py` erzeugt daraus ein neues Kit mit vier Rollen,
    Round-Robin-Varianten und drei Velocity-Layern.
-3. `music_reference.py` schreibt eine neue 68-Takt-Komposition. Sie verwendet
-   nur die Verteilungen des Profils, nie die Ereignisfolge der Referenz.
+3. `music_reference.py` schreibt eine neue 68-Takt-Komposition. Neu erzeugte
+   Vier-Takt-Motive werden kontrolliert wiederholt und variiert. Die komplette
+   Ereignisfolge der Referenz wird nicht kopiert.
 4. `reference_compare.py` misst das Ergebnis wieder und bewertet, wie gut
-   Klangbalance, Breite, Dynamik, Dichte und Tempo das Profil treffen.
+   Klangbalance, Breite, Dynamik, Rollendichte, Schrittmuster,
+   Vier-Takt-Wiederholung und Tempo das Profil treffen. Der Score ist eine
+   Diagnose und kein Ersatz fuer den Hoertest.
 5. `sfx_original.py` bleibt ein unabhaengiger Pfad aus dem Video-Cue-Sheet.
 
 Lokale Ausgaben:
@@ -46,7 +51,8 @@ Lokale Ausgaben:
 - `out/analysis/reference-profile.json`: maschinenlesbares Referenzprofil
 - `out/reference-kit/`: vollstaendig neu synthetisierte Einzelsounds
 - `out/music-reference-low.wav`: Sub- und tiefe Percussion
-- `out/music-reference-body.wav`: Body und gestimmte Percussion
+- `out/music-reference-body.wav`: Sticks, Rims und kurze Body-Transienten
+- `out/music-reference-tonal.wav`: gestimmte Toms und Holz-Percussion
 - `out/music-reference-detail.wav`: Clicks, Ticks und Luft
 - `out/music-reference.wav`: vorgemasterte Summe
 - `out/analysis/reference-match.json`: Messvergleich Referenz gegen Ergebnis
@@ -67,7 +73,7 @@ Microtiming. Sie wiederholt keinen importierten 16-Takt-Loop.
 Die Datei `out/analysis/music-original.json` dokumentiert Aufbau, Eventzahl,
 Seed und technische Messwerte.
 
-`music-reference.wav` ist die alternative profilgesteuerte Fassung. Ihre drei
+`music-reference.wav` ist die alternative profilgesteuerte Fassung. Ihre vier
 Rollen-Stems sind Pre-Master-Spuren; die nichtlineare Bus-Saettigung liegt nur
 auf dem Master. Dadurch bleiben die Einzelspuren in Final Cut oder Logic frei
 mischbar, summieren sich ohne denselben Master-Bus aber nicht bitgleich zum
