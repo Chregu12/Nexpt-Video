@@ -16,6 +16,7 @@ zur fertigen Tonmischung.
 | [**KEYNOTE-FILM-KONZEPT.md**](./KEYNOTE-FILM-KONZEPT.md) | Das Hauptdokument. Frame-für-Frame-Analyse der Referenzfilme, 13 Stil-Regeln, Story, vollständiges Drehbuch, Design-Spezifikation, Tonkonzept, Produktionsplan, offene Fragen. |
 | [**MUSIK-BRIEFING.md**](./MUSIK-BRIEFING.md) | Was für die Musik noch fehlt, warum ich es nicht selbst machen kann, und die genaue Bestellung für die vier fehlenden Blöcke. |
 | [**garageband/README.md**](./garageband/README.md) | Der GarageBand-Weg: Partitur bei uns, Klang aus echten Drum Kits. Was wo läuft, und warum die letzten drei Schritte einen Mac brauchen. |
+| [**garageband/TRANSCRIPTION.md**](./garageband/TRANSCRIPTION.md) | Instrumental zuerst als editierbare Spuren rekonstruieren, mit einer unveraenderten 1:1-Referenzspur vergleichen und danach direkt in GarageBand anpassen. |
 | [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
 
 ### Ansehen und anhören
@@ -138,6 +139,22 @@ auf einem Mac mit GarageBand. `garageband/session.py render` schreibt die Musik
 nach `out/music-garageband.wav`. Die SFX bleiben separat in
 `out/sfx-original.wav`. Der komplette Ablauf, inklusive Auswahl installierter
 Kits, steht in [garageband/README.md](./garageband/README.md).
+
+**Dieselbe Instrumentalmusik zuerst rekonstruieren und danach bearbeiten:**
+
+```bash
+python3 garageband/transcribe.py "/pfad/instrumental.m4a" --quality high
+
+python3 garageband/session.py prepare \
+  --score garageband/scores/instrumental-transcription.json \
+  --preset garageband/presets/instrumental-transcription.json \
+  --reference-audio "/pfad/instrumental.m4a"
+```
+
+Die Originaldatei bleibt als stummgeschaltete `REFERENCE — Original 1:1`-Spur
+im Projekt; Drums, Bass, Harmonie und Melodie liegen darunter als editierbare
+MIDI-Spuren. Grenzen und der genaue Mac-Ablauf stehen in
+[garageband/TRANSCRIPTION.md](./garageband/TRANSCRIPTION.md).
 
 **Varianten des Tons:**
 

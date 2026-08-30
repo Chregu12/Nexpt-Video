@@ -1,4 +1,14 @@
-# Reference audio to real GarageBand drums
+# Reference audio to editable GarageBand tracks
+
+There are now two deliberately separate workflows:
+
+| Goal | Command | Behavior |
+|---|---|---|
+| create a new, reference-inspired drum performance | `garageband/compose.py` | learns descriptors, then composes new events |
+| reconstruct the supplied instrumental before editing it | `garageband/transcribe.py` | preserves source event order, timing and duration |
+
+For the copy-first workflow, including the original 1:1 A/B track inside the
+GarageBand project, see [TRANSCRIPTION.md](./TRANSCRIPTION.md).
 
 The code can now analyze an MP3/M4A, learn its rhythmic language and create a
 new four-track performance for recorded GarageBand kits. Music and sound

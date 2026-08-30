@@ -161,35 +161,66 @@ def render_plan(score: Path, preset_path: Path, output_dir: Path,
     }
 
 
-def run_render(args: argparse.Namespace) -> dict:
-    if not args.score.exists():
-        raise SessionError(f"Score does not exist: {args.score}")
-    plan = render_plan(
-        args.score, args.preset, args.output_dir, args.output,
-        args.discard_unsaved, args.overwrite,
+def prepare_plan(score: Path, preset_path: Path, output_dir: Path,
+                 reference_audio: Path, discard_unsaved: bool) -> dict:
+    """Describe the edit-project workflow without touching GarageBand."""
+    base = render_plan(
+        score, preset_path, output_dir, ROOT/"out"/"unused-prepare.wav",
+        discard_unsaved, overwrite=False,
     )
-    if args.dry_run:
-        print(json.dumps(plan, ensure_ascii=False, indent=2))
-        return {"dry_run": True, "plan": plan}
-    if platform.system() != "Darwin":
-        raise SessionError(
-            "GarageBand rendering requires macOS. Use --dry-run here, then run "
-            "the same command on the Mac that has GarageBand installed.")
-    if args.output.exists() and not args.overwrite:
-        raise SessionError(
-            f"Output already exists: {args.output}. Pass --overwrite explicitly.")
+    steps = [step for step in base["steps"]
+             if step["phase"] not in {"verify", "export"}]
+    steps.extend([
+        {
+            "phase": "reveal_reference",
+            "command": ["open", "-R", str(reference_audio.resolve())],
+        },
+        {
+            "phase": "user_drag_reference",
+            "instruction": (
+                "Drag the revealed audio file to the empty area below the "
+                "GarageBand tracks at project start 1 1 1 1."
+            ),
+        },
+        {
+            "phase": "label_and_mute_reference",
+            "instruction": (
+                "After confirmation, detect the new track, rename it "
+                "REFERENCE — Original 1:1, and mute it for A/B comparison."
+            ),
+        },
+        {
+            "phase": "save_project",
+            "instruction": "Use Command-S in GarageBand and choose the .band project path.",
+        },
+    ])
+    return {
+        "schema_version": 1,
+        "score": str(score.resolve()), "preset": str(preset_path.resolve()),
+        "output_dir": str(output_dir.resolve()),
+        "reference_audio": str(reference_audio.resolve()),
+        "platform_required": "macOS", "steps": steps,
+        "result": (
+            "One unaltered source-audio reference track plus editable "
+            "transcribed MIDI tracks in the same GarageBand project."
+        ),
+    }
 
-    preset = load_preset(args.preset)
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+def _open_and_patch(score: Path, preset_path: Path, output_dir: Path,
+                    discard_unsaved: bool) -> dict:
+    """Open one score and apply every generated GarageBand Library patch."""
+    preset = load_preset(preset_path)
+    output_dir.mkdir(parents=True, exist_ok=True)
     validation = bridge_call(
-        "score-spec-validate", "--file", str(args.score.resolve()))
+        "score-spec-validate", "--file", str(score.resolve()))
     open_args = [
-        "make-from-score-spec", "--file", str(args.score.resolve()),
-        "--output-dir", str(args.output_dir.resolve()),
-        "--name", args.score.stem, "--show-library",
-        "--screenshot-output", str((args.output_dir/"01-import.png").resolve()),
+        "make-from-score-spec", "--file", str(score.resolve()),
+        "--output-dir", str(output_dir.resolve()),
+        "--name", score.stem, "--show-library",
+        "--screenshot-output", str((output_dir/"01-import.png").resolve()),
     ]
-    if args.discard_unsaved:
+    if discard_unsaved:
         open_args.append("--discard-unsaved")
     opened = bridge_call(*open_args)
     tracks = bridge_call("list-tracks")
@@ -214,6 +245,34 @@ def run_render(args: argparse.Namespace) -> dict:
             "part": track_spec["part"], "track_index": index,
             "patch": choice.get("name"), "applied": applied, "mix": mix,
         })
+    return {
+        "validation": validation, "opened": opened,
+        "tracks_before_patch": tracks, "selected_patches": selected,
+    }
+
+
+def run_render(args: argparse.Namespace) -> dict:
+    if not args.score.exists():
+        raise SessionError(f"Score does not exist: {args.score}")
+    plan = render_plan(
+        args.score, args.preset, args.output_dir, args.output,
+        args.discard_unsaved, args.overwrite,
+    )
+    if args.dry_run:
+        print(json.dumps(plan, ensure_ascii=False, indent=2))
+        return {"dry_run": True, "plan": plan}
+    if platform.system() != "Darwin":
+        raise SessionError(
+            "GarageBand rendering requires macOS. Use --dry-run here, then run "
+            "the same command on the Mac that has GarageBand installed.")
+    if args.output.exists() and not args.overwrite:
+        raise SessionError(
+            f"Output already exists: {args.output}. Pass --overwrite explicitly.")
+
+    prepared = _open_and_patch(
+        args.score, args.preset, args.output_dir, args.discard_unsaved)
+    validation = prepared["validation"]
+    preset = load_preset(args.preset)
 
     screenshot = bridge_call(
         "screenshot", "--output", str((args.output_dir/"02-kits.png").resolve()))
@@ -240,9 +299,9 @@ def run_render(args: argparse.Namespace) -> dict:
     result = {
         "ok": success,
         "score_validation": validation,
-        "opened": opened,
-        "tracks_before_patch": tracks,
-        "selected_patches": selected,
+        "opened": prepared["opened"],
+        "tracks_before_patch": prepared["tracks_before_patch"],
+        "selected_patches": prepared["selected_patches"],
         "verification_screenshot": screenshot,
         "audio_export": exported,
         "duration_verification": duration_verification,
@@ -259,6 +318,121 @@ def run_render(args: argparse.Namespace) -> dict:
             f"the file is too short. Inspect {manifest} and keep the WAV for diagnosis.")
     print(f"Done: {args.output}")
     print(f"Session manifest: {manifest}")
+    return result
+
+
+def run_prepare(args: argparse.Namespace) -> dict:
+    """Open an editable reconstruction and attach the original A/B reference."""
+    if not args.score.exists():
+        raise SessionError(f"Score does not exist: {args.score}")
+    if not args.reference_audio.exists():
+        raise SessionError(f"Reference audio does not exist: {args.reference_audio}")
+    plan = prepare_plan(
+        args.score, args.preset, args.output_dir,
+        args.reference_audio, args.discard_unsaved)
+    if args.dry_run:
+        print(json.dumps(plan, ensure_ascii=False, indent=2))
+        return {"dry_run": True, "plan": plan}
+    if platform.system() != "Darwin":
+        raise SessionError(
+            "Preparing a GarageBand edit project requires macOS. Use --dry-run "
+            "here and run the same command on the GarageBand Mac.")
+
+    prepared = _open_and_patch(
+        args.score, args.preset, args.output_dir, args.discard_unsaved)
+    subprocess.run(["open", "-R", str(args.reference_audio.resolve())], check=True)
+    before = {
+        int(row["index"])
+        for row in prepared["tracks_before_patch"].get("tracks", [])
+    }
+    print("\nFinder zeigt jetzt die Originaldatei.")
+    print("Ziehe sie in GarageBand unter die vorhandenen Spuren ganz an den Anfang (1 1 1 1).")
+    if args.no_wait:
+        result = {
+            **prepared, "reference_audio": str(args.reference_audio.resolve()),
+            "reference_track": None,
+            "next": (
+                "Drag the file, then run session.py reference-track "
+                "--index TRACK_INDEX to label and mute it."
+            ),
+        }
+        print("Projekt bleibt offen; die Referenzspur wird nach dem Ziehen manuell fertiggestellt.")
+        return result
+    if not sys.stdin.isatty():
+        raise SessionError(
+            "Interactive Finder drag needs a terminal. Re-run with --no-wait, "
+            "drag the file, then label/mute the new track in GarageBand.")
+    input("Wenn die Wellenform in GarageBand sichtbar ist, hier Enter druecken: ")
+
+    after = bridge_call("list-tracks")
+    new_rows = [row for row in after.get("tracks", [])
+                if int(row["index"]) not in before]
+    if args.reference_track_index is not None:
+        reference_index = args.reference_track_index
+    elif len(new_rows) == 1:
+        reference_index = int(new_rows[0]["index"])
+    else:
+        visible = ", ".join(
+            f"{row.get('index')}: {row.get('name')}" for row in after.get("tracks", []))
+        raise SessionError(
+            "The new reference track could not be identified uniquely. "
+            f"Visible tracks: {visible}. Re-run with --reference-track-index INDEX.")
+    set_args = [
+        "set-track", "--index", str(reference_index),
+        "--rename", "REFERENCE — Original 1:1",
+    ]
+    if not args.keep_reference_audible:
+        set_args += ["--mute", "true"]
+    reference_track = bridge_call(*set_args)
+    screenshot = bridge_call(
+        "screenshot", "--output", str((args.output_dir/"02-edit-project.png").resolve()))
+    result = {
+        **prepared, "reference_audio": str(args.reference_audio.resolve()),
+        "reference_track": {"index": reference_index, "update": reference_track},
+        "tracks_after_reference": after, "verification_screenshot": screenshot,
+        "ready_to_edit": True,
+        "save_instruction": "Press Command-S in GarageBand and choose the .band project path.",
+    }
+    manifest = args.output_dir/"prepare-result.json"
+    manifest.write_text(
+        json.dumps(result, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    print("Bearbeitbares Projekt ist bereit. Die Originalspur ist als A/B-Referenz stummgeschaltet.")
+    print("Jetzt in GarageBand mit Command-S als .band-Projekt speichern.")
+    return result
+
+
+def run_reference_track(args: argparse.Namespace) -> dict:
+    """Label an already dragged source-audio track for A/B comparison."""
+    if platform.system() != "Darwin":
+        raise SessionError("Reference-track setup requires an open GarageBand project on macOS")
+    set_args = [
+        "set-track", "--index", str(args.index),
+        "--rename", "REFERENCE — Original 1:1",
+    ]
+    if not args.keep_audible:
+        set_args += ["--mute", "true"]
+    result = bridge_call(*set_args)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return result
+
+
+def run_export_current(args: argparse.Namespace) -> dict:
+    """Export the currently open, manually edited GarageBand project."""
+    if platform.system() != "Darwin":
+        raise SessionError("Exporting the current GarageBand project requires macOS")
+    if args.output.exists() and not args.overwrite:
+        raise SessionError(
+            f"Output already exists: {args.output}. Pass --overwrite explicitly.")
+    export_args = [
+        "export-song", "--output", str(args.output.resolve()),
+        "--format", args.format, "--timeout", str(args.timeout),
+    ]
+    if args.overwrite:
+        export_args.append("--overwrite")
+    result = bridge_call(*export_args)
+    if not result.get("verified"):
+        raise SessionError("GarageBand export finished but audio verification failed")
+    print(f"Done: {args.output}")
     return result
 
 
@@ -314,6 +488,33 @@ def parse_args() -> argparse.Namespace:
     render.add_argument("--overwrite", action="store_true")
     render.add_argument("--dry-run", action="store_true")
 
+    prepare = sub.add_parser(
+        "prepare", help="open editable MIDI tracks plus an original A/B reference")
+    prepare.add_argument("--score", type=Path, required=True)
+    prepare.add_argument("--preset", type=Path, required=True)
+    prepare.add_argument("--reference-audio", type=Path, required=True)
+    prepare.add_argument("--output-dir", type=Path,
+                         default=ROOT/"garageband"/"arrangements"/"transcription")
+    prepare.add_argument("--discard-unsaved", action="store_true")
+    prepare.add_argument("--reference-track-index", type=int)
+    prepare.add_argument("--keep-reference-audible", action="store_true")
+    prepare.add_argument("--no-wait", action="store_true")
+    prepare.add_argument("--dry-run", action="store_true")
+
+    reference = sub.add_parser(
+        "reference-track", help="label and mute an already imported source-audio track")
+    reference.add_argument("--index", type=int, required=True)
+    reference.add_argument("--keep-audible", action="store_true")
+
+    current = sub.add_parser(
+        "export-current", help="export the currently open edited GarageBand project")
+    current.add_argument("--output", type=Path,
+                         default=ROOT/"out"/"music-garageband-edited.wav")
+    current.add_argument("--format", choices=("WAVE", "AIFF", "AAC", "MP3"),
+                         default="WAVE")
+    current.add_argument("--timeout", type=float, default=360)
+    current.add_argument("--overwrite", action="store_true")
+
     discover = sub.add_parser("discover", help="list installed Library patches")
     discover.add_argument("query", nargs="?", default="Drums")
     discover.add_argument("--track-index", type=int, default=1)
@@ -328,6 +529,12 @@ def main() -> None:
             run_doctor(args)
         elif args.command == "render":
             run_render(args)
+        elif args.command == "prepare":
+            run_prepare(args)
+        elif args.command == "reference-track":
+            run_reference_track(args)
+        elif args.command == "export-current":
+            run_export_current(args)
         else:
             run_discover(args)
     except SessionError as exc:

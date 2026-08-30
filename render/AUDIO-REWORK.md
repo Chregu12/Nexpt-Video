@@ -93,6 +93,15 @@ Library-Patches und exportiert `out/music-garageband.wav`. SFX gehen nicht in
 diese Partitur ein und bleiben `out/sfx-original.wav`. Details und Mac-
 Berechtigungen stehen in `garageband/README.md`.
 
+### Alternative: dieselbe Musik transkribieren und danach bearbeiten
+
+`garageband/transcribe.py` ist vom oben beschriebenen, neu komponierenden
+Referenzmodus getrennt. Es uebernimmt die gemessene Ereignisfolge und Dauer,
+erzeugt editierbare Drum-, Bass-, Harmonie- und Melodiespuren und legt die
+unveraenderte Quelldatei im GarageBand-Projekt als stummgeschaltete
+`REFERENCE — Original 1:1`-Spur daneben. Der genaue Ablauf steht in
+`garageband/TRANSCRIPTION.md`.
+
 ## Musik
 
 `out/music-original.wav` ist eine durchgehende, originale 68-Takt-Partitur bei
