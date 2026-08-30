@@ -29,6 +29,7 @@ from audio_common import (
     peak_normalize, place, soft_limit, timing, write_manifest, write_pcm24,
 )
 from reference_rhythm import LearnedRhythmGenerator
+from reference_drums import DEFAULT_LIBRARY, create_sound_factory, match_mix_bands
 from reference_sound import ReferenceSoundFactory, load_profile, profile_seed
 
 
@@ -75,7 +76,8 @@ def near_strong_cue(moment: float, cues: list[dict], distance: float = .065) -> 
 
 def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
             cues: list[dict] | None = None, seed: int | None = None,
-            tail: float = 1.0) -> tuple[dict[str, np.ndarray], np.ndarray, list[dict], dict]:
+            tail: float = 1.0, sound_factory=None
+            ) -> tuple[dict[str, np.ndarray], np.ndarray, list[dict], dict]:
     cues = sorted(cues or [], key=lambda row: float(row["t"]))
     halts = [(float(row["t"]), max(.20, float(row.get("dauer", .4))))
              for row in cues if row.get("art") == "halt"]
@@ -83,7 +85,7 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
               float(row.get("staerke", 0.0)) >= .82]
     actual_seed = profile_seed(profile, 118) if seed is None else int(seed)
     rng = np.random.default_rng(actual_seed)
-    factory = ReferenceSoundFactory(profile, seed=actual_seed)
+    factory = sound_factory or ReferenceSoundFactory(profile, seed=actual_seed)
     rhythm = LearnedRhythmGenerator(profile, seed=actual_seed)
 
     beat = 60.0/target_bpm
@@ -229,6 +231,10 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
         stems[name] *= role_gain[name]
 
     master = stems["low"]+stems["body"]+stems["tonal"]+stems["detail"]
+    factory_description = factory.describe()
+    master_band_eq = {"applied": False}
+    if factory_description.get("engine") == "real-drum-samples":
+        master, master_band_eq = match_mix_bands(master, profile["mix"]["bands"])
     # Die Referenz ist ein fertig gemasterter Percussion-Track. Ohne
     # Sanfte Bus-Saettigung verbindet die Einzelschlaege. Der alte Drive 3.2
     # zerdrueckte die Transienten und liess die Summe synthetisch wirken.
@@ -251,7 +257,8 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
         "role_gain": role_gain,
         "normalization_scale": round(scale, 6),
         "stem_safety_scale": stem_safety_scale,
-        "factory": factory.describe(),
+        "factory": factory_description,
+        "master_band_eq": master_band_eq,
         "rhythm": {
             "source_events_per_bar": rhythm.model.get("events_per_bar"),
             "source_four_bar_repeat_jaccard": rhythm.model.get("four_bar_repeat_jaccard"),
@@ -266,7 +273,8 @@ def compose(profile: dict, total_seconds: float, bars: int, target_bpm: float,
 def render_music(profile: dict, output: Path, manifest_path: Path,
                  bars: int | None = None, target_bpm: float | None = None,
                  seed: int | None = None, write_stems: bool = True,
-                 use_cues: bool = True) -> dict:
+                 use_cues: bool = True, sound_source: str = "auto",
+                 drum_library: Path | str = DEFAULT_LIBRARY) -> dict:
     cfg, film_total = timing()
     cue_data = cue_sheet() if use_cues else {"cues": [], "film": {}}
     bpm = float(target_bpm or cue_data.get("film", {}).get("bpm") or
@@ -276,8 +284,12 @@ def render_music(profile: dict, output: Path, manifest_path: Path,
         total_seconds = film_total
     else:
         total_seconds = bars*(240.0/bpm)
+    actual_seed = profile_seed(profile, 118) if seed is None else int(seed)
+    factory = create_sound_factory(
+        profile, sound_source=sound_source, library=drum_library, seed=actual_seed)
     stems, master, events, context = compose(
-        profile, total_seconds, bars, bpm, cue_data.get("cues", []), seed=seed)
+        profile, total_seconds, bars, bpm, cue_data.get("cues", []),
+        seed=actual_seed, sound_factory=factory)
 
     output.parent.mkdir(parents=True, exist_ok=True)
     write_pcm24(output, master)
@@ -298,8 +310,13 @@ def render_music(profile: dict, output: Path, manifest_path: Path,
             "source_sha256": profile["source"].get("sha256"),
             "profile_schema_version": profile.get("schema_version"),
         },
-        "source": ("Neue profilgesteuerte Synthese. Keine Quell-Samples und keine "
-                   "Ereignisfolge der Referenz verwendet."),
+        "source": (
+            "Neue profilgesteuerte Musik aus echten CC0-Drum-Aufnahmen. "
+            "Keine Audiodaten und keine Ereignisfolge der Referenz verwendet."
+            if context["factory"].get("engine") == "real-drum-samples" else
+            "Neue profilgesteuerte Synthese. Keine Quell-Samples und keine "
+            "Ereignisfolge der Referenz verwendet."
+        ),
         "composition": context,
         "sections": [{"start_bar": a+1, "end_bar": b, "name": name,
                       "energy_from": low, "energy_to": high}
@@ -324,6 +341,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target-bpm", type=float)
     parser.add_argument("--bars", type=int, help="Test-/Kurzfassung; Standard ist der Film")
     parser.add_argument("--seed", type=int)
+    parser.add_argument("--sound-source", choices=("auto", "samples", "procedural"),
+                        default="auto",
+                        help="auto nutzt echte Drums, wenn render/vcsl.py geladen wurde")
+    parser.add_argument("--drum-library", type=Path, default=DEFAULT_LIBRARY)
     parser.add_argument("--no-stems", action="store_true")
     parser.add_argument("--without-cues", action="store_true")
     return parser.parse_args()
@@ -336,6 +357,7 @@ def main() -> None:
         profile, args.output, args.manifest, bars=args.bars,
         target_bpm=args.target_bpm, seed=args.seed,
         write_stems=not args.no_stems, use_cues=not args.without_cues,
+        sound_source=args.sound_source, drum_library=args.drum_library,
     )
     print(f"{args.output} · {manifest['event_count']} neue Ereignisse · "
           f"{manifest['duration_seconds']:.3f}s")

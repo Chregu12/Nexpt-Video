@@ -253,6 +253,7 @@ class ReferenceSoundFactory:
 
     def describe(self) -> dict:
         return {
+            "engine": "procedural-synthesis",
             "profile_source_sha256": self.profile["source"].get("sha256"),
             "seed": self.seed,
             "role_to_measured_family": self.role_family,

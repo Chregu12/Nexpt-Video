@@ -58,23 +58,26 @@ python3 render/cuesheet.py && python3 render/sfx.py
 sh render/mischen.sh && python3 render/bauen.py --neu
 ```
 
-### Referenzprofil statt Quell-Samples
+### Referenzprofil statt Samples aus der Referenz
 
-`reference_pipeline.py` ist der allgemeine, samplefreie Weg fuer eine neue
-Referenz. Anders als `abhoeren.py` und `proben.py` schneidet er keine Schlaege
-aus dem Quelltrack. Der Analyzer schreibt nur Deskriptoren nach
+`reference_pipeline.py` ist der allgemeine, quell-samplefreie Weg fuer eine
+neue Referenz. Anders als `abhoeren.py` und `proben.py` schneidet er keine
+Schlaege aus dem Quelltrack. Der Analyzer schreibt nur Deskriptoren nach
 `out/analysis/reference-profile.json`; alle folgenden Skripte koennen die
 Referenzdatei technisch nicht mehr lesen.
 
 ```bash
-python3 render/reference_pipeline.py referenz.m4a --bpm 118 --downbeat 0
-python3 render/reference_pipeline.py referenz.m4a --preview
+python3 render/reference_pipeline.py referenz.m4a --bpm 118 --downbeat 0 \
+  --sound-source samples --download-drums
+python3 render/reference_pipeline.py referenz.m4a --preview  # auto: VCSL oder Rueckfall
 ```
 
 Der erste Befehl verwendet bekannte Tempodaten. Der zweite schaetzt Tempo und
-Raster automatisch. Das Ergebnis besteht aus einem neu synthetisierten Kit,
-vier Musikstems, dem Musikmaster, separaten SFX und einem Messreport. Details
-und alle Ausgaben stehen in `render/AUDIO-REWORK.md`.
+Raster automatisch. Das Ergebnis besteht standardmaessig aus einem
+profilbearbeiteten Kit echter CC0-Aufnahmen, vier Musikstems, dem Musikmaster,
+separaten SFX und einem Messreport. `--sound-source procedural` erzwingt die
+samplefreie Rueckfall-Engine. Details und alle Ausgaben stehen in
+`render/AUDIO-REWORK.md`.
 
 ## Ton: vier Stufen, alle aus `timing.json`
 
@@ -241,7 +244,9 @@ misst sich um den Faktor drei zu langsam.
 | `abhoeren.py` | Transkribiert eine Vorlage Schlag für Schlag: Position, Stärke, Versatz und Abklingzeit je Anschlag → `partitur.json`. Der Weg für einen **1:1-Nachbau**. |
 | `partitur.py` | Komponiert 68 Takte Drumline auf die Dramaturgie — Motive, Call-and-Response, Geisternoten, Flams, Wirbel. Noten, kein Klang. |
 | `drumline.py` | Spielt die Partitur mit den echten Trommeln und dem menschlichen Timing → `out/drumline.wav`. |
-| `vcsl.py` | Holt echte Trommeln aus der Versilian Community Sample Library (CC0) → `out/_vcsl/`. Schliesst die Lücke, die der Loop lässt: er hat keinen Ton unter 988 Hz, die VCSL bringt eine grosse Trommel mit 157–523 Hz, vier Anschlagstärken und zwei Round Robins je Stufe. |
+| `vcsl.py` | Holt eine Sparse-Auswahl echter Bassdrums, Snares, Toms, Handdrums, Holz-Percussion und Hi-Hats aus der Versilian Community Sample Library (CC0 1.0) → `out/_vcsl/`; mit Velocity-Layern und Round Robins. |
+| `reference_drums.py` | Baut daraus vier profilgesteuerte Musikrollen. Waehlt echte Aufnahmen je Anschlag, stimmt und kuerzt sie, formt Transienten und Frequenzbalance, ohne Referenz-Audio zu uebernehmen. |
+| `music_reference.py` | Komponiert gelernte Vier-Takt-Motive fuer den Film und liefert getrennte `low`-, `body`-, `tonal`- und `detail`-Stems plus Master. |
 | `cuesheet.py` | 139 Hit Points → `out/analysis/cue_sheet.json`. Die Vorlage zum Komponieren. |
 | `sfx.py` | Sounddesign aus Cue Sheet und Palette: impact, whoosh, click, tick, riser. |
 | `sounddesign.py` | Nur noch die **optionale** eigene Drumline (`--drums`). Musik und Effekte kommen aus `musik.py` bzw. `sfx.py`. |

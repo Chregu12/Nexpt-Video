@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Aus einem Referenzprofil ein neues, mehrstufiges Percussion-Kit rendern.
+"""Aus einem Referenzprofil ein mehrstufiges Percussion-Kit rendern.
 
     python3 render/reference_synth.py
     python3 render/reference_synth.py --profile out/analysis/mein-profil.json
 
-Die WAV-Dateien sind neu synthetisiert. Sie enthalten keine Ausschnitte der
-Referenz und koennen deshalb getrennt von der Referenzdatei archiviert werden.
+Standardmaessig werden echte CC0-Drum-Aufnahmen genutzt, sofern sie mit
+``render/vcsl.py`` geladen wurden. Die Dateien enthalten nie Ausschnitte der
+Referenz und koennen deshalb getrennt von ihr archiviert werden.
 """
 from __future__ import annotations
 
@@ -15,7 +16,8 @@ from pathlib import Path
 import numpy as np
 
 from audio_common import OUT, SR, audio_stats, peak_normalize, write_manifest, write_pcm24
-from reference_sound import ReferenceSoundFactory, load_profile
+from reference_drums import DEFAULT_LIBRARY, create_sound_factory
+from reference_sound import load_profile
 
 
 VELOCITIES = (("soft", .42), ("medium", .70), ("hard", .96))
@@ -23,8 +25,10 @@ ROLES = ("low", "body", "tonal", "detail")
 
 
 def render_kit(profile: dict, destination: Path, variants: int = 4,
-               seed: int | None = None) -> dict:
-    factory = ReferenceSoundFactory(profile, seed=seed)
+               seed: int | None = None, sound_source: str = "auto",
+               drum_library: Path | str = DEFAULT_LIBRARY) -> dict:
+    factory = create_sound_factory(
+        profile, sound_source=sound_source, library=drum_library, seed=seed)
     destination.mkdir(parents=True, exist_ok=True)
     files = []
     for role in ROLES:
@@ -67,14 +71,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", type=Path, default=OUT/"reference-kit")
     parser.add_argument("--variants", type=int, default=4)
     parser.add_argument("--seed", type=int)
+    parser.add_argument("--sound-source", choices=("auto", "samples", "procedural"),
+                        default="auto")
+    parser.add_argument("--drum-library", type=Path, default=DEFAULT_LIBRARY)
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
     profile = load_profile(args.profile)
-    manifest = render_kit(profile, args.output, args.variants, args.seed)
-    print(f"{args.output} · {len(manifest['files'])} neue Samples · "
+    manifest = render_kit(
+        profile, args.output, args.variants, args.seed,
+        sound_source=args.sound_source, drum_library=args.drum_library)
+    print(f"{args.output} · {len(manifest['files'])} Kit-Samples · "
           f"Rollen {manifest['role_to_measured_family']}")
 
 

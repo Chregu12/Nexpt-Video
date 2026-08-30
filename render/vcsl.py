@@ -2,7 +2,7 @@
 """
 Echte Trommeln holen: Versilian Community Sample Library (CC0).
 
-    python3 vcsl.py            -> out/_vcsl/  (rund 73 MB)
+    python3 vcsl.py            -> out/_vcsl/  (sparse CC0-Auswahl)
     python3 vcsl.py --bericht  zeigen, was da ist
 
 WARUM DIESE BIBLIOTHEK
@@ -23,7 +23,7 @@ LIZENZ: CC0 1.0 Universal, also gemeinfrei. Kommerziell nutzbar, ohne
 Namensnennung, ohne Weitergabepflicht. Aufgenommen von Versilian Studios in
 einem Proberaum mit SM57-Mikrofonen.
 
-Die Dateien liegen NICHT im Repo (73 MB, und sie sind mit einem Befehl
+Die Dateien liegen NICHT im Repo (und sie sind mit einem Befehl
 wieder da). `out/_vcsl/` steht in .gitignore.
 
 DIE BENENNUNG der Quelle traegt alles, was ein Sampler braucht:
@@ -47,17 +47,61 @@ REPO = "https://github.com/sgossner/VCSL.git"
 # Nur was gebraucht wird — die ganze Bibliothek ist ein Vielfaches davon.
 ORDNER = [
     "Membranophones/Struck Membranophones/Snare Drum, Rope Tension",
+    "Membranophones/Struck Membranophones/Snare Drum, Modern 1",
     "Membranophones/Struck Membranophones/Bass Drum 1",
     "Membranophones/Struck Membranophones/Tom 1",
     "Membranophones/Struck Membranophones/Tom 2",
+    "Membranophones/Struck Membranophones/Bongos",
+    "Membranophones/Struck Membranophones/Darbuka",
+    "Idiophones/Struck Idiophones/Cajon",
+    "Idiophones/Struck Idiophones/Claps",
+    "Idiophones/Struck Idiophones/Claves",
+    "Idiophones/Struck Idiophones/Hi-Hat Cymbal",
+    "Idiophones/Struck Idiophones/Shaker, Small",
+    "Idiophones/Struck Idiophones/Slit Drum",
+    "Idiophones/Struck Idiophones/Woodblock",
 ]
+
+DYNAMIK = {
+    "pppp": 1, "ppp": 2, "pp": 3, "p": 4,
+    "mp": 5, "mf": 6, "f": 7, "ff": 8, "fff": 9,
+}
+
+
+def dateiname_lesen(name):
+    """Artikulation, Anschlagstaerke und RR aus VCSL-Namen lesen.
+
+    VCSL verwendet nebeneinander ``vl3``, ``v5``, musikalische Dynamik wie
+    ``mf`` und Dateien, die nur ein Round Robin benennen. Der alte Parser
+    konnte nur die ersten beiden Formen und machte dadurch aus jedem
+    Hi-Hat-Round-Robin ein eigenes Instrument.
+    """
+    stem = re.sub(r"\.wav$", "", name, flags=re.IGNORECASE)
+    match = re.search(r"_(?:vl|v)(\d+)_rr(\d+)(?:_|$)", stem)
+    if match:
+        return stem[:match.start()], int(match.group(1)), int(match.group(2))
+    match = re.search(r"_(pppp|ppp|pp|mp|mf|fff|ff|p|f)(?:\d+)?_rr(\d+)(?:_|$)", stem)
+    if match:
+        return stem[:match.start()], DYNAMIK[match.group(1)], int(match.group(2))
+    match = re.search(r"_rr(\d+)(?:_|$)", stem)
+    if match:
+        return stem[:match.start()], 1, int(match.group(1))
+    match = re.search(r"_(?:vl|v)(\d+)(?:_|$)", stem)
+    if match:
+        return stem[:match.start()], int(match.group(1)), 1
+    match = re.search(r"_(pppp|ppp|pp|mp|mf|fff|ff|p|f)(?:\d+)?$", stem)
+    if match:
+        return stem[:match.start()], DYNAMIK[match.group(1)], 1
+    return stem, 1, 1
 
 def lauf(*a, **kw):
     return subprocess.run(a, check=True, capture_output=True, text=True, **kw)
 
 if "--bericht" not in sys.argv:
     if (ZIEL / ".git").exists():
-        print(f"{ZIEL} ist schon da.")
+        print(f"{ZIEL} ist schon da; aktualisiere die Sparse-Auswahl …")
+        lauf("git", "sparse-checkout", "set", *ORDNER, cwd=ZIEL)
+        lauf("git", "checkout", "master", cwd=ZIEL)
     else:
         ZIEL.parent.mkdir(parents=True, exist_ok=True)
         shutil.rmtree(ZIEL, ignore_errors=True)
@@ -78,12 +122,7 @@ if not ZIEL.exists():
 # Formen werden gelesen und auf 1..n normiert.
 kat = {}
 for p in sorted(ZIEL.rglob("*.wav")):
-    n = p.name
-    m = re.search(r"_(?:vl|v)(\d+)_rr(\d+)", n)
-    if m:
-        art = n[:m.start()]; vl, rr = int(m.group(1)), int(m.group(2))
-    else:
-        art = re.sub(r"\.wav$", "", n); vl, rr = 1, 1
+    art, vl, rr = dateiname_lesen(p.name)
     kat.setdefault(art, []).append({"datei": str(p.relative_to(ZIEL)), "vl": vl, "rr": rr})
 
 for art, v in kat.items():

@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 import wave
+import json
 from pathlib import Path
 
 import numpy as np
@@ -16,6 +17,7 @@ from audio_common import write_pcm24  # noqa: E402
 from music_reference import compose  # noqa: E402
 from reference_analyzer import analyze_reference  # noqa: E402
 from reference_compare import similarity_report  # noqa: E402
+from reference_drums import ReferenceDrumFactory, create_sound_factory  # noqa: E402
 from reference_sound import ReferenceSoundFactory  # noqa: E402
 
 
@@ -80,6 +82,15 @@ def write_wav(path: Path, audio: np.ndarray) -> None:
         handle.writeframes((np.clip(audio, -1, 1)*32767).astype("<i2").tobytes())
 
 
+def write_mono_wav(path: Path, audio: np.ndarray, rate: int = SR) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(path), "wb") as handle:
+        handle.setnchannels(1)
+        handle.setsampwidth(2)
+        handle.setframerate(rate)
+        handle.writeframes((np.clip(audio, -1, 1)*32767).astype("<i2").tobytes())
+
+
 def centroid(audio: np.ndarray) -> float:
     power = np.abs(np.fft.rfft(audio*np.hanning(len(audio))))**2
     frequencies = np.fft.rfftfreq(len(audio), 1/SR)
@@ -126,6 +137,64 @@ class ReferenceAudioTest(unittest.TestCase):
         self.assertLess(centroid(body), centroid(detail))
         self.assertFalse(np.array_equal(low[:min(len(low), len(body))],
                                         body[:min(len(low), len(body))]))
+
+    def test_real_drum_factory_uses_velocity_layers_and_round_robins(self) -> None:
+        library = Path(self.temp.name)/"vcsl-fixture"
+        fixture_rate = 44_100
+        t = np.arange(int(.42*fixture_rate))/fixture_rate
+        rng = np.random.default_rng(31)
+        sources = {
+            "bass-soft.wav": np.sin(2*np.pi*74*t)*np.exp(-t*10)*.55,
+            "bass-hard.wav": np.sin(2*np.pi*91*t)*np.exp(-t*9)*.90,
+            "stick-a.wav": np.sin(2*np.pi*2750*t)*np.exp(-t*48)*.72,
+            "stick-b.wav": np.sin(2*np.pi*3300*t)*np.exp(-t*54)*.72,
+            "bongo-a.wav": np.sin(2*np.pi*520*t)*np.exp(-t*22)*.76,
+            "bongo-b.wav": np.sin(2*np.pi*610*t)*np.exp(-t*25)*.76,
+            "hat-a.wav": rng.standard_normal(len(t))*np.exp(-t*50)*.22,
+            "hat-b.wav": rng.standard_normal(len(t))*np.exp(-t*58)*.22,
+        }
+        for name, audio in sources.items():
+            write_mono_wav(library/name, audio, fixture_rate)
+        catalog = {
+            "quelle": "test-fixture",
+            "lizenz": "CC0 1.0 Universal",
+            "artikulationen": {
+                "BDrumNew_hit": [
+                    {"datei": "bass-soft.wav", "stufe": 1, "rr": 1},
+                    {"datei": "bass-hard.wav", "stufe": 2, "rr": 1},
+                ],
+                "Snare2_stick": [
+                    {"datei": "stick-a.wav", "stufe": 1, "rr": 1},
+                    {"datei": "stick-b.wav", "stufe": 1, "rr": 2},
+                ],
+                "Darbuka_2_hit": [
+                    {"datei": "bongo-a.wav", "stufe": 1, "rr": 1},
+                    {"datei": "bongo-b.wav", "stufe": 1, "rr": 2},
+                ],
+                "HiHat_HitC": [
+                    {"datei": "hat-a.wav", "stufe": 1, "rr": 1},
+                    {"datei": "hat-b.wav", "stufe": 1, "rr": 2},
+                ],
+            },
+        }
+        (library/"katalog.json").write_text(
+            json.dumps(catalog), encoding="utf-8")
+
+        factory = ReferenceDrumFactory(self.profile, library=library, seed=5)
+        soft = factory.render("low", 0, .15)
+        hard = factory.render("low", 0, .95)
+        first = factory.render("body", 0, .65)
+        second = factory.render("body", 1, .65)
+        for sound in (soft, hard, first, second):
+            self.assertTrue(np.all(np.isfinite(sound)))
+            self.assertGreater(float(np.max(np.abs(sound))), .15)
+        self.assertFalse(np.array_equal(soft, hard))
+        self.assertFalse(np.array_equal(first, second))
+        selected = create_sound_factory(
+            self.profile, sound_source="auto", library=library, seed=5)
+        self.assertIsInstance(selected, ReferenceDrumFactory)
+        self.assertEqual(selected.describe()["engine"], "real-drum-samples")
+        self.assertEqual(selected.describe()["library_license"], "CC0 1.0 Universal")
 
     def test_short_composition_is_deterministic_and_stemmed(self) -> None:
         stems_a, master_a, events_a, context_a = compose(

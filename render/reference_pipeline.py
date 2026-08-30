@@ -5,7 +5,9 @@
         --bpm 118 --downbeat 0 --preview
 
 Die Referenzdatei wird nur vom Analyzer gelesen und weder kopiert noch in ein
-Ausgabeverzeichnis geschrieben. Musik und SFX bleiben getrennte Stems.
+Ausgabeverzeichnis geschrieben. Fuer die Musik koennen echte CC0-Drums oder
+die prozedurale Rueckfall-Engine verwendet werden. Musik und SFX bleiben
+getrennte Stems.
 """
 from __future__ import annotations
 
@@ -38,6 +40,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--kit-output", type=Path, default=OUT/"reference-kit")
     parser.add_argument("--music-output", type=Path, default=OUT/"music-reference.wav")
     parser.add_argument("--seed", type=int)
+    parser.add_argument("--sound-source", choices=("auto", "samples", "procedural"),
+                        default="auto",
+                        help="auto nutzt VCSL, wenn die Bibliothek vorhanden ist")
+    parser.add_argument("--drum-library", type=Path, default=OUT/"_vcsl")
+    parser.add_argument("--download-drums", action="store_true",
+                        help="CC0-VCSL-Auswahl vor dem Rendern laden/aktualisieren")
     parser.add_argument("--skip-kit", action="store_true")
     parser.add_argument("--skip-compare", action="store_true")
     parser.add_argument("--skip-sfx", action="store_true")
@@ -61,15 +69,21 @@ def main() -> None:
     run(analyzer)
 
     run([python, str(ROOT/"cuesheet.py")])
+    if args.download_drums:
+        run([python, str(ROOT/"vcsl.py")])
     if not args.skip_kit:
         synth = [python, str(ROOT/"reference_synth.py"),
-                 "--profile", str(args.profile), "--output", str(args.kit_output)]
+                 "--profile", str(args.profile), "--output", str(args.kit_output),
+                 "--sound-source", args.sound_source,
+                 "--drum-library", str(args.drum_library)]
         if args.seed is not None:
             synth += ["--seed", str(args.seed)]
         run(synth)
 
     music = [python, str(ROOT/"music_reference.py"),
-             "--profile", str(args.profile), "--output", str(args.music_output)]
+             "--profile", str(args.profile), "--output", str(args.music_output),
+             "--sound-source", args.sound_source,
+             "--drum-library", str(args.drum_library)]
     if args.target_bpm is not None:
         music += ["--target-bpm", str(args.target_bpm)]
     if args.seed is not None:

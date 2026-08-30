@@ -49,7 +49,7 @@ zur fertigen Tonmischung.
 | `out/music.wav` | Der blosse Schnitt daraus. Wird von `musik.py` erzeugt. |
 | `out/_proben/` | Die aus dem Loop geschnittene Klangpalette. Wird von `proben.py` erzeugt. |
 | `out/_groove/` | Groove MIDI Dataset (Magenta, CC BY 4.0) — 1150 Aufnahmen echter Schlagzeuger. Mit `python3 render/groove.py --laden`. |
-| `out/_vcsl/` | Echte Trommeln aus der Versilian Community Sample Library — **CC0, gemeinfrei**, kommerziell nutzbar ohne Namensnennung. 73 MB, mit `python3 render/vcsl.py` wieder da. |
+| `out/_vcsl/` | Sparse-Auswahl echter Drums und Percussion aus der Versilian Community Sample Library — **CC0 1.0**, mit `python3 render/vcsl.py` wiederherstellbar. |
 | `out/scenes/*.mov` | ProRes 422 HQ, ein Clip je Szene (267 MB). Mit `python3 render/render.py`. |
 | `render/fonts/`, `render/voices/*.onnx`, `render/asr/whisper-*/` | Schriften, Stimm- und Spracherkennungsmodelle. Je mit eigenem Ladeskript. |
 
@@ -110,14 +110,16 @@ sh render/mischen.sh --drumline  # damit mischen
 
 ```bash
 python3 render/reference_pipeline.py "/pfad/referenz.m4a" \
-  --bpm 118 --downbeat 0 --preview
+  --bpm 118 --downbeat 0 --sound-source samples \
+  --download-drums --preview
 ```
 
 Dabei werden keine Ausschnitte der Referenz weiterverwendet. Ein JSON-Profil
-steuert neue Synthese, eine gelernte Vier-Takt-Rhythmusgrammatik und eine auf
-das NEXPT-Cue-Sheet zugeschnittene 68-Takt-Komposition. Musik (`low`, `body`,
-`tonal`, `detail`) und SFX
-bleiben getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
+steuert ein Instrument aus echten CC0-Trommelaufnahmen, eine gelernte
+Vier-Takt-Rhythmusgrammatik und eine auf das NEXPT-Cue-Sheet zugeschnittene
+68-Takt-Komposition. Velocity-Layer und Round Robins wechseln die reale
+Aufnahme je Anschlag. Musik (`low`, `body`, `tonal`, `detail`) und SFX bleiben
+getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
 
 **Varianten des Tons:**
 
