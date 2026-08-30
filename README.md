@@ -15,6 +15,7 @@ zur fertigen Tonmischung.
 |---|---|
 | [**KEYNOTE-FILM-KONZEPT.md**](./KEYNOTE-FILM-KONZEPT.md) | Das Hauptdokument. Frame-für-Frame-Analyse der Referenzfilme, 13 Stil-Regeln, Story, vollständiges Drehbuch, Design-Spezifikation, Tonkonzept, Produktionsplan, offene Fragen. |
 | [**MUSIK-BRIEFING.md**](./MUSIK-BRIEFING.md) | Was für die Musik noch fehlt, warum ich es nicht selbst machen kann, und die genaue Bestellung für die vier fehlenden Blöcke. |
+| [**garageband/README.md**](./garageband/README.md) | Der GarageBand-Weg: Partitur bei uns, Klang aus echten Drum Kits. Was wo läuft, und warum die letzten drei Schritte einen Mac brauchen. |
 | [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
 
 ### Ansehen und anhören

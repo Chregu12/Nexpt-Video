@@ -1,0 +1,7316 @@
+{
+ "format": "garageband_score_spec_v1",
+ "title": "NEXPT Work — Keynote 68 Takte",
+ "bpm": 118,
+ "time_signature": "4/4",
+ "parts": [
+  {
+   "name": "NEXPT Percussion",
+   "is_percussion": true,
+   "channel": 10,
+   "mix": {
+    "volume": "82%",
+    "pan": "center",
+    "reverb": 0.12
+   },
+   "notes": [
+    {
+     "drum": "kick",
+     "start": 0.0,
+     "duration": 0.25,
+     "velocity": 79
+    },
+    {
+     "drum": "closed_hat",
+     "start": 0.0,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 0.46261,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 0.94995,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "snare",
+     "start": 0.98134,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "closed_hat",
+     "start": 1.4856,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 1.95636,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 2.45833,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "kick",
+     "start": 2.46877,
+     "duration": 0.25,
+     "velocity": 79
+    },
+    {
+     "drum": "closed_hat",
+     "start": 2.96458,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 3.46458,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 3.96881,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "kick",
+     "start": 3.97292,
+     "duration": 0.25,
+     "velocity": 79
+    },
+    {
+     "drum": "closed_hat",
+     "start": 4.46261,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 4.94995,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 5.4856,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "kick",
+     "start": 5.7228,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 5.95636,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 6.45833,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 6.96458,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "snare",
+     "start": 6.97919,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "closed_hat",
+     "start": 7.46458,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 7.96881,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "kick",
+     "start": 7.97292,
+     "duration": 0.25,
+     "velocity": 79
+    },
+    {
+     "drum": "closed_hat",
+     "start": 8.46261,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 8.94995,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "snare",
+     "start": 8.98134,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "kick",
+     "start": 9.47536,
+     "duration": 0.25,
+     "velocity": 78
+    },
+    {
+     "drum": "closed_hat",
+     "start": 9.4856,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 9.95636,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 10.45833,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 10.96458,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 11.46458,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 11.96881,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "kick",
+     "start": 11.97292,
+     "duration": 0.25,
+     "velocity": 79
+    },
+    {
+     "drum": "closed_hat",
+     "start": 12.46261,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 12.94995,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 13.4856,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 13.95636,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "kick",
+     "start": 14.23749,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "closed_hat",
+     "start": 14.45833,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 14.96458,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "snare",
+     "start": 14.97919,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "closed_hat",
+     "start": 15.46458,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 15.96881,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 15.97292,
+     "duration": 0.25,
+     "velocity": 91
+    },
+    {
+     "drum": "crash",
+     "start": 15.97292,
+     "duration": 0.25,
+     "velocity": 70
+    },
+    {
+     "drum": "closed_hat",
+     "start": 16.46261,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 16.94995,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "snare",
+     "start": 16.98134,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 17.4856,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 17.7228,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "closed_hat",
+     "start": 17.95636,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 18.45833,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "kick",
+     "start": 18.46877,
+     "duration": 0.25,
+     "velocity": 91
+    },
+    {
+     "drum": "closed_hat",
+     "start": 18.96458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "snare",
+     "start": 18.97919,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 19.46458,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 19.96881,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 19.97292,
+     "duration": 0.25,
+     "velocity": 91
+    },
+    {
+     "drum": "closed_hat",
+     "start": 20.46261,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "kick",
+     "start": 20.73328,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "closed_hat",
+     "start": 20.94995,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "snare",
+     "start": 20.98134,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "rim",
+     "start": 21.48022,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 21.4856,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 21.95636,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 21.97074,
+     "duration": 0.25,
+     "velocity": 86
+    },
+    {
+     "drum": "closed_hat",
+     "start": 22.45833,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 22.96458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 22.975,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "snare",
+     "start": 22.97919,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 23.46458,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "rim",
+     "start": 23.47083,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 23.96881,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 23.97292,
+     "duration": 0.25,
+     "velocity": 91
+    },
+    {
+     "drum": "closed_hat",
+     "start": 24.46261,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 24.94995,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "snare",
+     "start": 24.98134,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "kick",
+     "start": 25.47536,
+     "duration": 0.25,
+     "velocity": 89
+    },
+    {
+     "drum": "closed_hat",
+     "start": 25.4856,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 25.95636,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 26.45833,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 26.96458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 26.975,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "snare",
+     "start": 26.97919,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 27.46458,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "kick",
+     "start": 27.73112,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 27.97292,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "kick",
+     "start": 30.46877,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "kick",
+     "start": 31.97292,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "kick",
+     "start": 33.47536,
+     "duration": 0.25,
+     "velocity": 68
+    },
+    {
+     "drum": "closed_hat",
+     "start": 35.96881,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 35.97292,
+     "duration": 0.25,
+     "velocity": 93
+    },
+    {
+     "drum": "crash",
+     "start": 35.97292,
+     "duration": 0.25,
+     "velocity": 72
+    },
+    {
+     "drum": "closed_hat",
+     "start": 36.46261,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 36.94995,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "snare",
+     "start": 36.98134,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "rim",
+     "start": 37.48022,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 37.4856,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 37.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 38.23749,
+     "duration": 0.25,
+     "velocity": 68
+    },
+    {
+     "drum": "closed_hat",
+     "start": 38.45833,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 38.96458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "snare",
+     "start": 38.97919,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 39.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "rim",
+     "start": 39.47083,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 39.47917,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 39.96881,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 39.97292,
+     "duration": 0.25,
+     "velocity": 93
+    },
+    {
+     "drum": "closed_hat",
+     "start": 40.46261,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 40.94995,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "snare",
+     "start": 40.98134,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "kick",
+     "start": 41.25521,
+     "duration": 0.25,
+     "velocity": 63
+    },
+    {
+     "drum": "closed_hat",
+     "start": 41.4856,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 41.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 42.45833,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "kick",
+     "start": 42.46877,
+     "duration": 0.25,
+     "velocity": 93
+    },
+    {
+     "drum": "closed_hat",
+     "start": 42.96458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "snare",
+     "start": 42.97919,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "kick",
+     "start": 43.26052,
+     "duration": 0.25,
+     "velocity": 75
+    },
+    {
+     "drum": "closed_hat",
+     "start": 43.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "kick",
+     "start": 43.97292,
+     "duration": 0.25,
+     "velocity": 74
+    },
+    {
+     "drum": "kick",
+     "start": 45.7228,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "snare",
+     "start": 46.97919,
+     "duration": 0.25,
+     "velocity": 75
+    },
+    {
+     "drum": "closed_hat",
+     "start": 47.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 47.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "crash",
+     "start": 47.97292,
+     "duration": 0.25,
+     "velocity": 74
+    },
+    {
+     "drum": "closed_hat",
+     "start": 48.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 48.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 48.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 48.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 48.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 49.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 49.47536,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 49.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 49.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 49.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 50.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 50.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 50.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 50.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 50.975,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "snare",
+     "start": 50.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 51.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 51.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 51.73112,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 51.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 51.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 51.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 52.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 52.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 52.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 52.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 52.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 53.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "rim",
+     "start": 53.48022,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 53.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 53.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 53.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 54.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 54.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 54.46877,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 54.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 54.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 54.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 55.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 55.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "rim",
+     "start": 55.47083,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 55.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 55.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 55.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 56.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 56.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 56.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 56.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 56.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 57.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 57.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 57.7228,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "closed_hat",
+     "start": 57.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 57.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 58.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 58.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 58.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 58.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 58.975,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "snare",
+     "start": 58.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 59.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 59.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 59.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 59.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 59.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 60.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 60.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 60.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 60.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 60.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 61.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 61.47536,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "rim",
+     "start": 61.48022,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 61.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 61.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 61.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 62.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 62.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 62.72709,
+     "duration": 0.25,
+     "velocity": 72
+    },
+    {
+     "drum": "closed_hat",
+     "start": 62.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 62.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 62.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 63.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 63.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "rim",
+     "start": 63.47083,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 63.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 63.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 63.97292,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 64.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 64.46261,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 64.73334,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 64.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 64.98134,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 65.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "kick",
+     "start": 65.25521,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "closed_hat",
+     "start": 65.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 65.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 65.95636,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 66.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 66.45833,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 66.46877,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 66.74172,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 66.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 66.97919,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 67.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 67.26052,
+     "duration": 0.25,
+     "velocity": 81
+    },
+    {
+     "drum": "closed_hat",
+     "start": 67.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 67.74597,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 67.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 67.97292,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 68.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 68.46261,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 68.73334,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 68.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 68.98134,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 69.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "rim",
+     "start": 69.48022,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 69.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 69.7228,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "closed_hat",
+     "start": 69.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 69.95636,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 70.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 70.45833,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 70.46877,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 70.74172,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 70.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 70.97919,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 71.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 71.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "rim",
+     "start": 71.47083,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 71.74597,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 71.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 71.97292,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 72.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 72.46261,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "kick",
+     "start": 72.73328,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "closed_hat",
+     "start": 72.73334,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 72.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 72.98134,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 73.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 73.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 73.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 73.95636,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 73.97074,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 74.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 74.45833,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 74.74172,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 74.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 74.975,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "snare",
+     "start": 74.97919,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 75.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 75.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 75.74597,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 75.96881,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "kick",
+     "start": 75.97292,
+     "duration": 0.25,
+     "velocity": 103
+    },
+    {
+     "drum": "closed_hat",
+     "start": 76.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 76.46261,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 76.73334,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 76.94995,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "snare",
+     "start": 76.98134,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 77.25441,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "kick",
+     "start": 77.47536,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "rim",
+     "start": 77.48022,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 77.4856,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 77.74577,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 77.95636,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "closed_hat",
+     "start": 78.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 78.45833,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 78.74172,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 78.96458,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "kick",
+     "start": 78.975,
+     "duration": 0.25,
+     "velocity": 109
+    },
+    {
+     "drum": "snare",
+     "start": 78.97919,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "high_tom",
+     "start": 78.98122,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "mid_tom",
+     "start": 79.22083,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "closed_hat",
+     "start": 79.24799,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "closed_hat",
+     "start": 79.46458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "rim",
+     "start": 79.47083,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "low_tom",
+     "start": 79.47827,
+     "duration": 0.25,
+     "velocity": 77
+    },
+    {
+     "drum": "low_tom",
+     "start": 79.71246,
+     "duration": 0.25,
+     "velocity": 90
+    },
+    {
+     "drum": "kick",
+     "start": 79.73112,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "closed_hat",
+     "start": 79.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 79.96881,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "kick",
+     "start": 79.97292,
+     "duration": 0.25,
+     "velocity": 103
+    },
+    {
+     "drum": "closed_hat",
+     "start": 80.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 80.46261,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 80.73334,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 80.94995,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "snare",
+     "start": 80.98134,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 81.25441,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "closed_hat",
+     "start": 81.4856,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 81.7228,
+     "duration": 0.25,
+     "velocity": 60
+    },
+    {
+     "drum": "closed_hat",
+     "start": 81.74577,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 81.95636,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "closed_hat",
+     "start": 82.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 82.45833,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 82.74172,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 82.96458,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "kick",
+     "start": 82.975,
+     "duration": 0.25,
+     "velocity": 109
+    },
+    {
+     "drum": "snare",
+     "start": 82.97919,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 83.24799,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "closed_hat",
+     "start": 83.46458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 83.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 83.96881,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "kick",
+     "start": 83.97292,
+     "duration": 0.25,
+     "velocity": 103
+    },
+    {
+     "drum": "closed_hat",
+     "start": 84.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 84.46261,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 84.73334,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 84.94995,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "snare",
+     "start": 84.98134,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 85.25441,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "kick",
+     "start": 85.47536,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "rim",
+     "start": 85.48022,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 85.4856,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 85.74577,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 85.95636,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "closed_hat",
+     "start": 86.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 86.45833,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 86.72709,
+     "duration": 0.25,
+     "velocity": 77
+    },
+    {
+     "drum": "closed_hat",
+     "start": 86.74172,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 86.96458,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "snare",
+     "start": 86.97919,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 87.24799,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "closed_hat",
+     "start": 87.46458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "rim",
+     "start": 87.47083,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "closed_hat",
+     "start": 87.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 87.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 87.97292,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 88.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 88.46261,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 88.73334,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 88.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 88.98134,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 89.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 89.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 89.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 89.95636,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 90.23749,
+     "duration": 0.25,
+     "velocity": 73
+    },
+    {
+     "drum": "closed_hat",
+     "start": 90.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 90.45833,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 90.74172,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 90.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 90.97919,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 91.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 91.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 91.47917,
+     "duration": 0.25,
+     "velocity": 91
+    },
+    {
+     "drum": "closed_hat",
+     "start": 91.74597,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "closed_hat",
+     "start": 91.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 91.97292,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 92.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 92.46261,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 92.73334,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 92.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 92.98134,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 93.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "kick",
+     "start": 93.25521,
+     "duration": 0.25,
+     "velocity": 68
+    },
+    {
+     "drum": "rim",
+     "start": 93.48022,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 93.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 93.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 93.95636,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 94.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 94.45833,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 94.46877,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 94.74172,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 94.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 94.97919,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "high_tom",
+     "start": 94.98122,
+     "duration": 0.25,
+     "velocity": 90
+    },
+    {
+     "drum": "mid_tom",
+     "start": 95.22083,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "closed_hat",
+     "start": 95.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 95.26052,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "closed_hat",
+     "start": 95.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "rim",
+     "start": 95.47083,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "low_tom",
+     "start": 95.47827,
+     "duration": 0.25,
+     "velocity": 74
+    },
+    {
+     "drum": "low_tom",
+     "start": 95.71246,
+     "duration": 0.25,
+     "velocity": 87
+    },
+    {
+     "drum": "closed_hat",
+     "start": 95.74597,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "closed_hat",
+     "start": 95.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 95.97292,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 96.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 96.46261,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "kick",
+     "start": 96.73328,
+     "duration": 0.25,
+     "velocity": 75
+    },
+    {
+     "drum": "closed_hat",
+     "start": 96.73334,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 96.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 96.98134,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 97.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 97.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 97.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 97.95636,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 97.97074,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 98.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 98.45833,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 98.74172,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 98.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 98.975,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "snare",
+     "start": 98.97919,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 99.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 99.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 99.74597,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "closed_hat",
+     "start": 99.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 99.97292,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 100.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 100.46261,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 100.73334,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 100.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 100.98134,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 101.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "kick",
+     "start": 101.47536,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "rim",
+     "start": 101.48022,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 101.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 101.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 101.95636,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 102.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 102.45833,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 102.74172,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 102.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 102.975,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "snare",
+     "start": 102.97919,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "closed_hat",
+     "start": 103.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 103.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "rim",
+     "start": 103.47083,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 103.73112,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 103.74597,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "kick",
+     "start": 103.97292,
+     "duration": 0.25,
+     "velocity": 66
+    },
+    {
+     "drum": "kick",
+     "start": 106.46877,
+     "duration": 0.25,
+     "velocity": 66
+    },
+    {
+     "drum": "closed_hat",
+     "start": 107.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 107.97292,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "crash",
+     "start": 107.97292,
+     "duration": 0.25,
+     "velocity": 74
+    },
+    {
+     "drum": "closed_hat",
+     "start": 108.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 108.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 108.98134,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "rim",
+     "start": 109.48022,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 109.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 109.7228,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "closed_hat",
+     "start": 109.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 110.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 110.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 110.975,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "snare",
+     "start": 110.97919,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 111.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "rim",
+     "start": 111.47083,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 111.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 111.97292,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 112.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 112.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 112.98134,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 113.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 113.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 114.23749,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "closed_hat",
+     "start": 114.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 114.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 114.97919,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 115.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 115.47917,
+     "duration": 0.25,
+     "velocity": 87
+    },
+    {
+     "drum": "kick",
+     "start": 115.97292,
+     "duration": 0.25,
+     "velocity": 61
+    },
+    {
+     "drum": "kick",
+     "start": 117.25521,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 119.96881,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 119.97292,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "crash",
+     "start": 119.97292,
+     "duration": 0.25,
+     "velocity": 73
+    },
+    {
+     "drum": "closed_hat",
+     "start": 120.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 120.94995,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 120.98134,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 121.4856,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 121.7228,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 121.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 122.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "kick",
+     "start": 122.46877,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 122.96458,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 122.97919,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 123.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 123.96881,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 123.97292,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 124.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "kick",
+     "start": 124.73328,
+     "duration": 0.25,
+     "velocity": 71
+    },
+    {
+     "drum": "closed_hat",
+     "start": 124.94995,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 124.98134,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "rim",
+     "start": 125.48022,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 125.4856,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 125.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 125.97074,
+     "duration": 0.25,
+     "velocity": 89
+    },
+    {
+     "drum": "closed_hat",
+     "start": 126.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 126.96458,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 126.975,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "snare",
+     "start": 126.97919,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 127.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "rim",
+     "start": 127.47083,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 127.96881,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 127.97292,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 128.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 128.94995,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 128.98134,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 129.4856,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 129.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 130.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "kick",
+     "start": 130.46877,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 130.96458,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 130.97919,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 131.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 131.96881,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 131.97292,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 132.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 132.94995,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 132.98134,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "rim",
+     "start": 133.48022,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 133.4856,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 133.7228,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 133.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 134.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 134.96458,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 134.975,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "snare",
+     "start": 134.97919,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 135.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "rim",
+     "start": 135.47083,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 135.96881,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 135.97292,
+     "duration": 0.25,
+     "velocity": 94
+    },
+    {
+     "drum": "closed_hat",
+     "start": 136.46261,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 136.94995,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 136.98134,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "kick",
+     "start": 137.47536,
+     "duration": 0.25,
+     "velocity": 93
+    },
+    {
+     "drum": "closed_hat",
+     "start": 137.4856,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 137.95636,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 138.45833,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "kick",
+     "start": 138.72709,
+     "duration": 0.25,
+     "velocity": 70
+    },
+    {
+     "drum": "closed_hat",
+     "start": 138.96458,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "snare",
+     "start": 138.97919,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "closed_hat",
+     "start": 139.46458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 139.96881,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 139.97292,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 140.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 140.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 140.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 140.94995,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 140.98134,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 141.25441,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "rim",
+     "start": 141.48022,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 141.4856,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 141.74577,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 141.95636,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 142.23749,
+     "duration": 0.25,
+     "velocity": 71
+    },
+    {
+     "drum": "closed_hat",
+     "start": 142.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 142.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 142.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 142.96458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 142.97919,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 143.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 143.46458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "rim",
+     "start": 143.47083,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 143.47917,
+     "duration": 0.25,
+     "velocity": 89
+    },
+    {
+     "drum": "closed_hat",
+     "start": 143.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 143.96881,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 143.97292,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 144.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 144.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 144.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 144.94995,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 144.98134,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 145.25441,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "closed_hat",
+     "start": 145.4856,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 145.7228,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 145.74577,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 145.95636,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 146.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 146.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 146.46877,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 146.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 146.96458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 146.97919,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 147.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 147.46458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 147.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 147.96881,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 147.97292,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 148.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 148.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "kick",
+     "start": 148.73328,
+     "duration": 0.25,
+     "velocity": 74
+    },
+    {
+     "drum": "closed_hat",
+     "start": 148.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 148.94995,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 148.98134,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 149.25441,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "rim",
+     "start": 149.48022,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 149.4856,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 149.74577,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 149.95636,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 149.97074,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 150.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 150.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 150.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 150.96458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 150.975,
+     "duration": 0.25,
+     "velocity": 103
+    },
+    {
+     "drum": "snare",
+     "start": 150.97919,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 151.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 151.46458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "rim",
+     "start": 151.47083,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 151.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 151.96881,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 151.97292,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 152.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 152.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 152.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 152.94995,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 152.98134,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 153.25441,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "kick",
+     "start": 153.47536,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 153.4856,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 153.74577,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 153.95636,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 154.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 154.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 154.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 154.96458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 154.975,
+     "duration": 0.25,
+     "velocity": 103
+    },
+    {
+     "drum": "snare",
+     "start": 154.97919,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 155.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 155.46458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "kick",
+     "start": 155.73112,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "closed_hat",
+     "start": 155.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 155.96881,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 155.97292,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 156.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 156.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 156.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 156.94995,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 156.98134,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 157.25441,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "rim",
+     "start": 157.48022,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 157.4856,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 157.74577,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 157.95636,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 158.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 158.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 158.46877,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 158.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 158.96458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "snare",
+     "start": 158.97919,
+     "duration": 0.25,
+     "velocity": 99
+    },
+    {
+     "drum": "closed_hat",
+     "start": 159.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 159.46458,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "rim",
+     "start": 159.47083,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 159.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 159.96881,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "kick",
+     "start": 159.97292,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 160.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 160.46261,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 160.73334,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 160.94995,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 160.98134,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 161.25441,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "kick",
+     "start": 161.47536,
+     "duration": 0.25,
+     "velocity": 103
+    },
+    {
+     "drum": "closed_hat",
+     "start": 161.4856,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 161.74577,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 161.95636,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 162.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 162.45833,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 162.72709,
+     "duration": 0.25,
+     "velocity": 78
+    },
+    {
+     "drum": "closed_hat",
+     "start": 162.74172,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 162.96458,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 162.97919,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 163.24799,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 163.46458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 163.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 163.96881,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "kick",
+     "start": 163.97292,
+     "duration": 0.25,
+     "velocity": 105
+    },
+    {
+     "drum": "closed_hat",
+     "start": 164.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 164.46261,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 164.73334,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "closed_hat",
+     "start": 164.94995,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 164.98134,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 165.25441,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "rim",
+     "start": 165.48022,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 165.4856,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 165.74577,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 165.95636,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 166.23749,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "closed_hat",
+     "start": 166.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 166.45833,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 166.74172,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 166.96458,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 166.97919,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 167.24799,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 167.46458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "rim",
+     "start": 167.47083,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 167.47917,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 167.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 167.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 167.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 168.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 168.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 168.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 168.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 168.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 169.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "kick",
+     "start": 169.25521,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "closed_hat",
+     "start": 169.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "closed_hat",
+     "start": 169.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 169.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 170.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 170.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 170.46877,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 170.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 170.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 170.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 171.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "kick",
+     "start": 171.26052,
+     "duration": 0.25,
+     "velocity": 89
+    },
+    {
+     "drum": "closed_hat",
+     "start": 171.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 171.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 171.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 171.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 172.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 172.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 172.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 172.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 172.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 173.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "rim",
+     "start": 173.48022,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 173.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "kick",
+     "start": 173.7228,
+     "duration": 0.25,
+     "velocity": 64
+    },
+    {
+     "drum": "closed_hat",
+     "start": 173.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 173.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 174.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 174.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 174.46877,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 174.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 174.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 174.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "high_tom",
+     "start": 174.98122,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "mid_tom",
+     "start": 175.22083,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 175.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 175.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "rim",
+     "start": 175.47083,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "low_tom",
+     "start": 175.47827,
+     "duration": 0.25,
+     "velocity": 82
+    },
+    {
+     "drum": "low_tom",
+     "start": 175.71246,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 175.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 175.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 175.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 176.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 176.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 176.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 176.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 176.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 177.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "kick",
+     "start": 177.47536,
+     "duration": 0.25,
+     "velocity": 109
+    },
+    {
+     "drum": "closed_hat",
+     "start": 177.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "closed_hat",
+     "start": 177.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 177.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 178.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 178.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 178.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 178.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 178.975,
+     "duration": 0.25,
+     "velocity": 117
+    },
+    {
+     "drum": "snare",
+     "start": 178.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 179.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 179.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 179.73112,
+     "duration": 0.25,
+     "velocity": 63
+    },
+    {
+     "drum": "closed_hat",
+     "start": 179.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 179.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 179.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 180.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 180.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 180.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 180.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 180.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 181.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "rim",
+     "start": 181.48022,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 181.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "closed_hat",
+     "start": 181.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 181.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 182.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 182.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 182.46877,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 182.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 182.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 182.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 183.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 183.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "rim",
+     "start": 183.47083,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 183.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 183.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 183.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 184.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 184.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 184.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 184.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 184.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 185.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 185.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "kick",
+     "start": 185.7228,
+     "duration": 0.25,
+     "velocity": 64
+    },
+    {
+     "drum": "closed_hat",
+     "start": 185.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 185.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 186.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 186.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 186.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 186.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 186.975,
+     "duration": 0.25,
+     "velocity": 117
+    },
+    {
+     "drum": "snare",
+     "start": 186.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 187.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 187.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 187.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 187.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 187.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 188.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 188.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 188.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 188.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 188.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 189.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "kick",
+     "start": 189.47536,
+     "duration": 0.25,
+     "velocity": 109
+    },
+    {
+     "drum": "rim",
+     "start": 189.48022,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 189.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "closed_hat",
+     "start": 189.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 189.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 190.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 190.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 190.72709,
+     "duration": 0.25,
+     "velocity": 83
+    },
+    {
+     "drum": "closed_hat",
+     "start": 190.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 190.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 190.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "high_tom",
+     "start": 190.98122,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "mid_tom",
+     "start": 191.22083,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 191.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 191.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "rim",
+     "start": 191.47083,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "low_tom",
+     "start": 191.47827,
+     "duration": 0.25,
+     "velocity": 82
+    },
+    {
+     "drum": "low_tom",
+     "start": 191.71246,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 191.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 191.96881,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "kick",
+     "start": 191.97292,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 192.46261,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "closed_hat",
+     "start": 192.94995,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "snare",
+     "start": 192.98134,
+     "duration": 0.25,
+     "velocity": 87
+    },
+    {
+     "drum": "kick",
+     "start": 193.25521,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "closed_hat",
+     "start": 193.4856,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 193.95636,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 194.45833,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "kick",
+     "start": 194.46877,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 194.96458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "snare",
+     "start": 194.97919,
+     "duration": 0.25,
+     "velocity": 87
+    },
+    {
+     "drum": "kick",
+     "start": 195.26052,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "closed_hat",
+     "start": 195.46458,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 195.96881,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "kick",
+     "start": 195.97292,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 196.46261,
+     "duration": 0.25,
+     "velocity": 37
+    },
+    {
+     "drum": "closed_hat",
+     "start": 196.94995,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "snare",
+     "start": 196.98134,
+     "duration": 0.25,
+     "velocity": 87
+    },
+    {
+     "drum": "closed_hat",
+     "start": 197.4856,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "kick",
+     "start": 197.7228,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 197.95636,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 198.45833,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "kick",
+     "start": 198.46877,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 198.96458,
+     "duration": 0.25,
+     "velocity": 45
+    },
+    {
+     "drum": "snare",
+     "start": 198.97919,
+     "duration": 0.25,
+     "velocity": 87
+    },
+    {
+     "drum": "closed_hat",
+     "start": 199.46458,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 199.96881,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "kick",
+     "start": 199.97292,
+     "duration": 0.25,
+     "velocity": 81
+    },
+    {
+     "drum": "closed_hat",
+     "start": 200.46261,
+     "duration": 0.25,
+     "velocity": 35
+    },
+    {
+     "drum": "kick",
+     "start": 200.73328,
+     "duration": 0.25,
+     "velocity": 62
+    },
+    {
+     "drum": "closed_hat",
+     "start": 200.94995,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "snare",
+     "start": 200.98134,
+     "duration": 0.25,
+     "velocity": 82
+    },
+    {
+     "drum": "closed_hat",
+     "start": 201.4856,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 201.95636,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 202.45833,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 202.96458,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 203.46458,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 203.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 203.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "crash",
+     "start": 203.97292,
+     "duration": 0.25,
+     "velocity": 74
+    },
+    {
+     "drum": "closed_hat",
+     "start": 204.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 204.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 204.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 204.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 204.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 205.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 205.47536,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "rim",
+     "start": 205.48022,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 205.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 205.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 205.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 206.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 206.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 206.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 206.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 206.975,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "snare",
+     "start": 206.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 207.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 207.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "rim",
+     "start": 207.47083,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 207.73112,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 207.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 207.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 207.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 208.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 208.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 208.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 208.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 208.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 209.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 209.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "kick",
+     "start": 209.7228,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "closed_hat",
+     "start": 209.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 209.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 210.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 210.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 210.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 210.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 210.975,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "snare",
+     "start": 210.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 211.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 211.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 211.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 211.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 211.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 212.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 212.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 212.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 212.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 212.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 213.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 213.47536,
+     "duration": 0.25,
+     "velocity": 95
+    },
+    {
+     "drum": "rim",
+     "start": 213.48022,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 213.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 213.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 213.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 214.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 214.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 214.72709,
+     "duration": 0.25,
+     "velocity": 72
+    },
+    {
+     "drum": "closed_hat",
+     "start": 214.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 214.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 214.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 215.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 215.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "rim",
+     "start": 215.47083,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 215.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 215.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 215.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 216.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 216.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 216.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 216.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 216.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 217.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 217.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 217.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 217.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 218.23749,
+     "duration": 0.25,
+     "velocity": 70
+    },
+    {
+     "drum": "closed_hat",
+     "start": 218.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 218.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 218.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 218.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 218.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 219.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 219.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 219.47917,
+     "duration": 0.25,
+     "velocity": 88
+    },
+    {
+     "drum": "closed_hat",
+     "start": 219.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 219.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 219.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 220.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 220.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 220.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 220.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 220.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 221.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 221.25521,
+     "duration": 0.25,
+     "velocity": 66
+    },
+    {
+     "drum": "rim",
+     "start": 221.48022,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 221.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 221.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 221.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 222.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 222.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 222.46877,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 222.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 222.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 222.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 223.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "kick",
+     "start": 223.26052,
+     "duration": 0.25,
+     "velocity": 77
+    },
+    {
+     "drum": "closed_hat",
+     "start": 223.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "rim",
+     "start": 223.47083,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 223.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 223.96881,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 223.97292,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "closed_hat",
+     "start": 224.25216,
+     "duration": 0.25,
+     "velocity": 26
+    },
+    {
+     "drum": "closed_hat",
+     "start": 224.46261,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "kick",
+     "start": 224.73328,
+     "duration": 0.25,
+     "velocity": 73
+    },
+    {
+     "drum": "closed_hat",
+     "start": 224.73334,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 224.94995,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "snare",
+     "start": 224.98134,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 225.25441,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 225.4856,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 225.74577,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 225.95636,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 225.97074,
+     "duration": 0.25,
+     "velocity": 91
+    },
+    {
+     "drum": "closed_hat",
+     "start": 226.25834,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 226.45833,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 226.74172,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 226.96458,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 226.975,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "snare",
+     "start": 226.97919,
+     "duration": 0.25,
+     "velocity": 98
+    },
+    {
+     "drum": "closed_hat",
+     "start": 227.24799,
+     "duration": 0.25,
+     "velocity": 33
+    },
+    {
+     "drum": "closed_hat",
+     "start": 227.46458,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 227.74597,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "kick",
+     "start": 227.97292,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "kick",
+     "start": 229.47536,
+     "duration": 0.25,
+     "velocity": 75
+    },
+    {
+     "drum": "snare",
+     "start": 230.97919,
+     "duration": 0.25,
+     "velocity": 77
+    },
+    {
+     "drum": "kick",
+     "start": 231.97292,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "snare",
+     "start": 232.98134,
+     "duration": 0.25,
+     "velocity": 77
+    },
+    {
+     "drum": "kick",
+     "start": 234.46877,
+     "duration": 0.25,
+     "velocity": 76
+    },
+    {
+     "drum": "kick",
+     "start": 235.97292,
+     "duration": 0.25,
+     "velocity": 63
+    },
+    {
+     "drum": "kick",
+     "start": 237.7228,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 239.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 239.97292,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "crash",
+     "start": 239.97292,
+     "duration": 0.25,
+     "velocity": 78
+    },
+    {
+     "drum": "closed_hat",
+     "start": 240.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 240.46261,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 240.73334,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 240.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 240.98134,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 241.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 241.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 241.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 241.95636,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "kick",
+     "start": 242.23749,
+     "duration": 0.25,
+     "velocity": 73
+    },
+    {
+     "drum": "closed_hat",
+     "start": 242.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 242.45833,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 242.74172,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 242.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 242.97919,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 243.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "closed_hat",
+     "start": 243.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 243.47917,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 243.74597,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 243.96881,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "kick",
+     "start": 243.97292,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 244.25216,
+     "duration": 0.25,
+     "velocity": 27
+    },
+    {
+     "drum": "closed_hat",
+     "start": 244.46261,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 244.73334,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 244.94995,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 244.98134,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 245.25441,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "kick",
+     "start": 245.25521,
+     "duration": 0.25,
+     "velocity": 69
+    },
+    {
+     "drum": "rim",
+     "start": 245.48022,
+     "duration": 0.25,
+     "velocity": 49
+    },
+    {
+     "drum": "closed_hat",
+     "start": 245.4856,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 245.74577,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 245.95636,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 246.25834,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 246.45833,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "kick",
+     "start": 246.46877,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 246.74172,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "closed_hat",
+     "start": 246.96458,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "snare",
+     "start": 246.97919,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "closed_hat",
+     "start": 247.24799,
+     "duration": 0.25,
+     "velocity": 34
+    },
+    {
+     "drum": "kick",
+     "start": 247.26052,
+     "duration": 0.25,
+     "velocity": 81
+    },
+    {
+     "drum": "closed_hat",
+     "start": 247.46458,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "rim",
+     "start": 247.47083,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 247.74597,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 247.96881,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "kick",
+     "start": 247.97292,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 248.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 248.46261,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 248.73334,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 248.94995,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 248.98134,
+     "duration": 0.25,
+     "velocity": 107
+    },
+    {
+     "drum": "closed_hat",
+     "start": 249.25441,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 249.4856,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "kick",
+     "start": 249.7228,
+     "duration": 0.25,
+     "velocity": 61
+    },
+    {
+     "drum": "closed_hat",
+     "start": 249.74577,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 249.95636,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 250.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 250.45833,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 250.46877,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 250.74172,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 250.96458,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 250.97919,
+     "duration": 0.25,
+     "velocity": 107
+    },
+    {
+     "drum": "closed_hat",
+     "start": 251.24799,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 251.46458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 251.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 251.96881,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "kick",
+     "start": 251.97292,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 252.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 252.46261,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "kick",
+     "start": 252.73328,
+     "duration": 0.25,
+     "velocity": 80
+    },
+    {
+     "drum": "closed_hat",
+     "start": 252.73334,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 252.94995,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 252.98134,
+     "duration": 0.25,
+     "velocity": 107
+    },
+    {
+     "drum": "closed_hat",
+     "start": 253.25441,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "rim",
+     "start": 253.48022,
+     "duration": 0.25,
+     "velocity": 52
+    },
+    {
+     "drum": "closed_hat",
+     "start": 253.4856,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 253.74577,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 253.95636,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 253.97074,
+     "duration": 0.25,
+     "velocity": 100
+    },
+    {
+     "drum": "closed_hat",
+     "start": 254.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 254.45833,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "closed_hat",
+     "start": 254.74172,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 254.96458,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "kick",
+     "start": 254.975,
+     "duration": 0.25,
+     "velocity": 112
+    },
+    {
+     "drum": "snare",
+     "start": 254.97919,
+     "duration": 0.25,
+     "velocity": 107
+    },
+    {
+     "drum": "high_tom",
+     "start": 254.98122,
+     "duration": 0.25,
+     "velocity": 96
+    },
+    {
+     "drum": "mid_tom",
+     "start": 255.22083,
+     "duration": 0.25,
+     "velocity": 81
+    },
+    {
+     "drum": "closed_hat",
+     "start": 255.24799,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 255.46458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "rim",
+     "start": 255.47083,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "low_tom",
+     "start": 255.47827,
+     "duration": 0.25,
+     "velocity": 78
+    },
+    {
+     "drum": "low_tom",
+     "start": 255.71246,
+     "duration": 0.25,
+     "velocity": 92
+    },
+    {
+     "drum": "closed_hat",
+     "start": 255.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 255.96881,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "kick",
+     "start": 255.97292,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 256.25216,
+     "duration": 0.25,
+     "velocity": 28
+    },
+    {
+     "drum": "closed_hat",
+     "start": 256.46261,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 256.73334,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 256.94995,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 256.98134,
+     "duration": 0.25,
+     "velocity": 107
+    },
+    {
+     "drum": "closed_hat",
+     "start": 257.25441,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 257.4856,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 257.74577,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 257.95636,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 258.25834,
+     "duration": 0.25,
+     "velocity": 43
+    },
+    {
+     "drum": "closed_hat",
+     "start": 258.45833,
+     "duration": 0.25,
+     "velocity": 50
+    },
+    {
+     "drum": "kick",
+     "start": 258.46877,
+     "duration": 0.25,
+     "velocity": 106
+    },
+    {
+     "drum": "closed_hat",
+     "start": 258.74172,
+     "duration": 0.25,
+     "velocity": 42
+    },
+    {
+     "drum": "closed_hat",
+     "start": 258.96458,
+     "duration": 0.25,
+     "velocity": 55
+    },
+    {
+     "drum": "snare",
+     "start": 258.97919,
+     "duration": 0.25,
+     "velocity": 107
+    },
+    {
+     "drum": "closed_hat",
+     "start": 259.24799,
+     "duration": 0.25,
+     "velocity": 36
+    },
+    {
+     "drum": "closed_hat",
+     "start": 259.46458,
+     "duration": 0.25,
+     "velocity": 51
+    },
+    {
+     "drum": "closed_hat",
+     "start": 259.74597,
+     "duration": 0.25,
+     "velocity": 39
+    },
+    {
+     "drum": "closed_hat",
+     "start": 259.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 259.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 260.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 260.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 260.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 260.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 260.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 261.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "rim",
+     "start": 261.48022,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 261.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "kick",
+     "start": 261.7228,
+     "duration": 0.25,
+     "velocity": 64
+    },
+    {
+     "drum": "closed_hat",
+     "start": 261.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 261.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 262.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 262.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 262.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 262.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 262.975,
+     "duration": 0.25,
+     "velocity": 117
+    },
+    {
+     "drum": "snare",
+     "start": 262.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 263.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 263.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "rim",
+     "start": 263.47083,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 263.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 263.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 263.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 264.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 264.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 264.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 264.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 264.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 265.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "kick",
+     "start": 265.47536,
+     "duration": 0.25,
+     "velocity": 109
+    },
+    {
+     "drum": "closed_hat",
+     "start": 265.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "closed_hat",
+     "start": 265.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 265.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "closed_hat",
+     "start": 266.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 266.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "kick",
+     "start": 266.72709,
+     "duration": 0.25,
+     "velocity": 83
+    },
+    {
+     "drum": "closed_hat",
+     "start": 266.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 266.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 266.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 267.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 267.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 267.74597,
+     "duration": 0.25,
+     "velocity": 41
+    },
+    {
+     "drum": "closed_hat",
+     "start": 267.96881,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "kick",
+     "start": 267.97292,
+     "duration": 0.25,
+     "velocity": 111
+    },
+    {
+     "drum": "closed_hat",
+     "start": 268.25216,
+     "duration": 0.25,
+     "velocity": 30
+    },
+    {
+     "drum": "closed_hat",
+     "start": 268.46261,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 268.73334,
+     "duration": 0.25,
+     "velocity": 48
+    },
+    {
+     "drum": "closed_hat",
+     "start": 268.94995,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 268.98134,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "closed_hat",
+     "start": 269.25441,
+     "duration": 0.25,
+     "velocity": 40
+    },
+    {
+     "drum": "rim",
+     "start": 269.48022,
+     "duration": 0.25,
+     "velocity": 54
+    },
+    {
+     "drum": "closed_hat",
+     "start": 269.4856,
+     "duration": 0.25,
+     "velocity": 57
+    },
+    {
+     "drum": "closed_hat",
+     "start": 269.74577,
+     "duration": 0.25,
+     "velocity": 47
+    },
+    {
+     "drum": "closed_hat",
+     "start": 269.95636,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "kick",
+     "start": 270.23749,
+     "duration": 0.25,
+     "velocity": 81
+    },
+    {
+     "drum": "closed_hat",
+     "start": 270.25834,
+     "duration": 0.25,
+     "velocity": 46
+    },
+    {
+     "drum": "closed_hat",
+     "start": 270.45833,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "closed_hat",
+     "start": 270.74172,
+     "duration": 0.25,
+     "velocity": 44
+    },
+    {
+     "drum": "closed_hat",
+     "start": 270.96458,
+     "duration": 0.25,
+     "velocity": 58
+    },
+    {
+     "drum": "snare",
+     "start": 270.97919,
+     "duration": 0.25,
+     "velocity": 113
+    },
+    {
+     "drum": "high_tom",
+     "start": 270.98122,
+     "duration": 0.25,
+     "velocity": 101
+    },
+    {
+     "drum": "mid_tom",
+     "start": 271.22083,
+     "duration": 0.25,
+     "velocity": 85
+    },
+    {
+     "drum": "closed_hat",
+     "start": 271.24799,
+     "duration": 0.25,
+     "velocity": 38
+    },
+    {
+     "drum": "closed_hat",
+     "start": 271.46458,
+     "duration": 0.25,
+     "velocity": 53
+    },
+    {
+     "drum": "rim",
+     "start": 271.47083,
+     "duration": 0.25,
+     "velocity": 56
+    },
+    {
+     "drum": "low_tom",
+     "start": 271.47827,
+     "duration": 0.25,
+     "velocity": 82
+    },
+    {
+     "drum": "kick",
+     "start": 271.47917,
+     "duration": 0.25,
+     "velocity": 102
+    },
+    {
+     "drum": "low_tom",
+     "start": 271.71246,
+     "duration": 0.25,
+     "velocity": 97
+    },
+    {
+     "drum": "closed_hat",
+     "start": 271.74597,
+     "duration": 0.25,
+     "velocity": 41
+    }
+   ]
+  }
+ ]
+}

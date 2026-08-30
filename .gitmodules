@@ -1,0 +1,3 @@
+[submodule "tools/garageband-llm-bridge"]
+	path = tools/garageband-llm-bridge
+	url = https://github.com/extao15/garageband-llm-bridge.git

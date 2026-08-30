@@ -38,3 +38,8 @@ out/_vcsl/
 
 # Groove MIDI Dataset (Magenta, CC BY 4.0) — mit `python3 render/groove.py --laden`
 out/_groove/
+
+# GarageBand-Projekte und Exporte — auf dem Mac erzeugt, gross, reproduzierbar.
+# Die Partituren (garageband/scores/) gehoeren dagegen ins Repo.
+garageband/arrangements/*
+!garageband/arrangements/.gitkeep
