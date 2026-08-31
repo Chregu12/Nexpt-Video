@@ -58,3 +58,7 @@ out/_groove/
 # Die Partituren (garageband/scores/) gehoeren dagegen ins Repo.
 garageband/arrangements/*
 !garageband/arrangements/.gitkeep
+
+# Mac-, GarageBand-Version-, Sprach- und Sound-Pack-spezifisches Inventar.
+# Mit `python3 garageband/session.py inventory` auf dem Ziel-Mac neu erzeugen.
+garageband/catalogs/*.json

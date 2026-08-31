@@ -8,8 +8,21 @@ There are now two deliberately separate workflows:
 | reconstruct the supplied instrumental before editing it | `garageband/transcribe.py` | preserves source timing, detects notes/instruments and generates matching GarageBand patch selections |
 
 For the copy-first workflow, including the original 1:1 A/B track, separate
-Piano/Violin/Guitar/etc. MIDI tracks and confidence-aware patch selection
-inside the GarageBand project, see [TRANSCRIPTION.md](./TRANSCRIPTION.md).
+instrument-specific MIDI tracks, all 128 General MIDI programs, GarageBand
+world/synth extensions and confidence-aware installed-patch selection inside
+the GarageBand project, see [TRANSCRIPTION.md](./TRANSCRIPTION.md).
+
+Before the first high-quality transcription on a Mac, inventory the actual
+Sound Library. This avoids assuming that every GarageBand installation has the
+same version, language or downloaded packs:
+
+```bash
+python3 garageband/session.py inventory \
+  --track-index 1 \
+  --output garageband/catalogs/installed-patches.json
+```
+
+Pass that file to `garageband/transcribe.py --garageband-inventory ...`.
 
 The code can now analyze an MP3/M4A, learn its rhythmic language and create a
 new four-track performance for recorded GarageBand kits. Music and sound

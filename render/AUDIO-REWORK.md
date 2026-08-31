@@ -99,8 +99,11 @@ Berechtigungen stehen in `garageband/README.md`.
 Referenzmodus getrennt. Es uebernimmt die gemessene Ereignisfolge und Dauer,
 trennt Drums/Bass/Piano/Gitarre, transkribiert Tonhoehen und klassifiziert den
 restlichen Mix in instrumentbezogene Spuren wie Violine, Cello, Floete oder
-Saxofon. General-MIDI-Programme und GarageBand-Library-Patches werden passend
-erzeugt; unsichere Zuordnungen stehen mit Confidence im Report und koennen per
+Saxofon. Die hierarchische Taxonomie deckt alle 128 General-MIDI-Programme und
+GarageBand-spezifische World-/Synth-Klassen ab. `session.py inventory` liest
+die tatsaechlich installierten Library-Patches des Ziel-Macs ein.
+General-MIDI-Programme und GarageBand-Patches werden passend erzeugt;
+unsichere Zuordnungen stehen mit Confidence im Report und koennen per
 Instrument-Map korrigiert werden. Die unveraenderte Quelldatei liegt im
 GarageBand-Projekt als stummgeschaltete `REFERENCE — Original 1:1`-Spur
 daneben. Der genaue Ablauf steht in

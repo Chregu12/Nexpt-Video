@@ -152,10 +152,12 @@ python3 garageband/session.py prepare \
 ```
 
 Die Originaldatei bleibt als stummgeschaltete `REFERENCE — Original 1:1`-Spur
-im Projekt. Demucs, Basic Pitch und CLAP erzeugen darunter instrumentbezogene
-MIDI-Spuren samt GarageBand-Patchwahl – etwa Bass, Piano, Violine, Cello,
-Gitarre, Floete oder Saxofon. Confidence und manuelle Instrument-Overrides
-decken unsichere Stereo-Mischungen ab. Grenzen und der genaue Mac-Ablauf stehen in
+im Projekt. Demucs, Basic Pitch und eine hierarchische CLAP-Klassifikation
+erzeugen darunter instrumentbezogene MIDI-Spuren. Die Taxonomie deckt alle 128
+General-MIDI-Programme und GarageBand-Erweiterungen ab. Ein Mac-Inventar ordnet
+die erkannten Instrumente den tatsaechlich installierten Sound-Library-Patches
+zu. Confidence und manuelle Overrides decken unsichere Stereo-Mischungen ab.
+Grenzen und der genaue Mac-Ablauf stehen in
 [garageband/TRANSCRIPTION.md](./garageband/TRANSCRIPTION.md).
 
 **Varianten des Tons:**

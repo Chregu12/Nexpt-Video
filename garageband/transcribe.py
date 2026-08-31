@@ -40,6 +40,15 @@ if str(RENDER) not in sys.path:
     sys.path.insert(0, str(RENDER))
 
 from garageband.compose import write_score  # noqa: E402
+from garageband.instrument_catalog import (  # noqa: E402
+    FAMILY_DEFINITIONS,
+    INSTRUMENT_ALIASES as COMPLETE_INSTRUMENT_ALIASES,
+    INSTRUMENT_CATALOG as COMPLETE_INSTRUMENT_CATALOG,
+    classification_keys,
+    load_patch_inventory,
+    merge_catalog_overrides,
+    patch_for_instrument,
+)
 from reference_analyzer import SR, analyze_reference, decode_audio  # noqa: E402
 
 
@@ -163,7 +172,7 @@ INSTRUMENT_CATALOG: dict[str, dict[str, Any]] = {
         },
     },
     "electric_guitar": {
-        "name": "Electric Guitar", "instrument": "electric guitar", "program": 29,
+        "name": "Electric Guitar", "instrument": "electric guitar", "program": 27,
         "prompt": "a solo electric guitar",
         "roles": ("harmony", "melody"), "range": (40, 100),
         "mix": {"volume": .70, "pan": .10, "reverb": .12},
@@ -274,6 +283,11 @@ INSTRUMENT_CATALOG: dict[str, dict[str, Any]] = {
     },
 }
 
+# Preserve the project's hand-tuned common patches above and add the complete
+# 128-program GM taxonomy plus GarageBand world/synth extensions.
+INSTRUMENT_CATALOG = merge_catalog_overrides(
+    INSTRUMENT_CATALOG, COMPLETE_INSTRUMENT_CATALOG)
+
 ROLE_DEFAULT_INSTRUMENT = {
     "bass": "bass", "harmony": "piano", "melody": "synth_lead",
 }
@@ -291,6 +305,7 @@ INSTRUMENT_ALIASES = {
     "trompete": "trumpet", "blechblaeser": "brass", "blechbläser": "brass",
     "harfe": "harp", "synth": "synth_lead", "pad": "synth_pad",
 }
+INSTRUMENT_ALIASES = {**COMPLETE_INSTRUMENT_ALIASES, **INSTRUMENT_ALIASES}
 
 # MIDI channel 10 is conventionally percussion, so melodic tracks skip it.
 MELODIC_CHANNELS = (5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16)
@@ -350,6 +365,13 @@ def engine_availability() -> dict[str, Any]:
         "torch": torch, "transformers": transformers, "clap": torch and transformers,
         "ffmpeg": ffmpeg,
         "high_fidelity_ready": demucs and basic_pitch and torch and transformers and ffmpeg,
+        "instrument_taxonomy": {
+            "canonical_instruments": len(INSTRUMENT_CATALOG),
+            "classifiable_instruments": len(classification_keys(INSTRUMENT_CATALOG)),
+            "families": len(FAMILY_DEFINITIONS),
+            "general_midi_programs": len({
+                int(config["program"]) for config in INSTRUMENT_CATALOG.values()}),
+        },
         "supported_instruments": list(INSTRUMENT_CATALOG),
     }
 
@@ -860,6 +882,17 @@ def canonical_instrument(value: Any) -> str:
     normalized = re.sub(r"[\s-]+", "_", raw)
     candidate = INSTRUMENT_ALIASES.get(raw, INSTRUMENT_ALIASES.get(normalized, normalized))
     if candidate not in INSTRUMENT_CATALOG:
+        display_matches = [
+            key for key, config in INSTRUMENT_CATALOG.items()
+            if raw in {
+                str(config.get("name", "")).casefold(),
+                str(config.get("gm_name", "")).casefold(),
+                str(config.get("instrument", "")).casefold(),
+            }
+        ]
+        if len(display_matches) == 1:
+            candidate = display_matches[0]
+    if candidate not in INSTRUMENT_CATALOG:
         available = ", ".join(INSTRUMENT_CATALOG)
         raise ValueError(f"Unbekanntes Instrument {value!r}. Erlaubt: {available}")
     return candidate
@@ -927,6 +960,24 @@ def _classification_windows(
     return [ordered[int(index)] for index in sorted(set(indices))]
 
 
+def _hierarchical_instrument_scores(
+    family_keys: list[str],
+    family_probabilities: Iterable[float],
+    instrument_keys: list[str],
+    instrument_probabilities: Iterable[float],
+) -> dict[str, float]:
+    """Fuse broad family and fine instrument CLAP probabilities."""
+    family_scores = {
+        key: float(value) for key, value in zip(family_keys, family_probabilities)
+    }
+    weighted = {}
+    for key, value in zip(instrument_keys, instrument_probabilities):
+        family = str(INSTRUMENT_CATALOG[key]["family"])
+        weighted[key] = float(value)*(.15+.85*family_scores.get(family, 0.0))
+    total = sum(weighted.values()) or 1.0
+    return {key: value/total for key, value in weighted.items()}
+
+
 def classify_instrument_segments(
     source: Path,
     stems: dict[str, Path],
@@ -966,11 +1017,10 @@ def classify_instrument_segments(
     for values in tonal_roles.values():
         for note in values:
             stem_role = str(note.get("source_stem", "mix"))
-            # Bass already has a dedicated Demucs stem and gains nothing from
-            # an expensive zero-shot pass. Piano/guitar remain classified to
-            # distinguish acoustic/electric variants.
-            if stem_role != "bass":
-                notes_by_stem[stem_role].append(note)
+            # The stem itself fixes the broad family. CLAP still runs on bass,
+            # piano and guitar to distinguish acoustic/electric/synth and
+            # articulation variants inside that family.
+            notes_by_stem[stem_role].append(note)
     jobs: list[tuple[str, Path, float, float, np.ndarray]] = []
     try:
         for stem_role, notes in sorted(notes_by_stem.items()):
@@ -1002,31 +1052,55 @@ def classify_instrument_segments(
         processor = AutoProcessor.from_pretrained(model_name)
         model = ClapModel.from_pretrained(model_name).to(device)
         model.eval()
-        instrument_keys = list(INSTRUMENT_CATALOG)
-        prompts = [INSTRUMENT_CATALOG[key]["prompt"] for key in instrument_keys]
+        instrument_keys = classification_keys(INSTRUMENT_CATALOG)
+        family_keys = list(dict.fromkeys(
+            str(INSTRUMENT_CATALOG[key]["family"]) for key in instrument_keys))
+        prompts = (
+            [FAMILY_DEFINITIONS[key]["prompt"] for key in family_keys] +
+            [INSTRUMENT_CATALOG[key]["prompt"] for key in instrument_keys]
+        )
+        text_inputs = processor(text=prompts, return_tensors="pt", padding=True)
+        text_inputs = {
+            key: value.to(device) if hasattr(value, "to") else value
+            for key, value in text_inputs.items()
+        }
+        with torch.no_grad():
+            text_features = model.get_text_features(**text_inputs)
+            text_features = torch.nn.functional.normalize(text_features, dim=-1)
         segments: list[dict] = []
         batch_size = 4
         for offset in range(0, len(jobs), batch_size):
             batch = jobs[offset:offset+batch_size]
-            inputs = processor(
-                text=prompts, audio=[job[4] for job in batch],
+            audio_inputs = processor(
+                audio=[job[4] for job in batch],
                 sampling_rate=SR, return_tensors="pt", padding=True,
             )
-            inputs = {
+            audio_inputs = {
                 key: value.to(device) if hasattr(value, "to") else value
-                for key, value in inputs.items()
+                for key, value in audio_inputs.items()
             }
             with torch.no_grad():
-                probabilities = model(**inputs).logits_per_audio.softmax(dim=-1).cpu().numpy()
-            for job, row in zip(batch, probabilities):
+                audio_features = model.get_audio_features(**audio_inputs)
+                audio_features = torch.nn.functional.normalize(audio_features, dim=-1)
+                logits = 14.285714*(audio_features @ text_features.T)
+                family_probabilities = logits[:, :len(family_keys)].softmax(dim=-1).cpu().numpy()
+                instrument_probabilities = logits[:, len(family_keys):].softmax(dim=-1).cpu().numpy()
+            for job, family_row, instrument_row in zip(
+                    batch, family_probabilities, instrument_probabilities):
+                combined = _hierarchical_instrument_scores(
+                    family_keys, family_row, instrument_keys, instrument_row)
                 scores = {
                     key: round(float(value), 6)
-                    for key, value in zip(instrument_keys, row)
+                    for key, value in combined.items()
+                }
+                family_scores = {
+                    key: round(float(value), 6)
+                    for key, value in zip(family_keys, family_row)
                 }
                 segments.append({
                     "source_stem": job[0], "source_file": job[1].name,
                     "start_s": round(job[2], 5), "end_s": round(job[3], 5),
-                    "scores": scores,
+                    "scores": scores, "family_scores": family_scores,
                 })
     except Exception as exc:
         if engine == "auto":
@@ -1041,9 +1115,14 @@ def classify_instrument_segments(
     summaries = []
     for segment in segments:
         ranked = sorted(segment["scores"].items(), key=lambda item: item[1], reverse=True)[:3]
+        ranked_families = sorted(
+            segment.get("family_scores", {}).items(), key=lambda item: item[1], reverse=True)[:3]
         summaries.append({
             "source_stem": segment["source_stem"],
             "start_s": segment["start_s"], "end_s": segment["end_s"],
+            "top_families": [
+                {"family": key, "confidence": value} for key, value in ranked_families
+            ],
             "top_candidates": [
                 {"instrument": key, "confidence": value} for key, value in ranked
             ],
@@ -1052,6 +1131,10 @@ def classify_instrument_segments(
         "requested": engine, "used": "clap", "model": model_name,
         "device": device, "window_seconds": window_seconds,
         "hop_seconds": hop_seconds, "segments": len(segments),
+        "taxonomy": {
+            "families": len(family_keys), "classifiable_instruments": len(instrument_keys),
+            "catalog_instruments": len(INSTRUMENT_CATALOG),
+        },
         "segment_summary": summaries,
     }
 
@@ -1089,15 +1172,51 @@ def _scores_for_note(note: dict, segments: list[dict]) -> dict[str, float]:
     }
 
 
+def _family_scores_for_note(note: dict, segments: list[dict]) -> dict[str, float]:
+    if not segments:
+        return {}
+    stem = str(note.get("source_stem", "mix"))
+    midpoint = (float(note["start_s"])+float(note["end_s"]))/2
+    candidates = [
+        segment for segment in segments
+        if str(segment.get("source_stem", "mix")) == stem
+        and float(segment["start_s"]) <= midpoint <= float(segment["end_s"])
+    ]
+    if not candidates:
+        same_stem = [
+            segment for segment in segments
+            if str(segment.get("source_stem", "mix")) == stem
+        ]
+        if not same_stem:
+            return {}
+        candidates = [min(
+            same_stem,
+            key=lambda segment: abs(
+                midpoint-(float(segment["start_s"])+float(segment["end_s"]))/2),
+        )]
+    aggregate: dict[str, list[float]] = defaultdict(list)
+    for segment in candidates:
+        for family, score in segment.get("family_scores", {}).items():
+            if family in FAMILY_DEFINITIONS:
+                aggregate[family].append(float(score))
+    return {
+        family: statistics.fmean(values)
+        for family, values in aggregate.items() if values
+    }
+
+
 def _role_weight(instrument: str, role: str) -> float:
-    if role not in INSTRUMENT_CATALOG[instrument]["roles"]:
+    config = INSTRUMENT_CATALOG[instrument]
+    family = str(config["family"])
+    if role not in config["roles"]:
         return .08
-    if role == "harmony" and instrument in {
-            "violin", "flute", "clarinet", "saxophone", "trumpet", "synth_lead"}:
+    if role == "harmony" and family in {"reeds", "pipes", "synth_lead"}:
         return .12
-    if role == "melody" and instrument in {"piano", "electric_piano"}:
+    if role == "harmony" and instrument in {"violin", "trumpet", "erhu", "fiddle"}:
+        return .18
+    if role == "melody" and family == "piano":
         return .72
-    if role == "melody" and instrument in {"strings", "synth_pad"}:
+    if role == "melody" and family in {"string_ensemble", "synth_pad"}:
         return .76
     return 1.0
 
@@ -1125,21 +1244,37 @@ def _choose_note_instrument(
         return str(overrides["default"]), 1.0, "manual-default-override"
 
     scores = _scores_for_note(note, segments)
+    family_scores = _family_scores_for_note(note, segments)
     if stem == "bass" or note.get("instrument_hint") == "bass":
-        return "bass", .98, "demucs-stem"
-    if stem == "piano" or note.get("instrument_hint") == "piano":
-        choices = {key: scores.get(key, 0.0) for key in ("piano", "electric_piano")}
+        choices = {
+            key: scores.get(key, 0.0) for key, config in INSTRUMENT_CATALOG.items()
+            if config["family"] == "bass" and config.get("classify", True)
+        }
         selected = max(choices, key=choices.get)
         if choices[selected] > 0:
             total = sum(choices.values()) or 1.0
-            return selected, max(.78, choices[selected]/total), "demucs-stem+clap"
+            return selected, min(.96, .65+.30*choices[selected]/total), "demucs-stem+clap"
+        return "bass", .92, "demucs-stem"
+    if stem == "piano" or note.get("instrument_hint") == "piano":
+        choices = {
+            key: scores.get(key, 0.0) for key, config in INSTRUMENT_CATALOG.items()
+            if config["family"] == "piano" and config.get("classify", True)
+        }
+        selected = max(choices, key=choices.get)
+        if choices[selected] > 0:
+            total = sum(choices.values()) or 1.0
+            return selected, min(.96, .65+.30*choices[selected]/total), "demucs-stem+clap"
         return "piano", .92, "demucs-stem"
     if stem == "guitar" or note.get("instrument_hint") == "guitar":
-        choices = {key: scores.get(key, 0.0) for key in ("acoustic_guitar", "electric_guitar")}
+        choices = {
+            key: scores.get(key, 0.0) for key, config in INSTRUMENT_CATALOG.items()
+            if config["family"] in {"acoustic_guitar", "electric_guitar"}
+            and config.get("classify", True)
+        }
         selected = max(choices, key=choices.get)
         if choices[selected] > 0:
             total = sum(choices.values()) or 1.0
-            return selected, max(.76, choices[selected]/total), "demucs-stem+clap"
+            return selected, min(.95, .63+.30*choices[selected]/total), "demucs-stem+clap"
         return "acoustic_guitar", .88, "demucs-stem"
 
     adjusted = {
@@ -1158,6 +1293,38 @@ def _choose_note_instrument(
         runner_up = ranked[1][1]/total if len(ranked) > 1 else 0.0
         if confidence >= .20 and normalized-runner_up >= .015:
             return selected, min(1.0, confidence), "clap"
+
+    # With 100+ fine labels, several variants of the correct family may split
+    # the probability. Keep the confidently recognized family instead of
+    # falling all the way back to a generic role instrument.
+    family_candidates: dict[str, tuple[float, str]] = {}
+    for family, family_score in family_scores.items():
+        members = [
+            key for key, config in INSTRUMENT_CATALOG.items()
+            if config["family"] == family and config.get("classify", True)
+        ]
+        if not members:
+            continue
+        member_scores = {
+            key: (scores.get(key, 0.0)+1e-6)*_role_weight(key, role)*_range_weight(
+                key, int(note["midi"]))
+            for key in members
+        }
+        selected = max(member_scores, key=member_scores.get)
+        suitability = max(
+            _role_weight(key, role)*_range_weight(key, int(note["midi"]))
+            for key in members)
+        family_candidates[family] = (family_score*suitability, selected)
+    if family_candidates:
+        ranked_families = sorted(
+            family_candidates.items(), key=lambda item: item[1][0], reverse=True)
+        family, (best, selected) = ranked_families[0]
+        total = sum(value[0] for _name, value in ranked_families) or 1.0
+        normalized = best/total
+        runner_up = ranked_families[1][1][0]/total if len(ranked_families) > 1 else 0.0
+        confidence = .58*normalized+.42*family_scores.get(family, 0.0)
+        if confidence >= .22 and normalized-runner_up >= .02:
+            return selected, min(.72, confidence), "clap-family-fallback"
     return ROLE_DEFAULT_INSTRUMENT[role], .34, "role-fallback"
 
 
@@ -1187,6 +1354,7 @@ def assign_notes_to_instruments(
         keep = {
             key for key, _count in counts.most_common(len(MELODIC_CHANNELS))
         }
+        catalog_rank = {key: index for index, key in enumerate(INSTRUMENT_CATALOG)}
         for note in assigned:
             if note["nexpt_instrument"] in keep:
                 continue
@@ -1194,7 +1362,10 @@ def assign_notes_to_instruments(
             compatible = [
                 key for key in keep if role in INSTRUMENT_CATALOG[key]["roles"]
             ]
-            replacement = max(compatible or list(keep), key=lambda key: counts[key])
+            replacement = max(
+                compatible or list(keep),
+                key=lambda key: (counts[key], -catalog_rank[key]),
+            )
             note["nexpt_instrument"] = replacement
             note["nexpt_instrument_confidence"] = min(
                 .25, float(note["nexpt_instrument_confidence"]))
@@ -1222,7 +1393,8 @@ def assign_notes_to_instruments(
         })
     uncertain = sum(
         float(note["nexpt_instrument_confidence"]) < .35 or
-        note["nexpt_instrument_source"] in {"role-fallback", "midi-channel-limit-merge"}
+        note["nexpt_instrument_source"] in {
+            "role-fallback", "clap-family-fallback", "midi-channel-limit-merge"}
         for note in assigned
     )
     return ordered_tracks, {
@@ -1406,17 +1578,23 @@ def build_transcription_score(
     return score, report
 
 
-def build_garageband_preset(score: dict) -> dict:
+def build_garageband_preset(
+    score: dict,
+    patch_inventory: dict[str, Any] | None = None,
+) -> dict:
     tracks = []
     for index, part in enumerate(score["parts"], start=1):
         role = str(part.get("nexpt_role", "drums"))
         instrument = str(part.get("nexpt_instrument", ""))
         if instrument in INSTRUMENT_CATALOG:
-            patch = INSTRUMENT_CATALOG[instrument]["patch"]
+            patch, patch_source = patch_for_instrument(
+                instrument, patch_inventory, catalog=INSTRUMENT_CATALOG)
         elif role == "timeline":
             patch = PATCHES["drums"]
+            patch_source = "built-in-drum-catalog"
         else:
             patch = PATCHES["drums"]
+            patch_source = "built-in-drum-catalog"
         mix = part.get("mix", {})
         tracks.append({
             "part": part["name"], "fallback_index": index,
@@ -1425,11 +1603,20 @@ def build_garageband_preset(score: dict) -> dict:
             "pan": str(mix.get("pan", 0)),
             "detected_instrument": instrument or "drums",
             "instrument_confidence": part.get("nexpt_instrument_confidence"),
+            "patch_source": patch_source,
         })
     return {
         "schema_version": 1,
         "name": "NEXPT Audio Transcription",
         "description": "Generated patch plan for an editable audio transcription.",
+        "instrument_taxonomy": {
+            "canonical_instruments": len(INSTRUMENT_CATALOG),
+            "general_midi_programs": len({
+                int(config["program"]) for config in INSTRUMENT_CATALOG.values()}),
+            "installed_inventory_used": bool(patch_inventory),
+            "inventory_source": (
+                patch_inventory.get("source_path") if patch_inventory else None),
+        },
         "tracks": tracks,
         "export": {"format": "WAVE", "timeout_seconds": 360},
     }
@@ -1458,6 +1645,7 @@ def transcribe_audio(
     pitch_engine: str | None = None,
     instrument_engine: str | None = None,
     instrument_map: dict[str, Any] | None = None,
+    garageband_inventory: dict[str, Any] | None = None,
     content_mode: str = "auto",
     demucs_model: str = "htdemucs_6s",
     clap_model: str = "laion/clap-htsat-unfused",
@@ -1521,7 +1709,7 @@ def transcribe_audio(
     score, score_report = build_transcription_score(
         mix_profile, drum_tracks, instrument_tracks, bpm=bpm,
         duration_seconds=duration, engines=engines, content=content_report)
-    preset = build_garageband_preset(score)
+    preset = build_garageband_preset(score, garageband_inventory)
 
     _write_json(profile_path, mix_profile)
     written = write_score(score, score_path, midi_path)
@@ -1551,6 +1739,8 @@ def transcribe_audio(
         "outputs": {
             "profile": str(profile_path.resolve()), "score": str(Path(written["score"])),
             "midi": str(midi_path.resolve()), "preset": str(preset_path.resolve()),
+            "garageband_inventory": (
+                garageband_inventory.get("source_path") if garageband_inventory else None),
             "reference_audio": str(source),
             "report": str(report_path.resolve()),
         },
@@ -1571,6 +1761,10 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", nargs="?", type=Path, help="instrumental MP3/M4A/WAV")
     parser.add_argument("--doctor", action="store_true", help="only show optional engine availability")
+    parser.add_argument(
+        "--list-instruments", action="store_true",
+        help="print all canonical instruments, families, GM programs and patch queries",
+    )
     parser.add_argument("--quality", choices=("auto", "high", "fast"), default="auto")
     parser.add_argument("--separate", choices=("auto", "demucs", "off"))
     parser.add_argument("--pitch-engine", choices=("auto", "basic-pitch", "dsp", "off"))
@@ -1581,6 +1775,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--instrument-map", type=Path,
         help="optional JSON overrides for stems/roles, e.g. other -> violin",
+    )
+    parser.add_argument(
+        "--garageband-inventory", type=Path,
+        help="installed patch inventory created by garageband/session.py inventory",
     )
     parser.add_argument("--content", choices=("auto", "full", "percussion"), default="auto")
     parser.add_argument("--bpm", type=float)
@@ -1608,11 +1806,21 @@ def _display_path(path: str) -> str:
 
 def main() -> None:
     args = parse_args()
+    if args.list_instruments:
+        print(json.dumps([
+            {
+                "key": key, "name": config["name"], "family": config["family"],
+                "program": config["program"], "classify": config.get("classify", True),
+                "patch_query": config["patch"]["query"],
+            }
+            for key, config in INSTRUMENT_CATALOG.items()
+        ], ensure_ascii=False, indent=2))
+        return
     if args.doctor:
         print(json.dumps(engine_availability(), ensure_ascii=False, indent=2))
         return
     if args.source is None:
-        raise SystemExit("SOURCE fehlt (oder --doctor verwenden)")
+        raise SystemExit("SOURCE fehlt (oder --doctor/--list-instruments verwenden)")
     slug = slugify(args.source.stem)
     score = args.output or ROOT/"garageband"/"scores"/f"{slug}-transcription.json"
     midi = args.midi or score.with_suffix(".mid")
@@ -1628,6 +1836,7 @@ def main() -> None:
             quality=args.quality, separation=args.separate,
             pitch_engine=args.pitch_engine, instrument_engine=args.instrument_engine,
             instrument_map=load_instrument_map(args.instrument_map),
+            garageband_inventory=load_patch_inventory(args.garageband_inventory),
             content_mode=args.content, demucs_model=args.demucs_model,
             clap_model=args.clap_model, device=args.device,
         )

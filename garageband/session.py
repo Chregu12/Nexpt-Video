@@ -2,7 +2,8 @@
 """Open a NEXPT score, choose recorded kits and export through GarageBand.
 
 The score and MIDI preparation work on every platform.  ``render`` and
-``discover`` require macOS, GarageBand and Accessibility/Automation access.
+``discover``/``inventory`` require macOS, GarageBand and
+Accessibility/Automation access.
 Use ``--dry-run`` to inspect the exact macOS actions without executing them.
 """
 from __future__ import annotations
@@ -17,11 +18,21 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from garageband.instrument_catalog import (  # noqa: E402
+    INSTRUMENT_CATALOG,
+    build_patch_inventory,
+    catalog_search_queries,
+)
+
 BRIDGE = ROOT / "tools" / "garageband-llm-bridge" / "garageband_cli.py"
 DEFAULT_SCORE = ROOT / "garageband" / "scores" / "nexpt-work-68.json"
 DEFAULT_PRESET = ROOT / "garageband" / "presets" / "recorded-kit.json"
 DEFAULT_OUTPUT_DIR = ROOT / "garageband" / "arrangements" / "nexpt-work-68"
 DEFAULT_AUDIO = ROOT / "out" / "music-garageband.wav"
+DEFAULT_INVENTORY = ROOT / "garageband" / "catalogs" / "installed-patches.json"
 
 
 class SessionError(RuntimeError):
@@ -470,6 +481,47 @@ def run_discover(args: argparse.Namespace) -> dict:
     return result
 
 
+def run_inventory(args: argparse.Namespace) -> dict:
+    """Inventory the software-instrument patches installed on this Mac."""
+    if platform.system() != "Darwin":
+        raise SessionError(
+            "Library inventory requires macOS and an open GarageBand project")
+    bridge_call("select-track", "--index", str(args.track_index))
+    garageband = bridge_call("status")
+    queries = args.query or catalog_search_queries(INSTRUMENT_CATALOG)
+    searches = []
+    for index, query in enumerate(queries):
+        command = ["library-search", query, "--limit", str(args.limit)]
+        if index:
+            command.append("--no-show")
+        try:
+            result = bridge_call(*command)
+            searches.append({
+                "query": query, "results": result.get("results", []),
+            })
+        except SessionError as exc:
+            searches.append({"query": query, "results": [], "error": str(exc)})
+    inventory = build_patch_inventory(
+        searches, garageband=garageband, catalog=INSTRUMENT_CATALOG)
+    output = args.output.resolve()
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
+        json.dumps(inventory, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    summary = {
+        "output": str(output),
+        "queries": len(inventory["searches"]),
+        "visible_patch_rows": len(inventory["patches"]),
+        "mapped_instruments": len(inventory["by_instrument"]),
+        "mapped_families": len(inventory["by_family"]),
+        "taxonomy": inventory["taxonomy"],
+        "failed_queries": [
+            row["query"] for row in inventory["searches"] if row.get("error")
+        ],
+    }
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return inventory
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -519,6 +571,16 @@ def parse_args() -> argparse.Namespace:
     discover.add_argument("query", nargs="?", default="Drums")
     discover.add_argument("--track-index", type=int, default=1)
     discover.add_argument("--limit", type=int, default=100)
+
+    inventory = sub.add_parser(
+        "inventory", help="map all installed software-instrument Library patches")
+    inventory.add_argument("--track-index", type=int, default=1)
+    inventory.add_argument("--limit", type=int, default=500)
+    inventory.add_argument("--output", type=Path, default=DEFAULT_INVENTORY)
+    inventory.add_argument(
+        "--query", action="append",
+        help="scan only this Library query; repeat for multiple queries",
+    )
     return parser.parse_args()
 
 
@@ -535,8 +597,10 @@ def main() -> None:
             run_reference_track(args)
         elif args.command == "export-current":
             run_export_current(args)
-        else:
+        elif args.command == "discover":
             run_discover(args)
+        else:
+            run_inventory(args)
     except SessionError as exc:
         raise SystemExit(f"ERROR: {exc}") from exc
 

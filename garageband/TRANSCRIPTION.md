@@ -76,14 +76,76 @@ python garageband/transcribe.py "/Pfad/zu/Instrumental.m4a" \
 |---|---|---|
 | Stem | Demucs `htdemucs_6s` | Drums/Bass/Piano/Gitarre/Other trennen |
 | Noten | Basic Pitch | Start, Ende, Tonhoehe und Anschlag erkennen |
-| Instrument | CLAP | Other-/Mix-Fenster klassifizieren |
+| Instrumentfamilie | CLAP | Piano/Gitarre/Bass/Strings/Brass/etc. bestimmen |
+| Instrumentdetail | CLAP + Tonumfang | konkrete Variante innerhalb der Familie bestimmen |
 | Routing | NEXPT | Rolle, Tonumfang und Confidence pruefen |
 | GarageBand | Session Bridge | richtigen Library-Patch pro MIDI-Spur waehlen |
 
-Unterstuetzte Zielspuren sind derzeit Bass, Piano, E-Piano, Violine, Cello,
-Streicher, Akustik- und E-Gitarre, Orgel, Floete, Klarinette, Saxofon,
-Trompete, Brass, Harfe, Marimba, Synth Lead und Synth Pad. Drums werden weiter
-in Low Drums, Body Drums, Toms und Cymbals getrennt.
+Die Taxonomie enthaelt jetzt alle 128 General-MIDI-Programme und zusaetzliche
+GarageBand-Klassen. Insgesamt stehen 145 kanonische Ziele in 20 Familien zur
+Verfuegung. Dazu gehoeren unter anderem:
+
+```bash
+python3 garageband/transcribe.py --list-instruments
+```
+
+- acht Piano-/Keyboard-Typen, Mallets, Glocken und Orgelvarianten;
+- Nylon-/Steel-Gitarre sowie Jazz-, Clean-, Muted-, Overdrive- und
+  Distortion-E-Gitarre;
+- Acoustic, Finger, Pick, Fretless, Slap, Synth, Upright und Sub Bass;
+- Violine, Viola, Cello, Kontrabass, Tremolo/Pizzicato und Ensembles;
+- Trompete, Posaune, Tuba, Waldhorn und Brass/Synth-Brass;
+- alle Saxofone, Oboe, Englischhorn, Fagott, Klarinette und Flötenfamilien;
+- Synth Leads, Pads, Arpeggiator, Plucks, Bells und Textures;
+- Sitar, Banjo, Shamisen, Koto, Kalimba, Erhu, Pipa, Guzheng, Dizi, Oud,
+  Qanun, Yangqin, Santoor, Ukulele und Mandoline;
+- Timpani, Steel Drums, Taiko, Melodic Toms und Orchester-Percussion.
+
+Die Klassifikation erfolgt hierarchisch: CLAP bewertet zuerst die breite
+Familie und danach die Detailinstrumente. Damit konkurriert beispielsweise
+eine Violine nicht mehr gleichgewichtet mit 144 voellig fremden Patches.
+Nichtmusikalische GM-Effekte bleiben im Katalog fuer manuelle Zuordnung, sind
+aber aus der automatischen Musikklassifikation ausgeschlossen. Drums werden
+weiter in Low Drums, Body Drums, Toms und Cymbals getrennt.
+
+### Tatsaechlich installierte GarageBand-Instrumente inventarisieren
+
+GarageBand-Version, Sprache und heruntergeladene Sound Packs bestimmen, welche
+konkreten Patchnamen auf einem Mac existieren. Apple bietet deshalb auch den
+Menuepunkt
+[`GarageBand > Sound Library > Download All Available Sounds`](https://support.apple.com/en-us/101959)
+an.
+Eine globale, fuer jeden Mac identische Patchliste gibt es nicht.
+
+Oeffne auf dem Mac ein GarageBand-Projekt mit mindestens einer
+Software-Instrument-Spur und starte:
+
+```bash
+python3 garageband/session.py inventory \
+  --track-index 1 \
+  --output garageband/catalogs/installed-patches.json
+```
+
+Der Befehl liest zuerst die ungefilterte Library und durchsucht danach jede
+Instrumentfamilie in der sichtbaren GarageBand Library. Er vereinigt die
+Ergebnisse und ordnet die real installierten Namen der kanonischen Taxonomie
+zu. Danach die Transkription mit diesem Inventar starten:
+
+```bash
+python garageband/transcribe.py "/Pfad/zu/Instrumental.m4a" \
+  --quality high \
+  --garageband-inventory garageband/catalogs/installed-patches.json
+```
+
+Der erzeugte Preset-Plan verwendet zuerst einen exakt inventarisierten Patch,
+danach einen installierten Patch derselben Familie und erst zuletzt den
+eingebauten Standardnamen. `patch_source` dokumentiert diese Entscheidung pro
+Spur.
+
+Apple Loops, Session Drummer, Audio-Gitarrenverstaerker und Voice-Presets sind
+keine austauschbaren, tonhoehenbasierten Software-Instrument-Patches. Sie
+werden daher nicht faelschlich als MIDI-Ziel behandelt. Die Drum-Erkennung und
+die getrennte SFX-Pipeline bleiben dafuer die richtigen Pfade.
 
 Bei bekanntem Tempo oder Downbeat koennen die Werte fest vorgegeben werden:
 
