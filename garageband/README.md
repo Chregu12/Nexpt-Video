@@ -6,6 +6,8 @@ There are now two deliberately separate workflows:
 |---|---|---|
 | create a new, reference-inspired drum performance | `garageband/compose.py` | learns descriptors, then composes new events |
 | reconstruct the supplied instrumental before editing it | `garageband/transcribe.py` | preserves source timing, detects notes/instruments and generates matching GarageBand patch selections |
+| run the guarded end-to-end reconstruction | `garageband/workflow.py` | stages artifacts, verifies hashes/contracts, applies quality gates and optionally prepares GarageBand |
+| measure a GarageBand export against the source | `garageband/evaluate.py` | reports duration, onset, chroma and structural similarity without claiming recovered originals |
 
 For the copy-first workflow, including the original 1:1 A/B track, separate
 instrument-specific MIDI tracks, all 128 General MIDI programs, GarageBand
@@ -23,6 +25,19 @@ python3 garageband/session.py inventory \
 ```
 
 Pass that file to `garageband/transcribe.py --garageband-inventory ...`.
+
+For the normal copy-first path, prefer the product-level command:
+
+```bash
+python3 garageband/workflow.py "/path/to/instrumental.m4a" \
+  --quality high \
+  --garageband-inventory garageband/catalogs/installed-patches.json \
+  --require-inventory --prepare-dry-run
+```
+
+It writes one ignored arrangement workspace with source/configuration hashes,
+Score JSON, MIDI, preset, analysis reports and a quality gate. Use
+`--resume --prepare` on the Mac to reuse exactly those verified artifacts.
 
 The code can now analyze an MP3/M4A, learn its rhythmic language and create a
 new four-track performance for recorded GarageBand kits. Music and sound
@@ -143,10 +158,11 @@ The runner performs and verifies these stages:
 4. select each track;
 5. search the installed Library for the configured patch;
 6. apply the patch and per-track volume/pan;
-7. capture a verification screenshot;
-8. export WAVE through GarageBand;
-9. verify the audio header and reject an export shorter than the 68-bar score;
-10. write `garageband/arrangements/nexpt-work-68/session-result.json`.
+7. re-inspect the visible tracks after all patch and mix changes;
+8. capture a verification screenshot;
+9. export WAVE through GarageBand;
+10. verify the audio header and reject an export shorter than the 68-bar score;
+11. write `garageband/arrangements/nexpt-work-68/session-result.json`.
 
 Existing audio is never overwritten unless `--overwrite` is explicit. An
 unsaved GarageBand project is never discarded unless `--discard-unsaved` is
@@ -194,6 +210,8 @@ regenerating motion/UI effects, and an SFX edit cannot alter the music.
 | `render/reference_arrangement.py` | new groove, timing and dramatic arc |
 | `garageband/compose.py` | role-to-drum mapping and Score Spec |
 | `garageband/session.py` | NEXPT-specific Mac recipe |
+| `garageband/workflow.py` | guarded orchestration, hash-bound resume and quality gates |
+| `garageband/evaluate.py` | technical source/export A/B measurement |
 | `garageband/presets/` | selected installed kits and mix values |
 | `tools/garageband-llm-bridge/` | unchanged upstream Bridge copy |
 
@@ -210,7 +228,9 @@ audio export require a real Mac.
 python3 -m unittest tests/test_garageband_e2e.py -v
 python3 -m unittest \
   tests/test_garageband_session_unit.py \
-  tests/test_garageband_transcription_unit.py -v
+  tests/test_garageband_transcription_unit.py \
+  tests/test_garageband_workflow.py \
+  tests/test_garageband_evaluate.py -v
 python3 -m unittest discover -s tests -v
 
 python3 -m pytest -q tools/garageband-llm-bridge/tests
@@ -221,8 +241,11 @@ Score JSON/MIDI, Bridge validation and the editable prepare plan. It also
 simulates the Mac Library boundary to verify installed exact/family patch
 selection, refuses stale patch inventories instead of selecting a random
 sound, and rejects exports that are shorter than the generated score. The
-unit tests cover malformed presets/inventories, deterministic MIDI-channel
-fallbacks, exact and partial patch selection, aliases, manual overrides and
-Bridge error normalization. The remaining project tests cover deterministic
-event planning, local/Score parity, non-quantized microtiming and exact
-timeline length.
+workflow tests cross the public CLI, verify staged outputs, hash-bound resume,
+overwrite protection and a complete prepare plan. The A/B tests cover
+latency-compensated onset matching, pitch-class similarity and strict score
+output. The unit tests cover malformed presets/inventories, strict
+Score/Preset compatibility, deterministic MIDI-channel fallbacks, exact and
+partial patch selection, aliases, manual overrides and Bridge error
+normalization. The remaining project tests cover deterministic event planning,
+local/Score parity, non-quantized microtiming and exact timeline length.

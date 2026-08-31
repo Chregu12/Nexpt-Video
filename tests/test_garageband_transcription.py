@@ -281,6 +281,8 @@ class GarageBandTranscriptionTest(unittest.TestCase):
         preset = build_garageband_preset(score)
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
+            (root/"score.json").write_text(
+                json.dumps(score), encoding="utf-8")
             preset_path = root/"preset.json"
             preset_path.write_text(json.dumps(preset), encoding="utf-8")
             loaded = load_preset(preset_path)

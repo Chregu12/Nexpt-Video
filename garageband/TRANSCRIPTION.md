@@ -24,6 +24,50 @@ selben GarageBand-Projekt:
 Damit ist immer sichtbar, was wirklich 1:1 ist und was die editierbare
 Transkription ist.
 
+## Empfohlener Ein-Befehl-Workflow
+
+`workflow.py` verbindet Analyse, Instrumenterkennung, Score, MIDI, Patchplan,
+Quality Gate und GarageBand-Vorbereitung. Fuer einen ersten sicheren Lauf:
+
+```bash
+python3 garageband/workflow.py "/Pfad/zu/Instrumental.m4a" \
+  --quality high \
+  --garageband-inventory garageband/catalogs/installed-patches.json \
+  --require-inventory \
+  --prepare-dry-run
+```
+
+Auf dem GarageBand-Mac kann dieselbe verifizierte Transkription anschliessend
+ohne erneute ML-Analyse geoeffnet werden:
+
+```bash
+python3 garageband/workflow.py "/Pfad/zu/Instrumental.m4a" \
+  --quality high \
+  --garageband-inventory garageband/catalogs/installed-patches.json \
+  --require-inventory \
+  --resume --prepare
+```
+
+Alle Artefakte liegen gemeinsam unter
+`garageband/arrangements/<name>-transcription/`. Das Manifest enthaelt den
+SHA-256 der Quelle, die gesamte Analysekonfiguration, Quality-Gate-Befunde und
+Hashes von Score, MIDI, Preset, Profil und Report. Dadurch gilt:
+
+- ohne Option werden vorhandene Ergebnisse nicht ueberschrieben;
+- `--resume` funktioniert nur bei identischer Quelle, Konfiguration und
+  unveraenderten Artefakten;
+- `--overwrite` analysiert kontrolliert neu und ersetzt erst nach erfolgreicher
+  Erzeugung die bekannten Ausgabedateien;
+- bei zu geringer Confidence, zu vielen unsicheren Instrumentnoten oder leeren
+  Spuren wird die automatische GarageBand-Vorbereitung blockiert;
+- `--allow-low-confidence` ist ein ausdruecklicher manueller Override und kein
+  stiller Fallback.
+
+Die Standardschwellen koennen mit `--minimum-confidence` und
+`--maximum-uncertain-share` angepasst werden. Fuer reine Percussion ist kein
+Instrument-Inventar noetig; fuer tonale Musik ist `--require-inventory` auf dem
+Ziel-Mac empfohlen.
+
 ## 1. Analyse-Engines pruefen
 
 ```bash
@@ -262,6 +306,26 @@ python3 garageband/session.py export-current \
 ```
 
 Die Musik bleibt weiterhin getrennt von `out/sfx-original.wav`.
+
+## 5. GarageBand-Export technisch gegen das Original pruefen
+
+Nach einem Export misst der A/B-Check Dauer, Anschlag-Timing, Tempo- und
+Rhythmusstruktur, Frequenzbalance sowie den globalen Pitch-Class-Inhalt:
+
+```bash
+python3 garageband/evaluate.py \
+  "/Pfad/zu/Instrumental.m4a" \
+  out/music-garageband-edited.wav \
+  --output out/analysis/garageband-ab-report.json \
+  --minimum-score 70 --strict
+```
+
+`--strict` liefert Exit-Code 2, wenn die technische Mindestbewertung verfehlt
+wird. Der Report zeigt getrennte Scores und konkrete Hinweise fuer Patches,
+Oktaven, Timing und Mix. Er behauptet bewusst keine Sample-Identitaet: Chroma
+misst Pitch Classes, Onsets messen Ereigniszeiten und das Klangprofil misst
+globale Eigenschaften. Die unveraenderte Referenzspur bleibt der einzige
+bitgenaue Teil.
 
 ## Was der Qualitaetsbericht ehrlich unterscheidet
 

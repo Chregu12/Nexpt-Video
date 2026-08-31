@@ -119,7 +119,24 @@ class GarageBandPipelineTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             score = root/"score.json"
-            score.write_text(json.dumps({"parts": []}), encoding="utf-8")
+            score.write_text(json.dumps({
+                "format": "garageband_score_spec_v1",
+                "title": "Dry-run fixture",
+                "bpm": BPM,
+                "time_signature": "4/4",
+                "parts": [
+                    {
+                        "id": f"part-{index}", "name": track["part"],
+                        "instrument": "drum kit", "is_percussion": True,
+                        "channel": index,
+                        "notes": [{
+                            "midi": 36, "start": 0, "duration": .1,
+                            "velocity": 80,
+                        }],
+                    }
+                    for index, track in enumerate(preset["tracks"], start=1)
+                ],
+            }), encoding="utf-8")
             plan = render_plan(
                 score, preset_path, root/"session", root/"music.wav",
                 discard_unsaved=False, overwrite=False,

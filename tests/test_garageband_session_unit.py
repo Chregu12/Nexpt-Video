@@ -45,6 +45,27 @@ def valid_preset() -> dict:
     }
 
 
+def valid_score() -> dict:
+    return {
+        "format": "garageband_score_spec_v1",
+        "title": "Unit score",
+        "bpm": 120,
+        "time_signature": "4/4",
+        "parts": [
+            {
+                "id": "piano", "name": "Transcribed Piano",
+                "instrument": "piano", "program": 0, "channel": 1,
+                "notes": [{"midi": 60, "start": 0, "duration": 1, "velocity": 80}],
+            },
+            {
+                "id": "violin", "name": "Transcribed Violin",
+                "instrument": "violin", "program": 40, "channel": 2,
+                "notes": [{"midi": 72, "start": 0, "duration": 1, "velocity": 80}],
+            },
+        ],
+    }
+
+
 class GarageBandSessionUnitTest(unittest.TestCase):
     def write_payload(self, root: Path, payload: object) -> Path:
         path = root/"preset.json"
@@ -124,6 +145,57 @@ class GarageBandSessionUnitTest(unittest.TestCase):
                     with self.assertRaisesRegex(session.SessionError, message):
                         session.load_preset(path)
 
+    def test_load_preset_rejects_mix_export_and_name_contract_violations(self) -> None:
+        cases = (
+            ({**valid_preset(), "name": ""}, "non-empty name"),
+            ({
+                **valid_preset(),
+                "tracks": [{
+                    **valid_preset()["tracks"][0], "volume": "loud",
+                }],
+            }, "volume must be numeric"),
+            ({
+                **valid_preset(),
+                "tracks": [{
+                    **valid_preset()["tracks"][0], "pan": 1.2,
+                }],
+            }, "pan must be between"),
+            ({**valid_preset(), "export": {"format": "FLAC"}}, "export.format"),
+            ({
+                **valid_preset(), "export": {"format": "WAVE", "timeout_seconds": 0},
+            }, "positive number"),
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for payload, message in cases:
+                with self.subTest(message=message):
+                    with self.assertRaisesRegex(session.SessionError, message):
+                        session.load_preset(self.write_payload(root, payload))
+
+    def test_score_contract_and_preset_compatibility_are_strict(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            score_path = root/"score.json"
+            score_path.write_text(json.dumps(valid_score()), encoding="utf-8")
+            score = session.load_score(score_path)
+            compatibility = session.validate_preset_score(valid_preset(), score)
+            self.assertTrue(compatibility["compatible"])
+            self.assertEqual(compatibility["parts"], 2)
+
+            missing = valid_preset()
+            missing["tracks"] = missing["tracks"][:1]
+            with self.assertRaisesRegex(session.SessionError, "missing preset tracks"):
+                session.validate_preset_score(missing, score)
+
+            wrong_order = valid_preset()
+            wrong_order["tracks"][1]["fallback_index"] = 1
+            with self.assertRaisesRegex(session.SessionError, "fallback_index must be 2"):
+                session.validate_preset_score(wrong_order, score)
+
+            score_path.write_text("{}", encoding="utf-8")
+            with self.assertRaisesRegex(session.SessionError, "Score format"):
+                session.load_score(score_path)
+
     def test_track_index_prefers_unique_name_then_explicit_fallback(self) -> None:
         visible = [
             {"index": 3, "name": "Transcribed Grand Piano"},
@@ -194,6 +266,8 @@ class GarageBandSessionUnitTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             preset = self.write_payload(root, valid_preset())
+            (root/"score.json").write_text(
+                json.dumps(valid_score()), encoding="utf-8")
             plan = session.render_plan(
                 root/"score.json", preset, root/"project", root/"music.wav",
                 discard_unsaved=True, overwrite=True,

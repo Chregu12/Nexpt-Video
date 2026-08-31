@@ -36,6 +36,7 @@ out/NEXPT-AUDIO-REWORK-PREVIEW.mp4
 out/analysis/reference-*.json
 out/analysis/music-reference*.json
 out/analysis/candidate-*.json
+out/analysis/garageband-ab-*.json
 out/reference-kit*/
 out/music-reference*.wav
 out/music-reference*.m4a

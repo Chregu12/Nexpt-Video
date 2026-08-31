@@ -143,12 +143,16 @@ Kits, steht in [garageband/README.md](./garageband/README.md).
 **Dieselbe Instrumentalmusik zuerst rekonstruieren und danach bearbeiten:**
 
 ```bash
-python3 garageband/transcribe.py "/pfad/instrumental.m4a" --quality high
+python3 garageband/workflow.py "/pfad/instrumental.m4a" \
+  --quality high \
+  --garageband-inventory garageband/catalogs/installed-patches.json \
+  --require-inventory --prepare-dry-run
 
-python3 garageband/session.py prepare \
-  --score garageband/scores/instrumental-transcription.json \
-  --preset garageband/presets/instrumental-transcription.json \
-  --reference-audio "/pfad/instrumental.m4a"
+# Auf dem Mac dieselben per SHA-256 verifizierten Artefakte weiterverwenden:
+python3 garageband/workflow.py "/pfad/instrumental.m4a" \
+  --quality high \
+  --garageband-inventory garageband/catalogs/installed-patches.json \
+  --require-inventory --resume --prepare
 ```
 
 Die Originaldatei bleibt als stummgeschaltete `REFERENCE — Original 1:1`-Spur
@@ -157,6 +161,10 @@ erzeugen darunter instrumentbezogene MIDI-Spuren. Die Taxonomie deckt alle 128
 General-MIDI-Programme und GarageBand-Erweiterungen ab. Ein Mac-Inventar ordnet
 die erkannten Instrumente den tatsaechlich installierten Sound-Library-Patches
 zu. Confidence und manuelle Overrides decken unsichere Stereo-Mischungen ab.
+Der Workflow verhindert stilles Ueberschreiben, bindet Resume an Quelle,
+Konfiguration und Artefakt-Hashes und blockiert schwache Transkriptionen vor
+der GarageBand-Automation. Nach dem Export bewertet `garageband/evaluate.py`
+Dauer, Onsets, Pitch Classes und Klangprofil gegen die Originalspur.
 Grenzen und der genaue Mac-Ablauf stehen in
 [garageband/TRANSCRIPTION.md](./garageband/TRANSCRIPTION.md).
 

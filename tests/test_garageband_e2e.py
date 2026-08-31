@@ -100,6 +100,23 @@ def single_track_preset(path: Path, *, preferred: str = "Solo Violin") -> None:
     }, indent=2), encoding="utf-8")
 
 
+def single_track_score(path: Path, *, part: str = "Transcribed Violin") -> None:
+    path.write_text(json.dumps({
+        "format": "garageband_score_spec_v1",
+        "title": "E2E score",
+        "bpm": BPM,
+        "time_signature": "4/4",
+        "parts": [{
+            "id": "violin",
+            "name": part,
+            "instrument": "violin",
+            "program": 40,
+            "channel": 1,
+            "notes": [{"midi": 69, "start": 0.0, "duration": 8.0, "velocity": 90}],
+        }],
+    }, indent=2), encoding="utf-8")
+
+
 class GarageBandEndToEndTest(unittest.TestCase):
     maxDiff = None
 
@@ -388,6 +405,10 @@ class GarageBandEndToEndTest(unittest.TestCase):
             self.assertEqual(
                 sum(command[0] == "library-select" for command in calls),
                 len(score["parts"]))
+            self.assertEqual(
+                sum(command[0] == "list-tracks" for command in calls), 2)
+            self.assertEqual(
+                prepared["tracks_after_patch"]["tracks"], visible_tracks)
 
             plan = garageband_session.prepare_plan(
                 outputs["score"], outputs["preset"], root/"project",
@@ -400,7 +421,7 @@ class GarageBandEndToEndTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             score = root/"score.json"
-            score.write_text("{}\n", encoding="utf-8")
+            single_track_score(score)
             preset = root/"preset.json"
             single_track_preset(preset)
             calls: list[tuple[str, ...]] = []
@@ -432,7 +453,7 @@ class GarageBandEndToEndTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             score = root/"score.json"
-            score.write_text("{}\n", encoding="utf-8")
+            single_track_score(score)
             preset = root/"preset.json"
             single_track_preset(preset)
             args = SimpleNamespace(
@@ -480,7 +501,7 @@ class GarageBandEndToEndTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             score = root/"score.json"
-            score.write_text("{}\n", encoding="utf-8")
+            single_track_score(score)
             preset = root/"preset.json"
             single_track_preset(preset)
             output_dir = root/"render"
@@ -533,7 +554,7 @@ class GarageBandEndToEndTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             score = root/"score.json"
-            score.write_text("{}\n", encoding="utf-8")
+            single_track_score(score)
             preset = root/"preset.json"
             single_track_preset(preset)
             reference = root/"reference.wav"

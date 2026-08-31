@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 import platform
 import subprocess
@@ -103,8 +104,89 @@ def load_preset(path: Path) -> dict:
                  or fallback_index < 1)):
             raise SessionError(
                 f"Preset track {part} fallback_index must be a positive integer")
+        for field, minimum, maximum in (
+                ("volume", 0.0, 1.0), ("pan", -1.0, 1.0)):
+            if track.get(field) is None:
+                continue
+            try:
+                value = float(track[field])
+            except (TypeError, ValueError) as exc:
+                raise SessionError(
+                    f"Preset track {part} {field} must be numeric") from exc
+            if not math.isfinite(value) or not minimum <= value <= maximum:
+                raise SessionError(
+                    f"Preset track {part} {field} must be between "
+                    f"{minimum:g} and {maximum:g}")
         seen.add(part)
+    export = preset.get("export", {})
+    if not isinstance(export, dict):
+        raise SessionError("Preset export must be an object")
+    export_format = export.get("format", "WAVE")
+    if export_format not in {"WAVE", "AIFF", "AAC", "MP3"}:
+        raise SessionError("Preset export.format must be WAVE, AIFF, AAC or MP3")
+    timeout = export.get("timeout_seconds", 240)
+    if (isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or
+            not math.isfinite(float(timeout)) or float(timeout) <= 0):
+        raise SessionError("Preset export.timeout_seconds must be a positive number")
+    if not isinstance(preset.get("name"), str) or not preset["name"].strip():
+        raise SessionError("Preset needs a non-empty name")
     return preset
+
+
+def load_score(path: Path) -> dict:
+    """Load the local Score Spec contract before any GarageBand UI action."""
+    if not path.exists():
+        raise SessionError(f"Score does not exist: {path}")
+    try:
+        score = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SessionError(f"Invalid score JSON: {exc}") from exc
+    if not isinstance(score, dict):
+        raise SessionError("Score must be a JSON object")
+    if score.get("format") != "garageband_score_spec_v1":
+        raise SessionError("Score format must be garageband_score_spec_v1")
+    parts = score.get("parts")
+    if not isinstance(parts, list) or not parts:
+        raise SessionError("Score needs a non-empty parts list")
+    names: set[str] = set()
+    for index, part in enumerate(parts, start=1):
+        if not isinstance(part, dict):
+            raise SessionError(f"Score part {index} must be an object")
+        name = str(part.get("name") or "").strip()
+        if not name or name in names:
+            raise SessionError(f"Score part {index} needs a unique name")
+        notes = part.get("notes")
+        if not isinstance(notes, list) or not notes:
+            raise SessionError(f"Score part {name} needs a non-empty notes list")
+        names.add(name)
+    return score
+
+
+def validate_preset_score(preset: dict, score: dict) -> dict:
+    """Require one deterministic patch recipe for every imported score part."""
+    score_names = [str(part["name"]).strip() for part in score["parts"]]
+    preset_names = [str(track["part"]).strip() for track in preset["tracks"]]
+    missing = [name for name in score_names if name not in preset_names]
+    unexpected = [name for name in preset_names if name not in score_names]
+    if missing or unexpected:
+        details = []
+        if missing:
+            details.append("missing preset tracks: " + ", ".join(missing))
+        if unexpected:
+            details.append("unknown preset tracks: " + ", ".join(unexpected))
+        raise SessionError("Score/preset track mismatch (" + "; ".join(details) + ")")
+    by_name = {str(track["part"]).strip(): track for track in preset["tracks"]}
+    for index, name in enumerate(score_names, start=1):
+        fallback = by_name[name].get("fallback_index")
+        if fallback is not None and int(fallback) != index:
+            raise SessionError(
+                f"Preset track {name} fallback_index must be {index} to match "
+                "the Score Spec order")
+    return {
+        "compatible": True,
+        "parts": len(score_names),
+        "part_names": score_names,
+    }
 
 
 def _track_index(track_spec: dict, visible: list[dict]) -> int:
@@ -146,6 +228,8 @@ def _choose_patch(patch: dict, results: list[dict]) -> dict:
 def render_plan(score: Path, preset_path: Path, output_dir: Path,
                 audio: Path, discard_unsaved: bool, overwrite: bool) -> dict:
     preset = load_preset(preset_path)
+    score_payload = load_score(score)
+    compatibility = validate_preset_score(preset, score_payload)
     open_args = [
         "make-from-score-spec", "--file", str(score.resolve()),
         "--output-dir", str(output_dir.resolve()),
@@ -172,6 +256,10 @@ def render_plan(score: Path, preset_path: Path, output_dir: Path,
             "pan": track.get("pan"),
         })
     steps.append({
+        "phase": "inspect_tracks_after_patch",
+        "command": bridge_command("list-tracks"),
+    })
+    steps.append({
         "phase": "verify", "command": bridge_command(
             "screenshot", "--output", str((output_dir/"02-kits.png").resolve()))})
     export_args = [
@@ -189,6 +277,7 @@ def render_plan(score: Path, preset_path: Path, output_dir: Path,
         "output_dir": str(output_dir.resolve()),
         "audio": str(audio.resolve()),
         "platform_required": "macOS",
+        "score_preset_compatibility": compatibility,
         "steps": steps,
     }
 
@@ -243,6 +332,8 @@ def _open_and_patch(score: Path, preset_path: Path, output_dir: Path,
                     discard_unsaved: bool) -> dict:
     """Open one score and apply every generated GarageBand Library patch."""
     preset = load_preset(preset_path)
+    score_payload = load_score(score)
+    compatibility = validate_preset_score(preset, score_payload)
     output_dir.mkdir(parents=True, exist_ok=True)
     validation = bridge_call(
         "score-spec-validate", "--file", str(score.resolve()))
@@ -275,11 +366,16 @@ def _open_and_patch(score: Path, preset_path: Path, output_dir: Path,
         mix = bridge_call(*set_args) if len(set_args) > 3 else None
         selected.append({
             "part": track_spec["part"], "track_index": index,
-            "patch": choice.get("name"), "applied": applied, "mix": mix,
+            "patch": choice.get("name"), "patch_query": query,
+            "patch_source": track_spec.get("patch_source"),
+            "applied": applied, "mix": mix,
         })
+    tracks_after_patch = bridge_call("list-tracks")
     return {
         "validation": validation, "opened": opened,
         "tracks_before_patch": tracks, "selected_patches": selected,
+        "tracks_after_patch": tracks_after_patch,
+        "score_preset_compatibility": compatibility,
     }
 
 
@@ -333,6 +429,7 @@ def run_render(args: argparse.Namespace) -> dict:
         "score_validation": validation,
         "opened": prepared["opened"],
         "tracks_before_patch": prepared["tracks_before_patch"],
+        "tracks_after_patch": prepared.get("tracks_after_patch"),
         "selected_patches": prepared["selected_patches"],
         "verification_screenshot": screenshot,
         "audio_export": exported,
@@ -480,6 +577,8 @@ def run_doctor(args: argparse.Namespace) -> dict:
         "preset": preset["name"],
     }
     if BRIDGE.exists() and args.score.exists():
+        score = load_score(args.score)
+        result["score_preset_compatibility"] = validate_preset_score(preset, score)
         result["score_validation"] = bridge_call(
             "score-spec-validate", "--file", str(args.score.resolve()))
     if platform.system() == "Darwin" and BRIDGE.exists():
