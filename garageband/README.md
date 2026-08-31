@@ -207,13 +207,16 @@ audio export require a real Mac.
 ## Verification
 
 ```bash
-python3 -m unittest \
-  tests/test_reference_audio.py \
-  tests/test_garageband_pipeline.py
+python3 -m unittest tests/test_garageband_e2e.py -v
+python3 -m unittest discover -s tests -v
 
 python3 -m pytest -q tools/garageband-llm-bridge/tests
 ```
 
-The project tests cover deterministic event planning, local/Score parity,
-four independent tracks, Bridge validation, non-quantized microtiming, exact
-timeline length, preset validation and the non-mutating dry-run plan.
+The E2E suite crosses the public CLI and file boundaries from audio through
+Score JSON/MIDI, Bridge validation and the editable prepare plan. It also
+simulates the Mac Library boundary to verify installed exact/family patch
+selection, refuses stale patch inventories instead of selecting a random
+sound, and rejects exports that are shorter than the generated score. The
+remaining project tests cover deterministic event planning, local/Score
+parity, non-quantized microtiming and exact timeline length.
