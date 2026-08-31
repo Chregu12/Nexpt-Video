@@ -208,6 +208,9 @@ audio export require a real Mac.
 
 ```bash
 python3 -m unittest tests/test_garageband_e2e.py -v
+python3 -m unittest \
+  tests/test_garageband_session_unit.py \
+  tests/test_garageband_transcription_unit.py -v
 python3 -m unittest discover -s tests -v
 
 python3 -m pytest -q tools/garageband-llm-bridge/tests
@@ -218,5 +221,8 @@ Score JSON/MIDI, Bridge validation and the editable prepare plan. It also
 simulates the Mac Library boundary to verify installed exact/family patch
 selection, refuses stale patch inventories instead of selecting a random
 sound, and rejects exports that are shorter than the generated score. The
-remaining project tests cover deterministic event planning, local/Score
-parity, non-quantized microtiming and exact timeline length.
+unit tests cover malformed presets/inventories, deterministic MIDI-channel
+fallbacks, exact and partial patch selection, aliases, manual overrides and
+Bridge error normalization. The remaining project tests cover deterministic
+event planning, local/Score parity, non-quantized microtiming and exact
+timeline length.

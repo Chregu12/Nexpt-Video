@@ -66,6 +66,8 @@ def load_preset(path: Path) -> dict:
         preset = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         raise SessionError(f"Invalid preset JSON: {exc}") from exc
+    if not isinstance(preset, dict):
+        raise SessionError("Preset must be a JSON object")
     if preset.get("schema_version") != 1:
         raise SessionError("Preset schema_version must be 1")
     tracks = preset.get("tracks")
@@ -73,15 +75,34 @@ def load_preset(path: Path) -> dict:
         raise SessionError("Preset needs a non-empty tracks list")
     seen: set[str] = set()
     for index, track in enumerate(tracks, start=1):
+        if not isinstance(track, dict):
+            raise SessionError(f"Preset track {index} must be an object")
         part = str(track.get("part") or "").strip()
         patch = track.get("patch")
         if not part or part in seen:
             raise SessionError(f"Preset track {index} needs a unique part")
-        if not isinstance(patch, dict) or not str(patch.get("query") or "").strip():
+        if (not isinstance(patch, dict) or
+                not isinstance(patch.get("query"), str) or
+                not patch["query"].strip()):
             raise SessionError(f"Preset track {part} needs patch.query")
         preferred = patch.get("preferred", [])
         if not isinstance(preferred, list):
             raise SessionError(f"Preset track {part} patch.preferred must be a list")
+        if any(not isinstance(value, str) or not value.strip() for value in preferred):
+            raise SessionError(
+                f"Preset track {part} patch.preferred must contain non-empty strings")
+        allow_first = patch.get("allow_first", False)
+        if not isinstance(allow_first, bool):
+            raise SessionError(f"Preset track {part} patch.allow_first must be Boolean")
+        if not preferred and not allow_first:
+            raise SessionError(
+                f"Preset track {part} needs a preferred patch or allow_first=true")
+        fallback_index = track.get("fallback_index")
+        if (fallback_index is not None and
+                (not isinstance(fallback_index, int) or isinstance(fallback_index, bool)
+                 or fallback_index < 1)):
+            raise SessionError(
+                f"Preset track {part} fallback_index must be a positive integer")
         seen.add(part)
     return preset
 

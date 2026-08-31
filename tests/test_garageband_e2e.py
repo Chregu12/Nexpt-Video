@@ -21,10 +21,7 @@ sys.path.insert(0, str(REPO/"tools"/"garageband-llm-bridge"))
 
 from garageband import session as garageband_session  # noqa: E402
 from garageband import transcribe as garageband_transcribe  # noqa: E402
-from garageband.instrument_catalog import (  # noqa: E402
-    build_patch_inventory,
-    load_patch_inventory,
-)
+from garageband.instrument_catalog import load_patch_inventory  # noqa: E402
 from garageband_bridge.score_midi import validate_score_spec  # noqa: E402
 
 
@@ -201,17 +198,39 @@ class GarageBandEndToEndTest(unittest.TestCase):
             source = root/"instrumental.wav"
             write_silent_fixture(source)
             inventory_path = root/"installed-patches.json"
-            inventory_path.write_text(json.dumps(build_patch_inventory([
-                {
-                    "query": "Piano",
-                    "results": [{"name": "Steinway Grand Piano"}],
-                },
-                {
-                    "query": "Violin",
-                    "results": [{"name": "Solo Violin"}],
-                },
-            ], garageband={"installed": True, "version": "E2E"}), indent=2),
-                encoding="utf-8")
+            inventory_args = SimpleNamespace(
+                track_index=1, limit=100, output=inventory_path,
+                query=["Piano", "Violin"],
+            )
+            inventory_calls: list[tuple[str, ...]] = []
+
+            def fake_inventory_bridge(*command: str) -> dict:
+                inventory_calls.append(command)
+                if command[0] == "select-track":
+                    return {"selected": 1}
+                if command[0] == "status":
+                    return {"installed": True, "version": "E2E"}
+                if command[0] == "library-search":
+                    names = {
+                        "Piano": "Steinway Grand Piano",
+                        "Violin": "Solo Violin",
+                    }
+                    return {"results": [{"index": 1, "name": names[command[1]]}]}
+                raise AssertionError(f"Unexpected inventory command: {command}")
+
+            with patch.object(
+                    garageband_session.platform, "system", return_value="Darwin"), \
+                    patch.object(
+                        garageband_session, "bridge_call",
+                        side_effect=fake_inventory_bridge):
+                generated_inventory = garageband_session.run_inventory(inventory_args)
+            self.assertTrue(inventory_path.is_file())
+            self.assertIn("piano", generated_inventory["by_instrument"])
+            self.assertIn("violin", generated_inventory["by_instrument"])
+            self.assertEqual(
+                [command[1] for command in inventory_calls
+                 if command[0] == "library-search"],
+                ["Piano", "Violin"])
             inventory = load_patch_inventory(inventory_path)
 
             tonal_roles = {
@@ -456,6 +475,124 @@ class GarageBandEndToEndTest(unittest.TestCase):
             self.assertFalse(result["duration_verification"]["not_short"])
             self.assertEqual(result["duration_verification"]["expected_score_seconds"], 4.0)
             self.assertEqual(result["duration_verification"]["actual_seconds"], 1.0)
+
+    def test_render_accepts_complete_export_and_writes_manifest(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            score = root/"score.json"
+            score.write_text("{}\n", encoding="utf-8")
+            preset = root/"preset.json"
+            single_track_preset(preset)
+            output_dir = root/"render"
+            output_dir.mkdir()
+            output = root/"music.wav"
+            args = SimpleNamespace(
+                score=score, preset=preset, output_dir=output_dir,
+                output=output, discard_unsaved=False,
+                overwrite=False, dry_run=False,
+            )
+            opened = {
+                "validation": {"ok": True, "duration_beats": 8.0, "bpm": BPM},
+                "opened": {"opened": True},
+                "tracks_before_patch": {
+                    "tracks": [{"index": 1, "name": "Transcribed Violin"}],
+                },
+                "selected_patches": [{
+                    "part": "Transcribed Violin", "track_index": 1,
+                    "patch": "Solo Violin",
+                }],
+            }
+
+            def fake_bridge(*command: str) -> dict:
+                if command[0] == "screenshot":
+                    return {"captured": True}
+                if command[0] == "export-song":
+                    output.write_bytes(b"RIFF-e2e")
+                    return {
+                        "verified": True,
+                        "audio_info": {"duration_seconds": 4.3},
+                    }
+                raise AssertionError(f"Unexpected bridge command: {command}")
+
+            with patch.object(
+                    garageband_session.platform, "system", return_value="Darwin"), \
+                    patch.object(
+                        garageband_session, "_open_and_patch", return_value=opened), \
+                    patch.object(
+                        garageband_session, "bridge_call", side_effect=fake_bridge):
+                result = garageband_session.run_render(args)
+            self.assertTrue(result["ok"])
+            self.assertTrue(result["duration_verification"]["not_short"])
+            self.assertEqual(result["selected_patches"][0]["patch"], "Solo Violin")
+            self.assertTrue(output.is_file())
+            manifest = output_dir/"session-result.json"
+            self.assertTrue(manifest.is_file())
+            self.assertTrue(json.loads(manifest.read_text(encoding="utf-8"))["ok"])
+
+    def test_prepare_detects_labels_and_mutes_new_reference_track(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            score = root/"score.json"
+            score.write_text("{}\n", encoding="utf-8")
+            preset = root/"preset.json"
+            single_track_preset(preset)
+            reference = root/"reference.wav"
+            write_silent_fixture(reference)
+            output_dir = root/"project"
+            output_dir.mkdir()
+            args = SimpleNamespace(
+                score=score, preset=preset, output_dir=output_dir,
+                reference_audio=reference, discard_unsaved=False,
+                reference_track_index=None, keep_reference_audible=False,
+                no_wait=False, dry_run=False,
+            )
+            opened = {
+                "validation": {"ok": True},
+                "opened": {"opened": True},
+                "tracks_before_patch": {
+                    "tracks": [{"index": 1, "name": "Transcribed Violin"}],
+                },
+                "selected_patches": [{
+                    "part": "Transcribed Violin", "track_index": 1,
+                    "patch": "Solo Violin",
+                }],
+            }
+            bridge_calls: list[tuple[str, ...]] = []
+
+            def fake_bridge(*command: str) -> dict:
+                bridge_calls.append(command)
+                if command[0] == "list-tracks":
+                    return {"tracks": [
+                        {"index": 1, "name": "Transcribed Violin"},
+                        {"index": 2, "name": "Audio 1"},
+                    ]}
+                if command[0] == "set-track":
+                    return {"updated": 2, "muted": True}
+                if command[0] == "screenshot":
+                    return {"captured": True}
+                raise AssertionError(f"Unexpected bridge command: {command}")
+
+            fake_stdin = SimpleNamespace(isatty=lambda: True)
+            with patch.object(
+                    garageband_session.platform, "system", return_value="Darwin"), \
+                    patch.object(
+                        garageband_session, "_open_and_patch", return_value=opened), \
+                    patch.object(
+                        garageband_session, "bridge_call", side_effect=fake_bridge), \
+                    patch.object(garageband_session.subprocess, "run"), \
+                    patch.object(garageband_session.sys, "stdin", fake_stdin), \
+                    patch("builtins.input", return_value=""):
+                result = garageband_session.run_prepare(args)
+            self.assertTrue(result["ready_to_edit"])
+            self.assertEqual(result["reference_track"]["index"], 2)
+            set_track = next(
+                command for command in bridge_calls if command[0] == "set-track")
+            self.assertIn("REFERENCE — Original 1:1", set_track)
+            self.assertEqual(set_track[-2:], ("--mute", "true"))
+            manifest = output_dir/"prepare-result.json"
+            self.assertTrue(manifest.is_file())
+            saved = json.loads(manifest.read_text(encoding="utf-8"))
+            self.assertTrue(saved["ready_to_edit"])
 
 
 if __name__ == "__main__":

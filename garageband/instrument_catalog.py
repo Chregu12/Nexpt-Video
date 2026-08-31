@@ -518,6 +518,33 @@ def load_patch_inventory(path: Path | None) -> dict[str, Any] | None:
         raise ValueError(f"Ungueltiges GarageBand-Inventar: {exc}") from exc
     if not isinstance(payload, dict) or payload.get("schema_version") != 1:
         raise ValueError("GarageBand-Inventar braucht schema_version 1")
+    for field in ("by_instrument", "by_family"):
+        patches = payload.get(field, {})
+        if not isinstance(patches, dict):
+            raise ValueError(f"GarageBand-Inventar {field} muss ein Objekt sein")
+        for name, patch in patches.items():
+            allowed = INSTRUMENT_CATALOG if field == "by_instrument" else FAMILY_DEFINITIONS
+            if name not in allowed:
+                raise ValueError(
+                    f"GarageBand-Inventar {field} enthaelt unbekannten Schluessel: {name}")
+            if not isinstance(patch, dict):
+                raise ValueError(
+                    f"GarageBand-Inventar {field}.{name} muss ein Objekt sein")
+            if not str(patch.get("query") or "").strip():
+                raise ValueError(
+                    f"GarageBand-Inventar {field}.{name}.query fehlt")
+            preferred = patch.get("preferred")
+            if (not isinstance(preferred, list) or not preferred or
+                    any(not isinstance(value, str) or not value.strip()
+                        for value in preferred)):
+                raise ValueError(
+                    f"GarageBand-Inventar {field}.{name}.preferred muss "
+                    "eine nicht-leere String-Liste sein")
+            if ("allow_first" in patch and
+                    not isinstance(patch["allow_first"], bool)):
+                raise ValueError(
+                    f"GarageBand-Inventar {field}.{name}.allow_first muss "
+                    "Boolean sein")
     payload = deepcopy(payload)
     payload["source_path"] = str(path.resolve())
     return payload
