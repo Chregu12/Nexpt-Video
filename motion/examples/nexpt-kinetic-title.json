@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "project": {
+    "name": "NEXPT Kinetic Title",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration": 4.0,
+    "background": "#07080A"
+  },
+  "layers": [
+    {
+      "id": "headline",
+      "type": "text",
+      "name": "Headline",
+      "text": "WORK, REIMAGINED.",
+      "start": 0,
+      "duration": 4.0,
+      "position": [960, 540],
+      "style": {
+        "font": "SF Pro Display",
+        "size": 132,
+        "color": "#FFFFFF"
+      },
+      "keyframes": [
+        {"time": 0, "property": "opacity", "value": 0, "easing": "ease_out"},
+        {"time": 0.3, "property": "opacity", "value": 1, "easing": "ease_out"},
+        {"time": 0, "property": "position.y", "value": 590, "easing": "ease_out"},
+        {"time": 0.55, "property": "position.y", "value": 540, "easing": "ease_out"}
+      ]
+    }
+  ]
+}

@@ -17,6 +17,7 @@ zur fertigen Tonmischung.
 | [**MUSIK-BRIEFING.md**](./MUSIK-BRIEFING.md) | Was für die Musik noch fehlt, warum ich es nicht selbst machen kann, und die genaue Bestellung für die vier fehlenden Blöcke. |
 | [**garageband/README.md**](./garageband/README.md) | Der GarageBand-Weg: Partitur bei uns, Klang aus echten Drum Kits. Was wo läuft, und warum die letzten drei Schritte einen Mac brauchen. |
 | [**garageband/TRANSCRIPTION.md**](./garageband/TRANSCRIPTION.md) | Instrumental zuerst als editierbare Spuren rekonstruieren, mit einer unveraenderten 1:1-Referenzspur vergleichen und danach direkt in GarageBand anpassen. |
+| [**motion/README.md**](./motion/README.md) | Apple-Motion-MCP: Animationen als JSON beschreiben, echte Motion-Templates sicher befüllen und die Mac-App kontrolliert über Bedienungshilfen steuern. |
 | [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
 
 ### Ansehen und anhören
@@ -167,6 +168,22 @@ der GarageBand-Automation. Nach dem Export bewertet `garageband/evaluate.py`
 Dauer, Onsets, Pitch Classes und Klangprofil gegen die Originalspur.
 Grenzen und der genaue Mac-Ablauf stehen in
 [garageband/TRANSCRIPTION.md](./garageband/TRANSCRIPTION.md).
+
+**Animationen in Apple Motion vorbereiten und per MCP steuern:**
+
+```bash
+python3 -m motion.cli validate-spec motion/examples/nexpt-kinetic-title.json
+python3 -m motion.cli capabilities
+python3 -m motion.cli ui-snapshot --max-depth 5   # auf einem Mac mit Motion
+```
+
+Der Motion-Bridge nutzt ein echtes, mit der installierten Motion-Version
+gespeichertes Basistemplate und erzeugt daraus sichere Arbeitskopien. Er kann
+veröffentlichte oder per Accessibility gefundene Regler binden, Projekte
+öffnen und speichern, den Exportdialog öffnen und Screenshots zur Kontrolle
+erstellen. Das interne `.motn`-Format wird bewusst nicht erfunden oder blind
+umgeschrieben. MCP-Konfiguration, Animationsschema und Mac-Einrichtung stehen
+in [motion/README.md](./motion/README.md).
 
 **Varianten des Tons:**
 

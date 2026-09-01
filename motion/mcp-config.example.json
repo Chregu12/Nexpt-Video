@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "nexpt-motion": {
+      "command": "python3",
+      "args": ["-m", "motion.mcp"],
+      "cwd": "/absolute/path/to/Nexpt-Video"
+    }
+  }
+}
