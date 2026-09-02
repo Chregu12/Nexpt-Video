@@ -69,6 +69,28 @@ benötigt keine Python-Pakete. Die wichtigsten Tools sind:
 Mit `motion_run_plan(..., dry_run=true)` lässt sich jeder Ablauf vor der echten
 UI-Steuerung vollständig prüfen.
 
+## Tests
+
+Die plattformunabhängigen Unit- und E2E-Tests prüfen CLI, MCP-stdio,
+Dateierzeugung, Plan-Compilation, Dry-Runs sowie Fehler- und Schutzpfade:
+
+```bash
+python3 -m unittest discover -s tests -p 'test_motion*.py' -v
+```
+
+Ein Live-Test gegen Apple Motion ist aus Sicherheitsgründen opt-in. Er startet
+Motion, liest den Accessibility-Baum und erstellt einen temporären Screenshot;
+er speichert und exportiert nichts:
+
+```bash
+MOTION_LIVE_E2E=1 python3 -m unittest tests.test_motion_live_e2e -v
+```
+
+Optional kann mit `MOTION_LIVE_PROJECT=/pfad/probe.motn` ein entbehrliches
+Testprojekt geöffnet werden. Vorher müssen Bedienungshilfen- und
+Bildschirmaufnahme-Rechte für das Terminal beziehungsweise den MCP-Host gesetzt
+sein.
+
 ## Animationsformat
 
 Die Spezifikation definiert Projektgröße, Bildrate, Dauer, Ebenen und
