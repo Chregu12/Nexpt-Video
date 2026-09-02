@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video-Musik extrahieren"
+  short_description: "Video-Ton und Musik sicher aufbereiten"
+  default_prompt: "Nutze $nexpt-video-music, um Musik aus meinem Video zu extrahieren und fuer GarageBand vorzubereiten."

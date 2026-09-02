@@ -29,6 +29,7 @@ python3 render/pruefen.py                # Zeitachse, leere Frames, Tempo  (--fi
 
 # TON
 python3 render/musik.py                  # Musik auf den Film legen → out/music.wav
+python3 render/video_music.py doctor     # Video-Ton-/Musik-Extraktion pruefen
 python3 render/proben.py                 # echte Schläge aus dem Loop → out/_proben/
 python3 render/reference_pipeline.py REFERENZ --bpm 118 --downbeat 0
                                           # Referenzprofil → eigenes Kit/Musik/Stems
@@ -57,6 +58,23 @@ python3 render/scratchvo.py             # 5. Stimme auf die neuen Zeiten
 python3 render/cuesheet.py && python3 render/sfx.py
 sh render/mischen.sh && python3 render/bauen.py --neu
 ```
+
+### Video als Musikquelle
+
+`video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
+Referenz- und GarageBand-Pipelines bereit. `soundtrack` dekodiert die komplette
+Tonmischung als 48-kHz-Stereo-WAV. `music` verwendet optional Demucs, um eine
+No-Vocals-Mischung zu schaetzen. Diese kann weiterhin Soundeffekte und
+Sprachreste enthalten und ist nicht die originale Studio-Musikspur.
+
+```bash
+python3 render/video_music.py extract film.mp4 --mode soundtrack
+python3 render/video_music.py extract film.mp4 --mode music --analyze
+```
+
+Audio, Analyseprofil und Manifest landen standardmaessig unter
+`out/video-music/`. Das Manifest enthaelt SHA-256-Pruefsummen und sichere
+Folgebefehle fuer `reference_pipeline.py` und `garageband/workflow.py`.
 
 ### Referenzprofil statt Samples aus der Referenz
 
@@ -245,6 +263,7 @@ misst sich um den Faktor drei zu langsam.
 | Datei | Zweck |
 |---|---|
 | `musik.py` | Musikspur auf den Film legen — Loop arrangieren oder Track schneiden. Schreibt zusätzlich die Anschlagszeiten für `takt.py`. |
+| `video_music.py` | Dekodiert eine Video-Tonspur oder schaetzt mit Demucs eine No-Vocals-Musikreferenz; schreibt verifizierte WAV-, Profil- und Manifestdateien. |
 | `proben.py` | Schneidet echte Schläge aus dem Musikloop → `out/_proben/` (die Klangpalette). |
 | `groove.py` | Zieht menschliches Spielgefühl aus dem Groove MIDI Dataset: je Instrument und Sechzehntelposition der mediane Versatz zum Raster und die Anschlagstärke. Gemessen an 220 Aufnahmen, 3408 Takten. |
 | `abhoeren.py` | Transkribiert eine Vorlage Schlag für Schlag: Position, Stärke, Versatz und Abklingzeit je Anschlag → `partitur.json`. Der Weg für einen **1:1-Nachbau**. |

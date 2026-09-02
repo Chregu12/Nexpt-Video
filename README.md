@@ -125,6 +125,31 @@ Vier-Takt-Rhythmusgrammatik und eine auf das NEXPT-Cue-Sheet zugeschnittene
 Aufnahme je Anschlag. Musik (`low`, `body`, `tonal`, `detail`) und SFX bleiben
 getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
 
+**Musik aus einer Videodatei sicher vorbereiten:**
+
+```bash
+python3 render/video_music.py doctor
+
+# Vollstaendige Tonspur: Musik, Sprache und SFX bleiben enthalten.
+python3 render/video_music.py extract "/pfad/film.mp4" \
+  --mode soundtrack \
+  --output out/video-music/film-soundtrack.wav
+
+# Mit Demucs geschaetzte Musikspur und anschliessende Referenzanalyse.
+python3 render/video_music.py extract "/pfad/film.mp4" \
+  --mode music \
+  --output out/video-music/film-music-estimate.wav \
+  --analyze
+```
+
+Jeder Lauf erzeugt ein Manifest mit Quell- und Ausgabe-Hash, Streamauswahl,
+Medienwerten und den naechsten Befehlen fuer eine neue samplefreie Komposition
+oder eine editierbare GarageBand-Rekonstruktion. `soundtrack` ist die komplette
+dekodierte Mischung. `music` ist eine No-Vocals-Schaetzung: Sprache kann
+teilweise und Soundeffekte koennen vollstaendig erhalten bleiben. Es handelt
+sich nicht um die originale Studio-Musikspur. Der Repo-Skill
+`$nexpt-video-music` waehlt anhand des Nutzerziels den passenden Weg.
+
 **Dieselbe gelernte Komposition mit echten GarageBand-Kits vorbereiten:**
 
 ```bash

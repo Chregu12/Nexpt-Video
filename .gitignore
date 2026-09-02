@@ -72,3 +72,6 @@ out/ai-music/
 higgsfield/.env
 higgsfield/mcp-config.json
 out/higgsfield/
+
+# Local video soundtrack/music extraction and optional Demucs results.
+out/video-music/
