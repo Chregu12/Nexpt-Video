@@ -18,6 +18,7 @@ zur fertigen Tonmischung.
 | [**garageband/README.md**](./garageband/README.md) | Der GarageBand-Weg: Partitur bei uns, Klang aus echten Drum Kits. Was wo läuft, und warum die letzten drei Schritte einen Mac brauchen. |
 | [**garageband/TRANSCRIPTION.md**](./garageband/TRANSCRIPTION.md) | Instrumental zuerst als editierbare Spuren rekonstruieren, mit einer unveraenderten 1:1-Referenzspur vergleichen und danach direkt in GarageBand anpassen. |
 | [**motion/README.md**](./motion/README.md) | Apple-Motion-MCP: Animationen als JSON beschreiben, echte Motion-Templates sicher befüllen und die Mac-App kontrolliert über Bedienungshilfen steuern. |
+| [**higgsfield/README.md**](./higgsfield/README.md) | Seedance-2.0-Bridge: Cloud-Clips über serverseitige Env-Secrets erzeugen, Referenzen sicher hochladen und geprüfte MP4-Dateien an Final Cut und Motion übergeben. |
 | [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
 
 ### Ansehen und anhören
@@ -199,6 +200,27 @@ veröffentlichte oder per Accessibility gefundene Regler binden, Projekte
 erstellen. Das interne `.motn`-Format wird bewusst nicht erfunden oder blind
 umgeschrieben. MCP-Konfiguration, Animationsschema und Mac-Einrichtung stehen
 in [motion/README.md](./motion/README.md).
+
+**Seedance-2.0-Clips über Higgsfield vorbereiten:**
+
+```bash
+export HIGGSFIELD_API_KEY_ID='...'
+export HIGGSFIELD_API_KEY_SECRET='...'
+export HIGGSFIELD_SEEDANCE_ENDPOINT='/endpoint-aus-higgsfield-cloud'
+
+python3 -m higgsfield.cli status
+python3 -m higgsfield.cli plan higgsfield/seedance-request.example.json
+python3 -m higgsfield.cli generate \
+  higgsfield/seedance-request.example.json \
+  --acknowledge-paid-generation
+```
+
+Lokale Bild-, Video- und WAV-Referenzen werden über offizielle Presigned URLs
+hochgeladen. Der asynchrone Job wird mit Backoff abgefragt; das Ergebnis wird
+als MP4 und Manifest unter `out/higgsfield/` gespeichert und für Final Cut und
+Motion ausgewiesen. Secrets erscheinen weder im Plan noch im MCP-Ergebnis.
+Schnittstellenstand und Einschränkungen stehen in
+[higgsfield/README.md](./higgsfield/README.md).
 
 **Varianten des Tons:**
 

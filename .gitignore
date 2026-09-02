@@ -65,3 +65,10 @@ garageband/arrangements/*
 garageband/catalogs/*.json
 garageband/ai-music.json
 out/ai-music/
+
+# Higgsfield credentials and generated cloud-video outputs. Only examples and
+# tests belong in Git; real keys and paid renders do not.
+.env
+higgsfield/.env
+higgsfield/mcp-config.json
+out/higgsfield/

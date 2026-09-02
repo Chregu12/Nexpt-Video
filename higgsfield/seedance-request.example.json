@@ -1,0 +1,11 @@
+{
+  "prompt": "A precise Apple-style product film: clean black background, restrained white kinetic typography, controlled camera movement, subtle reflections, no logos, cinematic pacing and synchronized minimal sound design.",
+  "aspect_ratio": "16:9",
+  "duration": 10,
+  "resolution": "1080p",
+  "mode": "std",
+  "bitrate_mode": "high",
+  "genre": "noir",
+  "generate_audio": true,
+  "image_references": []
+}
