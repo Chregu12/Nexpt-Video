@@ -1,0 +1,10 @@
+{
+  "ace_step_dir": "/absolute/path/to/ACE-Step-1.5",
+  "output_dir": "out/ai-music",
+  "defaults": {
+    "quality": "high",
+    "format": "wav",
+    "batch": 1,
+    "instrumental": true
+  }
+}

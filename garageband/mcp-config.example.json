@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "nexpt-garageband": {
+      "command": "python3",
+      "args": ["-m", "garageband.mcp"],
+      "cwd": "/absolute/path/to/Nexpt-Video"
+    }
+  }
+}

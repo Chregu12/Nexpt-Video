@@ -1,5 +1,71 @@
 # Reference audio to editable GarageBand tracks
 
+## Generative Erweiterung mit claude-music und ACE-Step
+
+[`AgriciDaniel/claude-music`](https://github.com/AgriciDaniel/claude-music)
+ist als unveränderte, MIT-lizenzierte Kopie unter `tools/claude-music/`
+eingebunden. Der NEXPT-Adapter verändert den Upstream nicht. Er ergänzt den
+bisherigen GarageBand-Workflow um sechs lokale Audiooperationen:
+
+- Text → Musik (`generate`)
+- Referenz → neue Stilvariante (`cover`)
+- Abschnitt neu erzeugen (`repaint`)
+- Spuren extrahieren (`extract`)
+- Instrumentebene ergänzen (`lego`)
+- Musik verlängern (`complete`)
+
+Die Trennung bleibt absichtlich erhalten:
+
+```text
+Text oder Referenz
+        ↓
+claude-music / ACE-Step
+        ↓
+verifizierte WAV + SHA-256
+        ├── unverändert als GarageBand-Audiospur
+        └── garageband/workflow.py
+                 ↓
+          approximative MIDI-/Instrumentspuren
+          + unveränderte A/B-Referenz
+```
+
+ACE-Step und die Modellgewichte sind nicht im Repository. Die schnelle
+Generierung benötigt normalerweise einen NVIDIA-/CUDA-Rechner; GarageBand
+läuft anschließend auf dem Mac. Beide Schritte dürfen daher auf getrennten
+Rechnern stattfinden.
+
+Konfiguration:
+
+```bash
+cp garageband/ai-music.example.json garageband/ai-music.json
+# ace_step_dir in der lokalen, ignorierten Datei anpassen
+
+python3 -m garageband.generative status
+python3 -m garageband.generative plan \
+  garageband/ai-music-request.example.json
+python3 -m garageband.generative generate \
+  garageband/ai-music-request.example.json
+```
+
+Der `plan`-Befehl erzeugt keine Datei und startet kein Modell. `generate`
+verwendet keine Shell-Strings, akzeptiert höchstens vier Kandidaten, prüft den
+JSON-Vertrag des Upstreams und verifiziert jede Ausgabedatei mit SHA-256.
+Bestehende Quelldateien werden nicht überschrieben.
+
+Für MCP ersetzt `garageband/mcp-config.example.json` die bisherige direkte
+Konfiguration des Upstream-Servers. Der kombinierte Server stellt alle
+bisherigen GarageBand-Tools und zusätzlich bereit:
+
+- `garageband_ai_status`
+- `garageband_ai_plan`
+- `garageband_ai_generate`
+- `garageband_ai_handoff_plan`
+- `garageband_ai_generate_and_handoff`
+
+Ein Handoff-Plan mit echter GarageBand-UI-Aktion verlangt explizit
+`acknowledge_live_ui=true`. Standardmäßig wird lediglich die geprüfte
+Generierungs- oder Rekonstruktionsplanung zurückgegeben.
+
 There are now two deliberately separate workflows:
 
 | Goal | Command | Behavior |
@@ -212,8 +278,11 @@ regenerating motion/UI effects, and an SFX edit cannot alter the music.
 | `garageband/session.py` | NEXPT-specific Mac recipe |
 | `garageband/workflow.py` | guarded orchestration, hash-bound resume and quality gates |
 | `garageband/evaluate.py` | technical source/export A/B measurement |
+| `garageband/generative.py` | safe claude-music/ACE-Step adapter and verified GarageBand handoff |
+| `garageband/mcp.py` | combined upstream GarageBand MCP plus generative tools |
 | `garageband/presets/` | selected installed kits and mix values |
 | `tools/garageband-llm-bridge/` | unchanged upstream Bridge copy |
+| `tools/claude-music/` | unchanged pinned claude-music copy |
 
 NEXPT-specific logic does not modify the Bridge. The copied Bridge is the
 unmodified MIT-licensed upstream at commit `f3d12e8`; provenance and update
@@ -221,6 +290,12 @@ instructions are in
 [`tools/garageband-llm-bridge/HERKUNFT.md`](../tools/garageband-llm-bridge/HERKUNFT.md).
 Its deterministic test suite runs without GarageBand; only UI automation and
 audio export require a real Mac.
+
+Die zweite Upstream-Kopie ist `claude-music` am Commit `5aa0173`; Herkunft,
+Lizenz und Updategrenze stehen in
+[`tools/claude-music/HERKUNFT.md`](../tools/claude-music/HERKUNFT.md). Die
+NEXPT-Tests benötigen weder GPU noch ACE-Step. Eine echte Generierung benötigt
+die separat konfigurierte ACE-Step-Installation.
 
 ## Verification
 
@@ -232,6 +307,10 @@ python3 -m unittest \
   tests/test_garageband_workflow.py \
   tests/test_garageband_evaluate.py -v
 python3 -m unittest discover -s tests -v
+
+python3 -m unittest \
+  tests/test_garageband_generative.py \
+  tests/test_garageband_generative_e2e.py -v
 
 python3 -m pytest -q tools/garageband-llm-bridge/tests
 ```

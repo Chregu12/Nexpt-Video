@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1000 500"
+  role="img"
+  aria-labelledby="svg-title svg-desc"
+>
+  <title id="svg-title">claude-music sub-skill icons</title>
+  <desc id="svg-desc">Ten stroke-based icons representing the /music sub-commands.</desc>
+  <style>
+    text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .t-display { font-weight: 800; font-size: 40px; letter-spacing: -1.2px; }
+    .t-heading { font-weight: 700; font-size: 22px; letter-spacing: -0.4px; }
+    .t-body    { font-weight: 400; font-size: 15px; letter-spacing: -0.1px; }
+    .t-muted   { font-weight: 400; font-size: 13px; }
+    .t-eyebrow { font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; }
+    .t-mono    { font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-weight: 600; font-size: 13px; }
+    .t-brand   { font-weight: 700; font-size: 14px; letter-spacing: 0.2px; }
+  </style>
+  <rect x="0" y="0" width="100%" height="100%" fill="#262624"/>
+  <text x="500" y="44" text-anchor="middle" class="t-eyebrow" fill="#9C9A92">/MUSIC SUB-COMMANDS</text>
+  <g transform="translate(98 118) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v13M9 16a3 3 0 1 1-3 3V9l10-3v10a3 3 0 1 1-3 3"/></g>
+  <text x="140" y="240" text-anchor="middle" class="t-mono" fill="#F5F4ED">generate</text>
+  <g transform="translate(278 118) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M16 3l2 3.7h-4M8 21l-2-3.7h4"/></g>
+  <text x="320" y="240" text-anchor="middle" class="t-mono" fill="#F5F4ED">cover</text>
+  <g transform="translate(458 118) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l3-3h5l7-7-5-5-7 7v5l-3 3M14 7l3-3"/></g>
+  <text x="500" y="240" text-anchor="middle" class="t-mono" fill="#F5F4ED">repaint</text>
+  <g transform="translate(638 118) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 10-10-3-3L5 16l-1 4zM14 6l3 3M4 4h8M4 8h5"/></g>
+  <text x="680" y="240" text-anchor="middle" class="t-mono" fill="#F5F4ED">compose</text>
+  <g transform="translate(818 118) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 11a4 4 0 1 0 0 0.1M14 14l5 5M3 16l2-4 2 6 2-8 2 6 2-3"/></g>
+  <text x="860" y="240" text-anchor="middle" class="t-mono" fill="#F5F4ED">analyze</text>
+  <g transform="translate(98 318) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M4 17v3h16v-3"/></g>
+  <text x="140" y="440" text-anchor="middle" class="t-mono" fill="#F5F4ED">export</text>
+  <g transform="translate(278 318) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></g>
+  <text x="320" y="440" text-anchor="middle" class="t-mono" fill="#F5F4ED">enhance</text>
+  <g transform="translate(458 318) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2zM8 10h.01M16 10h.01M12 14h.01M8 18h.01M16 18h.01"/></g>
+  <text x="500" y="440" text-anchor="middle" class="t-mono" fill="#F5F4ED">random</text>
+  <g transform="translate(638 318) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7zM3 11h18"/></g>
+  <text x="680" y="440" text-anchor="middle" class="t-mono" fill="#F5F4ED">library</text>
+  <g transform="translate(818 318) scale(3.5)" fill="none" stroke="#F5F4ED" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v3H4zM4 12h16v3H4zM4 17h16v3H4z"/></g>
+  <text x="860" y="440" text-anchor="middle" class="t-mono" fill="#F5F4ED">lora</text>
+</svg>

@@ -63,3 +63,5 @@ garageband/arrangements/*
 # Mac-, GarageBand-Version-, Sprach- und Sound-Pack-spezifisches Inventar.
 # Mit `python3 garageband/session.py inventory` auf dem Ziel-Mac neu erzeugen.
 garageband/catalogs/*.json
+garageband/ai-music.json
+out/ai-music/

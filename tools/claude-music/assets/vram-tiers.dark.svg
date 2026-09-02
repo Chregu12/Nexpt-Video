@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 900 460"
+  role="img"
+  aria-labelledby="svg-title svg-desc"
+>
+  <title id="svg-title">claude-music VRAM tiers</title>
+  <desc id="svg-desc">GPU VRAM requirements: Turbo 8 GB (default), Turbo with 1.7B thinking LM 14 GB, XL Turbo 16 GB.</desc>
+  <style>
+    text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .t-display { font-weight: 800; font-size: 40px; letter-spacing: -1.2px; }
+    .t-heading { font-weight: 700; font-size: 22px; letter-spacing: -0.4px; }
+    .t-body    { font-weight: 400; font-size: 15px; letter-spacing: -0.1px; }
+    .t-muted   { font-weight: 400; font-size: 13px; }
+    .t-eyebrow { font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; }
+    .t-mono    { font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-weight: 600; font-size: 13px; }
+    .t-brand   { font-weight: 700; font-size: 14px; letter-spacing: 0.2px; }
+  </style>
+  <rect x="0" y="0" width="100%" height="100%" fill="#262624"/>
+  <text x="450" y="42" text-anchor="middle" class="t-eyebrow" fill="#9C9A92">VRAM TIERS · RTX 5070 Ti REFERENCE</text>
+  <text x="450" y="74" text-anchor="middle" class="t-heading" fill="#F5F4ED">how much headroom you need</text>
+  <path d="M 395 100 L 395 360" fill="none" stroke="#3D3D3A" stroke-width="1" stroke-dasharray="2 4"/>
+  <text x="395" y="382" text-anchor="middle" class="t-mono" fill="#9C9A92">4 GB</text>
+  <path d="M 530 100 L 530 360" fill="none" stroke="#3D3D3A" stroke-width="1" stroke-dasharray="2 4"/>
+  <text x="530" y="382" text-anchor="middle" class="t-mono" fill="#9C9A92">8 GB</text>
+  <path d="M 665 100 L 665 360" fill="none" stroke="#3D3D3A" stroke-width="1" stroke-dasharray="2 4"/>
+  <text x="665" y="382" text-anchor="middle" class="t-mono" fill="#9C9A92">12 GB</text>
+  <path d="M 800 100 L 800 360" fill="none" stroke="#3D3D3A" stroke-width="1" stroke-dasharray="2 4"/>
+  <text x="800" y="382" text-anchor="middle" class="t-mono" fill="#9C9A92">16 GB</text>
+  <text x="244" y="143" text-anchor="end" class="t-body" fill="#F5F4ED">Turbo (default)</text>
+  <rect x="260" y="110" width="270" height="56" rx="4" fill="#D97757"/>
+  <text x="542" y="143" class="t-brand" fill="#D97757">8 GB</text>
+  <text x="244" y="223" text-anchor="end" class="t-body" fill="#F5F4ED">Turbo + 1.7B LM thinking</text>
+  <rect x="260" y="190" width="472" height="56" rx="4" fill="#9C9A92"/>
+  <text x="744" y="223" class="t-mono" fill="#9C9A92">14 GB</text>
+  <text x="244" y="303" text-anchor="end" class="t-body" fill="#F5F4ED">XL Turbo</text>
+  <rect x="260" y="270" width="540" height="56" rx="4" fill="#9C9A92"/>
+  <text x="812" y="303" class="t-mono" fill="#9C9A92">16 GB</text>
+  <text x="450" y="430" text-anchor="middle" class="t-muted" fill="#9C9A92">4 GB minimum · 12 GB recommended · 16 GB unlocks XL variant</text>
+</svg>

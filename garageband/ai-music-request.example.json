@@ -1,0 +1,11 @@
+{
+  "action": "generate",
+  "caption": "Minimal cinematic product-film percussion, 118 BPM, dry rim clicks, restrained snare, tuned toms, strong negative space, precise modern transitions, no melody, no vocals",
+  "instrumental": true,
+  "bpm": 118,
+  "duration": 30,
+  "quality": "high",
+  "format": "wav",
+  "batch": 1,
+  "seed": -1
+}

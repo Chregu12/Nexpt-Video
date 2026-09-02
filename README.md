@@ -169,6 +169,21 @@ Dauer, Onsets, Pitch Classes und Klangprofil gegen die Originalspur.
 Grenzen und der genaue Mac-Ablauf stehen in
 [garageband/TRANSCRIPTION.md](./garageband/TRANSCRIPTION.md).
 
+**Musikkandidaten lokal mit ACE-Step erzeugen und an GarageBand übergeben:**
+
+```bash
+cp garageband/ai-music.example.json garageband/ai-music.json
+python3 -m garageband.generative status
+python3 -m garageband.generative plan garageband/ai-music-request.example.json
+```
+
+Die eingebundene `claude-music`-Engine kann instrumentale Kandidaten erzeugen,
+Referenzen in einen neuen Stil überführen und Abschnitte neu generieren. Der
+Adapter prüft die Audioausgaben und übergibt sie wahlweise unverändert oder an
+die bestehende editierbare GarageBand-Rekonstruktion. Details und die
+kombinierte MCP-Konfiguration stehen in
+[garageband/README.md](./garageband/README.md).
+
 **Animationen in Apple Motion vorbereiten und per MCP steuern:**
 
 ```bash

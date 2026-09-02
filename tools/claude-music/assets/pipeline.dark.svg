@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 300"
+  role="img"
+  aria-labelledby="svg-title svg-desc"
+>
+  <title id="svg-title">claude-music pipeline</title>
+  <desc id="svg-desc">Four-stage flow: user describes intent, Claude plans, ACE-Step generates on local GPU, user listens and iterates.</desc>
+  <style>
+    text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .t-display { font-weight: 800; font-size: 40px; letter-spacing: -1.2px; }
+    .t-heading { font-weight: 700; font-size: 22px; letter-spacing: -0.4px; }
+    .t-body    { font-weight: 400; font-size: 15px; letter-spacing: -0.1px; }
+    .t-muted   { font-weight: 400; font-size: 13px; }
+    .t-eyebrow { font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; }
+    .t-mono    { font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-weight: 600; font-size: 13px; }
+    .t-brand   { font-weight: 700; font-size: 14px; letter-spacing: 0.2px; }
+  </style>
+  <rect x="0" y="0" width="100%" height="100%" fill="#262624"/>
+  <text x="600" y="36" text-anchor="middle" class="t-eyebrow" fill="#9C9A92">HOW IT WORKS</text>
+  <rect x="91" y="70" width="220" height="140" rx="4" fill="none" stroke="#F5F4ED" stroke-width="1"/>
+  <text x="111" y="100" class="t-mono" fill="#F5F4ED">01</text>
+  <text x="111" y="138" class="t-heading" fill="#F5F4ED">DESCRIBE</text>
+  <text x="111" y="166" class="t-muted" fill="#9C9A92">a lo-fi beat for</text>
+  <text x="111" y="184" class="t-muted" fill="#9C9A92">studying</text>
+  <path d="M 315 140 L 349 140" fill="none" stroke="#9C9A92" stroke-width="1"/>
+  <path d="M 345 135 L 353 140 L 345 145" fill="none" stroke="#9C9A92" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="357" y="70" width="220" height="140" rx="4" fill="none" stroke="#F5F4ED" stroke-width="1"/>
+  <text x="377" y="100" class="t-mono" fill="#F5F4ED">02</text>
+  <text x="377" y="138" class="t-heading" fill="#F5F4ED">PLAN</text>
+  <text x="377" y="166" class="t-muted" fill="#9C9A92">caption · lyrics</text>
+  <text x="377" y="184" class="t-muted" fill="#9C9A92">BPM · key</text>
+  <path d="M 581 140 L 615 140" fill="none" stroke="#9C9A92" stroke-width="1"/>
+  <path d="M 611 135 L 619 140 L 611 145" fill="none" stroke="#9C9A92" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="623" y="70" width="220" height="140" rx="4" fill="none" stroke="#F5F4ED" stroke-width="1"/>
+  <text x="643" y="100" class="t-mono" fill="#F5F4ED">03</text>
+  <text x="643" y="138" class="t-heading" fill="#F5F4ED">GENERATE</text>
+  <text x="643" y="166" class="t-muted" fill="#9C9A92">ACE-Step on</text>
+  <text x="643" y="184" class="t-muted" fill="#9C9A92">local GPU</text>
+  <path d="M 847 140 L 881 140" fill="none" stroke="#9C9A92" stroke-width="1"/>
+  <path d="M 877 135 L 885 140 L 877 145" fill="none" stroke="#9C9A92" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="889" y="70" width="220" height="140" rx="4" fill="none" stroke="#D97757" stroke-width="1.6"/>
+  <text x="909" y="100" class="t-mono" fill="#F5F4ED">04</text>
+  <text x="909" y="138" class="t-heading" fill="#F5F4ED">LISTEN</text>
+  <text x="909" y="166" class="t-muted" fill="#9C9A92">audio.flac</text>
+  <text x="909" y="184" class="t-muted" fill="#9C9A92">iterate · export</text>
+  <text x="600" y="268" text-anchor="middle" class="t-muted" fill="#9C9A92">No cloud API · Everything runs on your machine</text>
+</svg>

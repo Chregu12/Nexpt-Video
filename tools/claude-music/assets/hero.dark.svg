@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 400"
+  role="img"
+  aria-labelledby="svg-title svg-desc"
+>
+  <title id="svg-title">claude-music hero: prompt to audio</title>
+  <desc id="svg-desc">Text prompt on the left, ACE-Step 1.5 engine in the middle, generated audio waveform on the right.</desc>
+  <style>
+    text { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .t-display { font-weight: 800; font-size: 40px; letter-spacing: -1.2px; }
+    .t-heading { font-weight: 700; font-size: 22px; letter-spacing: -0.4px; }
+    .t-body    { font-weight: 400; font-size: 15px; letter-spacing: -0.1px; }
+    .t-muted   { font-weight: 400; font-size: 13px; }
+    .t-eyebrow { font-weight: 700; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; }
+    .t-mono    { font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-weight: 600; font-size: 13px; }
+    .t-brand   { font-weight: 700; font-size: 14px; letter-spacing: 0.2px; }
+  </style>
+  <rect x="0" y="0" width="100%" height="100%" fill="#262624"/>
+  <rect x="80" y="80" width="380" height="240" rx="4" ry="4" fill="none" stroke="#3D3D3A" stroke-width="1"/>
+  <rect x="104" y="104" width="86" height="22" rx="11" fill="none" stroke="#9C9A92" stroke-width="1"/>
+  <text x="124" y="119" class="t-eyebrow" fill="#9C9A92">PROMPT</text>
+  <text x="104" y="170" class="t-mono" fill="#F5F4ED">upbeat pop,</text>
+  <text x="104" y="198" class="t-mono" fill="#F5F4ED">female vocal,</text>
+  <text x="104" y="226" class="t-mono" fill="#F5F4ED">catchy synth,</text>
+  <text x="104" y="254" class="t-mono" fill="#F5F4ED">modern</text>
+  <path d="M 480 200 L 700 200" fill="none" stroke="#9C9A92" stroke-width="1" stroke-dasharray="3 6"/>
+  <path d="M 690 192 L 704 200 L 690 208" fill="none" stroke="#9C9A92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="590" y="182" text-anchor="middle" class="t-eyebrow" fill="#9C9A92">ACE-STEP 1.5</text>
+  <rect x="740" y="197" width="5" height="6" rx="1" fill="#D97757"/>
+  <rect x="746" y="195" width="5" height="9" rx="1" fill="#D97757"/>
+  <rect x="752" y="190" width="5" height="20" rx="1" fill="#D97757"/>
+  <rect x="758" y="191" width="5" height="18" rx="1" fill="#D97757"/>
+  <rect x="764" y="185" width="5" height="31" rx="1" fill="#D97757"/>
+  <rect x="770" y="184" width="5" height="32" rx="1" fill="#D97757"/>
+  <rect x="776" y="185" width="5" height="29" rx="1" fill="#D97757"/>
+  <rect x="782" y="178" width="5" height="44" rx="1" fill="#D97757"/>
+  <rect x="788" y="182" width="5" height="35" rx="1" fill="#D97757"/>
+  <rect x="794" y="175" width="5" height="50" rx="1" fill="#D97757"/>
+  <rect x="800" y="179" width="5" height="42" rx="1" fill="#D97757"/>
+  <rect x="806" y="178" width="5" height="45" rx="1" fill="#D97757"/>
+  <rect x="812" y="170" width="5" height="60" rx="1" fill="#D97757"/>
+  <rect x="818" y="161" width="5" height="78" rx="1" fill="#D97757"/>
+  <rect x="824" y="173" width="5" height="53" rx="1" fill="#D97757"/>
+  <rect x="830" y="170" width="5" height="60" rx="1" fill="#D97757"/>
+  <rect x="836" y="160" width="5" height="79" rx="1" fill="#D97757"/>
+  <rect x="842" y="152" width="5" height="96" rx="1" fill="#D97757"/>
+  <rect x="848" y="159" width="5" height="82" rx="1" fill="#D97757"/>
+  <rect x="854" y="162" width="5" height="76" rx="1" fill="#D97757"/>
+  <rect x="860" y="147" width="5" height="105" rx="1" fill="#D97757"/>
+  <rect x="866" y="169" width="5" height="62" rx="1" fill="#D97757"/>
+  <rect x="872" y="148" width="5" height="104" rx="1" fill="#D97757"/>
+  <rect x="878" y="162" width="5" height="77" rx="1" fill="#D97757"/>
+  <rect x="884" y="165" width="5" height="70" rx="1" fill="#D97757"/>
+  <rect x="890" y="165" width="5" height="70" rx="1" fill="#D97757"/>
+  <rect x="896" y="160" width="5" height="80" rx="1" fill="#D97757"/>
+  <rect x="902" y="146" width="5" height="108" rx="1" fill="#D97757"/>
+  <rect x="908" y="163" width="5" height="75" rx="1" fill="#D97757"/>
+  <rect x="914" y="152" width="5" height="97" rx="1" fill="#D97757"/>
+  <rect x="920" y="150" width="5" height="100" rx="1" fill="#D97757"/>
+  <rect x="926" y="157" width="5" height="86" rx="1" fill="#D97757"/>
+  <rect x="932" y="152" width="5" height="96" rx="1" fill="#D97757"/>
+  <rect x="938" y="165" width="5" height="69" rx="1" fill="#D97757"/>
+  <rect x="944" y="166" width="5" height="69" rx="1" fill="#D97757"/>
+  <rect x="950" y="162" width="5" height="76" rx="1" fill="#D97757"/>
+  <rect x="956" y="150" width="5" height="101" rx="1" fill="#D97757"/>
+  <rect x="962" y="157" width="5" height="87" rx="1" fill="#D97757"/>
+  <rect x="968" y="160" width="5" height="80" rx="1" fill="#D97757"/>
+  <rect x="974" y="154" width="5" height="93" rx="1" fill="#D97757"/>
+  <rect x="980" y="158" width="5" height="85" rx="1" fill="#D97757"/>
+  <rect x="986" y="162" width="5" height="76" rx="1" fill="#D97757"/>
+  <rect x="992" y="151" width="5" height="98" rx="1" fill="#D97757"/>
+  <rect x="998" y="154" width="5" height="92" rx="1" fill="#D97757"/>
+  <rect x="1004" y="166" width="5" height="68" rx="1" fill="#D97757"/>
+  <rect x="1010" y="159" width="5" height="82" rx="1" fill="#D97757"/>
+  <rect x="1016" y="161" width="5" height="77" rx="1" fill="#D97757"/>
+  <rect x="1022" y="155" width="5" height="90" rx="1" fill="#D97757"/>
+  <rect x="1028" y="160" width="5" height="80" rx="1" fill="#D97757"/>
+  <rect x="1034" y="170" width="5" height="60" rx="1" fill="#D97757"/>
+  <rect x="1040" y="158" width="5" height="84" rx="1" fill="#D97757"/>
+  <rect x="1046" y="176" width="5" height="48" rx="1" fill="#D97757"/>
+  <rect x="1052" y="172" width="5" height="56" rx="1" fill="#D97757"/>
+  <rect x="1058" y="168" width="5" height="64" rx="1" fill="#D97757"/>
+  <rect x="1064" y="179" width="5" height="41" rx="1" fill="#D97757"/>
+  <rect x="1070" y="176" width="5" height="48" rx="1" fill="#D97757"/>
+  <rect x="1076" y="184" width="5" height="32" rx="1" fill="#D97757"/>
+  <rect x="1082" y="178" width="5" height="43" rx="1" fill="#D97757"/>
+  <rect x="1088" y="180" width="5" height="40" rx="1" fill="#D97757"/>
+  <rect x="1094" y="184" width="5" height="31" rx="1" fill="#D97757"/>
+  <rect x="1100" y="185" width="5" height="30" rx="1" fill="#D97757"/>
+  <rect x="1106" y="192" width="5" height="16" rx="1" fill="#D97757"/>
+  <rect x="1112" y="194" width="5" height="13" rx="1" fill="#D97757"/>
+  <rect x="1118" y="197" width="5" height="6" rx="1" fill="#D97757"/>
+  <text x="932" y="350" text-anchor="middle" class="t-eyebrow" fill="#9C9A92">AUDIO.FLAC · 48 kHz STEREO</text>
+  <text x="96" y="370" class="t-muted" fill="#9C9A92">claude-music</text>
+
+</svg>
