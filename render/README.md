@@ -63,18 +63,40 @@ sh render/mischen.sh && python3 render/bauen.py --neu
 
 `video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
 Referenz- und GarageBand-Pipelines bereit. `soundtrack` dekodiert die komplette
-Tonmischung als 48-kHz-Stereo-WAV. `music` verwendet optional Demucs, um eine
-No-Vocals-Mischung zu schaetzen. Diese kann weiterhin Soundeffekte und
+Tonmischung als 48-kHz-Stereo-WAV. `music` verwendet den gepinnten
+Demucs-Basisweg oder einen explizit konfigurierten lokalen RoFormer-Adapter, um
+eine No-Vocals-Mischung zu schaetzen. Diese kann weiterhin Soundeffekte und
 Sprachreste enthalten und ist nicht die originale Studio-Musikspur.
 
 ```bash
+python3 -m pip install -r garageband/requirements-transcription.txt
+python3 render/video_music.py doctor
 python3 render/video_music.py extract film.mp4 --mode soundtrack
-python3 render/video_music.py extract film.mp4 --mode music --analyze
+python3 render/video_music.py extract film.mp4 --mode music \
+  --quality high --separator auto --vad auto --analyze
 ```
 
-Audio, Analyseprofil und Manifest landen standardmaessig unter
-`out/video-music/`. Das Manifest enthaelt SHA-256-Pruefsummen und sichere
-Folgebefehle fuer `reference_pipeline.py` und `garageband/workflow.py`.
+Audio, Segmentkarte, Analyseprofil und Manifest landen standardmaessig unter
+`out/video-music/`. Das Manifest enthaelt SHA-256-Pruefsummen, Backend- und
+Modellprovenienz, ein Quality Gate und sichere Folgebefehle fuer
+`reference_pipeline.py` und `garageband/workflow.py`.
+
+`--quality high` verlangt bei `--vad auto` Silero VAD sowie im Musikmodus die
+getestete Demucs-Version `4.0.1` (Modell `htdemucs_ft`) oder einen RoFormer-
+Adapter. Mit `--vad heuristic` kann man bewusst ohne Silero arbeiten; der Lauf
+wird dann als `review_required` markiert. Die Segmentkarte ist eine Hilfe zum
+Trennen von Musik, Sprache, SFX und Stille, keine Ground-Truth-Stemmaske.
+Auch mit Silero bleibt ein High-Quality-Lauf `review_required`, solange
+mindestens ein Segment den Konfidenzschwellwert nicht erreicht.
+
+Ein RoFormer-Adapter wird mit `NEXPT_ROFORMER_COMMAND=/pfad/zum/adapter`
+aktiviert. Er bekommt `--input PATH --output-dir DIR` und muss genau
+`instrumental.wav` oder `no_vocals.wav` schreiben; optional darf
+`vocals.wav` hinzukommen. Fuer ein bestandenes High-Quality-Gate schreibt er
+zusaetzlich `provenance.json` mit `model`, `version`, `license` und dem
+64-stelligen `checkpoint_sha256`; ohne diesen Nachweis bleibt das Ergebnis
+`review_required`. Checkpoint und Lizenz bleiben damit explizit in der
+Verantwortung des lokalen Adapters.
 
 ### Referenzprofil statt Samples aus der Referenz
 
@@ -263,7 +285,9 @@ misst sich um den Faktor drei zu langsam.
 | Datei | Zweck |
 |---|---|
 | `musik.py` | Musikspur auf den Film legen — Loop arrangieren oder Track schneiden. Schreibt zusätzlich die Anschlagszeiten für `takt.py`. |
-| `video_music.py` | Dekodiert eine Video-Tonspur oder schaetzt mit Demucs eine No-Vocals-Musikreferenz; schreibt verifizierte WAV-, Profil- und Manifestdateien. |
+| `video_music.py` | Dekodiert eine Video-Tonspur oder schaetzt modular eine No-Vocals-Musikreferenz; schreibt verifizierte WAV-, Segment-, Profil- und Manifestdateien. |
+| `music_separation.py` | Waehlt den gepinnten Demucs-Basisweg oder einen expliziten lokalen RoFormer-Adapter und prueft dessen Ausgaben. |
+| `audio_segmentation.py` | Schreibt lokale Musik-/Sprach-/SFX-/Stille-Wahrscheinlichkeiten je Zeitsegment; Silero liefert optionale Sprachzeitstempel. |
 | `proben.py` | Schneidet echte Schläge aus dem Musikloop → `out/_proben/` (die Klangpalette). |
 | `groove.py` | Zieht menschliches Spielgefühl aus dem Groove MIDI Dataset: je Instrument und Sechzehntelposition der mediane Versatz zum Raster und die Anschlagstärke. Gemessen an 220 Aufnahmen, 3408 Takten. |
 | `abhoeren.py` | Transkribiert eine Vorlage Schlag für Schlag: Position, Stärke, Versatz und Abklingzeit je Anschlag → `partitur.json`. Der Weg für einen **1:1-Nachbau**. |

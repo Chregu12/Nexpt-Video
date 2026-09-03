@@ -3,21 +3,19 @@
 
 The ``soundtrack`` mode decodes one audio stream without changing its musical
 content.  It still contains dialogue and sound effects.  The ``music`` mode
-uses Demucs to estimate a no-vocals mix; that result is useful as a reference,
-but it is not the original studio music stem.
+uses a selected local separator to estimate a no-vocals mix; that result is
+useful as a reference, but it is not the original studio music stem.
 
 Examples::
 
     python3 render/video_music.py doctor
     python3 render/video_music.py extract film.mp4 --mode soundtrack
-    python3 render/video_music.py extract film.mp4 --mode music --analyze
+    python3 render/video_music.py extract film.mp4 --mode music --quality high --analyze
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
-import importlib.metadata
-import importlib.util
 import json
 import os
 from pathlib import Path
@@ -28,10 +26,23 @@ import sys
 import tempfile
 from typing import Any
 
+from audio_segmentation import (  # type: ignore
+    SegmentationError,
+    analyze_segments,
+    silero_available,
+    speech_backend_status,
+)
+from music_separation import (  # type: ignore
+    DEMUCS_PACKAGE_PIN,
+    SeparationError,
+    backend_status,
+    select_separator,
+)
+
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "out" / "video-music"
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 DEFAULT_SAMPLE_RATE = 48_000
 
 
@@ -245,40 +256,32 @@ def _extract_wav(
     return media
 
 
-def demucs_available() -> bool:
-    try:
-        return importlib.util.find_spec("demucs") is not None
-    except (ImportError, ValueError):
-        return False
-
-
-def demucs_version() -> str | None:
-    if not demucs_available():
-        return None
-    try:
-        return importlib.metadata.version("demucs")
-    except importlib.metadata.PackageNotFoundError:
-        return "installed"
-
-
 def _isolate_music(
     source: Path,
     output: Path,
     *,
     audio_stream: int,
     sample_rate: int,
-    model: str,
+    model: str | None,
     device: str,
+    quality: str = "standard",
+    separator: str = "auto",
+    roformer_command: str | Path | None = None,
     overwrite: bool,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
-    if not demucs_available():
-        raise VideoMusicError(
-            "Der Modus 'music' braucht Demucs. Installiere die optionalen Pakete aus "
-            "garageband/requirements-transcription.txt oder nutze --mode soundtrack."
-        )
     output = output.expanduser().resolve()
     _validate_output(source.expanduser().resolve(), output, overwrite=overwrite)
     output.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        selected = select_separator(
+            separator,
+            quality=quality,
+            model=model,
+            device=device,
+            roformer=roformer_command,
+        )
+    except SeparationError as exc:
+        raise VideoMusicError(str(exc)) from exc
     with tempfile.TemporaryDirectory(
         dir=output.parent, prefix=f".{output.stem}.work-"
     ) as directory:
@@ -291,45 +294,27 @@ def _isolate_music(
             sample_rate=sample_rate,
             overwrite=False,
         )
-        demucs_output = work / "demucs"
-        _run(
-            [
-                sys.executable,
-                "-m",
-                "demucs",
-                "-n",
-                model,
-                "-d",
-                device,
-                "-j",
-                "1",
-                "--float32",
-                "--two-stems",
-                "vocals",
-                "-o",
-                str(demucs_output),
-                str(mix),
-            ],
-            "Demucs-Musikisolation",
-        )
-        candidates = sorted(demucs_output.rglob("no_vocals.wav"))
-        if not candidates:
-            raise VideoMusicError("Demucs hat keine no_vocals.wav erzeugt")
+        try:
+            separated = selected.separate(mix, work / "separated")
+        except SeparationError as exc:
+            raise VideoMusicError(str(exc)) from exc
         _extract_wav(
-            candidates[0],
+            separated.primary_path,
             output,
             audio_stream=0,
             sample_rate=sample_rate,
             overwrite=overwrite,
         )
-    return source_media, {
-        "engine": "demucs",
-        "version": demucs_version(),
-        "model": model,
-        "device": device,
-        "jobs": 1,
-        "stem": "no_vocals",
-    }
+    processing = separated.manifest()
+    processing.update(
+        {
+            "requested_separator": separator,
+            "quality": quality,
+            "device": device,
+            "jobs": 1,
+        }
+    )
+    return source_media, processing
 
 
 def _write_json_atomic(path: Path, payload: dict[str, Any], *, overwrite: bool) -> None:
@@ -366,6 +351,10 @@ def _write_json_atomic(path: Path, payload: dict[str, Any], *, overwrite: bool) 
 def default_output(source: Path, mode: str) -> Path:
     suffix = "soundtrack" if mode == "soundtrack" else "music-estimate"
     return OUT / f"{slugify(source.stem)}-{suffix}.wav"
+
+
+def default_segment_output(output: Path) -> Path:
+    return output.with_suffix(".segments.json")
 
 
 def _next_commands(output: Path, profile: Path) -> dict[str, list[str]]:
@@ -422,6 +411,102 @@ def _analyze(
     }
 
 
+def _analyze_segments(
+    output: Path,
+    segment_path: Path,
+    *,
+    vad: str,
+    segment_seconds: float,
+    segment_hop: float,
+    overwrite: bool,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    try:
+        payload = analyze_segments(
+            output,
+            vad=vad,
+            segment_seconds=segment_seconds,
+            hop_seconds=segment_hop,
+        )
+    except SegmentationError as exc:
+        raise VideoMusicError(str(exc)) from exc
+    _write_json_atomic(segment_path, payload, overwrite=overwrite)
+    report = {
+        "path": str(segment_path.resolve()),
+        "sha256": file_sha256(segment_path.resolve()),
+        "vad": payload["analysis"]["vad"],
+        "classifier": payload["analysis"]["classifier"],
+        "summary": payload["summary"],
+    }
+    return report, payload
+
+
+def _quality_gate(
+    *,
+    quality: str,
+    mode: str,
+    processing: dict[str, Any],
+    segment_summary: dict[str, Any],
+    vad_requested: str,
+    vad_used: str,
+) -> dict[str, Any]:
+    checks = [
+        {
+            "name": "segment_map",
+            "passed": True,
+            "detail": "music/speech/SFX/silence probabilities were written",
+        }
+    ]
+    high_vad_passed = vad_used == "silero"
+    if quality == "high":
+        checks.append(
+            {
+                "name": "trained_speech_detection",
+                "passed": high_vad_passed,
+                "detail": (
+                    "Silero VAD timestamps available"
+                    if high_vad_passed
+                    else f"explicit lower-confidence VAD selected: {vad_requested}"
+                ),
+            }
+        )
+        checks.append(
+            {
+                "name": "segment_confidence",
+                "passed": not bool(segment_summary.get("manual_review_required", True)),
+                "detail": (
+                    "all segment decisions meet the review threshold"
+                    if not segment_summary.get("manual_review_required", True)
+                    else "one or more music/speech/SFX decisions require manual review"
+                ),
+            }
+        )
+        if mode == "music":
+            separator_verified = (
+                processing.get("engine") == "demucs"
+                and processing.get("version") == DEMUCS_PACKAGE_PIN
+            ) or (
+                processing.get("engine") == "roformer"
+                and bool(processing.get("provenance"))
+            )
+            checks.append(
+                {
+                    "name": "separator_provenance",
+                    "passed": separator_verified,
+                    "detail": (
+                        "separator package/checkpoint provenance verified"
+                        if separator_verified
+                        else "RoFormer checkpoint provenance is missing or unverified"
+                    ),
+                }
+            )
+    passed = all(bool(item["passed"]) for item in checks)
+    return {
+        "requested": quality,
+        "status": "passed" if passed else "review_required",
+        "checks": checks,
+    }
+
+
 def extract(
     source: Path,
     *,
@@ -430,8 +515,15 @@ def extract(
     manifest: Path | None = None,
     audio_stream: int = 0,
     sample_rate: int = DEFAULT_SAMPLE_RATE,
-    demucs_model: str = "htdemucs",
+    quality: str = "standard",
+    separator: str = "auto",
+    demucs_model: str | None = None,
+    roformer_command: str | Path | None = None,
     device: str = "cpu",
+    vad: str = "auto",
+    segment_output: Path | None = None,
+    segment_seconds: float = 1.0,
+    segment_hop: float = 0.5,
     analyze: bool = False,
     profile_output: Path | None = None,
     bpm: float | None = None,
@@ -440,8 +532,30 @@ def extract(
 ) -> dict[str, Any]:
     if mode not in {"soundtrack", "music"}:
         raise VideoMusicError(f"Unbekannter Modus: {mode}")
+    if quality not in {"standard", "high"}:
+        raise VideoMusicError(f"Unbekannte Qualitaet: {quality}")
+    if separator not in {"auto", "demucs", "roformer"}:
+        raise VideoMusicError(f"Unbekannter Separator: {separator}")
     if device not in {"cpu", "cuda", "mps"}:
         raise VideoMusicError(f"Unbekanntes Demucs-Geraet: {device}")
+    if vad not in {"auto", "silero", "heuristic", "off"}:
+        raise VideoMusicError(f"Unbekannte VAD-Engine: {vad}")
+    if vad == "silero" and not silero_available():
+        raise VideoMusicError(
+            "--vad silero wurde verlangt, aber Silero VAD ist nicht installiert."
+        )
+    if not 0.25 <= segment_seconds <= 10.0:
+        raise VideoMusicError("--segment-seconds muss zwischen 0.25 und 10 liegen")
+    if not 0.1 <= segment_hop <= segment_seconds:
+        raise VideoMusicError(
+            "--segment-hop muss zwischen 0.1 und --segment-seconds liegen"
+        )
+    if quality == "high" and vad == "auto" and not silero_available():
+        raise VideoMusicError(
+            "--quality high verlangt standardmaessig Silero VAD. Installiere die "
+            "optionalen Pakete oder waehle --vad heuristic ausdruecklich und pruefe "
+            "die markierten Segmente manuell."
+        )
 
     source = source.expanduser().resolve()
     if not source.is_file():
@@ -451,7 +565,14 @@ def extract(
     profile_path = (
         profile_output or output.with_suffix(".reference-profile.json")
     ).expanduser().resolve()
-    generated_paths = {"Audioausgabe": output, "Manifest": manifest}
+    segment_path = (
+        segment_output or default_segment_output(output)
+    ).expanduser().resolve()
+    generated_paths = {
+        "Audioausgabe": output,
+        "Manifest": manifest,
+        "Segmentkarte": segment_path,
+    }
     if analyze:
         generated_paths["Analyseprofil"] = profile_path
     for label, path in generated_paths.items():
@@ -466,6 +587,8 @@ def extract(
                 )
     if manifest.exists() and not overwrite:
         raise VideoMusicError(f"Manifest existiert bereits: {manifest}")
+    if segment_path.exists() and not overwrite:
+        raise VideoMusicError(f"Segmentkarte existiert bereits: {segment_path}")
     if analyze and profile_path.exists() and not overwrite:
         raise VideoMusicError(f"Analyseprofil existiert bereits: {profile_path}")
 
@@ -480,6 +603,7 @@ def extract(
         )
         processing = {
             "engine": "ffmpeg",
+            "quality": quality,
             "contract": (
                 "Decoded soundtrack with unchanged programme content; WAV encoding is "
                 "not a byte-for-byte container copy."
@@ -500,6 +624,9 @@ def extract(
             sample_rate=sample_rate,
             model=demucs_model,
             device=device,
+            quality=quality,
+            separator=separator,
+            roformer_command=roformer_command,
             overwrite=overwrite,
         )
         processing["contract"] = (
@@ -518,6 +645,22 @@ def extract(
         ]
 
     output_media = probe_media(output)
+    segment_analysis, segment_payload = _analyze_segments(
+        output,
+        segment_path,
+        vad=vad,
+        segment_seconds=segment_seconds,
+        segment_hop=segment_hop,
+        overwrite=overwrite,
+    )
+    quality_gate = _quality_gate(
+        quality=quality,
+        mode=mode,
+        processing=processing,
+        segment_summary=segment_payload["summary"],
+        vad_requested=vad,
+        vad_used=segment_payload["analysis"]["vad"]["engine"],
+    )
     analysis = None
     if analyze:
         analysis = _analyze(
@@ -529,8 +672,11 @@ def extract(
         )
     result: dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
-        "status": "completed",
+        "status": (
+            "completed" if quality_gate["status"] == "passed" else "review_required"
+        ),
         "mode": mode,
+        "quality": quality,
         "source": {
             "path": str(source),
             "sha256": source_hash,
@@ -544,7 +690,9 @@ def extract(
             "media": output_media,
         },
         "processing": processing,
+        "segment_analysis": segment_analysis,
         "analysis": analysis,
+        "quality_gate": quality_gate,
         "limitations": limitations,
         "one_to_one_music_stem_claim": False,
         "next_commands": _next_commands(output, profile_path),
@@ -557,19 +705,35 @@ def extract(
 def doctor() -> dict[str, Any]:
     ffmpeg = executable("ffmpeg", required=False)
     ffprobe = executable("ffprobe", required=False)
-    demucs = demucs_available()
+    separators = backend_status()
+    speech = speech_backend_status()
+    demucs = separators["demucs"]
+    roformer = separators["roformer"]
+    base_ready = bool(ffmpeg and ffprobe)
     return {
         "schema_version": SCHEMA_VERSION,
         "ffmpeg": {"available": bool(ffmpeg), "path": ffmpeg},
         "ffprobe": {"available": bool(ffprobe), "path": ffprobe},
-        "demucs": {"available": demucs, "version": demucs_version()},
+        "demucs": demucs,
+        "separators": separators,
+        "speech_detection": speech,
         "ready": {
-            "soundtrack": bool(ffmpeg and ffprobe),
-            "music": bool(ffmpeg and ffprobe and demucs),
+            "soundtrack": base_ready,
+            "music": base_ready and bool(demucs["available"] or roformer["available"]),
+            "high_soundtrack": base_ready and bool(speech["silero"]["available"]),
+            "high_music": base_ready
+            and bool(speech["silero"]["available"])
+            and bool(demucs["available"] and demucs["high_quality_pin_matches"]),
+            "high_music_roformer_reviewable": base_ready
+            and bool(speech["silero"]["available"])
+            and bool(roformer["available"]),
         },
         "contracts": {
             "soundtrack": "complete decoded mix, including dialogue and SFX",
             "music": "estimated no-vocals mix, not an original studio stem",
+            "segments": (
+                "routing probabilities; trained speech timestamps require Silero VAD"
+            ),
         },
     }
 
@@ -589,8 +753,31 @@ def build_parser() -> argparse.ArgumentParser:
     extract_parser.add_argument("--manifest", type=Path)
     extract_parser.add_argument("--audio-stream", type=int, default=0)
     extract_parser.add_argument("--sample-rate", type=int, default=DEFAULT_SAMPLE_RATE)
-    extract_parser.add_argument("--demucs-model", default="htdemucs")
+    extract_parser.add_argument(
+        "--quality",
+        choices=("standard", "high"),
+        default="standard",
+        help="high requires pinned separation and trained speech detection by default",
+    )
+    extract_parser.add_argument(
+        "--separator", choices=("auto", "demucs", "roformer"), default="auto"
+    )
+    extract_parser.add_argument(
+        "--demucs-model",
+        help="override htdemucs (standard) or htdemucs_ft (high)",
+    )
+    extract_parser.add_argument(
+        "--roformer-command",
+        type=Path,
+        help="local adapter; alternatively set NEXPT_ROFORMER_COMMAND",
+    )
     extract_parser.add_argument("--device", choices=("cpu", "cuda", "mps"), default="cpu")
+    extract_parser.add_argument(
+        "--vad", choices=("auto", "silero", "heuristic", "off"), default="auto"
+    )
+    extract_parser.add_argument("--segment-output", type=Path)
+    extract_parser.add_argument("--segment-seconds", type=float, default=1.0)
+    extract_parser.add_argument("--segment-hop", type=float, default=0.5)
     extract_parser.add_argument("--analyze", action="store_true")
     extract_parser.add_argument("--profile-output", type=Path)
     extract_parser.add_argument("--bpm", type=float)
@@ -612,8 +799,15 @@ def main() -> None:
                 manifest=args.manifest,
                 audio_stream=args.audio_stream,
                 sample_rate=args.sample_rate,
+                quality=args.quality,
+                separator=args.separator,
                 demucs_model=args.demucs_model,
+                roformer_command=args.roformer_command,
                 device=args.device,
+                vad=args.vad,
+                segment_output=args.segment_output,
+                segment_seconds=args.segment_seconds,
+                segment_hop=args.segment_hop,
                 analyze=args.analyze,
                 profile_output=args.profile_output,
                 bpm=args.bpm,

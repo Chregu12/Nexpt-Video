@@ -135,19 +135,28 @@ python3 render/video_music.py extract "/pfad/film.mp4" \
   --mode soundtrack \
   --output out/video-music/film-soundtrack.wav
 
-# Mit Demucs geschaetzte Musikspur und anschliessende Referenzanalyse.
+# Reproduzierbare High-Quality-Schaetzung mit Segmentkarte und Analyse.
 python3 render/video_music.py extract "/pfad/film.mp4" \
   --mode music \
+  --quality high \
+  --separator auto \
+  --vad auto \
   --output out/video-music/film-music-estimate.wav \
   --analyze
 ```
 
 Jeder Lauf erzeugt ein Manifest mit Quell- und Ausgabe-Hash, Streamauswahl,
-Medienwerten und den naechsten Befehlen fuer eine neue samplefreie Komposition
-oder eine editierbare GarageBand-Rekonstruktion. `soundtrack` ist die komplette
+Medienwerten, Quality Gate und einer `*.segments.json`-Karte mit
+Musik-/Sprach-/SFX-/Stille-Wahrscheinlichkeiten. `soundtrack` ist die komplette
 dekodierte Mischung. `music` ist eine No-Vocals-Schaetzung: Sprache kann
-teilweise und Soundeffekte koennen vollstaendig erhalten bleiben. Es handelt
-sich nicht um die originale Studio-Musikspur. Der Repo-Skill
+teilweise und Soundeffekte koennen vollstaendig erhalten bleiben. Der
+reproduzierbare Basisweg verwendet `demucs==4.0.1`; ein lokaler RoFormer kann
+ueber `NEXPT_ROFORMER_COMMAND` eingebunden werden. Silero VAD liefert im
+High-Quality-Modus Sprachzeitstempel. Die Musik-/SFX-Zuordnung bleibt eine
+markierte Heuristik und es handelt sich nicht um die originale Studio-Musikspur.
+Ein RoFormer-Lauf besteht das High-Quality-Gate nur mit maschinenlesbarer
+Checkpoint-Provenienz; ohne sie bleibt er bewusst `review_required`.
+Der Repo-Skill
 `$nexpt-video-music` waehlt anhand des Nutzerziels den passenden Weg.
 
 **Dieselbe gelernte Komposition mit echten GarageBand-Kits vorbereiten:**

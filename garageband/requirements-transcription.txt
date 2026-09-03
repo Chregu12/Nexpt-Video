@@ -1,6 +1,9 @@
 # Optional high-fidelity audio-to-GarageBand engines.
 # Basic Pitch supports Python <= 3.11; its Apple-Silicon path uses Python 3.10.
 basic-pitch
-demucs
+# Tested baseline for reproducible --quality high video-music separation.
+demucs==4.0.1
+# Trained local speech timestamps for the high-quality segment map.
+silero-vad>=5,<7
 torch
 transformers

@@ -75,14 +75,22 @@ class VideoMusicUnitTests(unittest.TestCase):
                     video_music._extract_wav(source, output)
             probe.assert_not_called()
 
-    def test_music_mode_fails_honestly_without_demucs(self) -> None:
+    def test_music_mode_fails_honestly_without_a_separator(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             source = root / "source.mp4"
             output = root / "music.wav"
             source.write_bytes(b"source")
-            with mock.patch.object(video_music, "demucs_available", return_value=False):
-                with self.assertRaisesRegex(video_music.VideoMusicError, "braucht Demucs"):
+            with mock.patch.object(
+                video_music,
+                "select_separator",
+                side_effect=video_music.SeparationError(
+                    "Kein lokaler Musik-Separator ist bereit"
+                ),
+            ):
+                with self.assertRaisesRegex(
+                    video_music.VideoMusicError, "Kein lokaler Musik-Separator"
+                ):
                     video_music._isolate_music(
                         source,
                         output,
@@ -93,6 +101,75 @@ class VideoMusicUnitTests(unittest.TestCase):
                         overwrite=False,
                     )
             self.assertFalse(output.exists())
+
+    def test_high_quality_requires_silero_unless_fallback_is_explicit(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "source.mp4"
+            source.write_bytes(b"source")
+            with mock.patch.object(video_music, "silero_available", return_value=False):
+                with self.assertRaisesRegex(
+                    video_music.VideoMusicError, "verlangt standardmaessig Silero"
+                ):
+                    video_music.extract(source, quality="high")
+
+    def test_segment_window_is_validated_before_media_processing(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "source.mp4"
+            source.write_bytes(b"source")
+            with mock.patch.object(video_music, "probe_media") as probe:
+                with self.assertRaisesRegex(
+                    video_music.VideoMusicError, "segment-hop"
+                ):
+                    video_music.extract(
+                        source, segment_seconds=0.5, segment_hop=0.75
+                    )
+            probe.assert_not_called()
+
+    def test_explicit_heuristic_marks_high_quality_for_review(self) -> None:
+        gate = video_music._quality_gate(
+            quality="high",
+            mode="soundtrack",
+            processing={"engine": "ffmpeg"},
+            segment_summary={"manual_review_required": True},
+            vad_requested="heuristic",
+            vad_used="heuristic",
+        )
+        self.assertEqual(gate["status"], "review_required")
+        self.assertFalse(gate["checks"][-1]["passed"])
+
+    def test_segment_map_has_a_distinct_default_path(self) -> None:
+        output = Path("/tmp/reference.wav")
+        self.assertEqual(
+            video_music.default_segment_output(output),
+            Path("/tmp/reference.segments.json"),
+        )
+
+    def test_high_roformer_needs_checkpoint_provenance_to_pass(self) -> None:
+        gate = video_music._quality_gate(
+            quality="high",
+            mode="music",
+            processing={"engine": "roformer", "provenance": None},
+            segment_summary={"manual_review_required": False},
+            vad_requested="silero",
+            vad_used="silero",
+        )
+        self.assertEqual(gate["status"], "review_required")
+        self.assertEqual(gate["checks"][-1]["name"], "separator_provenance")
+
+    def test_pinned_demucs_and_reviewed_segments_pass_high_gate(self) -> None:
+        gate = video_music._quality_gate(
+            quality="high",
+            mode="music",
+            processing={
+                "engine": "demucs",
+                "version": video_music.DEMUCS_PACKAGE_PIN,
+            },
+            segment_summary={"manual_review_required": False},
+            vad_requested="silero",
+            vad_used="silero",
+        )
+        self.assertEqual(gate["status"], "passed")
+        self.assertTrue(all(check["passed"] for check in gate["checks"]))
 
     def test_generated_artifacts_must_use_distinct_paths(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
