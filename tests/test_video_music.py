@@ -112,6 +112,19 @@ class VideoMusicUnitTests(unittest.TestCase):
                 ):
                     video_music.extract(source, quality="high")
 
+    def test_explicit_silero_is_rejected_before_media_processing(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "source.mp4"
+            source.write_bytes(b"source")
+            with mock.patch.object(
+                video_music, "silero_available", return_value=False
+            ), mock.patch.object(video_music, "probe_media") as probe:
+                with self.assertRaisesRegex(
+                    video_music.VideoMusicError, "nicht installiert"
+                ):
+                    video_music.extract(source, vad="silero")
+            probe.assert_not_called()
+
     def test_segment_window_is_validated_before_media_processing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "source.mp4"
@@ -136,6 +149,18 @@ class VideoMusicUnitTests(unittest.TestCase):
         )
         self.assertEqual(gate["status"], "review_required")
         self.assertFalse(gate["checks"][-1]["passed"])
+
+    def test_standard_quality_passes_while_preserving_review_metadata(self) -> None:
+        gate = video_music._quality_gate(
+            quality="standard",
+            mode="soundtrack",
+            processing={"engine": "ffmpeg"},
+            segment_summary={"manual_review_required": True},
+            vad_requested="heuristic",
+            vad_used="heuristic",
+        )
+        self.assertEqual(gate["status"], "passed")
+        self.assertEqual([check["name"] for check in gate["checks"]], ["segment_map"])
 
     def test_segment_map_has_a_distinct_default_path(self) -> None:
         output = Path("/tmp/reference.wav")
@@ -171,6 +196,21 @@ class VideoMusicUnitTests(unittest.TestCase):
         self.assertEqual(gate["status"], "passed")
         self.assertTrue(all(check["passed"] for check in gate["checks"]))
 
+    def test_verified_roformer_passes_high_gate(self) -> None:
+        gate = video_music._quality_gate(
+            quality="high",
+            mode="music",
+            processing={
+                "engine": "roformer",
+                "provenance": {"checkpoint_sha256": "a" * 64},
+            },
+            segment_summary={"manual_review_required": False},
+            vad_requested="auto",
+            vad_used="silero",
+        )
+        self.assertEqual(gate["status"], "passed")
+        self.assertTrue(all(check["passed"] for check in gate["checks"]))
+
     def test_generated_artifacts_must_use_distinct_paths(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "source.mp4"
@@ -186,6 +226,96 @@ class VideoMusicUnitTests(unittest.TestCase):
                     analyze=True,
                     profile_output=same_json,
                 )
+
+    def test_existing_segment_map_is_rejected_before_audio_is_written(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source.mp4"
+            source.write_bytes(b"source")
+            segment_map = root / "existing.segments.json"
+            segment_map.write_text("{}\n", encoding="utf-8")
+            with mock.patch.object(video_music, "_extract_wav") as extract_wav:
+                with self.assertRaisesRegex(
+                    video_music.VideoMusicError, "Segmentkarte existiert"
+                ):
+                    video_music.extract(
+                        source,
+                        output=root / "output.wav",
+                        segment_output=segment_map,
+                    )
+            extract_wav.assert_not_called()
+
+    def test_atomic_json_writer_requires_explicit_overwrite(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "result.json"
+            output.write_text('{"old": true}\n', encoding="utf-8")
+            with self.assertRaisesRegex(video_music.VideoMusicError, "existiert bereits"):
+                video_music._write_json_atomic(
+                    output, {"status": "new"}, overwrite=False
+                )
+            video_music._write_json_atomic(
+                output, {"status": "new"}, overwrite=True
+            )
+            self.assertEqual(
+                json.loads(output.read_text(encoding="utf-8")),
+                {"status": "new"},
+            )
+            self.assertTrue(output.read_bytes().endswith(b"\n"))
+
+    def test_doctor_reports_high_quality_readiness_matrix(self) -> None:
+        separators = {
+            "demucs": {
+                "available": True,
+                "version": "4.0.0",
+                "high_quality_pin_matches": False,
+            },
+            "roformer": {"available": True, "command": "/adapter"},
+        }
+        speech = {"silero": {"available": True}, "heuristic": {"available": True}}
+        with mock.patch.object(
+            video_music,
+            "executable",
+            side_effect=lambda name, required=False: f"/usr/bin/{name}",
+        ), mock.patch.object(
+            video_music, "backend_status", return_value=separators
+        ), mock.patch.object(
+            video_music, "speech_backend_status", return_value=speech
+        ):
+            report = video_music.doctor()
+
+        self.assertTrue(report["ready"]["soundtrack"])
+        self.assertTrue(report["ready"]["music"])
+        self.assertTrue(report["ready"]["high_soundtrack"])
+        self.assertFalse(report["ready"]["high_music"])
+        self.assertTrue(report["ready"]["high_music_roformer_reviewable"])
+
+    def test_parser_accepts_complete_high_quality_configuration(self) -> None:
+        args = video_music.build_parser().parse_args(
+            [
+                "extract",
+                "film.mp4",
+                "--mode",
+                "music",
+                "--quality",
+                "high",
+                "--separator",
+                "roformer",
+                "--roformer-command",
+                "/usr/local/bin/adapter",
+                "--vad",
+                "silero",
+                "--segment-seconds",
+                "2",
+                "--segment-hop",
+                "1",
+            ]
+        )
+        self.assertEqual(args.mode, "music")
+        self.assertEqual(args.quality, "high")
+        self.assertEqual(args.separator, "roformer")
+        self.assertEqual(args.vad, "silero")
+        self.assertEqual(args.segment_seconds, 2.0)
+        self.assertEqual(args.segment_hop, 1.0)
 
     def test_next_steps_keep_reconstruction_distinct_from_exact_audio(self) -> None:
         output = Path("/tmp/reference.wav")

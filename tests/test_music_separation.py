@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
+import os
 from pathlib import Path
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -56,6 +59,48 @@ class MusicSeparationUnitTests(unittest.TestCase):
         self.assertEqual(result.backend, "demucs")
         self.assertIn("--two-stems", observed)
         self.assertEqual(sorted(result.stems), ["no_vocals", "vocals"])
+        self.assertEqual(result.manifest()["available_stems"], ["no_vocals", "vocals"])
+
+    def test_standard_demucs_records_version_mismatch_as_warning(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source.wav"
+            source.write_bytes(b"x" * 64)
+            output_dir = root / "separated"
+
+            def fake_run(_command: list[str], _label: str) -> None:
+                stem_dir = output_dir / "htdemucs" / "source"
+                stem_dir.mkdir(parents=True)
+                (stem_dir / "no_vocals.wav").write_bytes(b"n" * 64)
+
+            separator = music_separation.DemucsSeparator(
+                quality="standard", model=None, device="cpu"
+            )
+            with mock.patch.object(
+                music_separation, "demucs_version", return_value="4.0.0"
+            ), mock.patch.object(music_separation, "_run", side_effect=fake_run):
+                result = separator.separate(source, output_dir)
+
+        self.assertEqual(result.model, "htdemucs")
+        self.assertIn("weicht", result.warnings[0])
+
+    def test_demucs_rejects_missing_output_stem(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source.wav"
+            source.write_bytes(b"x" * 64)
+            separator = music_separation.DemucsSeparator(
+                quality="high", model=None, device="cpu"
+            )
+            with mock.patch.object(
+                music_separation,
+                "demucs_version",
+                return_value=music_separation.DEMUCS_PACKAGE_PIN,
+            ), mock.patch.object(music_separation, "_run"):
+                with self.assertRaisesRegex(
+                    music_separation.SeparationError, "gefunden wurden 0"
+                ):
+                    separator.separate(source, root / "separated")
 
     def test_auto_backend_falls_back_to_configured_roformer_adapter(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -121,6 +166,55 @@ class MusicSeparationUnitTests(unittest.TestCase):
         self.assertEqual(result.provenance["checkpoint_sha256"], "a" * 64)
         self.assertFalse(result.warnings)
 
+    def test_roformer_invalid_provenance_is_rejected(self) -> None:
+        cases = (
+            ("not-json", "ungueltig"),
+            (
+                json.dumps(
+                    {
+                        "model": "mel-roformer",
+                        "version": "1",
+                        "checkpoint_sha256": "a" * 64,
+                    }
+                ),
+                "braucht model",
+            ),
+            (
+                json.dumps(
+                    {
+                        "model": "mel-roformer",
+                        "version": "1",
+                        "checkpoint_sha256": "wrong",
+                        "license": "MIT",
+                    }
+                ),
+                "SHA-256",
+            ),
+        )
+        for payload, message in cases:
+            with self.subTest(message=message), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                command = root / "roformer-adapter"
+                command.write_text("#!/bin/sh\n", encoding="utf-8")
+                command.chmod(0o755)
+                source = root / "source.wav"
+                source.write_bytes(b"x" * 64)
+                output_dir = root / "result"
+
+                def fake_run(_command: list[str], _label: str) -> None:
+                    output_dir.mkdir(parents=True, exist_ok=True)
+                    (output_dir / "instrumental.wav").write_bytes(b"i" * 64)
+                    (output_dir / "provenance.json").write_text(
+                        payload, encoding="utf-8"
+                    )
+
+                separator = music_separation.RoFormerSeparator(command)
+                with mock.patch.object(music_separation, "_run", side_effect=fake_run):
+                    with self.assertRaisesRegex(
+                        music_separation.SeparationError, message
+                    ):
+                        separator.separate(source, output_dir)
+
     def test_roformer_contract_requires_exactly_one_instrumental_output(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -155,6 +249,47 @@ class MusicSeparationUnitTests(unittest.TestCase):
                 music_separation.select_separator(
                     "auto", quality="standard", model=None, device="cpu"
                 )
+
+    def test_command_resolution_uses_environment_and_rejects_non_executable(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            command = Path(directory) / "roformer-adapter"
+            command.write_text("#!/bin/sh\n", encoding="utf-8")
+            with mock.patch.dict(
+                os.environ,
+                {music_separation.ROFORMER_ENV: str(command)},
+                clear=False,
+            ):
+                self.assertIsNone(music_separation.roformer_command())
+                command.chmod(0o755)
+                self.assertEqual(
+                    music_separation.roformer_command(), str(command.resolve())
+                )
+
+    def test_subprocess_failure_exposes_backend_error_without_shell(self) -> None:
+        failed = subprocess.CompletedProcess(
+            ["separator", "--input", "source.wav"],
+            returncode=7,
+            stdout="",
+            stderr="checkpoint missing",
+        )
+        with mock.patch.object(
+            music_separation.subprocess, "run", return_value=failed
+        ) as run:
+            with self.assertRaisesRegex(
+                music_separation.SeparationError, "checkpoint missing"
+            ):
+                music_separation._run(["separator", "--input", "source.wav"], "test")
+        self.assertFalse(run.call_args.kwargs.get("shell", False))
+
+    def test_unknown_backend_and_quality_are_rejected(self) -> None:
+        with self.assertRaisesRegex(music_separation.SeparationError, "Qualitaet"):
+            music_separation.select_separator(
+                "auto", quality="ultra", model=None, device="cpu"
+            )
+        with self.assertRaisesRegex(music_separation.SeparationError, "Separator"):
+            music_separation.select_separator(
+                "cloud", quality="standard", model=None, device="cpu"
+            )
 
 
 if __name__ == "__main__":
