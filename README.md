@@ -136,7 +136,9 @@ Neue CDX-Konfigurationen verwenden einen eingeschraenkten PyTorch-Lader;
 Import-Erfolg wird nicht als bestandener Modelltest ausgegeben.
 Der [Einzelspur-Benchmark](render/SEPARATION-BENCHMARK.md) misst zusaetzlich die
 Zuordnung bekannter Musik-/Dialog-/SFX-Referenzen und erkennt falsche Spuren
-auch dann, wenn ihre Summe korrekt ist.
+auch dann, wenn ihre Summe korrekt ist. `prepare` erstellt aus isolierten lokalen
+MP3/M4A/WAV-Aufnahmen eine gemeinsame Referenz-Timeline; `preflight` prueft
+Testabdeckung und Modellvoraussetzungen, ohne Inferenz oder Qualitaet zu behaupten.
 
 ```bash
 python3 render/video_music.py doctor

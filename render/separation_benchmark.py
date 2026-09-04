@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build known-stem corpora, evaluate named outputs and compare paired runs.
 
-Local WAVs only. No model/data downloads, source uploads, guessed ground truth,
-automatic role permutations, resampling, alignment or normalization in scoring.
+Local media preparation and WAV scoring. No model/data downloads, source uploads,
+guessed ground truth, role permutations, resampling or normalization in scoring.
 """
 from __future__ import annotations
 
@@ -102,7 +102,7 @@ def _owned_file(root: Path, entry: dict) -> Path:
     return path
 
 
-def build_corpus(spec_path: Path, destination: Path) -> dict[str, Any]:
+def build_corpus(spec_path: Path, destination: Path, *, preparation: dict | None = None) -> dict[str, Any]:
     spec_path = spec_path.expanduser().resolve()
     spec_hash = sha256(spec_path)
     spec = _json(spec_path)
@@ -111,6 +111,9 @@ def build_corpus(spec_path: Path, destination: Path) -> dict[str, Any]:
         raise BenchmarkError("Corpus-Spezifikation braucht schema_version 1 und 1–20 cases")
     seen = set()
     result = {"schema_version": 1, "kind": "nexpt-known-stem-corpus", "cases": []}
+    if preparation is not None:
+        # Import provenance is included in the corpus identity, not a loose sidecar.
+        result["preparation"] = preparation
     originals = {}
     with _bundle(destination) as bundle:
         for case in cases:
@@ -422,6 +425,16 @@ def main() -> None:
     build = commands.add_parser("build")
     build.add_argument("spec", type=Path)
     build.add_argument("--output-dir", type=Path, required=True)
+    prepare = commands.add_parser("prepare", help="compose declared isolated local media excerpts")
+    prepare.add_argument("spec", type=Path)
+    prepare.add_argument("--output-dir", type=Path, required=True)
+    prepare.add_argument("--decode-timeout", type=float, default=60)
+    precheck = commands.add_parser("preflight", help="inspect reference coverage and model dependencies without inference")
+    precheck.add_argument("corpus", type=Path)
+    precheck.add_argument("--cdx-config", type=Path)
+    precheck.add_argument("--quality", choices=("standard", "high", "both"), default="both")
+    precheck.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    precheck.add_argument("--output-dir", type=Path)
     check = commands.add_parser("evaluate")
     run = commands.add_parser("run-cdx")
     for command in (check, run):
@@ -445,6 +458,17 @@ def main() -> None:
     try:
         if args.command == "build":
             result = build_corpus(args.spec, args.output_dir)
+        elif args.command == "prepare":
+            from separation_reference import prepare_corpus
+            result = prepare_corpus(args.spec, args.output_dir, decode_timeout=args.decode_timeout)
+        elif args.command == "preflight":
+            from separation_preflight import preflight
+            profiles = ("standard", "high") if args.quality == "both" else (args.quality,)
+            result = preflight(args.corpus, config=args.cdx_config, profiles=profiles, device=args.device)
+            if args.output_dir:
+                with _bundle(args.output_dir) as bundle:
+                    _write_json(bundle / "preflight.json", result)
+            code = 0 if result["ready_for_run"] else 2
         elif args.command == "self-test":
             from separation_benchmark_fixtures import self_test
             result = self_test(args.output_dir)

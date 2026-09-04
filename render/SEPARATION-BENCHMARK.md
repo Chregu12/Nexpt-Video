@@ -42,7 +42,70 @@ bezieht sich nur auf korrekte Messung; `model_inference_executed` und
 
 Die vorhandenen MP3-/Videomischungen enthalten keine separat bekannten
 Originalspuren. Daraus geschaetzte Stems duerfen nicht als Ground Truth fuer
-denselben Separator dienen. Benutzung des Beispiels:
+denselben Separator dienen. Es braucht drei bewusst ausgewaehlte, isolierte
+Aufnahmen; sie muessen nicht aus demselben Film stammen. Wir bauen daraus einen
+neuen bekannten Testmix, nicht die unbekannten Original-Stems des Films.
+
+### Unterschiedliche Medien, Laengen und Sampleraten vorbereiten
+
+[benchmark-import.example.json](benchmark-import.example.json) enthaelt drei
+Faelle: Musik/Dialog/SFX mit Ueberlagerung, Musik/SFX ohne Dialog und reine Musik.
+Die Platzhalter durch lokale Aufnahmen, passende Ausschnittdauern sowie
+tatsaechliche Herkunfts-/Lizenzangaben ersetzen. Die Angaben zu Rolle, Isolation
+und Lizenz sind Benutzerdeklarationen, keine automatische Erkennung oder
+rechtliche Freigabe. Eine einzelne Instrumentalaufnahme reicht fuer einen
+Musik-Erhaltungstest, nicht fuer einen vollstaendigen Trennungsbenchmark.
+
+```bash
+python3 render/separation_benchmark.py prepare /pfad/benchmark-import.json \
+  --decode-timeout 60 \
+  --output-dir out/separation-benchmark/reference-v1
+```
+
+| Feld | Bedeutung |
+|---|---|
+| Case `duration_seconds` | Gesamte Testmix-Timeline, 1–30 Sekunden |
+| Quelle `start_seconds` | Beginn des Ausschnitts in der Quelldatei, Standard 0 |
+| Quelle `duration_seconds` | Explizite Ausschnittdauer; darf auch unter einer Sekunde liegen |
+| Quelle `offset_seconds` | Platzierung des Ausschnitts im Testmix, Standard 0 |
+| Quelle `audio_stream` | Nullbasierte Audiospurnummer im Container, Standard 0 |
+| Case `mix_gain` | Gleicher Faktor fuer alle Quellen; keine separate Normalisierung |
+| Rolle `null` | Bewusst fehlende Quelle, nicht unbekannte Ground Truth |
+
+Beispiel: Ein Effekt mit `start_seconds: 0.2`, `duration_seconds: 0.4` und
+`offset_seconds: 3` verwendet den Quellausschnitt 0.2–0.6 s bei 3.0–3.4 s im
+Testmix. Nur vor/nach diesem expliziten Ausschnitt wird Stille eingefuegt.
+Ein zu kurzer Quellausschnitt fuehrt zum Fehler, nicht zu verstecktem Padding.
+
+Unterstuetzt werden lokale WAV, MP3, M4A, FLAC, AIFF, OGG/Opus und Audiospuren
+in MP4/MOV, sofern die installierte FFmpeg-Version den Codec dekodieren kann.
+Maximal 2 GiB pro Quelle; Mono/Stereo bei 8–192 kHz. Surround wird abgewiesen.
+Die Zielrate ist 8–96 kHz, Standard 44.1 kHz. Mono wird bei unveraendertem Pegel
+auf beide Kanaele dupliziert; Stereo wird nicht zu Mono gemischt.
+
+FFmpeg dekodiert/resampelt einmalig **vor** Erstellung der Referenzen. Dauer,
+Seek und Platzierung werden auf das Ziel-Sampleraster gerundet (naechstes
+Sample, halbe Samples aufwaerts). Das garantiert die gemeinsame Ausgabe-
+Timeline, nicht die Wiederherstellung des Sample-Rasters vor verlustbehafteter
+Kodierung. Bewertet werden diese vorbereiteten Float32-Einzelspuren und ihr
+Mix; der spaetere Scorer richtet nichts nachtraeglich aus.
+
+`corpus.json` bindet Original-/Referenz-Hashes, Ausschnitte, Padding, deklarierte
+Herkunft, Import-Codehash und FFmpeg-/ffprobe-Versionen samt Binaerhashes an die
+Corpus-ID. Absolute Originalpfade werden nicht uebernommen. Identische Inputs,
+Spezifikation und Werkzeuge erzeugen denselben Corpus; geaenderte Decoder
+verlangen einen neuen Vergleich. Unbekannte JSON-Felder werden abgewiesen,
+damit ein vertippter Offset nicht unbemerkt ignoriert wird.
+
+Keine Downloads/Uploads oder Playlist-Eingaben. Das Zeitlimit gilt je
+Dekodierung, nicht fuer den gesamten Import; FFprobe hat 15 s Zeitlimit.
+Originaldateien und bestehende Ausgabeordner bleiben unveraendert. Fehler,
+Clipping nach dem gemeinsamen Gain oder waehrenddessen geaenderte Quellen
+verhindern die Veroeffentlichung des gesamten neuen Pakets.
+
+### Bereits exakt ausgerichtete WAVs direkt verwenden
+
+Dieser bestehende Einstieg bleibt unveraendert. Benutzung des Beispiels:
 
 1. [benchmark-sources.example.json](benchmark-sources.example.json) als eigene
    Spezifikation ablegen und Pfade, Herkunft und Nutzungsbedingungen ersetzen.
@@ -69,7 +132,48 @@ der Originale und Referenzen sowie eine reproduzierbare Corpus-ID. Ein
 geaenderter oder ausserhalb des Pakets verlinkter Referenzbestand wird
 abgewiesen. Bestehende Zielordner werden nicht ueberschrieben.
 
-## 3. Modelle ausfuehren oder externe Schaetzungen bewerten
+## 3. Voraussetzungen vor dem Modelllauf pruefen
+
+```bash
+python3 render/separation_benchmark.py preflight \
+  out/separation-benchmark/reference-v1/corpus.json \
+  --cdx-config /pfad/cdx-config.json --quality both --device cpu \
+  --output-dir out/separation-benchmark/preflight-01
+```
+
+`--cdx-config` kann alternativ ueber `NEXPT_CDX_CONFIG` gesetzt werden.
+Ohne `--output-dir` wird nur JSON auf stdout ausgegeben. Fehlende oder defekte
+Voraussetzungen werden gesammelt und liefern Exitcode **2**, nicht einen Skip.
+
+Die minimale, ausdruecklich deklarierte Coverage-Policy verlangt:
+
+- ausschliesslich als isolierte Aufnahmen deklarierte Stereo-Referenzen;
+- mindestens einen Fall mit Energie aller drei Rollen im selben 250-ms-Fenster;
+- Musik plus SFX ohne Dialog als Kontrolle unerwuenschter Sprachausgabe;
+- reine Musik als Erhaltungskontrolle ohne Dialog/SFX.
+
+Energie wird gemessen, die musikalische/sprachliche Bedeutung nicht erkannt.
+Die Policy ist ein Mindest-Testplan, kein Nachweis repraesentativer Aufnahmen.
+Auch ein bestandenes Preflight authentifiziert keine Benutzerdeklarationen.
+Ein Diagnose-Corpus darf weiterhin mit `run-cdx` zum technischen Test dienen,
+er erhaelt aber keine Freigabe als Aufnahme-Benchmark. Preflight aendert die
+bestehenden Mess-Gates nicht und ist kein Zwang fuer einen einzelnen Diagnoselauf.
+
+`standard` und `high` werden separat auf Checkout-/Gewichts-Hashes geprueft.
+Der sichere Runner, funktionsfaehige Imports im **konfigurierten Modell-Python**,
+der eingeschraenkte Checkpoint-Lader und gegebenenfalls CUDA sind erforderlich.
+Ein vorhandener Runtime-Lock muss stimmen; fehlt er, gibt es eine Warnung.
+Eine Konfiguration, die sicheres Checkpoint-Laden abschalten will, blockiert.
+Code-/Gewichts-/Referenzdateien werden dadurch nicht veraendert und es wird
+kein Checkpoint deserialisiert. Checkpoint-Kompatibilitaet und Inferenz bleiben
+separate Laufzeittests. Die Pruefung ist eine Momentaufnahme, keine Garantie,
+dass Dateien/Pakete spaeter unveraendert bleiben.
+
+`ready_for_run: true` bedeutet nur bereit fuer den gewaehlten Versuch.
+`runtime_verified`, `model_inference_executed` und `perceptual_quality_verified`
+bleiben **false**. Der nachfolgende Lauf und die Hoerpruefung bleiben notwendig.
+
+## 4. Modelle ausfuehren oder externe Schaetzungen bewerten
 
 ```bash
 python3 render/separation_benchmark.py run-cdx \
@@ -152,7 +256,7 @@ Alle Rollen muessen ihre Gates bestehen. Der Bericht zeigt pro Rolle
 Fallzahlen und Medianwerte; kurze/leise Quellen werden nicht durch eine
 energiedominante Musikspur in einem Gesamtscore verdeckt.
 
-## 4. Faire, gepaarte Vergleiche
+## 5. Faire, gepaarte Vergleiche
 
 ```bash
 python3 render/separation_benchmark.py compare \
@@ -192,9 +296,23 @@ python3 -m unittest discover -s tests -p test_separation_benchmark_live.py -v
 Ausgefuehrt: deterministischer Self-Test, analytische Metriktests sowie
 CLI-/ffmpeg-Integration mit ausdruecklichem CDX-Testdouble. Ein Testdouble
 liefert eine perfekte Summe, verfehlt aber korrekt die neuen Einzelspur-Gates.
-Standardsuite nach dieser Erweiterung: 262 Tests, davon 259 bestanden und
-drei optionale Live-Tests uebersprungen. Neu sind 43 regulaere Tests und ein
-separater opt-in Test fuer bekannte isolierte Aufnahmen.
+Der erste Benchmark-Schritt wurde mit 262 Tests geprueft, davon 259 bestanden
+und drei optionale Live-Tests uebersprungen (43 neue regulaere Tests sowie ein
+separater opt-in Test fuer bekannte isolierte Aufnahmen).
+
+Der Folge-Schritt prueft zusaetzlich den Medienimport mit echtem FFmpeg/ffprobe:
+MP3/M4A/WAV, Resampling, Stereo-Erhalt, Mono-Duplizierung, Timeline-Padding,
+Audiospurauswahl, zu kurze Ausschnitte, abgewiesene Playlists/Surround sowie
+den Weg vom Import bis zur Oracle-Messkontrolle. Preflight-Unit-Tests verwenden
+explizite Runtime-Doubles und deklarierte Testlabels, keine echten Modelle
+oder echten Aufnahme-Nachweise.
+Standardsuite nach dem Import-/Preflight-Schritt: **303 Tests, 300 bestanden,
+drei optionale Live-Tests uebersprungen**. Hinzugekommen sind 41 Tests.
+Die Vorpruefung des vorhandenen synthetischen Diagnose-Corpus in dieser
+Umgebung endete erwartungsgemaess mit `blocked` / Exitcode 2: keine echten
+Referenzaufnahmen und keine konfigurierte CDX-Runtime. Daraus wird kein
+akustischer Modellqualitaetsnachweis abgeleitet.
+
 In diesem Entwicklungsschritt wurde **kein neuer echter Modellvergleich mit
 isolierten Aufnahmen** ausgefuehrt; die Modellruntime und ein entsprechender
 gelabelter Aufnahme-Corpus waren nicht vorhanden. Die vorherigen realen

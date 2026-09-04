@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "kind": "nexpt-reference-import",
+  "sample_rate": 44100,
+  "cases": [
+    {
+      "id": "music-dialogue-sfx",
+      "reference_kind": "isolated-recordings",
+      "duration_seconds": 8,
+      "mix_gain": 0.25,
+      "stems": {
+        "music": {
+          "path": "/pfad/isolierte-musik.m4a",
+          "license": "EIGENE-AUFNAHME-ODER-GEPRUEFTE-LIZENZ",
+          "attribution": "URHEBER-UND-QUELLE-EINTRAGEN",
+          "start_seconds": 0,
+          "duration_seconds": 8,
+          "offset_seconds": 0
+        },
+        "dialogue": {
+          "path": "/pfad/isolierte-sprache.wav",
+          "license": "EIGENE-AUFNAHME-ODER-GEPRUEFTE-LIZENZ",
+          "attribution": "URHEBER-UND-QUELLE-EINTRAGEN",
+          "start_seconds": 0,
+          "duration_seconds": 6,
+          "offset_seconds": 1
+        },
+        "sfx": {
+          "path": "/pfad/isolierter-effekt.flac",
+          "license": "EIGENE-AUFNAHME-ODER-GEPRUEFTE-LIZENZ",
+          "attribution": "URHEBER-UND-QUELLE-EINTRAGEN",
+          "start_seconds": 0,
+          "duration_seconds": 2,
+          "offset_seconds": 3
+        }
+      }
+    },
+    {
+      "id": "music-sfx-no-dialogue",
+      "reference_kind": "isolated-recordings",
+      "duration_seconds": 6,
+      "mix_gain": 0.25,
+      "stems": {
+        "music": {
+          "path": "/pfad/isolierte-musik.m4a",
+          "license": "EIGENE-AUFNAHME-ODER-GEPRUEFTE-LIZENZ",
+          "attribution": "URHEBER-UND-QUELLE-EINTRAGEN",
+          "duration_seconds": 6
+        },
+        "dialogue": null,
+        "sfx": {
+          "path": "/pfad/isolierter-effekt.flac",
+          "license": "EIGENE-AUFNAHME-ODER-GEPRUEFTE-LIZENZ",
+          "attribution": "URHEBER-UND-QUELLE-EINTRAGEN",
+          "duration_seconds": 2,
+          "offset_seconds": 2
+        }
+      }
+    },
+    {
+      "id": "music-only",
+      "reference_kind": "isolated-recordings",
+      "duration_seconds": 6,
+      "mix_gain": 0.25,
+      "stems": {
+        "music": {
+          "path": "/pfad/isolierte-musik.m4a",
+          "license": "EIGENE-AUFNAHME-ODER-GEPRUEFTE-LIZENZ",
+          "attribution": "URHEBER-UND-QUELLE-EINTRAGEN",
+          "duration_seconds": 6
+        },
+        "dialogue": null,
+        "sfx": null
+      }
+    }
+  ]
+}
