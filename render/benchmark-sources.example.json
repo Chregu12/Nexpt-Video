@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "music-dialogue-sfx",
+      "reference_kind": "isolated-recordings",
+      "mix_gain": 0.25,
+      "stems": {
+        "music": {
+          "path": "/absolute/path/aligned-music.wav",
+          "license": "REPLACE_WITH_REVIEWED_LICENSE",
+          "attribution": "REPLACE_WITH_ORIGINAL_MUSIC_SOURCE"
+        },
+        "dialogue": {
+          "path": "/absolute/path/aligned-dialogue.wav",
+          "license": "REPLACE_WITH_REVIEWED_LICENSE",
+          "attribution": "REPLACE_WITH_ORIGINAL_DIALOGUE_SOURCE"
+        },
+        "sfx": {
+          "path": "/absolute/path/aligned-sfx.wav",
+          "license": "REPLACE_WITH_REVIEWED_LICENSE",
+          "attribution": "REPLACE_WITH_ORIGINAL_SFX_SOURCE"
+        }
+      }
+    },
+    {
+      "id": "music-only",
+      "reference_kind": "isolated-recordings",
+      "mix_gain": 0.25,
+      "stems": {
+        "music": {
+          "path": "/absolute/path/aligned-music.wav",
+          "license": "REPLACE_WITH_REVIEWED_LICENSE",
+          "attribution": "REPLACE_WITH_ORIGINAL_MUSIC_SOURCE"
+        },
+        "dialogue": null,
+        "sfx": null
+      }
+    }
+  ]
+}

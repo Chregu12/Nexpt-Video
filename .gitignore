@@ -75,3 +75,6 @@ out/higgsfield/
 
 # Local video soundtrack/music extraction and optional Demucs results.
 out/video-music/
+
+# Known-stem benchmark corpora, estimates and local result bundles.
+out/separation-benchmark/

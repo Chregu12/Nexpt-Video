@@ -66,6 +66,8 @@ CDX23-Modell in Musik, Dialog und SFX. Einrichtung, Qualitaetsgrenzen und
 GarageBand-Uebergabe stehen in [DECOMPOSITION.md](DECOMPOSITION.md).
 `cdx_runtime.py check/smoke/verify` ergaenzt Runtime-Fingerprints, einen
 eingeschraenkten Checkpoint-Lader und einen expliziten echten Inferenztest.
+`separation_benchmark.py` bewertet bekannte Einzelspuren, stille Abschnitte
+und gepaarte Modelllaeufe. [Benchmark-Anleitung](SEPARATION-BENCHMARK.md).
 
 `video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
 Referenz- und GarageBand-Pipelines bereit. `soundtrack` dekodiert die komplette

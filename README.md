@@ -134,6 +134,9 @@ transaktionaler Ausgabe. Setup und Grenzen: [Reference Decomposition](render/DEC
 kurzen echten Inferenztest aus und kontrolliert dessen Ergebnisprotokoll.
 Neue CDX-Konfigurationen verwenden einen eingeschraenkten PyTorch-Lader;
 Import-Erfolg wird nicht als bestandener Modelltest ausgegeben.
+Der [Einzelspur-Benchmark](render/SEPARATION-BENCHMARK.md) misst zusaetzlich die
+Zuordnung bekannter Musik-/Dialog-/SFX-Referenzen und erkennt falsche Spuren
+auch dann, wenn ihre Summe korrekt ist.
 
 ```bash
 python3 render/video_music.py doctor

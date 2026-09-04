@@ -176,6 +176,12 @@ Es gibt absichtlich kein rekursives `--overwrite` fuer vorhandene Ordner.
 
 ## Qualitaetsvertrag
 
+Fuer bekannte Original-Einzelspuren gibt es jetzt einen separaten
+[Ground-Truth-Benchmark](SEPARATION-BENCHMARK.md). Er bewertet die einzelnen
+Rollen und ihre Verbesserung gegenueber dem Mix. Eine perfekte Summe allein
+genuegt dort nicht; synthetische Kontrollen bleiben von echten Modelltests
+getrennt.
+
 - Dateien, endliche Samples, passende Laengen/Kanaele und Sampleraten werden
   vor der Veroeffentlichung geprueft.
 - `mix_consistency` misst `RMS(mix - music - dialogue - sfx) / RMS(mix)`.
