@@ -50,6 +50,9 @@ from garageband.instrument_catalog import (  # noqa: E402
     patch_for_instrument,
 )
 from reference_analyzer import SR, analyze_reference, decode_audio  # noqa: E402
+from music_separation import (  # noqa: E402
+    SeparationError, backend_status, separate_instrument_stems,
+)
 
 
 class TranscriptionError(RuntimeError):
@@ -359,12 +362,16 @@ def engine_availability() -> dict[str, Any]:
     torch = bool(importlib.util.find_spec("torch"))
     transformers = bool(importlib.util.find_spec("transformers"))
     ffmpeg = bool(shutil.which("ffmpeg"))
+    separators = backend_status()
     return {
         "python": sys.version.split()[0],
         "demucs": demucs, "basic_pitch": basic_pitch,
         "torch": torch, "transformers": transformers, "clap": torch and transformers,
         "ffmpeg": ffmpeg,
-        "high_fidelity_ready": demucs and basic_pitch and torch and transformers and ffmpeg,
+        "separators": separators,
+        "high_fidelity_ready": bool(
+            demucs and separators["demucs"]["high_quality_pin_matches"]
+            and basic_pitch and torch and transformers and ffmpeg),
         "instrument_taxonomy": {
             "canonical_instruments": len(INSTRUMENT_CATALOG),
             "classifiable_instruments": len(classification_keys(INSTRUMENT_CATALOG)),
@@ -392,61 +399,16 @@ def separate_stems(
     mode: str = "auto",
     model: str = "htdemucs_6s",
     device: str = "cpu",
+    quality: str = "standard",
+    roformer_command: str | Path | None = None,
 ) -> tuple[dict[str, Path], dict[str, Any]]:
-    """Run Demucs when available and return role -> temporary WAV paths."""
-    if mode not in {"auto", "demucs", "off"}:
-        raise ValueError(f"Unknown stem mode: {mode}")
-    if mode == "off":
-        return {"mix": source}, {
-            "requested": mode, "used": "off", "isolated_drums": False,
-            "temporary_stems": False,
-        }
-
-    available = bool(importlib.util.find_spec("demucs"))
-    if not available:
-        if mode == "demucs":
-            raise TranscriptionError(f"Demucs ist nicht installiert. {_engine_install_hint()}")
-        return {"mix": source}, {
-            "requested": mode, "used": "unavailable-dsp-fallback",
-            "isolated_drums": False, "temporary_stems": False,
-        }
-
-    output = work_dir / "demucs"
-    output.mkdir(parents=True, exist_ok=True)
-    command = [
-        sys.executable, "-m", "demucs", "-n", model, "-d", device,
-        "-j", "1", "--float32", "-o", str(output), str(source),
-    ]
-    process = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
-    if process.returncode:
-        message = process.stderr.strip() or process.stdout.strip()
-        if mode == "demucs":
-            raise TranscriptionError(f"Demucs ist fehlgeschlagen: {message}")
-        return {"mix": source}, {
-            "requested": mode, "used": "failed-dsp-fallback",
-            "isolated_drums": False, "temporary_stems": False,
-            "error": message[-1200:],
-        }
-
-    stems: dict[str, Path] = {}
-    for role in ("drums", "bass", "piano", "guitar", "other", "vocals"):
-        candidates = sorted(output.rglob(f"{role}.wav"))
-        if candidates:
-            stems[role] = candidates[0]
-    if "drums" not in stems:
-        message = "Demucs hat keine drums.wav erzeugt"
-        if mode == "demucs":
-            raise TranscriptionError(message)
-        return {"mix": source}, {
-            "requested": mode, "used": "invalid-output-dsp-fallback",
-            "isolated_drums": False, "temporary_stems": False,
-            "error": message,
-        }
-    return stems, {
-        "requested": mode, "used": "demucs", "model": model,
-        "device": device, "jobs": 1, "isolated_drums": True,
-        "temporary_stems": True, "roles": sorted(stems),
-    }
+    """Use the same validated local separation backends as the video pipeline."""
+    try:
+        return separate_instrument_stems(
+            source, work_dir, backend=mode, quality=quality, model=model,
+            device=device, roformer=roformer_command)
+    except SeparationError as exc:
+        raise TranscriptionError(str(exc)) from exc
 
 
 def _drum_confidence(event: dict, isolated: bool) -> float:
@@ -1648,6 +1610,7 @@ def transcribe_audio(
     garageband_inventory: dict[str, Any] | None = None,
     content_mode: str = "auto",
     demucs_model: str = "htdemucs_6s",
+    roformer_command: str | Path | None = None,
     clap_model: str = "laion/clap-htsat-unfused",
     device: str = "cpu",
 ) -> dict[str, Any]:
@@ -1666,8 +1629,16 @@ def transcribe_audio(
     instrument_map = validate_instrument_map(instrument_map)
     work_dir.mkdir(parents=True, exist_ok=True)
 
+    stems, separation_report = separate_stems(
+        source, work_dir, mode=separation, model=demucs_model, device=device,
+        quality="high" if quality == "high" else "standard",
+        roformer_command=roformer_command)
+    # RoFormer only removes vocals. All downstream analyses must actually use
+    # that estimate, not accidentally return to the original vocal mix.
+    analysis_source = stems.get("mix", source)
+
     mix_profile = analyze_reference(
-        source, bpm_hint=bpm_hint, downbeat_hint=downbeat_hint,
+        analysis_source, bpm_hint=bpm_hint, downbeat_hint=downbeat_hint,
         include_events=True, ebu=False,
     )
     bpm = float(mix_profile["tempo"]["bpm"])
@@ -1680,8 +1651,6 @@ def transcribe_audio(
         **detected_content, "requested": content_mode, "used": selected_content,
     }
 
-    stems, separation_report = separate_stems(
-        source, work_dir, mode=separation, model=demucs_model, device=device)
     drum_profile = mix_profile
     if "drums" in stems:
         drum_profile = analyze_reference(
@@ -1696,9 +1665,9 @@ def transcribe_audio(
         confidence_threshold=.45 if selected_content == "percussion" else None,
     )
     tonal_roles, pitch_report = transcribe_tonal_events(
-        source, stems, mix_profile, engine=pitch_engine, content=selected_content)
+        analysis_source, stems, mix_profile, engine=pitch_engine, content=selected_content)
     instrument_segments, classification_report = classify_instrument_segments(
-        source, stems, tonal_roles, engine=instrument_engine,
+        analysis_source, stems, tonal_roles, engine=instrument_engine,
         content=selected_content, model_name=clap_model, device=device)
     instrument_tracks, instrument_report = assign_notes_to_instruments(
         tonal_roles, instrument_segments, instrument_map)
@@ -1766,7 +1735,8 @@ def parse_args() -> argparse.Namespace:
         help="print all canonical instruments, families, GM programs and patch queries",
     )
     parser.add_argument("--quality", choices=("auto", "high", "fast"), default="auto")
-    parser.add_argument("--separate", choices=("auto", "demucs", "off"))
+    parser.add_argument("--separate", choices=("auto", "demucs", "roformer", "off"))
+    parser.add_argument("--roformer-command", type=Path)
     parser.add_argument("--pitch-engine", choices=("auto", "basic-pitch", "dsp", "off"))
     parser.add_argument(
         "--instrument-engine", choices=("auto", "clap", "stem", "off"),
@@ -1834,6 +1804,7 @@ def main() -> None:
             report_path=report, profile_path=profile, work_dir=work,
             bpm_hint=args.bpm, downbeat_hint=args.downbeat,
             quality=args.quality, separation=args.separate,
+            roformer_command=args.roformer_command,
             pitch_engine=args.pitch_engine, instrument_engine=args.instrument_engine,
             instrument_map=load_instrument_map(args.instrument_map),
             garageband_inventory=load_patch_inventory(args.garageband_inventory),

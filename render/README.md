@@ -61,6 +61,10 @@ sh render/mischen.sh && python3 render/bauen.py --neu
 
 ### Video als Musikquelle
 
+Neu: `video_music.py decompose` zerlegt Filmton mit einem konfigurierten lokalen
+CDX23-Modell in Musik, Dialog und SFX. Einrichtung, Qualitaetsgrenzen und
+GarageBand-Uebergabe stehen in [DECOMPOSITION.md](DECOMPOSITION.md).
+
 `video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
 Referenz- und GarageBand-Pipelines bereit. `soundtrack` dekodiert die komplette
 Tonmischung als 48-kHz-Stereo-WAV. `music` verwendet den gepinnten

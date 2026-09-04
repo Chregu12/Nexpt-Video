@@ -190,6 +190,7 @@ def _extract_wav(
     audio_stream: int = 0,
     sample_rate: int = DEFAULT_SAMPLE_RATE,
     overwrite: bool = False,
+    encoding: str = "pcm_s24le",
 ) -> dict[str, Any]:
     source = source.expanduser().resolve()
     output = output.expanduser().resolve()
@@ -197,6 +198,8 @@ def _extract_wav(
         raise VideoMusicError("--audio-stream darf nicht negativ sein")
     if not 8_000 <= sample_rate <= 192_000:
         raise VideoMusicError("--sample-rate muss zwischen 8000 und 192000 liegen")
+    if encoding not in {"pcm_s24le", "pcm_f32le"}:
+        raise VideoMusicError("Unbekanntes WAV-Encoding")
     _validate_output(source, output, overwrite=overwrite)
     media = probe_media(source)
     if not media["audio_streams"]:
@@ -238,7 +241,7 @@ def _extract_wav(
                 "-ac",
                 "2",
                 "-c:a",
-                "pcm_s24le",
+                encoding,
                 str(temporary),
             ],
             "Audio-Extraktion",
@@ -703,6 +706,8 @@ def extract(
 
 
 def doctor() -> dict[str, Any]:
+    from cinematic_separation import cdx_status
+
     ffmpeg = executable("ffmpeg", required=False)
     ffprobe = executable("ffprobe", required=False)
     separators = backend_status()
@@ -716,6 +721,7 @@ def doctor() -> dict[str, Any]:
         "ffprobe": {"available": bool(ffprobe), "path": ffprobe},
         "demucs": demucs,
         "separators": separators,
+        "cinematic_demixing": cdx_status(),
         "speech_detection": speech,
         "ready": {
             "soundtrack": base_ready,
@@ -742,6 +748,19 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("doctor", help="show local extraction capabilities")
+    demix = subparsers.add_parser(
+        "decompose", help="estimate separate music/dialogue/SFX stems with local CDX23")
+    demix.add_argument("source", type=Path)
+    demix.add_argument("--output-dir", type=Path)
+    demix.add_argument("--cdx-config", type=Path)
+    demix.add_argument("--audio-stream", type=int, default=0)
+    demix.add_argument("--sample-rate", type=int, default=DEFAULT_SAMPLE_RATE)
+    demix.add_argument("--quality", choices=("standard", "high"), default="standard")
+    demix.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    demix.add_argument("--maximum-residual-ratio", type=float, default=.1)
+    demix.add_argument("--strict", action="store_true",
+                       help="do not publish a bundle failing the mixture-consistency gate")
+    demix.add_argument("--vad", choices=("off", "auto", "silero", "heuristic"), default="off")
     extract_parser = subparsers.add_parser(
         "extract", help="extract a soundtrack or estimate a music bed"
     )
@@ -791,6 +810,14 @@ def main() -> None:
     try:
         if args.command == "doctor":
             result = doctor()
+        elif args.command == "decompose":
+            from audio_decomposition import decompose
+            result = decompose(
+                args.source, output_dir=args.output_dir, cdx_config=args.cdx_config,
+                audio_stream=args.audio_stream, sample_rate=args.sample_rate,
+                quality=args.quality, device=args.device,
+                maximum_residual_ratio=args.maximum_residual_ratio,
+                strict=args.strict, vad=args.vad)
         else:
             result = extract(
                 args.source,

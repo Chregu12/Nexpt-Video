@@ -8,12 +8,18 @@ import sys
 import tempfile
 import unittest
 from unittest import mock
+import numpy as np
+from scipy.io import wavfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "render"))
 
 import music_separation  # noqa: E402
+
+
+def make_wav(path: Path) -> None:
+    wavfile.write(path, 48_000, np.zeros((480, 2), dtype=np.float32))
 
 
 class MusicSeparationUnitTests(unittest.TestCase):
@@ -42,8 +48,8 @@ class MusicSeparationUnitTests(unittest.TestCase):
                 observed.extend(command)
                 stem_dir = output_dir / "htdemucs_ft" / "source"
                 stem_dir.mkdir(parents=True)
-                (stem_dir / "no_vocals.wav").write_bytes(b"n" * 64)
-                (stem_dir / "vocals.wav").write_bytes(b"v" * 64)
+                make_wav(stem_dir / "no_vocals.wav")
+                make_wav(stem_dir / "vocals.wav")
 
             separator = music_separation.DemucsSeparator(
                 quality="high", model=None, device="cpu"
@@ -71,7 +77,7 @@ class MusicSeparationUnitTests(unittest.TestCase):
             def fake_run(_command: list[str], _label: str) -> None:
                 stem_dir = output_dir / "htdemucs" / "source"
                 stem_dir.mkdir(parents=True)
-                (stem_dir / "no_vocals.wav").write_bytes(b"n" * 64)
+                make_wav(stem_dir / "no_vocals.wav")
 
             separator = music_separation.DemucsSeparator(
                 quality="standard", model=None, device="cpu"
@@ -150,7 +156,7 @@ class MusicSeparationUnitTests(unittest.TestCase):
 
             def fake_run(_command: list[str], _label: str) -> None:
                 output_dir.mkdir(parents=True, exist_ok=True)
-                (output_dir / "instrumental.wav").write_bytes(b"i" * 64)
+                make_wav(output_dir / "instrumental.wav")
                 (output_dir / "provenance.json").write_text(
                     "{\"model\":\"mel-roformer\",\"version\":\"1\","
                     f"\"checkpoint_sha256\":\"{'a' * 64}\",\"license\":\"MIT\"}}",
@@ -203,7 +209,7 @@ class MusicSeparationUnitTests(unittest.TestCase):
 
                 def fake_run(_command: list[str], _label: str) -> None:
                     output_dir.mkdir(parents=True, exist_ok=True)
-                    (output_dir / "instrumental.wav").write_bytes(b"i" * 64)
+                    make_wav(output_dir / "instrumental.wav")
                     (output_dir / "provenance.json").write_text(
                         payload, encoding="utf-8"
                     )
@@ -227,8 +233,8 @@ class MusicSeparationUnitTests(unittest.TestCase):
 
             def fake_run(_command: list[str], _label: str) -> None:
                 output_dir.mkdir(parents=True, exist_ok=True)
-                (output_dir / "instrumental.wav").write_bytes(b"i" * 64)
-                (output_dir / "no_vocals.wav").write_bytes(b"n" * 64)
+                make_wav(output_dir / "instrumental.wav")
+                make_wav(output_dir / "no_vocals.wav")
 
             separator = music_separation.RoFormerSeparator(command)
             with mock.patch.object(music_separation, "_run", side_effect=fake_run):

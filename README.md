@@ -127,6 +127,10 @@ getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
 
 **Musik aus einer Videodatei sicher vorbereiten:**
 
+Neu: `video_music.py decompose` bindet einen lokalen CDX23-Runner fuer separate
+Musik-, Dialog- und SFX-Stems an, inklusive Integritaetspruefung und
+transaktionaler Ausgabe. Setup und Grenzen: [Reference Decomposition](render/DECOMPOSITION.md).
+
 ```bash
 python3 render/video_music.py doctor
 

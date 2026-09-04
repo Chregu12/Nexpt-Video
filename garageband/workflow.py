@@ -41,6 +41,7 @@ from garageband.transcribe import (  # noqa: E402
     transcribe_audio,
 )
 from reference_analyzer import file_sha256  # noqa: E402
+from music_separation import roformer_command as resolve_roformer_command  # noqa: E402
 
 
 class WorkflowError(RuntimeError):
@@ -226,6 +227,7 @@ def _configuration(
     instrument_map: dict[str, Any],
     instrument_map_identity: dict[str, Any] | None,
     inventory_identity: dict[str, Any] | None,
+    roformer_identity: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     return {
         "quality": quality,
@@ -241,6 +243,7 @@ def _configuration(
         "instrument_map": instrument_map,
         "instrument_map_file": instrument_map_identity,
         "garageband_inventory": inventory_identity,
+        "roformer_adapter": roformer_identity,
     }
 
 
@@ -315,6 +318,7 @@ def _run_transcription_staged(
     clap_model: str,
     device: str,
     keep_work: bool,
+    roformer_command: str | Path | None = None,
 ) -> dict[str, Any]:
     paths.project_dir.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(
@@ -352,6 +356,7 @@ def _run_transcription_staged(
             garageband_inventory=inventory,
             content_mode=content,
             demucs_model=demucs_model,
+            roformer_command=roformer_command,
             clap_model=clap_model,
             device=device,
         )
@@ -399,6 +404,7 @@ def run_workflow(
     bpm: float | None = None,
     downbeat: float | None = None,
     demucs_model: str = "htdemucs_6s",
+    roformer_command: str | Path | None = None,
     clap_model: str = "laion/clap-htsat-unfused",
     device: str = "cpu",
     minimum_confidence: float = .50,
@@ -433,6 +439,7 @@ def run_workflow(
     inventory_identity = _input_identity(inventory_path)
     instrument_map = load_instrument_map(instrument_map_path)
     inventory = load_patch_inventory(inventory_path)
+    adapter = resolve_roformer_command(roformer_command)
     configuration = _configuration(
         quality=quality, separation=separation, pitch_engine=pitch_engine,
         instrument_engine=instrument_engine, content=content, bpm=bpm,
@@ -440,6 +447,7 @@ def run_workflow(
         device=device, instrument_map=instrument_map,
         instrument_map_identity=map_identity,
         inventory_identity=inventory_identity,
+        roformer_identity=_input_identity(Path(adapter)) if adapter else None,
     )
     artifact_paths = [paths.score, paths.midi, paths.preset, paths.report, paths.profile]
     existing_manifest = (
@@ -487,6 +495,7 @@ def run_workflow(
                 instrument_map=instrument_map, inventory=inventory,
                 content=content, demucs_model=demucs_model,
                 clap_model=clap_model, device=device, keep_work=keep_work,
+                roformer_command=roformer_command,
             )
         except Exception as exc:
             _write_json_atomic(paths.manifest, {
@@ -581,7 +590,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("source", type=Path, help="instrumental MP3/M4A/WAV")
     parser.add_argument("--project-dir", type=Path)
     parser.add_argument("--quality", choices=("auto", "high", "fast"), default="auto")
-    parser.add_argument("--separate", choices=("auto", "demucs", "off"))
+    parser.add_argument("--separate", choices=("auto", "demucs", "roformer", "off"))
+    parser.add_argument("--roformer-command", type=Path)
     parser.add_argument("--pitch-engine", choices=("auto", "basic-pitch", "dsp", "off"))
     parser.add_argument("--instrument-engine", choices=("auto", "clap", "stem", "off"))
     parser.add_argument("--instrument-map", type=Path)
@@ -620,6 +630,7 @@ def main() -> None:
             project_dir=args.project_dir,
             quality=args.quality,
             separation=args.separate,
+            roformer_command=args.roformer_command,
             pitch_engine=args.pitch_engine,
             instrument_engine=args.instrument_engine,
             instrument_map_path=args.instrument_map,

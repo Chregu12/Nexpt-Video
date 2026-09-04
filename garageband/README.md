@@ -1,5 +1,11 @@
 # Reference audio to editable GarageBand tracks
 
+Filmton kann vor der Transkription in **Musik, Dialog und SFX** zerlegt werden.
+Nur `music.wav` wird an den GarageBand-Workflow uebergeben; Effekte bleiben
+separat. Siehe [Reference Decomposition](../render/DECOMPOSITION.md).
+Demucs-/RoFormer-Separation wird mit der Video-Pipeline geteilt. Beide
+Transkriptions-CLIs unterstuetzen `--separate roformer --roformer-command PATH`.
+
 ## Generative Erweiterung mit claude-music und ACE-Step
 
 [`AgriciDaniel/claude-music`](https://github.com/AgriciDaniel/claude-music)

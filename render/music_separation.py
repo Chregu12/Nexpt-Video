@@ -17,6 +17,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from typing import Any
 
 
@@ -41,15 +42,18 @@ class SeparationResult:
     model: str
     version: str | None
     stems: dict[str, Path] = field(default_factory=dict)
-    provenance: dict[str, str] | None = None
+    provenance: dict[str, Any] | None = None
     warnings: tuple[str, ...] = ()
+    task: str = "music"
+    primary_stem: str = "no_vocals"
 
     def manifest(self) -> dict[str, Any]:
         return {
             "engine": self.backend,
             "version": self.version,
             "model": self.model,
-            "stem": "no_vocals",
+            "task": self.task,
+            "stem": self.primary_stem,
             "available_stems": sorted(self.stems),
             "provenance": self.provenance,
             "warnings": list(self.warnings),
@@ -139,15 +143,31 @@ def _run(command: list[str], label: str) -> None:
 def _validated_wav(path: Path, label: str) -> Path:
     if not path.is_file() or path.stat().st_size <= 44:
         raise SeparationError(f"{label} fehlt oder ist keine gueltige WAV-Datei: {path}")
+    # Checking file size alone accepts corrupt files and model NaNs as audio.
+    from scipy.io import wavfile
+    import numpy as np
+
+    try:
+        rate, samples = wavfile.read(path)
+    except (OSError, ValueError, EOFError) as exc:
+        raise SeparationError(f"{label} ist keine lesbare WAV-Datei: {path}") from exc
+    if (rate <= 0 or samples.size == 0 or samples.ndim not in (1, 2)
+            or (samples.ndim == 2 and samples.shape[1] not in (1, 2))
+            or not np.isfinite(samples).all()):
+        raise SeparationError(f"{label} enthaelt ungueltige Audiodaten: {path}")
     return path.resolve()
 
 
 class DemucsSeparator:
     name = "demucs"
 
-    def __init__(self, *, quality: str, model: str | None, device: str) -> None:
+    def __init__(self, *, quality: str, model: str | None, device: str,
+                 task: str = "music") -> None:
+        if task not in {"music", "instruments"}:
+            raise SeparationError(f"Demucs unterstuetzt diese Aufgabe nicht: {task}")
+        self.task = task
         self.quality = quality
-        self.model = model or DEMUCS_MODELS[quality]
+        self.model = model or ("htdemucs_6s" if task == "instruments" else DEMUCS_MODELS[quality])
         self.device = device
 
     def ensure_ready(self) -> None:
@@ -177,24 +197,29 @@ class DemucsSeparator:
             "-j",
             "1",
             "--float32",
-            "--two-stems",
-            "vocals",
             "-o",
             str(output_dir),
             str(source_wav),
         ]
+        if self.task == "music":
+            command[command.index("-o"):command.index("-o")] = ["--two-stems", "vocals"]
         _run(command, "Demucs-Musikisolation")
-        candidates = sorted(output_dir.rglob("no_vocals.wav"))
+        primary_stem = "no_vocals" if self.task == "music" else "drums"
+        candidates = sorted(output_dir.rglob(f"{primary_stem}.wav"))
         if len(candidates) != 1:
             raise SeparationError(
-                "Demucs muss genau eine no_vocals.wav erzeugen; "
+                f"Demucs muss genau eine {primary_stem}.wav erzeugen; "
                 f"gefunden wurden {len(candidates)}."
             )
-        primary = _validated_wav(candidates[0], "Demucs no_vocals")
-        stems = {"no_vocals": primary}
-        vocals = list(output_dir.rglob("vocals.wav"))
-        if len(vocals) == 1:
-            stems["vocals"] = _validated_wav(vocals[0], "Demucs vocals")
+        primary = _validated_wav(candidates[0], f"Demucs {primary_stem}")
+        stems = {primary_stem: primary}
+        roles = ("vocals",) if self.task == "music" else ("bass", "other", "vocals", "piano", "guitar")
+        for role in roles:
+            path = primary.parent / f"{role}.wav"
+            required = self.task == "instruments" and (
+                role in {"bass", "other", "vocals"} or self.model == "htdemucs_6s")
+            if path.is_file() or required:
+                stems[role] = _validated_wav(path, f"Demucs {role}")
         warnings: tuple[str, ...] = ()
         version = demucs_version()
         if self.quality != "high" and version != DEMUCS_PACKAGE_PIN:
@@ -209,6 +234,8 @@ class DemucsSeparator:
             version=version,
             stems=stems,
             warnings=warnings,
+            task=self.task,
+            primary_stem=primary_stem,
         )
 
 
@@ -284,10 +311,8 @@ class RoFormerSeparator:
                 )
             provenance = {key: raw[key].strip() for key in required}
         warnings = (
-            (
-                "Checkpoint, Lizenz und Modellversion sind nicht maschinenlesbar "
-                "belegt; fuer high quality ist manuelle Pruefung erforderlich."
-            ),
+            "Checkpoint, Lizenz und Modellversion sind nicht maschinenlesbar "
+            "belegt; fuer high quality ist manuelle Pruefung erforderlich.",
         )
         if provenance is not None:
             warnings = ()
@@ -343,3 +368,52 @@ def select_separator(
         raise SeparationError(f"Unbekannter Separator: {backend}")
     separator.ensure_ready()
     return separator
+
+
+def separate_instrument_stems(
+    source: Path, output_dir: Path, *, backend: str = "auto",
+    quality: str = "standard", model: str = "htdemucs_6s",
+    device: str = "cpu", roformer: str | Path | None = None,
+) -> tuple[dict[str, Path], dict[str, Any]]:
+    """Shared GarageBand entry point; no-vocals output is never called drums.
+
+    Only automatic, standard-quality operation may fall back to the input.
+    Explicit engine requests and high-quality failures are always errors.
+    """
+    if backend not in {"auto", "demucs", "roformer", "off"}:
+        raise ValueError(f"Unknown stem mode: {backend}")
+    if quality not in DEMUCS_MODELS:
+        raise SeparationError(f"Unbekannte Qualitaet: {quality}")
+    if backend == "off":
+        return {"mix": source}, {
+            "requested": backend, "used": "off", "isolated_drums": False,
+            "temporary_stems": False,
+        }
+    try:
+        if backend == "roformer" or (
+                backend == "auto" and not demucs_available() and roformer_command(roformer)):
+            selected = RoFormerSeparator(roformer)
+        else:
+            selected = DemucsSeparator(
+                quality=quality, model=model, device=device, task="instruments")
+        # A fresh workspace prevents leftovers from a previous run satisfying
+        # the output contract, even with GarageBand --keep-work.
+        output_dir.mkdir(parents=True, exist_ok=True)
+        run_dir = Path(tempfile.mkdtemp(prefix="stems-", dir=output_dir))
+        result = selected.separate(source, run_dir)
+        if quality == "high" and result.backend == "roformer" and not result.provenance:
+            raise SeparationError("RoFormer high braucht Checkpoint-Provenienz.")
+    except SeparationError as exc:
+        if backend != "auto" or quality == "high":
+            raise
+        return {"mix": source}, {
+            "requested": backend, "used": "unavailable-dsp-fallback",
+            "isolated_drums": False, "temporary_stems": False,
+            "warnings": [str(exc)],
+        }
+    stems = result.stems if result.task == "instruments" else {"mix": result.primary_path}
+    return stems, {
+        **result.manifest(), "requested": backend, "used": result.backend,
+        "device": device, "jobs": 1, "roles": sorted(stems),
+        "isolated_drums": "drums" in stems, "temporary_stems": True,
+    }
