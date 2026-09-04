@@ -67,7 +67,8 @@ def decompose(source: Path, *, output_dir: Path | None = None,
               audio_stream: int = 0, sample_rate: int = 48_000,
               quality: str = "standard", cdx_config: Path | None = None,
               device: str = "cpu", maximum_residual_ratio: float = .1,
-              strict: bool = False, vad: str = "off") -> dict[str, Any]:
+              strict: bool = False, vad: str = "off",
+              inference_timeout: float | None = None) -> dict[str, Any]:
     # Lazy import keeps video_music's extraction helpers reusable without an
     # eager circular import when the CLI dispatches into this module.
     from video_music import (
@@ -92,7 +93,8 @@ def decompose(source: Path, *, output_dir: Path | None = None,
         raise VideoMusicError("--maximum-residual-ratio muss zwischen 0 und 1 liegen")
     if vad not in {"auto", "silero", "heuristic", "off"}:
         raise VideoMusicError(f"Unbekannte VAD-Engine: {vad}")
-    backend = CdxSeparator(cdx_config, quality=quality, device=device)
+    backend = CdxSeparator(cdx_config, quality=quality, device=device,
+                           timeout=inference_timeout)
     try:
         backend.ensure_ready()
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -121,7 +123,10 @@ def decompose(source: Path, *, output_dir: Path | None = None,
                 bundle / "soundtrack.wav", stems,
                 maximum_residual_ratio=maximum_residual_ratio)
             if strict and not consistency["passed"]:
-                raise SeparationError("Dreispur-Trennung verfehlt das Mix-Consistency-Gate.")
+                raise SeparationError(
+                    "Dreispur-Trennung verfehlt das Mix-Consistency-Gate: "
+                    f"Rest/Mix-RMS={consistency['residual_to_mix_rms_ratio']:.6f}, "
+                    f"Grenzwert={maximum_residual_ratio:.6f}.")
             segment_report = None
             if vad != "off":
                 segment_report, _ = _analyze_segments(

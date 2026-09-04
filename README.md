@@ -130,6 +130,10 @@ getrennte Stems. Siehe [render/AUDIO-REWORK.md](./render/AUDIO-REWORK.md).
 Neu: `video_music.py decompose` bindet einen lokalen CDX23-Runner fuer separate
 Musik-, Dialog- und SFX-Stems an, inklusive Integritaetspruefung und
 transaktionaler Ausgabe. Setup und Grenzen: [Reference Decomposition](render/DECOMPOSITION.md).
+`cdx_runtime.py check/smoke/verify` prueft jetzt den Modell-Python, fuehrt einen
+kurzen echten Inferenztest aus und kontrolliert dessen Ergebnisprotokoll.
+Neue CDX-Konfigurationen verwenden einen eingeschraenkten PyTorch-Lader;
+Import-Erfolg wird nicht als bestandener Modelltest ausgegeben.
 
 ```bash
 python3 render/video_music.py doctor

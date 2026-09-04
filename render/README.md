@@ -64,6 +64,8 @@ sh render/mischen.sh && python3 render/bauen.py --neu
 Neu: `video_music.py decompose` zerlegt Filmton mit einem konfigurierten lokalen
 CDX23-Modell in Musik, Dialog und SFX. Einrichtung, Qualitaetsgrenzen und
 GarageBand-Uebergabe stehen in [DECOMPOSITION.md](DECOMPOSITION.md).
+`cdx_runtime.py check/smoke/verify` ergaenzt Runtime-Fingerprints, einen
+eingeschraenkten Checkpoint-Lader und einen expliziten echten Inferenztest.
 
 `video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
 Referenz- und GarageBand-Pipelines bereit. `soundtrack` dekodiert die komplette

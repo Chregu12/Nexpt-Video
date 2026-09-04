@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -53,14 +54,18 @@ class CdxSeparator:
     name = "cdx"
 
     def __init__(self, config: str | Path | None = None, *,
-                 quality: str = "standard", device: str = "cpu") -> None:
+                 quality: str = "standard", device: str = "cpu",
+                 timeout: float | None = None) -> None:
         value = config or os.environ.get(CDX_CONFIG_ENV)
         self.config_path = Path(value).expanduser().resolve() if value else None
         self.quality = quality
         self.device = device
+        self.timeout = timeout
         self.settings: dict[str, Any] = {}
 
     def ensure_ready(self, *, verify_hashes: bool = True) -> None:
+        if self.timeout is not None and (not math.isfinite(self.timeout) or self.timeout <= 0):
+            raise SeparationError("CDX-Inferenz braucht ein positives, endliches Zeitlimit.")
         if self.quality not in {"standard", "high"}:
             raise SeparationError(f"Unbekannte CDX-Qualitaet: {self.quality}")
         if self.device not in {"cpu", "cuda"}:
@@ -79,6 +84,13 @@ class CdxSeparator:
                        for key in required)):
             raise SeparationError("CDX-Konfiguration braucht schema_version 1, repository, "
                                   "python, revision und checkpoint_license.")
+        if (not isinstance(settings.get("runner", "upstream"), str)
+                or settings.get("runner", "upstream") not in {"upstream", "safe-pytorch"}):
+            raise SeparationError("CDX runner muss upstream oder safe-pytorch sein.")
+        runtime_lock = settings.get("runtime_lock")
+        if runtime_lock is not None and (not isinstance(runtime_lock, str)
+                                        or not re.fullmatch(r"[0-9a-f]{64}", runtime_lock)):
+            raise SeparationError("CDX runtime_lock muss ein SHA-256-Fingerprint sein.")
         repo = Path(settings["repository"]).expanduser()
         python = Path(settings["python"]).expanduser()
         if not repo.is_absolute() or not python.is_absolute():
@@ -109,28 +121,44 @@ class CdxSeparator:
     def separate(self, source_wav: Path, output_dir: Path) -> SeparationResult:
         self.ensure_ready()
         initial_settings = self.settings
+        runtime = None
+        if self.settings.get("runtime_lock"):
+            from cdx_runtime import probe_runtime
+            runtime = probe_runtime(self.settings["python"])
+            if (not runtime["dependencies_ready"]
+                    or runtime["fingerprint"] != self.settings["runtime_lock"]):
+                raise SeparationError("CDX-Laufzeit stimmt nicht mit runtime_lock ueberein.")
         output_dir.mkdir(parents=True, exist_ok=True)
         if any(output_dir.iterdir()):
             raise SeparationError("CDX-Ausgabeverzeichnis muss leer sein (keine alten Stems).")
         repo = Path(self.settings["repository"])
-        command = [self.settings["python"], str(repo / "inference.py"),
-                   "--input_audio", str(source_wav.resolve()),
-                   "--output_folder", str(output_dir.resolve())]
+        runner = self.settings.get("runner", "upstream")
+        if runner == "safe-pytorch":
+            command = [self.settings["python"], str(Path(__file__).with_name("cdx_safe_inference.py")),
+                       "--repository", str(repo)]
+        else:
+            command = [self.settings["python"], str(repo / "inference.py")]
+        command += ["--input_audio", str(source_wav.resolve()),
+                    "--output_folder", str(output_dir.resolve())]
         if self.device == "cpu":
             command.append("--cpu")
         else:
             # Upstream otherwise silently falls back from CUDA to CPU.
             _run([self.settings["python"], "-c",
                   "import torch; assert torch.cuda.is_available(), 'CUDA unavailable'"],
-                 "CDX CUDA-Pruefung")
+                 "CDX CUDA-Pruefung", timeout=30)
         if self.quality == "high":
             command.append("--high_quality")
-        _run(command, "CDX23 Filmton-Trennung")
+        _run(command, "CDX23 Filmton-Trennung", timeout=self.timeout)
         # Keep the provenance truthful if an external process changed either
         # checkout or weights while inference was in progress.
         self.ensure_ready()
         if self.settings != initial_settings:
             raise SeparationError("CDX-Konfiguration wurde waehrend der Inferenz geaendert.")
+        if runtime is not None:
+            after = probe_runtime(self.settings["python"])
+            if after["fingerprint"] != runtime["fingerprint"]:
+                raise SeparationError("CDX-Laufzeit wurde waehrend der Inferenz geaendert.")
         stems = {
             role: _validated_wav(output_dir / f"{source_wav.stem}_{suffix}.wav", f"CDX {role}")
             for role, suffix in CDX_ROLES.items()
@@ -141,6 +169,8 @@ class CdxSeparator:
             "checkpoint_sha256": {name: sha256(repo / "models" / name) for name in needed},
             "checkpoint_license": self.settings["checkpoint_license"],
             "integrity": "matched locally configured checkpoint hashes",
+            "runner": runner,
+            "runtime_fingerprint": runtime["fingerprint"] if runtime else None,
         }
         warnings = ["Estimated film stems require listening review; music may contain singing."]
         if self.settings["revision"] != CDX_REVISION:
@@ -152,15 +182,19 @@ class CdxSeparator:
             warnings=tuple(warnings))
 
 
-def cdx_status(config: str | Path | None = None) -> dict[str, Any]:
+def cdx_status(config: str | Path | None = None, *, receipt: Path | None = None) -> dict[str, Any]:
     backend = CdxSeparator(config)
     try:
         backend.ensure_ready(verify_hashes=False)
     except SeparationError as exc:
         return {"configured": False, "runtime_verified": False, "reason": str(exc)}
-    return {"configured": True, "runtime_verified": False,
-            "config": str(backend.config_path), "revision": backend.settings["revision"],
-            "note": "Checkpoint hashes and actual inference are checked at run time."}
+    status = {"configured": True, "runtime_verified": False,
+              "config": str(backend.config_path), "revision": backend.settings["revision"],
+              "note": "Configuration alone is not evidence of successful model inference."}
+    if receipt is not None:
+        from cdx_runtime import verify_receipt
+        status.update(verify_receipt(receipt, config=backend.config_path))
+    return status
 
 
 def main() -> None:
@@ -170,6 +204,9 @@ def main() -> None:
     parser.add_argument("--checkpoint-license", required=True,
                         help="license for the weights you have reviewed (not inferred from code)")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--runner", choices=("safe-pytorch", "upstream"), default="safe-pytorch")
+    parser.add_argument("--verify-runtime", action="store_true",
+                        help="probe imports and lock the installed package versions; no inference")
     args = parser.parse_args()
     repo = args.repository.expanduser().resolve()
     try:
@@ -187,7 +224,21 @@ def main() -> None:
             "revision": _git(repo, "rev-parse", "HEAD"),
             "checkpoint_license": args.checkpoint_license,
             "checkpoint_sha256": hashes,
+            "runner": args.runner,
         }
+        if not args.checkpoint_license.strip():
+            raise SeparationError("Checkpoint-Lizenzangabe darf nicht leer sein.")
+        if not args.python.expanduser().is_file() or not os.access(args.python.expanduser(), os.X_OK):
+            raise SeparationError("CDX-Python fehlt oder ist nicht ausfuehrbar.")
+        if args.verify_runtime:
+            from cdx_runtime import probe_runtime
+            runtime = probe_runtime(args.python)
+            if not runtime["dependencies_ready"]:
+                raise SeparationError("CDX-Runtime fehlt/ist defekt: "
+                                      + ", ".join(runtime["missing_or_broken"]))
+            if args.runner == "safe-pytorch" and not runtime["restricted_checkpoint_loader"]:
+                raise SeparationError("Safe CDX runner braucht PyTorch >= 2.6")
+            payload["runtime_lock"] = runtime["fingerprint"]
         # Exclusive creation protects an existing config or source file.
         with args.output.expanduser().open("x", encoding="utf-8") as handle:
             json.dump(payload, handle, indent=2)

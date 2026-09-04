@@ -134,6 +134,7 @@ class DecompositionE2ETests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             recorded = json.loads(config.read_text())
             self.assertEqual(set(recorded["checkpoint_sha256"]), set(CDX_CHECKPOINTS))
+            self.assertEqual(recorded["runner"], "safe-pytorch")
             before = config.read_bytes()
             result = self.run_cli(*command)
             self.assertNotEqual(result.returncode, 0)

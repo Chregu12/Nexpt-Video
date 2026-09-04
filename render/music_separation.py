@@ -123,14 +123,17 @@ def backend_status(roformer: str | Path | None = None) -> dict[str, dict[str, An
     }
 
 
-def _run(command: list[str], label: str) -> None:
+def _run(command: list[str], label: str, *, timeout: float | None = None) -> None:
     try:
         completed = subprocess.run(
             command,
             capture_output=True,
             text=True,
             check=False,
+            timeout=timeout,
         )
+    except subprocess.TimeoutExpired as exc:
+        raise SeparationError(f"{label} hat das Zeitlimit von {timeout}s ueberschritten.") from exc
     except OSError as exc:
         raise SeparationError(f"{label} konnte nicht gestartet werden: {exc}") from exc
     if completed.returncode:
