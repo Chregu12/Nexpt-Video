@@ -139,6 +139,9 @@ Zuordnung bekannter Musik-/Dialog-/SFX-Referenzen und erkennt falsche Spuren
 auch dann, wenn ihre Summe korrekt ist. `prepare` erstellt aus isolierten lokalen
 MP3/M4A/WAV-Aufnahmen eine gemeinsame Referenz-Timeline; `preflight` prueft
 Testabdeckung und Modellvoraussetzungen, ohne Inferenz oder Qualitaet zu behaupten.
+`run-ab` fuehrt kontrollierte Standard-/High-Wiederholungen aus und kann
+verifizierte fertige Laeufe nach einem Abbruch fortsetzen. Einzelheiten:
+[CDX A/B Experiment](render/SEPARATION-EXPERIMENT.md).
 
 ```bash
 python3 render/video_music.py doctor

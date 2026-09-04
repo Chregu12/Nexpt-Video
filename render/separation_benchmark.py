@@ -233,6 +233,11 @@ def _implementation_id() -> str:
         "separation_benchmark.py", "separation_metrics.py", "audio_decomposition.py")})
 
 
+def _evaluation_policy() -> dict[str, Any]:
+    return {"db_cap": 120, "alignment": "exact-samples", "auto_permutation": False,
+            "auto_gain_or_filter": False, "aggregation": "macro-median per role; failures never dropped"}
+
+
 def _summarize(rows: list[dict]) -> dict[str, Any]:
     valid = [row for row in rows if row["status"] == "evaluated"]
     roles = {}
@@ -293,9 +298,7 @@ def _evaluate(corpus_path: Path, corpus: dict, estimates_dir: Path, gates: Gates
             "benchmark_implementation_sha256": implementation_id,
             "corpus_id": corpus["corpus_id"], "candidate": candidate,
             "gate_profile": {"calibration": "provisional-engineering-v1", **asdict(gates)},
-            "evaluation_policy": {"db_cap": 120, "alignment": "exact-samples",
-                                   "auto_permutation": False, "auto_gain_or_filter": False,
-                                   "aggregation": "macro-median per role; failures never dropped"},
+            "evaluation_policy": _evaluation_policy(),
             "cases": rows, "summary": _summarize(rows),
             "perceptual_quality_verified": False, "listening_review_required": True,
             "limitations": ["Reference labels and licenses are supplied by the corpus author, not independently verified.",
@@ -435,6 +438,20 @@ def main() -> None:
     precheck.add_argument("--quality", choices=("standard", "high", "both"), default="both")
     precheck.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
     precheck.add_argument("--output-dir", type=Path)
+    experiment = commands.add_parser("run-ab", help="repeat standard/high runs with verified explicit resume")
+    experiment.add_argument("corpus", type=Path)
+    experiment.add_argument("--cdx-config", type=Path, required=True)
+    experiment.add_argument("--output-dir", type=Path, required=True)
+    experiment.add_argument("--repeats", type=int, default=3)
+    experiment.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    experiment.add_argument("--timeout", type=float, default=600)
+    experiment.add_argument("--gate-config", type=Path)
+    experiment.add_argument("--resume", action="store_true")
+    experiment.add_argument("--max-new-runs", type=int)
+    experiment.add_argument("--strict", action="store_true")
+    summary = commands.add_parser("summarize-ab", help="verify and summarize saved runs without a model runtime")
+    summary.add_argument("experiment", type=Path)
+    summary.add_argument("--strict", action="store_true")
     check = commands.add_parser("evaluate")
     run = commands.add_parser("run-cdx")
     for command in (check, run):
@@ -469,6 +486,16 @@ def main() -> None:
                 with _bundle(args.output_dir) as bundle:
                     _write_json(bundle / "preflight.json", result)
             code = 0 if result["ready_for_run"] else 2
+        elif args.command in ("run-ab", "summarize-ab"):
+            from separation_experiment import run_experiment, summarize_experiment
+            if args.command == "run-ab":
+                gates = Gates(**_json(args.gate_config)) if args.gate_config else Gates()
+                result = run_experiment(args.corpus, args.cdx_config, args.output_dir, repeats=args.repeats,
+                                         device=args.device, timeout=args.timeout, gates=gates,
+                                         resume=args.resume, max_new_runs=args.max_new_runs)
+            else:
+                result = summarize_experiment(args.experiment)
+            code = 0 if result["status"] == "complete" and (not args.strict or result["numerical_gate_passed"]) else 2
         elif args.command == "self-test":
             from separation_benchmark_fixtures import self_test
             result = self_test(args.output_dir)

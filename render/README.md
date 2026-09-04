@@ -71,6 +71,8 @@ und gepaarte Modelllaeufe. `prepare` importiert lokale Einzelaufnahmen mit
 expliziten Ausschnitten und Timeline-Offsets; `preflight` meldet fehlende
 Referenzabdeckung, Gewichte oder Modell-Imports vor dem Lauf.
 [Benchmark-Anleitung](SEPARATION-BENCHMARK.md).
+`run-ab`/`summarize-ab` erstellen und pruefen wiederholte Standard-/High-
+Experimente. [A/B-Anleitung](SEPARATION-EXPERIMENT.md).
 
 `video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
 Referenz- und GarageBand-Pipelines bereit. `soundtrack` dekodiert die komplette

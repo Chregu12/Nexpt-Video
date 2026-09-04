@@ -277,6 +277,10 @@ Feste Referenzen bedeuten nicht bitidentische Modellinferenz: insbesondere
 CDX verwendet zufaellige Shifts. Fuer belastbare Modellvergleiche sind mehrere
 Laeufe, repraesentative Aufnahmen und Hoerpruefungen weiterhin erforderlich.
 
+Fuer wiederholte `standard`-/`high`-Laeufe, Prozesssperre, kontrolliertes
+Fortsetzen und eine gemeinsame beobachtete Min-/Median-/Max-Auswertung siehe
+[SEPARATION-EXPERIMENT.md](SEPARATION-EXPERIMENT.md).
+
 Exitcodes: `0` Messung abgeschlossen; `1` Konfigurations-/Referenzfehler;
 `2` fehlgeschlagene Faelle, unvollstaendiger Vergleich oder verfehlte Gates bei
 `--strict`. Fehlerhafte Modellresultate bleiben als Diagnosebericht erhalten,
