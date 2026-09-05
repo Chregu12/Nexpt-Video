@@ -145,7 +145,9 @@ verifizierte fertige Laeufe nach einem Abbruch fortsetzen. Einzelheiten:
 `separation_listening.py` exportiert daraus einen anonymisierten Hoertest mit
 bekannten Referenzspuren und wertet vollstaendige menschliche Bewertungen erst
 nach erneuter Experiment-/Corpus-Pruefung aus. Die private Zuordnung bleibt vom
-weitergebbaren Paket getrennt; ein Sieger wird nicht automatisch bestimmt.
+weitergebbaren Paket getrennt. Eine selbststaendige Offline-Browserseite spielt
+Referenz, Mix und A/B ab, speichert Entwuerfe und exportiert validierbare
+Bewertungen; ein Sieger wird nicht automatisch bestimmt.
 [Blind-Listening-Anleitung](render/SEPARATION-LISTENING.md).
 
 ```bash

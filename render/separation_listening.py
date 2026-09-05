@@ -77,12 +77,23 @@ def _instructions() -> str:
 Nur diesen Ordner an die testende Person weitergeben. Der benachbarte Ordner
 `private` enthaelt die Aufloesung und darf vor Abschluss nicht geteilt werden.
 
+`index.html` lokal im Browser oeffnen. Die Seite spielt alle Audiodateien
+direkt aus diesem Ordner ab, speichert nichts auf einem Server und exportiert
+am Ende eine JSON-Bewertung. Falls ein Browser lokale WAV-Dateien sperrt, kann
+dieser Ordner ueber einen ausschliesslich lokalen Webserver geoeffnet werden:
+
+```bash
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+Danach `http://127.0.0.1:8765/` aufrufen.
+
 Fuer jedes Item zuerst die Referenz, danach A und B bei unveraenderter
 Lautstaerke abhoeren. Der Mix dient nur als Kontext. Keine Normalisierung,
 Effekte oder Klangverbesserer einschalten. Kopfhoerer oder dieselben
 Abhoermonitore fuer den gesamten Durchgang verwenden.
 
-`review-template.json` kopieren und ausfuellen:
+Alternativ kann `review-template.json` kopiert und von Hand ausgefuellt werden:
 
 - `preference`: `A`, `B`, `tie` oder `both_unusable`
 - `confidence`: 1 (unsicher) bis 5 (sehr sicher)
@@ -95,6 +106,411 @@ eindeutig sein. Notizen sind optional. Das Paket waehlt keinen Sieger und ist
 kein Nachweis dafuer, dass die Person tatsaechlich unter kontrollierten
 Bedingungen gehoert hat.
 """
+
+
+_REVIEW_PAGE_TEMPLATE = r"""<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; media-src 'self' file: blob:; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Nexpt - Blinder Hoertest</title>
+  <style>
+    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0b0c10; color: #f5f7fa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, #202738, #0b0c10 52%); }
+    main { width: min(980px, calc(100% - 28px)); margin: 0 auto; padding: 30px 0 60px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 8px; }
+    h2 { font-size: 1.25rem; }
+    .muted { color: #aeb7c7; }
+    .panel { background: rgba(20, 24, 34, .94); border: 1px solid #353d50; border-radius: 16px; padding: 20px; margin-top: 18px; box-shadow: 0 16px 40px rgba(0, 0, 0, .28); }
+    .setup, .players, .ratings, .actions { display: grid; gap: 14px; }
+    .setup { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .players, .ratings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    label, fieldset { display: grid; gap: 7px; }
+    fieldset { border: 1px solid #3b455a; border-radius: 12px; padding: 14px; margin: 0; }
+    legend { padding: 0 6px; font-weight: 700; }
+    input, select, textarea, button { font: inherit; }
+    input, select, textarea { width: 100%; border: 1px solid #4c5870; border-radius: 9px; padding: 10px; background: #111620; color: #f5f7fa; }
+    textarea { min-height: 90px; resize: vertical; }
+    audio { width: 100%; }
+    button { border: 1px solid #59657d; border-radius: 10px; padding: 11px 14px; background: #20293a; color: #fff; cursor: pointer; }
+    button:hover { background: #29364c; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #8bb8ff; outline-offset: 2px; }
+    button.primary { background: #1768d7; border-color: #3f8cf2; }
+    button.selected { background: #15704e; border-color: #38ba86; }
+    button:disabled { cursor: not-allowed; opacity: .45; }
+    .progress-track { height: 8px; overflow: hidden; border-radius: 999px; background: #2a3140; margin: 12px 0 4px; }
+    .progress-bar { height: 100%; width: 0; background: #54a0ff; transition: width .2s ease; }
+    .item-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .tag { padding: 5px 9px; border-radius: 999px; background: #2b3343; color: #dbe4f4; font-size: .9rem; }
+    .player { background: #111620; border-radius: 12px; padding: 13px; }
+    .player strong { display: block; margin-bottom: 9px; }
+    .preference { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .rating-row { display: grid; grid-template-columns: 1fr 88px; align-items: center; gap: 10px; }
+    .navigation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin-top: 18px; }
+    .navigation button:last-child { justify-self: end; }
+    .message { min-height: 24px; margin: 12px 0 0; color: #a9d0ff; }
+    .message.error { color: #ff9e9e; }
+    .privacy { padding-left: 20px; color: #b8c1cf; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .top-space { margin-top: 16px; }
+    @media (max-width: 720px) { .setup, .players, .ratings, .actions { grid-template-columns: 1fr; } .preference { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Blinder Hoertest</h1>
+    <p class="muted">Referenz und Mix vergleichen, A/B bewerten, danach eine vollstaendige JSON-Datei exportieren.</p>
+    <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+    <p id="progress-text" class="muted" aria-live="polite"></p>
+  </header>
+
+  <section class="panel" aria-labelledby="setup-title">
+    <h2 id="setup-title">Testumgebung</h2>
+    <div class="setup">
+      <label>Reviewer-ID
+        <input id="reviewer-id" maxlength="64" pattern="[A-Za-z0-9][A-Za-z0-9_.-]{0,63}" autocomplete="off" placeholder="z. B. reviewer-01">
+      </label>
+      <label>Wiedergabegeraet
+        <input id="device" maxlength="200" autocomplete="off" placeholder="z. B. Studio-Kopfhoerer">
+      </label>
+      <label>Umgebung
+        <input id="environment" maxlength="200" autocomplete="off" placeholder="z. B. ruhiger Raum">
+      </label>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="item-title">
+    <h2 id="item-title"></h2>
+    <div id="item-meta" class="item-meta"></div>
+    <div id="players" class="players"></div>
+    <h3>Praeferenz</h3>
+    <div id="preference" class="preference" role="group" aria-label="Praeferenz"></div>
+    <label class="top-space">Sicherheit: 1 unsicher, 5 sehr sicher
+      <select id="confidence"></select>
+    </label>
+    <h3 class="top-space">Einzelbewertungen</h3>
+    <ul class="privacy">
+      <li>Referenztreue: 1 passt nicht, 5 passt sehr gut.</li>
+      <li>Isolation: 1 starke Fremdanteile, 5 sauber isoliert.</li>
+      <li>Artefaktfreiheit: 1 starke Artefakte, 5 keine wahrnehmbaren Artefakte.</li>
+    </ul>
+    <div id="ratings" class="ratings"></div>
+    <label class="top-space">Optionale Notizen
+      <textarea id="notes" maxlength="2000" placeholder="Hoerbare Artefakte, Fremdanteile oder andere Beobachtungen"></textarea>
+    </label>
+    <nav class="navigation" aria-label="Items">
+      <button id="previous" type="button">Zurueck</button>
+      <span id="position" class="muted"></span>
+      <button id="next" type="button">Weiter</button>
+    </nav>
+  </section>
+
+  <section class="panel" aria-labelledby="export-title">
+    <h2 id="export-title">Fortsetzen oder abschliessen</h2>
+    <p class="muted">Ein Entwurf darf noch Luecken enthalten. Der finale Export prueft alle Pflichtwerte. Beide Dateien bleiben lokal auf diesem Geraet.</p>
+    <div class="actions">
+      <button id="import-button" type="button">JSON laden</button>
+      <button id="draft-button" type="button">Entwurf sichern</button>
+      <button id="export-button" class="primary" type="button">Fertige Bewertung exportieren</button>
+    </div>
+    <input id="import-file" class="sr-only" type="file" accept="application/json,.json">
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="protocol-title">
+    <h2 id="protocol-title">Kurzprotokoll</h2>
+    <ul class="privacy">
+      <li>Zuerst Zielreferenz, dann A und B; der Mix ist nur Kontext.</li>
+      <li>Lautstaerke und Wiedergabegeraet waehrend des Durchgangs nicht aendern.</li>
+      <li>Keine Normalisierung, EQs oder Klangverbesserer aktivieren.</li>
+      <li>Die Seite sendet keine Daten und kennt die private Zuordnung nicht.</li>
+    </ul>
+  </section>
+</main>
+
+<script id="manifest" type="application/json">__NEXPT_MANIFEST__</script>
+<script>
+"use strict";
+const manifest = JSON.parse(document.getElementById("manifest").textContent);
+const criteria = ["reference_match", "isolation", "artifact_free"];
+const criterionLabels = {reference_match: "Referenztreue", isolation: "Isolation", artifact_free: "Artefaktfreiheit"};
+const preferenceLabels = {A: "A", B: "B", tie: "Gleichwertig", both_unusable: "Beide unbrauchbar"};
+const roleLabels = {music: "Musik", dialogue: "Sprache", sfx: "Soundeffekte"};
+const cases = new Map(manifest.cases.map(value => [value.id, value]));
+let current = 0;
+let state = blankReview();
+
+function blankReview() {
+  return {
+    schema_version: 1,
+    kind: "nexpt-blind-listening-review",
+    kit_id: manifest.kit_id,
+    reviewer_id: "",
+    playback: {device: "", environment: ""},
+    items: manifest.items.map(item => ({
+      id: item.id,
+      preference: null,
+      confidence: null,
+      ratings: {
+        A: {reference_match: null, isolation: null, artifact_free: null},
+        B: {reference_match: null, isolation: null, artifact_free: null}
+      },
+      notes: ""
+    }))
+  };
+}
+
+function element(name, text, className) {
+  const node = document.createElement(name);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+
+function exactKeys(value, expected) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const keys = Object.keys(value);
+  return keys.length === expected.length
+    && expected.every(key => Object.prototype.hasOwnProperty.call(value, key));
+}
+
+function validScore(value, allowNull) {
+  return (allowNull && value === null) || (Number.isInteger(value) && value >= 1 && value <= 5);
+}
+
+function choiceSelect(value, label) {
+  const select = document.createElement("select");
+  select.setAttribute("aria-label", label);
+  const empty = element("option", "Bitte waehlen");
+  empty.value = "";
+  select.appendChild(empty);
+  for (let number = 1; number <= 5; number += 1) {
+    const option = element("option", String(number));
+    option.value = String(number);
+    option.selected = value === number;
+    select.appendChild(option);
+  }
+  return select;
+}
+
+function renderPreferences(row) {
+  const preferences = document.getElementById("preference");
+  preferences.replaceChildren();
+  for (const [value, label] of Object.entries(preferenceLabels)) {
+    const button = element("button", label, row.preference === value ? "selected" : "");
+    button.type = "button";
+    button.setAttribute("aria-pressed", String(row.preference === value));
+    button.addEventListener("click", () => {
+      row.preference = value;
+      renderPreferences(row);
+      updateProgress();
+    });
+    preferences.appendChild(button);
+  }
+}
+
+function render() {
+  document.querySelectorAll("audio").forEach(player => player.pause());
+  const item = manifest.items[current];
+  const row = state.items[current];
+  const sourceCase = cases.get(item.case_id);
+  document.getElementById("item-title").textContent = `Item ${item.id.slice(5)}`;
+  document.getElementById("position").textContent = `${current + 1} / ${manifest.items.length}`;
+  document.getElementById("previous").disabled = current === 0;
+  document.getElementById("next").disabled = current === manifest.items.length - 1;
+  document.getElementById("item-meta").replaceChildren(
+    element("span", `Ziel: ${roleLabels[item.role] || item.role}`, "tag")
+  );
+
+  const sources = [
+    ["Zielreferenz", sourceCase.references[item.role].path],
+    ["Mix (Kontext)", sourceCase.mix.path],
+    ["Kandidat A", item.candidates.A.path],
+    ["Kandidat B", item.candidates.B.path]
+  ];
+  const players = document.getElementById("players");
+  players.replaceChildren();
+  for (const [label, path] of sources) {
+    const box = element("div", undefined, "player");
+    box.appendChild(element("strong", label));
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    audio.preload = "metadata";
+    audio.src = path;
+    audio.setAttribute("aria-label", label);
+    box.appendChild(audio);
+    players.appendChild(box);
+  }
+
+  renderPreferences(row);
+  const confidence = choiceSelect(row.confidence, "Sicherheit");
+  confidence.id = "confidence";
+  confidence.addEventListener("change", () => {
+    row.confidence = confidence.value ? Number(confidence.value) : null;
+    updateProgress();
+  });
+  document.getElementById("confidence").replaceWith(confidence);
+
+  const ratings = document.getElementById("ratings");
+  ratings.replaceChildren();
+  for (const label of ["A", "B"]) {
+    const group = document.createElement("fieldset");
+    group.appendChild(element("legend", `Kandidat ${label}`));
+    for (const criterion of criteria) {
+      const line = element("label", undefined, "rating-row");
+      line.appendChild(element("span", `${criterionLabels[criterion]} (1-5)`));
+      const select = choiceSelect(row.ratings[label][criterion], `${label} ${criterionLabels[criterion]}`);
+      select.addEventListener("change", () => {
+        row.ratings[label][criterion] = select.value ? Number(select.value) : null;
+        updateProgress();
+      });
+      line.appendChild(select);
+      group.appendChild(line);
+    }
+    ratings.appendChild(group);
+  }
+  document.getElementById("notes").value = row.notes;
+  updateProgress();
+}
+
+function itemComplete(row) {
+  return Object.prototype.hasOwnProperty.call(preferenceLabels, row.preference)
+    && validScore(row.confidence, false)
+    && ["A", "B"].every(label => criteria.every(criterion => validScore(row.ratings[label][criterion], false)));
+}
+
+function updateProgress() {
+  const completed = state.items.filter(itemComplete).length;
+  document.getElementById("progress-text").textContent = `${completed} von ${state.items.length} Items vollstaendig`;
+  document.getElementById("progress-bar").style.width = `${100 * completed / state.items.length}%`;
+}
+
+function syncSetup() {
+  state.reviewer_id = document.getElementById("reviewer-id").value.trim();
+  state.playback.device = document.getElementById("device").value.trim();
+  state.playback.environment = document.getElementById("environment").value.trim();
+  state.items[current].notes = document.getElementById("notes").value;
+}
+
+function loadSetup() {
+  document.getElementById("reviewer-id").value = state.reviewer_id;
+  document.getElementById("device").value = state.playback.device;
+  document.getElementById("environment").value = state.playback.environment;
+}
+
+function showMessage(text, error = false) {
+  const message = document.getElementById("message");
+  message.textContent = text;
+  message.classList.toggle("error", error);
+}
+
+function structureValid(value) {
+  if (!exactKeys(value, ["schema_version", "kind", "kit_id", "reviewer_id", "playback", "items"])
+      || value.schema_version !== 1 || value.kind !== "nexpt-blind-listening-review"
+      || value.kit_id !== manifest.kit_id || typeof value.reviewer_id !== "string"
+      || value.reviewer_id.length > 64
+      || !exactKeys(value.playback, ["device", "environment"])
+      || typeof value.playback.device !== "string" || value.playback.device.length > 200
+      || typeof value.playback.environment !== "string" || value.playback.environment.length > 200
+      || !Array.isArray(value.items) || value.items.length !== manifest.items.length) return false;
+  const rows = new Map();
+  for (const row of value.items) {
+    if (!exactKeys(row, ["id", "preference", "confidence", "ratings", "notes"])
+        || typeof row.id !== "string" || rows.has(row.id)
+        || !(row.preference === null || Object.prototype.hasOwnProperty.call(preferenceLabels, row.preference))
+        || !validScore(row.confidence, true)
+        || !exactKeys(row.ratings, ["A", "B"])
+        || typeof row.notes !== "string" || row.notes.length > 2000) return false;
+    for (const label of ["A", "B"]) {
+      if (!exactKeys(row.ratings[label], criteria)
+          || !criteria.every(criterion => validScore(row.ratings[label][criterion], true))) return false;
+    }
+    rows.set(row.id, row);
+  }
+  return manifest.items.every(item => rows.has(item.id));
+}
+
+function validationError() {
+  syncSetup();
+  if (!/^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$/.test(state.reviewer_id)
+      || state.reviewer_id === "replace-me") return "Reviewer-ID fehlt oder ist ungueltig.";
+  if (!state.playback.device || !state.playback.environment) return "Wiedergabegeraet und Umgebung fehlen.";
+  const missing = state.items.findIndex(row => !itemComplete(row));
+  return missing === -1 ? null : `Item ${missing + 1} ist noch nicht vollstaendig.`;
+}
+
+function filename() {
+  const reviewer = state.reviewer_id.replace(/[^A-Za-z0-9_.-]+/g, "-") || "draft";
+  return `nexpt-listening-${reviewer}.json`;
+}
+
+function download(finalReview) {
+  syncSetup();
+  if (finalReview) {
+    const error = validationError();
+    if (error) { showMessage(error, true); return; }
+  }
+  const blob = new Blob([JSON.stringify(state, null, 2) + "\n"], {type: "application/json"});
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  link.href = url;
+  link.download = filename();
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+  showMessage(finalReview ? "Vollstaendige Bewertung exportiert." : "Entwurf lokal gespeichert.");
+}
+
+document.addEventListener("play", event => {
+  if (event.target instanceof HTMLAudioElement) {
+    document.querySelectorAll("audio").forEach(player => {
+      if (player !== event.target) player.pause();
+    });
+  }
+}, true);
+document.getElementById("notes").addEventListener("input", event => { state.items[current].notes = event.target.value; });
+document.getElementById("previous").addEventListener("click", () => { syncSetup(); current = Math.max(0, current - 1); render(); });
+document.getElementById("next").addEventListener("click", () => { syncSetup(); current = Math.min(manifest.items.length - 1, current + 1); render(); });
+document.getElementById("draft-button").addEventListener("click", () => download(false));
+document.getElementById("export-button").addEventListener("click", () => download(true));
+document.getElementById("import-button").addEventListener("click", () => document.getElementById("import-file").click());
+document.getElementById("import-file").addEventListener("change", async event => {
+  const file = event.target.files[0];
+  if (!file) return;
+  try {
+    const value = JSON.parse(await file.text());
+    if (!structureValid(value)) throw new Error("Die Datei passt nicht zu diesem Hoertest.");
+    const rows = new Map(value.items.map(row => [row.id, row]));
+    state = {...value, items: manifest.items.map(item => rows.get(item.id))};
+    current = 0;
+    loadSetup();
+    render();
+    showMessage("Bewertung geladen.");
+  } catch (error) {
+    showMessage(error instanceof Error ? error.message : "JSON konnte nicht geladen werden.", true);
+  } finally {
+    event.target.value = "";
+  }
+});
+
+loadSetup();
+render();
+</script>
+</body>
+</html>
+"""
+
+
+def _review_page(manifest: dict[str, Any]) -> str:
+    """Return a self-contained offline UI without exposing private mappings."""
+    embedded = json.dumps(manifest, ensure_ascii=True, separators=(",", ":")).replace("<", "\\u003c")
+    return _REVIEW_PAGE_TEMPLATE.replace("__NEXPT_MANIFEST__", embedded)
 
 
 def _source_rows(report: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -239,6 +655,7 @@ def build_listening_kit(experiment: Path, corpus_path: Path, destination: Path, 
         manifest["kit_id"] = _digest(manifest)
         _write_json(public / "manifest.json", manifest)
         _write_json(public / "review-template.json", _review_template(manifest))
+        (public / "index.html").write_text(_review_page(manifest), encoding="utf-8")
         key = _seal({"schema_version": 1, "kind": "nexpt-blind-listening-key",
                      "kit_id": manifest["kit_id"], "experiment_id": plan["experiment_id"],
                      "corpus_id": plan["corpus_id"], "mappings": mappings})
@@ -250,6 +667,7 @@ def build_listening_kit(experiment: Path, corpus_path: Path, destination: Path, 
             "trials": repeats, "items": len(manifest["items"]),
             "copied_bytes": copied_bytes,
             "share_directory": str(destination.expanduser().absolute() / "public"),
+            "review_ui": str(destination.expanduser().absolute() / "public" / "index.html"),
             "private_key": str(destination.expanduser().absolute() / "private" / "key.json"),
             "profiles_disclosed_in_public_package": False,
             "model_inference_executed": False, "overall_winner": None}
@@ -285,7 +703,7 @@ def _load_kit(directory: Path, *, experiment: Path | None = None,
         raise BenchmarkError("Hoertest-Verzeichnisse fehlen oder sind Symlinks")
     if set(p.name for p in private.iterdir()) != {"key.json"} or (private / "key.json").is_symlink():
         raise BenchmarkError("Private Hoertest-Daten duerfen nur den Schluessel enthalten")
-    for name in ("README.md", "manifest.json", "review-template.json"):
+    for name in ("README.md", "index.html", "manifest.json", "review-template.json"):
         if (public / name).is_symlink() or not (public / name).is_file():
             raise BenchmarkError("Oeffentliche Hoertest-Metadaten fehlen oder sind Symlinks")
 
@@ -307,7 +725,7 @@ def _load_kit(directory: Path, *, experiment: Path | None = None,
             or not isinstance(manifest["items"], list) or not manifest["items"]):
         raise BenchmarkError("Hoertest-Paket braucht Cases und Items")
 
-    expected_files = {"README.md", "manifest.json", "review-template.json"}
+    expected_files = {"README.md", "index.html", "manifest.json", "review-template.json"}
     if manifest["instructions"] != _entry(public / "README.md", public):
         raise BenchmarkError("Hoertest-Anleitung wurde veraendert")
     cases = {}
@@ -366,6 +784,8 @@ def _load_kit(directory: Path, *, experiment: Path | None = None,
     template = _json(public / "review-template.json")
     if template != _review_template(manifest):
         raise BenchmarkError("Hoertest-Vorlage wurde veraendert")
+    if (public / "index.html").read_text(encoding="utf-8") != _review_page(manifest):
+        raise BenchmarkError("Hoertest-Oberflaeche wurde veraendert")
     _verify_public_tree(public, expected_files)
 
     key = _json(private / "key.json")

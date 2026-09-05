@@ -76,7 +76,9 @@ Experimente. [A/B-Anleitung](SEPARATION-EXPERIMENT.md).
 `separation_listening.py` baut aus einem vollstaendigen Versuch ein zufaellig
 anonymisiertes A/B-Hoerpaket und entblindet validierte Reviewer-Formulare.
 Referenzen und Kandidaten bleiben bytegleich; die private Zuordnung wird nicht
-mit dem oeffentlichen Ordner geteilt.
+mit dem oeffentlichen Ordner geteilt. `public/index.html` bietet eine lokale
+Browseroberflaeche mit Audiovergleich, Entwurf-Import/-Export und finaler
+Vollstaendigkeitspruefung.
 [Blind-Listening-Anleitung](SEPARATION-LISTENING.md).
 
 `video_music.py` stellt lokale Videos reproduzierbar fuer die vorhandenen
@@ -306,7 +308,7 @@ misst sich um den Faktor drei zu langsam.
 | `video_music.py` | Dekodiert eine Video-Tonspur oder schaetzt modular eine No-Vocals-Musikreferenz; schreibt verifizierte WAV-, Segment-, Profil- und Manifestdateien. |
 | `music_separation.py` | Waehlt den gepinnten Demucs-Basisweg oder einen expliziten lokalen RoFormer-Adapter und prueft dessen Ausgaben. |
 | `audio_segmentation.py` | Schreibt lokale Musik-/Sprach-/SFX-/Stille-Wahrscheinlichkeiten je Zeitsegment; Silero liefert optionale Sprachzeitstempel. |
-| `separation_listening.py` | Erstellt bytegleiche, blind randomisierte Standard-/High-Hoerpakete und fasst vollstaendige Bewertungen nach sicherer Entblindung deskriptiv zusammen. |
+| `separation_listening.py` | Erstellt bytegleiche, blind randomisierte Standard-/High-Hoerpakete samt Offline-Browserbewertung und fasst vollstaendige Reviews nach sicherer Entblindung deskriptiv zusammen. |
 | `proben.py` | Schneidet echte Schläge aus dem Musikloop → `out/_proben/` (die Klangpalette). |
 | `groove.py` | Zieht menschliches Spielgefühl aus dem Groove MIDI Dataset: je Instrument und Sechzehntelposition der mediane Versatz zum Raster und die Anschlagstärke. Gemessen an 220 Aufnahmen, 3408 Takten. |
 | `abhoeren.py` | Transkribiert eine Vorlage Schlag für Schlag: Position, Stärke, Versatz und Abklingzeit je Anschlag → `partitur.json`. Der Weg für einen **1:1-Nachbau**. |

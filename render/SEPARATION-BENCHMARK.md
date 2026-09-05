@@ -331,5 +331,5 @@ Die darauf folgende menschliche A/B-Pruefung ist als reproduzierbarer,
 anonymisierter Paket- und Auswertungsworkflow in
 [SEPARATION-LISTENING.md](SEPARATION-LISTENING.md) beschrieben. Sie verwendet
 die gespeicherten Kandidaten und bekannten Referenzen bytegleich, haelt die
-Profilzuordnung privat und setzt auch nach ausgefuellten Bewertungen keinen
-automatischen Gewinner.
+Profilzuordnung privat, bietet eine rein lokale Browserbewertung und setzt auch
+nach ausgefuellten Bewertungen keinen automatischen Gewinner.

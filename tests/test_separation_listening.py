@@ -70,6 +70,8 @@ class ListeningKitTests(unittest.TestCase):
         (self.kit / "public/manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
         (self.kit / "public/review-template.json").write_text(
             json.dumps(listening._review_template(manifest)), encoding="utf-8")
+        (self.kit / "public/index.html").write_text(
+            listening._review_page(manifest), encoding="utf-8")
         key["kit_id"] = manifest["kit_id"]
         key = _seal({k: v for k, v in key.items() if k != "report_id"})
         (self.kit / "private/key.json").write_text(json.dumps(key), encoding="utf-8")
@@ -82,6 +84,8 @@ class ListeningKitTests(unittest.TestCase):
         self.assertFalse(result["profiles_disclosed_in_public_package"])
         self.assertFalse(result["model_inference_executed"])
         self.assertIsNone(result["overall_winner"])
+        self.assertEqual(Path(result["review_ui"]), self.kit / "public/index.html")
+        self.assertTrue((self.kit / "public/index.html").is_file())
         manifest, key = self.load()
         public_text = "\n".join(path.read_text(encoding="utf-8")
                                  for path in (self.kit / "public").glob("*.json"))
@@ -102,6 +106,35 @@ class ListeningKitTests(unittest.TestCase):
             copied = self.kit / "public" / case["mix"]["path"]
             self.assertEqual(copied.read_bytes(), original.read_bytes())
 
+    def test_offline_ui_is_blind_self_contained_and_bound_to_manifest(self):
+        self.build()
+        manifest, _ = self.load()
+        page = (self.kit / "public/index.html").read_text(encoding="utf-8")
+        self.assertEqual(page, listening._review_page(manifest))
+        self.assertIn(manifest["kit_id"], page)
+        self.assertNotIn("__NEXPT_MANIFEST__", page)
+        self.assertNotIn('"standard"', page)
+        self.assertNotIn('"high"', page)
+        self.assertNotIn("https://", page)
+        self.assertIn("connect-src 'none'", page)
+        self.assertIn('id="import-button"', page)
+        self.assertIn('id="draft-button"', page)
+        self.assertIn('id="export-button"', page)
+        self.assertIn("nexpt-blind-listening-review", page)
+        for case in manifest["cases"]:
+            self.assertIn(case["mix"]["path"], page)
+            for entry in case["references"].values():
+                self.assertIn(entry["path"], page)
+        for item in manifest["items"]:
+            for entry in item["candidates"].values():
+                self.assertIn(entry["path"], page)
+
+        hostile = copy.deepcopy(manifest)
+        hostile["limitations"] = ["</script><script>globalThis.pwned=true</script>"]
+        escaped = listening._review_page(hostile)
+        self.assertNotIn("</script><script>globalThis.pwned", escaped)
+        self.assertIn(r"\u003c/script>\u003cscript>", escaped)
+
     def test_fixed_test_rng_reproduces_identity_while_different_rng_changes_blinding(self):
         first = self.build()
         second_path = self.root / "same"
@@ -109,6 +142,8 @@ class ListeningKitTests(unittest.TestCase):
         self.assertEqual(first["kit_id"], second["kit_id"])
         self.assertEqual((self.kit / "public/manifest.json").read_bytes(),
                          (second_path / "public/manifest.json").read_bytes())
+        self.assertEqual((self.kit / "public/index.html").read_bytes(),
+                         (second_path / "public/index.html").read_bytes())
         third = self.build(self.root / "different", seed=18)
         self.assertNotEqual(first["kit_id"], third["kit_id"])
 
@@ -158,7 +193,8 @@ class ListeningKitTests(unittest.TestCase):
         self.build()
         targets = [self.kit / "public/audio/items/item-0001/A.wav",
                    self.kit / "public/manifest.json",
-                   self.kit / "public/README.md"]
+                   self.kit / "public/README.md",
+                   self.kit / "public/index.html"]
         for path in targets:
             before = path.read_bytes()
             path.write_bytes(before + b"tampered")
@@ -172,7 +208,8 @@ class ListeningKitTests(unittest.TestCase):
 
     def test_symlinked_public_or_private_artifacts_are_rejected(self):
         self.build()
-        for relative in ("public/audio/items/item-0001/A.wav", "private/key.json"):
+        for relative in ("public/audio/items/item-0001/A.wav", "public/index.html",
+                         "private/key.json"):
             path = self.kit / relative
             external = self.root / f"external-{path.name}"
             path.rename(external)

@@ -118,7 +118,8 @@ sind, aber mindestens ein numerisches Gate verfehlt wurde.
 
 Nach einem vollstaendigen Versuch erstellt `separation_listening.py` ein
 weitergebbares Paket mit anonymen A/B-Kandidaten, Mix und bekannten
-Referenzspuren. Die Profilzuordnung liegt getrennt unter `private/`.
+Referenzspuren. Eine lokale Browseroberflaeche fuehrt durch Vergleich und
+Bewertung; die Profilzuordnung liegt getrennt unter `private/`.
 Ausgefuellte Bewertungen werden erst nach erneuter Pruefung von Experiment,
 Corpus, WAV-Hashes und Item-Abdeckung entblindet. Die Auswertung bleibt
 deskriptiv und bestimmt keinen Sieger. Vollstaendiger Ablauf:

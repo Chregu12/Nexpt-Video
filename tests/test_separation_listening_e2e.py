@@ -69,11 +69,37 @@ class ListeningCLITests(unittest.TestCase):
         self.assertEqual(report["items"], 3)
         self.assertFalse(report["model_inference_executed"])
         self.assertTrue((self.kit / "public/README.md").is_file())
+        self.assertEqual(Path(report["review_ui"]), self.kit / "public/index.html")
+        self.assertTrue((self.kit / "public/index.html").is_file())
         self.assertTrue((self.kit / "private/key.json").is_file())
         public_metadata = "\n".join(path.read_text()
                                     for path in (self.kit / "public").glob("*.json"))
         self.assertNotIn('"standard"', public_metadata)
         self.assertNotIn('"high"', public_metadata)
+
+    def test_browser_review_is_offline_blind_and_references_every_audio_file(self):
+        self.assertEqual(self.build().returncode, 0)
+        public = self.kit / "public"
+        manifest = json.loads((public / "manifest.json").read_text())
+        page = (public / "index.html").read_text()
+        self.assertIn(manifest["kit_id"], page)
+        self.assertIn("application/json", page)
+        self.assertIn("URL.createObjectURL", page)
+        self.assertIn("JSON laden", page)
+        self.assertIn("Fertige Bewertung exportieren", page)
+        self.assertIn("connect-src 'none'", page)
+        self.assertNotIn("https://", page)
+        self.assertNotIn('"standard"', page)
+        self.assertNotIn('"high"', page)
+        paths = [case["mix"]["path"] for case in manifest["cases"]]
+        paths += [entry["path"] for case in manifest["cases"]
+                  for entry in case["references"].values()]
+        paths += [entry["path"] for item in manifest["items"]
+                  for entry in item["candidates"].values()]
+        for relative in paths:
+            with self.subTest(relative=relative):
+                self.assertIn(relative, page)
+                self.assertTrue((public / relative).is_file())
 
     def test_completed_review_cli_is_unblinded_saved_and_remains_non_decisive(self):
         self.assertEqual(self.build().returncode, 0)

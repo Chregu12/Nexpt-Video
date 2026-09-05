@@ -32,6 +32,7 @@ Das Ergebnis trennt die weitergebbaren Daten von der Aufloesung:
 listening-01/
 ├── public/                  # nur diesen Ordner an Reviewer geben
 │   ├── README.md
+│   ├── index.html              # lokale A/B-Oberflaeche
 │   ├── manifest.json
 │   ├── review-template.json
 │   └── audio/
@@ -51,12 +52,37 @@ aufheben; sie ist kein Schutz gegen einen absichtlichen Angreifer.
 Alle WAVs werden ohne Normalisierung, Gain-Anpassung, Resampling oder
 Neukodierung kopiert. Manifest und privater Schluessel binden ihre SHA-256-
 Werte an Experiment und Corpus. Symlinks, unbekannte Artefakte, veraenderte
-Dateien und fehlende Trial/Case/Rollen-Kombinationen werden abgewiesen.
+Dateien und fehlende Trial/Case/Rollen-Kombinationen werden abgewiesen. Auch
+`index.html` wird beim Laden deterministisch aus dem Manifest rekonstruiert;
+eine veraenderte oder durch einen Symlink ersetzte Oberflaeche wird abgewiesen.
 
 ## 2. Bewertung ausfuellen
 
-`public/review-template.json` pro Person kopieren. `reviewer_id` muss eindeutig
-sein. Fuer jedes Item sind folgende Werte Pflicht:
+`public/index.html` im Browser oeffnen. Die Oberflaeche funktioniert ohne
+Cloud-Dienst und externe Assets direkt aus dem Ordner. Sie zeigt immer genau
+ein Item, pausiert andere Player beim Start einer Aufnahme und erfasst
+Reviewer-ID, Wiedergabegeraet, Umgebung, Praeferenz, Sicherheit, Einzelwerte
+und optionale Notizen. Profilnamen, Job-IDs und private Zuordnungen sind nicht
+in die Seite eingebettet.
+
+Falls der Browser WAVs ueber `file://` nicht wiedergibt, im `public`-Ordner
+einen nur an Loopback gebundenen Server starten:
+
+```bash
+cd out/separation-benchmark/listening-01/public
+python3 -m http.server 8765 --bind 127.0.0.1
+```
+
+Danach `http://127.0.0.1:8765/` oeffnen. Die Content-Security-Policy der Seite
+blockiert externe Verbindungen; die JSON-Datei wird lokal im Browser erzeugt.
+Mit **Entwurf sichern** kann ein unvollstaendiger Stand exportiert und spaeter
+ueber **JSON laden** fortgesetzt werden. **Fertige Bewertung exportieren**
+akzeptiert nur eine gueltige Reviewer-ID, ausgefuellte Playback-Angaben und
+vollstaendige ganzzahlige Bewertungen fuer jedes Item.
+
+Alternativ `public/review-template.json` pro Person kopieren und von Hand
+ausfuellen. `reviewer_id` muss eindeutig sein. Fuer jedes Item sind folgende
+Werte Pflicht:
 
 | Feld | Werte |
 |---|---|
@@ -112,8 +138,8 @@ Diagnosesignale. Sie pruefen Prozessgrenzen, echte WAV-Dateien, Bytegleichheit,
 Verblindung, Transaktionen, Manipulationsschutz und Entblindung. Sie sind kein
 akustischer Nachweis fuer die realen Modelle.
 
-Standardsuite nach diesem Schritt: **353 Tests, 350 bestanden und drei
-optionale Live-Tests uebersprungen**. Neu sind 15 Unit- und sechs E2E-Tests.
+Standardsuite nach diesem Schritt: **355 Tests, 352 bestanden und drei
+optionale Live-Tests uebersprungen**. Neu sind 16 Unit- und sieben E2E-Tests.
 In dieser Umgebung wurden weiterhin keine echten CDX-Checkpoints und keine
 isolierten Aufnahme-Referenzen bereitgestellt; deshalb belegt der Testlauf die
 Softwarevertraege, nicht eine hoerbare Modellverbesserung.
