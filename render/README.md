@@ -40,7 +40,11 @@ sh render/mischen.sh                     # Stimme, Musik, Effekte → out/ton-fi
 
 # AUSGEBEN
 python3 render/bauen.py                  # prüfen und zusammenbauen (--check nur prüfen)
-python3 render/fcpxml.py                 # → out/NEXPT-Keynote.fcpxml
+python3 render/fcpxml.py                 # reine Bild-Timeline, bisheriges Verhalten
+python3 render/fcpxml.py --audio-config render/final-cut-audio.json --check
+                                         # 7 Musik-/SFX-Stems prüfen, nichts schreiben
+python3 render/fcpxml.py --audio-config render/final-cut-audio.json
+                                         # → FCPXML + SHA-256-Prüfmanifest
 python3 render/drehbuch.py               # Abschnitt 4 des Konzepts aus timing.json erzeugen
 sh render/paket.sh                       # Download-Paket → out/NEXPT-Keynote-Paket.zip
 ```
@@ -336,6 +340,7 @@ misst sich um den Faktor drei zu langsam.
 | Datei | Zweck |
 |---|---|
 | `drehbuch.py` | Erzeugt Abschnitt 4 des Konzepts aus `timing.json` — Dokument und Film können nicht auseinanderlaufen. |
+| `fcpxml.py` | Schreibt eine frame-konsistente Final-Cut-Timeline; optional mit getrennten Musik-/SFX-Rollen und Prüfmanifest. |
 | `paket.sh` | Bündelt Filme, Timeline, Tonspur, Standbilder und Quellen → `out/NEXPT-Keynote-Paket.zip`. |
 
 ## In Final Cut Pro
@@ -343,13 +348,18 @@ misst sich um den Faktor drei zu langsam.
 1. `out/` als Ganzes auf den Mac kopieren. **`NEXPT-Keynote.fcpxml` muss neben dem Ordner
    `scenes/` liegen** — die Pfade im XML sind relativ.
 2. Ablage → Importieren → XML … → `NEXPT-Keynote.fcpxml`.
-3. Es entsteht ein Projekt mit 27 Clips auf der Spine, je Clip Marker mit Akt, Szenen-ID
-   und Sprechertext.
-4. Off-Stimme als Audiospur darunter legen.
+3. Es entsteht ein Projekt mit 30 Clips auf der Spine, je Clip Marker mit Akt, Szenen-ID,
+   Sprechertext und allen Hintergrundwechseln.
+4. Mit `--audio-config` liegen darunter zusätzlich vier Musik- und drei SFX-Stems mit
+   getrennten Final-Cut-Rollen. Off-Stimme als weitere Audiospur darunter legen.
 5. **Szenen einzeln auf die Stimme schieben.** Genau dafür liegt jede Szene als eigener Clip
    und nicht als eine durchgehende Datei.
 6. Die neuen Ist-Zeiten zurück in `timing.json` schreiben und neu rendern — dann sitzt jede
    Animation frame-genau auf der echten Stimme.
+
+Konfiguration, Rollen, WAV-Prüfungen und die ehrliche Grenze zwischen
+strukturellem Test und echtem Final-Cut-Import stehen in
+[FINAL-CUT-AUDIO.md](FINAL-CUT-AUDIO.md).
 
 ## Die Stimme passend machen — ohne stundenlang zu schieben
 

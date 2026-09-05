@@ -138,6 +138,23 @@ der Musik synthetisiert:
 im Cue Sheet markierten Haltemomente bleiben auch bei auslaufenden Effekten
 still.
 
+## Übergabe an Final Cut Pro
+
+`render/final-cut-audio.json` ordnet die vier Musik-Stems und drei SFX-Stems
+eindeutigen `music.*`- bzw. `effects.*`-Rollen zu. Der FCPXML-Generator prüft
+Format, Vollständigkeit und SHA-256 jeder WAV, bevor er eine bestehende
+Timeline ersetzt:
+
+```bash
+python3 render/fcpxml.py --audio-config render/final-cut-audio.json --check
+python3 render/fcpxml.py --audio-config render/final-cut-audio.json
+```
+
+Die Master-Dateien werden nicht parallel eingefügt. So bleiben Musik und
+Soundeffekte separat mischbar, ohne durch eine doppelt laufende Summe lauter zu
+werden. Der vollständige Ablauf steht in
+[FINAL-CUT-AUDIO.md](FINAL-CUT-AUDIO.md).
+
 ## Vorschau
 
 `render/audio_preview.sh` erzeugt einen reinen Audiomix sowie eine MP4-Vorschau

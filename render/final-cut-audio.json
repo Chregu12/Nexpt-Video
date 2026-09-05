@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "tracks": [
+    {
+      "id": "music-low",
+      "name": "NEXPT Music - Low",
+      "path": "../out/music-reference-low.wav",
+      "role": "music.nexpt-low",
+      "enabled": true
+    },
+    {
+      "id": "music-body",
+      "name": "NEXPT Music - Body",
+      "path": "../out/music-reference-body.wav",
+      "role": "music.nexpt-body",
+      "enabled": true
+    },
+    {
+      "id": "music-tonal",
+      "name": "NEXPT Music - Tonal",
+      "path": "../out/music-reference-tonal.wav",
+      "role": "music.nexpt-tonal",
+      "enabled": true
+    },
+    {
+      "id": "music-detail",
+      "name": "NEXPT Music - Detail",
+      "path": "../out/music-reference-detail.wav",
+      "role": "music.nexpt-detail",
+      "enabled": true
+    },
+    {
+      "id": "sfx-impacts",
+      "name": "NEXPT SFX - Impacts",
+      "path": "../out/sfx-impacts.wav",
+      "role": "effects.nexpt-impacts",
+      "enabled": true
+    },
+    {
+      "id": "sfx-motion",
+      "name": "NEXPT SFX - Motion",
+      "path": "../out/sfx-motion.wav",
+      "role": "effects.nexpt-motion",
+      "enabled": true
+    },
+    {
+      "id": "sfx-clicks-foley",
+      "name": "NEXPT SFX - Clicks Foley",
+      "path": "../out/sfx-ui.wav",
+      "role": "effects.nexpt-clicks-foley",
+      "enabled": true
+    }
+  ]
+}

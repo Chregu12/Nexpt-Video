@@ -20,6 +20,7 @@ zur fertigen Tonmischung.
 | [**motion/README.md**](./motion/README.md) | Apple-Motion-MCP: Animationen als JSON beschreiben, echte Motion-Templates sicher befüllen und die Mac-App kontrolliert über Bedienungshilfen steuern. |
 | [**higgsfield/README.md**](./higgsfield/README.md) | Seedance-2.0-Bridge: Cloud-Clips über serverseitige Env-Secrets erzeugen, Referenzen sicher hochladen und geprüfte MP4-Dateien an Final Cut und Motion übergeben. |
 | [**render/README.md**](./render/README.md) | Die Pipeline: was jedes Skript tut, in welcher Reihenfolge es laufen muss, und warum es so gebaut ist. |
+| [**render/FINAL-CUT-AUDIO.md**](./render/FINAL-CUT-AUDIO.md) | Portabler Final-Cut-Handoff mit vier getrennten Musik- und drei SFX-Rollen, WAV-Validierung und SHA-256-Manifest. |
 
 ### Ansehen und anhören
 
@@ -36,7 +37,7 @@ zur fertigen Tonmischung.
 
 | | |
 |---|---|
-| **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro, 30 Clips mit Markern für Akt, Szene und Sprechertext. |
+| **out/NEXPT-Keynote.fcpxml** | Timeline für Final Cut Pro: 30 lückenlose Szenenclips; optional vier Musik- und drei SFX-Stems als getrennte Rollen. Das gleichnamige `.manifest.json` hält Quellenprüfung und SHA-256 fest. |
 | **out/analysis/samsung/** | Die gelieferte Analyse des Referenzfilms — Report, JSON und 54er-Cue-Sheet. Die Zahlen darin sind die Zielwerte, gegen die `sfx.py` kalibriert. |
 | **out/analysis/cue_sheet.json** | **114 Hit Points**: Zeit, Takt.Zählzeit, Szene, Art, Stärke, Stereoposition. Die Vorlage zum Komponieren — das, was ein Komponist oder Sounddesigner braucht. |
 | **out/ton-final.wav** | Die fertige Mischung. Daneben `ton-final-ohne-stimme.wav` und `ton-ohne-effekte.wav`. |

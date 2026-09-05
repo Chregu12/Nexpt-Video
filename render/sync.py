@@ -18,6 +18,7 @@ Danach `python3 render.py` — jede Animation sitzt frame-genau auf der echten S
 Der FCPXML-Weg ist der massgebliche: du hörst, code rechnet nach.
 """
 import json, os, re, shutil, subprocess, sys
+from fractions import Fraction
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -145,11 +146,15 @@ def whisper_align(path, scenes):
 # ---------------------------------------------------------------- FCPXML zurücklesen
 if src.suffix.lower() == ".fcpxml":
     def secs(v):
-        v = v.rstrip("s")
-        return eval(v) if "/" in v else float(v)          # "9000/3000s" -> 3.0
+        v = v.removesuffix("s")
+        try:
+            return float(Fraction(v))                      # "9000/3000s" -> 3.0
+        except (ValueError, ZeroDivisionError) as e:
+            raise SystemExit(f"Ungueltige FCPXML-Zeit: {v!r}") from e
     root = ET.fromstring(src.read_text(encoding="utf-8").split("\n", 2)[-1])
+    scene_ids = {s["id"] for s in scenes}
     clips = [(c.get("name"), secs(c.get("offset", "0s")), secs(c.get("duration")))
-             for c in root.iter("asset-clip")]
+             for c in root.iter("asset-clip") if c.get("name") in scene_ids]
     by_id = {n: (o, d) for n, o, d in clips}
     miss  = [s["id"] for s in scenes if s["id"] not in by_id]
     if miss: sys.exit(f"Im FCPXML fehlen: {', '.join(miss)}")
