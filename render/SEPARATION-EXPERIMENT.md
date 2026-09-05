@@ -114,6 +114,16 @@ Profilfreigabe. `overall_winner` und `perceptual_quality_verified` bleiben
 separate Schritte. `--strict` liefert Exitcode 2, wenn zwar alle Laeufe beendet
 sind, aber mindestens ein numerisches Gate verfehlt wurde.
 
+## Blind abhoeren
+
+Nach einem vollstaendigen Versuch erstellt `separation_listening.py` ein
+weitergebbares Paket mit anonymen A/B-Kandidaten, Mix und bekannten
+Referenzspuren. Die Profilzuordnung liegt getrennt unter `private/`.
+Ausgefuellte Bewertungen werden erst nach erneuter Pruefung von Experiment,
+Corpus, WAV-Hashes und Item-Abdeckung entblindet. Die Auswertung bleibt
+deskriptiv und bestimmt keinen Sieger. Vollstaendiger Ablauf:
+[SEPARATION-LISTENING.md](SEPARATION-LISTENING.md).
+
 ## Testgrenze
 
 Unit-Tests verwenden explizite Preflight-/Modell-Doubles. Die E2E-Tests fuehren

@@ -326,3 +326,10 @@ Der opt-in Live-Test lehnt den synthetischen Kontroll-Corpus ab und verlangt
 einen sicheren CDX-Lader. Nach expliziter Aktivierung sind fehlende
 Voraussetzungen Testfehler, keine erfolgreichen Skips. Ein bestandener
 numerischer Benchmark ersetzt weder Hoerfreigabe noch GarageBand-Abnahme.
+
+Die darauf folgende menschliche A/B-Pruefung ist als reproduzierbarer,
+anonymisierter Paket- und Auswertungsworkflow in
+[SEPARATION-LISTENING.md](SEPARATION-LISTENING.md) beschrieben. Sie verwendet
+die gespeicherten Kandidaten und bekannten Referenzen bytegleich, haelt die
+Profilzuordnung privat und setzt auch nach ausgefuellten Bewertungen keinen
+automatischen Gewinner.

@@ -142,6 +142,11 @@ Testabdeckung und Modellvoraussetzungen, ohne Inferenz oder Qualitaet zu behaupt
 `run-ab` fuehrt kontrollierte Standard-/High-Wiederholungen aus und kann
 verifizierte fertige Laeufe nach einem Abbruch fortsetzen. Einzelheiten:
 [CDX A/B Experiment](render/SEPARATION-EXPERIMENT.md).
+`separation_listening.py` exportiert daraus einen anonymisierten Hoertest mit
+bekannten Referenzspuren und wertet vollstaendige menschliche Bewertungen erst
+nach erneuter Experiment-/Corpus-Pruefung aus. Die private Zuordnung bleibt vom
+weitergebbaren Paket getrennt; ein Sieger wird nicht automatisch bestimmt.
+[Blind-Listening-Anleitung](render/SEPARATION-LISTENING.md).
 
 ```bash
 python3 render/video_music.py doctor
